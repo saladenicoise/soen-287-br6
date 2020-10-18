@@ -38,15 +38,18 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] != '') { // Checks if Sessio
         $result = $SQL->num_rows; //Get the result of the query, the rows which return true aka 1 row where the uname was the same as the given username
         $SQL->close();
         if ($result == 1) { //Makes sure the user actually exists
-            $stmt = $conn->prepare("SELECT password FROM `UserAccounts` WHERE username=?");
+            $stmt = $conn->prepare("SELECT password, isAdmin FROM `UserAccounts` WHERE username=?");
             $stmt->bind_param('s', $uname);
             $stmt->execute();
             $stmt->store_result();
-            $stmt->bind_result($hash); //Gets the hash of the password, never the ACTUALL PASSWORD!!!!
+            $stmt->bind_result($hash, $isAdmin); //Gets the hash of the password, never the ACTUALL PASSWORD!!!!
             $fetchRes = $stmt->fetch();
             $stmt->close();
             if (password_verify($pword, $hash) && $fetchRes) { //Does the password match the hash of the password
                 $_SESSION["login"] = "1";
+                if($isAdmin === 1) {
+                    $_SESSION["admin"] = "1";
+                }
                 $errorMessage = "You have been logged in!";
                 header('Location: /regular.php');
                 exit();
