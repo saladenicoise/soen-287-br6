@@ -30,7 +30,7 @@ header_remove();
             if ($result > 0) {
                 $errorMessage = "<b>Username already taken</b>";
             } else {
-                $phash = password_hash($pword, PASSWORD_DEFAULT);
+                $phash = password_hash($pword, PASSWORD_BCRYPT, ['cost' => 12]);
                 $SQL = $conn->prepare("INSERT INTO `UserAccounts` (username, password, isAdmin) VALUES (?, ?, ?)");
 			    if (!$SQL) {
                     $errorMessage = "Prepare failed: (" . $conn->errno . ") " . $conn->error;
