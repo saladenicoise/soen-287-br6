@@ -9,6 +9,27 @@ function test_input($data) {
     return $data;
   }
 
+  $verified = 0;
+
+  //Google ReCaptcha Code
+  if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
+
+      // Build POST request:
+      $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+      $recaptcha_secret = '6Lf8pNkZAAAAAKyaVxvVn4K0ZkLQh3oENiiao4-7';
+      $recaptcha_response = $_POST['recaptcha_response'];
+  
+      // Make and decode POST request:
+      $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+      $recaptcha = json_decode($recaptcha);
+  
+      // Take action based on the score returned:
+      if ($recaptcha->score >= 0.5) {
+          $verified = 1;
+      }
+  
+  }
+
 $uname = "";
 $pword = "";
 $errorMessage = "";
@@ -51,7 +72,11 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] != '') { // Checks if Sessio
                     $_SESSION["admin"] = "1";
                 }
                 $errorMessage = "You have been logged in!";
-                header('Location: /regular.php');
+                if($verified == 1) {
+                    header('Location: /regular.php');
+                }else{
+                    header('Location: /login/login.html');
+                }
                 exit();
             }else{
                 $errorMessage = "Login FAILED";
