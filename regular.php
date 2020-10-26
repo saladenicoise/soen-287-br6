@@ -18,7 +18,7 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
 
 <body>
     <h1>You are here if you are logged in!</h1>
-    <form action="/login/logout.php">
+    <form action="/login/logoutScript.php">
         <button type="submit">Log Out</button>
     </form>
 </body>

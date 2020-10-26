@@ -15,3 +15,13 @@ fieldset {
     width: 100%;
     padding: 10px;
 }
+
+span.success {
+    color: greenyellow;
+    font-weight: bold;
+}
+
+span.fail {
+    color: red;
+    font-weight: bold;
+}
