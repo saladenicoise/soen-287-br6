@@ -1,13 +1,14 @@
 <?php
+header_remove();
 session_start();
-if (isset($_SESSION["login"]) && $_SESSION["login"] != '') { // Checks if Session is up(user has logged in)
+if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Session is up(user has logged in)
     $statusSet = isset($_GET['stat']);
     $statusVal = "";
     if($statusSet) {
         $statusVal = $_GET['stat'];
     }
 }else{
-    header('Location: /login/login.html');
+    header('Location: /regular.php?stat=notA');
 }
 ?>
 <!DOCTYPE html>

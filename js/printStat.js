@@ -18,4 +18,7 @@ function printStatus(status) {
     if (status == "addF") { //Add to menu Fail
         this.statusBox.innerHTML = "<span class=\"fail\">Failed to add to menu</span>"
     }
+    if (status == "notA") { //Not Admin
+        this.statusBox.innerHTML = "<span class=\"fail\">You are not admin</span>"
+    }
 }

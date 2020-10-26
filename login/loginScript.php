@@ -80,7 +80,6 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] != '') { // Checks if Sessio
                 exit();
             }else{
                 $errorMessage = "Login FAILED";
-                $_SESSION["login"] = '';
                 header('Location: /login/login.php?stat=loginF');
                 exit();
             }
