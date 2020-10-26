@@ -5,3 +5,77 @@ body {
 h1 h2 h3 h4 h5 h6 {
     color: white;
 }
+
+
+/* CSS for Main Page */
+
+.headerSection {
+    background-color: black;
+}
+
+.mainHeader {
+    color: white;
+    text-align: center;
+}
+
+.mainSubHeader {
+    color: white;
+    text-align: center;
+}
+
+.newsSection {
+    background-color: white;
+}
+
+.meetSection {
+    background-color: #c00000;
+}
+
+.giftCertificates {
+    background-color: black;
+}
+
+.giftCardHeader {
+    color: white;
+}
+
+
+/* End of CSS for Main Page */
+
+
+/* CSS for Review Page */
+
+.reviewTable {
+    border: 3px solid #c00000;
+}
+
+.googleReview {
+    border-bottom: 3px solid #c00000;
+    font-weight: normal;
+}
+
+.checked {
+    color: #c00000;
+}
+
+.mainReviewHeader {
+    text-align: center;
+}
+
+.mainReviewTable {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.facebookReviewHeader {
+    text-align: center;
+}
+
+.facebookReviewTable {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* End of CSS for Review Page */
