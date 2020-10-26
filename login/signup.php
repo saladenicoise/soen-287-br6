@@ -46,7 +46,7 @@ if(!$statusSet) : ?>
         <button id="submit" type="submit">Submit</button>
         <button type="reset">Reset</button>
         <br>
-        <a href="login.html">Login</a>
+        <a href="login.php">Login</a>
     </form>
 </body>
 

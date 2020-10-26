@@ -45,7 +45,7 @@ if(!$statusSet) : ?>
         <button type="submit">Submit</button>
         <button type="reset">Reset</button>
         <br>
-        <a href="signup.html">Sign-Up</a>
+        <a href="signup.php">Sign-Up</a>
     </form>
 </body>
 
