@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
     <script src="/js/toggle.js"></script>
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
@@ -14,7 +15,32 @@
     <button onclick="toggle('menuAdd')">Show Menu Add</button>
     <button onclick="toggle('customAdd')">Show Custom Add</button>
     <div id="menuOfferings" style="display: none;">
-        <p>Menu Offerings</p>
+        <fieldset>
+            <legend>Menu Offerings</legend>
+            <!--put php code to get menu offerings-->
+            <hr>
+            <form name="menuOfferingsAdd" method="POST" action="menuOfferAdd.php">
+                <table>
+                    <tr>
+                        <td><label>Item Name: </label></td>
+                        <td><label>Price: </label></td>
+                        <td><label>Customization Options</td>
+                        <td><label>Vegetarian</label></td>
+                        <td><label>Gluten Free</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="itemName" name="itemName" placeholder="Item Name" required></td>
+                        <td><input type="number" id="itemCost" name="itemCost" placeholder="Item Cost" required></td>
+                        <td><input class="center" type="checkbox" id="customOptions" name="customOptions"></td>
+                        <!--Generate Custom ID if clicked-->
+                        <td><input class="center" type="checkbox" id="vegetarian" name="vegetarian"></td>
+                        <td><input class="center" type="checkbox" id="glutenFree" name="glutenFree"></td>
+                    </tr>
+                </table>
+                <button type="submit">Add to Menu</button>
+                <button type="reset">Clear Form</button>
+            </form>
+        </fieldset>
     </div>
 
     <div id="menuAdd" style="display: none;">
