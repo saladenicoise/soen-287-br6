@@ -24,11 +24,11 @@ h1 h2 h3 h4 h5 h6 {
 }
 
 .newsSection {
-    background-color: white;
+    background-color: #c00000;
 }
 
 .meetSection {
-    background-color: #c00000;
+    background-color: white;
 }
 
 .giftCertificates {
@@ -37,6 +37,48 @@ h1 h2 h3 h4 h5 h6 {
 
 .giftCardHeader {
     color: white;
+}
+
+.staffTable {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.meetHeader {
+    text-align: center;
+}
+
+.UserBox {
+    border: 3px solid white;
+    width: 400px;
+    height: 600px;
+    background-color: white;
+    box-shadow: 0;
+    transition: box-shadow 0.1s ease-in-out;
+    margin: 10px;
+    text-decoration: none;
+}
+
+.userLink {
+    color: black;
+    text-decoration: none;
+}
+
+.UserBox:hover {
+    box-shadow: 0 5px 15px #030303;
+}
+
+.ImageContainer {
+    margin-top: 20%;
+    margin-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+}
+
+.InfoContainer {
+    text-align: center;
 }
 
 
