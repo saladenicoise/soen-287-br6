@@ -21,4 +21,17 @@ function printStatus(status) {
     if (status == "notA") { //Not Admin
         this.statusBox.innerHTML = "<span class=\"fail\">You are not admin</span>"
     }
+    if (status == "editS") { //Edit Sucess
+        this.statusBox.innerHTML = "<span class=\"success\">Successfully edited menu item</span>"
+    }
+    if (status == "editF") { //Edit Fail
+        this.statusBox.innerHTML = "<span class=\"fail\">Failed to edit menu item</span>"
+    }
+    if (status == "delS") { //Delete Success
+        this.statusBox.innerHTML = "<span class=\"success\">Successfully deleted menu item</span>"
+    }
+    if (status == "delF") { //Delete Fail
+        this.statusBox.innerHTML = "<span class=\"fail\">Failed to delete menu item</span>"
+    }
+
 }
