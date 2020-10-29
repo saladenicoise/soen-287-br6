@@ -10,17 +10,33 @@ h1 h2 h3 h4 h5 h6 {
 /* CSS for Main Page */
 
 .headerSection {
+    background-image: url(images/general/headerImage.png);
+    position: relative;
     background-color: black;
+    color: white;
+    width: 100%;
+    height: 500px;
+}
+
+.divider {}
+
+.textHeaders {
+    position: absolute;
+    vertical-align: bottom;
+    bottom: 0;
+    left: 0;
 }
 
 .mainHeader {
-    color: white;
-    text-align: center;
+    margin: 0 0 20px 0;
+    font-family: 'Aleo';
+    font-size: 55px;
 }
 
 .mainSubHeader {
-    color: white;
-    text-align: center;
+    margin: 0 0 0 0;
+    font-family: 'Alike';
+    font-size: 27px;
 }
 
 .newsSection {
@@ -121,3 +137,50 @@ h1 h2 h3 h4 h5 h6 {
 
 
 /* End of CSS for Review Page */
+
+
+/* CSS for About Us Page */
+
+.aboutUsHeader {
+    text-align: center;
+}
+
+
+/* End of CSS for About Us */
+
+
+/* CSS for Contact Us Page */
+
+.contactUsHeader {
+    text-align: center;
+}
+
+.formSection {
+    width: 100%;
+    background-color: black;
+}
+
+.contactForm {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.formText {
+    background-color: #c00000;
+}
+
+.formText::placeholder {
+    color: white;
+}
+
+.formTextArea {
+    background-color: #c00000;
+}
+
+.formTextArea::placeholder {
+    color: white;
+}
+
+
+/* End of CSS for Contact Us */
