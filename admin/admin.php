@@ -115,7 +115,7 @@ if(!$statusSet) : ?>
                     </tr>
                     <tr>
                         <td><input type="text" id="itemName" name="itemName" placeholder="Item Name" required></td>
-                        <td><input type="number" id="itemCost" name="itemCost" placeholder="Item Cost" required></td>
+                        <td><input type="number" id="itemCost" name="itemCost" placeholder="Item Cost"></td>
                         <td><input class="center" type="text" name="customId" id="customId" placeholder="Custom Id"></td>
                         <td><input class="center" type="checkbox" id="vegetarian" name="vegetarian" value="true"></td>
                         <td><input class="center" type="checkbox" id="glutenFree" name="glutenFree" value="true"></td>
@@ -209,9 +209,9 @@ if(!$statusSet) : ?>
                             <td><label>Custom Option 3:</label></td>
                         </tr>
                         <tr>
-                            <td><input type="text" name="customOption1" id="customOption1" placeholder="Option 1" required></td>
-                            <td><input type="text" name="customOption2" id="customOption2" placeholder="Option 2" required></td>
-                            <td><input type="text" name="customOption3" id="customOption3" placeholder="Option 3" required></td>
+                            <td><input type="text" name="customOption1" id="customOption1" placeholder="Option 1"></td>
+                            <td><input type="text" name="customOption2" id="customOption2" placeholder="Option 2"></td>
+                            <td><input type="text" name="customOption3" id="customOption3" placeholder="Option 3"></td>
                         </tr>
                         <tr>
                             <td><label>Custom Option 4:</label></td>
@@ -219,11 +219,63 @@ if(!$statusSet) : ?>
                             <td><label>Custom Option 6:</label></td>
                         </tr>
                         <tr>
-                            <td><input type="text" name="customOption4" id="customOption4" placeholder="Option 4" required></td>
-                            <td><input type="text" name="customOption5" id="customOption5" placeholder="Option 5" required></td>
-                            <td><input type="text" name="customOption6" id="customOption6" placeholder="Option 6" required></td>
+                            <td><input type="text" name="customOption4" id="customOption4" placeholder="Option 4"></td>
+                            <td><input type="text" name="customOption5" id="customOption5" placeholder="Option 5"></td>
+                            <td><input type="text" name="customOption6" id="customOption6" placeholder="Option 6"></td>
                         </tr>
                     </table>
+                    <button type="submit">Add Customization Options</button>
+                    <button type="reset">Clear Form</button>
+                </form>
+            </fieldset>
+            <fieldset>
+                <legend>Edit Customization Options</legend>
+                <p>Leave field blank for no customization option</p>
+                <form name="editCustom" method="POST" action="editCustom.php">
+                <table>
+                        <tr>
+                            <td><label>Custom ID:</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="customId" id="customId" placeholder="Custom ID" required></td>
+                        </tr>
+                        <tr>
+                            <td><label>Custom Option 1:</label></td>
+                            <td><label>Custom Option 2:</label></td>
+                            <td><label>Custom Option 3:</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="customOption1" id="customOption1" placeholder="Option 1"></td>
+                            <td><input type="text" name="customOption2" id="customOption2" placeholder="Option 2"></td>
+                            <td><input type="text" name="customOption3" id="customOption3" placeholder="Option 3"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Custom Option 4:</label></td>
+                            <td><label>Custom Option 5:</label></td>
+                            <td><label>Custom Option 6:</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="customOption4" id="customOption4" placeholder="Option 4"></td>
+                            <td><input type="text" name="customOption5" id="customOption5" placeholder="Option 5"></td>
+                            <td><input type="text" name="customOption6" id="customOption6" placeholder="Option 6"></td>
+                        </tr>
+                    </table>
+                    <button type="submit">Edit Customization Options</button>
+                    <button type="reset">Clear Form</button>
+                </form>
+            </fieldset>
+            <fieldset>
+                <form name="deleteCustom" method="POST" action="deleteCustom.php">
+                    <table>
+                        <tr>
+                            <td><label>Custom ID:</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="customId" id="customId" placeholder="Custom ID" required></td>
+                        </tr>
+                    </table>
+                    <button type="submit">Delete Customization Options</button>
+                    <button type="reset">Clear Form</button>
                 </form>
             </fieldset>
         </fieldset>

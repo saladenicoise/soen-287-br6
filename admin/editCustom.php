@@ -1,11 +1,4 @@
 <?php
-    function test_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-
     $customId = "";
     $customOption1 = "";
     $customOption2 = "";
@@ -13,7 +6,6 @@
     $customOption4 = "";
     $customOption5 = "";
     $customOption6 = "";
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         /*See about setting up environment variables
         */
@@ -45,29 +37,17 @@
         $stmt->execute(); //Executes the query
 	    $stmt->store_result(); //Stores the results of the query
         $result = $stmt->num_rows;
-        if($result == 1) {
-            $errorMessage = "<b>Product Already exists</b>";
-            header('Location: /admin/admin.php?stat=customF1', true);
+        if($result <= 0) {
+            $errorMessage = "<b>Product Does Not Exist</b>";
+            header('Location: /admin/admin.php?stat=editCustomF1', true);
             exit();
         } 
 
-        /*Add*/
-        $stmt = $conn->prepare("SELECT * FROM `CustomizationOptions` WHERE customId=?");
-        $stmt->bind_param('s', $customId); //Binds the parameter $customId to the query
-	    $stmt->execute(); //Executes the query
-	    $stmt->store_result(); //Stores the results of the query
-        $result = $stmt->num_rows; //Get the result of the query, the rows which return true aka 1 row where the customId is the same
+        $stmt = $conn->prepare("UPDATE `CustomizationOptions` SET customId=?, customOption1=?, customOption2=?, customOption3=?, customOption4=?, customOption5=?, customOption6=?");
+        $stmt->bind_param('sssssss', $$customId, $customOption1, $customOption2, $customOption3, $customOption4, $customOption5, $customOption6);
+        $stmt->execute();
         $stmt->close();
-        if($result > 0) {
-            $errorMessage = "<b>Product Already exists</b>";
-            header('Location: /admin/admin.php?stat=customF2', true);
-        }else{
-            $stmt = $conn->prepare("INSERT INTO `CustomizationOptions` (customId, customOption1, customOption2, customOption3, customOption4, customOption5, customOption6) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param('sssssss', $customId, $customOption1, $customOption2, $customOption3, $customOption4, $customOption5. $customOption6);
-            $stmt->execute();
-            $stmt->close();
-            $conn->close();
-            header('Location: /admin/admin.php?stat=customS');
-        }
+        $conn->close();
+        header('Location: /admin/admin.php?stat=editCustomS');
     }
 ?>

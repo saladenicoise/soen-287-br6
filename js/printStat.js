@@ -42,5 +42,16 @@ function printStatus(status) {
     if (status == "customS") { //Custom Success
         this.statusBox.innerHTML = "<span class=\"success\">Successfully added custom options</span>";
     }
-
+    if (status == "editCustomF1") { //Edit Custom Fail
+        this.statusBox.innerHTML = "<span class=\"fail\">Failed to edit custom options: Item does not exist</span>";
+    }
+    if (status == "editCustomS") { //Edit Custom Success
+        this.statusBox.innerHTML = "<span class=\"success\">Successfully edited custom options</span>";
+    }
+    if (status == "delCustomF") { //Delete Custom Fail
+        this.statusBox.innerHTML = "<span class=\"fail\">Failed to delete custom options: Item does not exist</span>";
+    }
+    if (status == "delCustomS") { //Delete Custom Success
+        this.statusBox.innerHTML = "<span class=\"success\">Successfully deleted custom options</span>";
+    }
 }
