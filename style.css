@@ -39,8 +39,98 @@ h1 h2 h3 h4 h5 h6 {
     font-size: 27px;
 }
 
-.newsSection {
+.Meals {
+    margin-top: 10px;
+    width: 100%;
+    background-color: black;
+}
+
+.meals {
+    color: #c00000;
+    width: 100%;
+}
+
+.mealsHeader {
+    text-align: center;
+}
+
+.slideshow {
+    max-width: 300px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.slide {
+    text-align: center;
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.index {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    text-align: center;
+}
+
+.prev {
+    cursor: pointer;
+    position: absolute;
+    margin-top: 195px;
+    margin-left: -240px;
+    width: auto;
+    padding: 16px;
+    color: #c00000;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+
+/* set next button to the right*/
+
+.next {
+    cursor: pointer;
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 200px;
+    padding: 16px;
+    color: #c00000;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.171);
+}
+
+.carousel {
+    text-align: center;
+}
+
+.cIndicator {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
     background-color: #c00000;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.selected,
+.cIndicator:hover {
+    background-color: #c000008f;
 }
 
 .meetSection {
