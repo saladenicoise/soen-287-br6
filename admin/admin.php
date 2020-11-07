@@ -177,7 +177,6 @@ if(!$statusSet) : ?>
                     while ($row = $result->fetch_assoc()) {
             ?>
                 <td><p><?php echo $row["customId"]?></p></td>
-                <td><p><?php echo (is_null($row["customId"])) ? "None" : $row["customId"]?></p></td>
                 <td><p><?php echo (is_null($row["customOption1"])) ? "None" : $row["customOption1"]?></p></td>
                 <td><p><?php echo (is_null($row["customOption2"])) ? "None" : $row["customOption2"]?></p></td>
                 <td><p><?php echo (is_null($row["customOption3"])) ? "None" : $row["customOption3"]?></p></td>

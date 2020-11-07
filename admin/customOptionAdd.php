@@ -45,8 +45,8 @@
         $stmt->execute(); //Executes the query
 	    $stmt->store_result(); //Stores the results of the query
         $result = $stmt->num_rows;
-        if($result == 1) {
-            $errorMessage = "<b>Product Already exists</b>";
+        if($result == 0) {
+            $errorMessage = "<b>Product Does Not exists</b>";
             header('Location: /admin/admin.php?stat=customF1', true);
             exit();
         } 
@@ -63,7 +63,7 @@
             header('Location: /admin/admin.php?stat=customF2', true);
         }else{
             $stmt = $conn->prepare("INSERT INTO `CustomizationOptions` (customId, customOption1, customOption2, customOption3, customOption4, customOption5, customOption6) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param('sssssss', $customId, $customOption1, $customOption2, $customOption3, $customOption4, $customOption5. $customOption6);
+            $stmt->bind_param('sssssss', $customId, $customOption1, $customOption2, $customOption3, $customOption4, $customOption5, $customOption6);
             $stmt->execute();
             $stmt->close();
             $conn->close();

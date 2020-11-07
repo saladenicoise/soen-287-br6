@@ -37,7 +37,7 @@ function printStatus(status) {
         this.statusBox.innerHTML = "<span class=\"fail\">Failed to add custom options: No item corresponding to customization id</span>";
     }
     if (status == "customF2") { //Failed to add custom options
-        this.statusBox.innerHTML = "<span class=\"fail\">Failed to add custom options: Item already exists</span>";
+        this.statusBox.innerHTML = "<span class=\"fail\">Failed to add custom options: Item already has custom options, please edit!</span>";
     }
     if (status == "customS") { //Custom Success
         this.statusBox.innerHTML = "<span class=\"success\">Successfully added custom options</span>";

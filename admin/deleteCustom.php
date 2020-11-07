@@ -25,10 +25,6 @@
             $stmt->bind_param('s', $customId);
             $stmt->execute();
             $stmt->close();
-            $stmt = $conn->prepare("UPDATE `Menu` SET customId=? WHERE customId=?");
-            $stmt->bind_param('ss', "", $customId);
-            $stmt->execute();
-            $stmt->close();
             $conn->close();
             header('Location: /admin/admin.php?stat=delCustomS');
         }

@@ -1,4 +1,10 @@
 <?php
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
     $customId = "";
     $customOption1 = "";
     $customOption2 = "";
@@ -43,8 +49,8 @@
             exit();
         } 
 
-        $stmt = $conn->prepare("UPDATE `CustomizationOptions` SET customId=?, customOption1=?, customOption2=?, customOption3=?, customOption4=?, customOption5=?, customOption6=?");
-        $stmt->bind_param('sssssss', $$customId, $customOption1, $customOption2, $customOption3, $customOption4, $customOption5, $customOption6);
+        $stmt = $conn->prepare("UPDATE `CustomizationOptions` SET customOption1=?, customOption2=?, customOption3=?, customOption4=?, customOption5=?, customOption6=?");
+        $stmt->bind_param('ssssss', $customOption1, $customOption2, $customOption3, $customOption4, $customOption5, $customOption6);
         $stmt->execute();
         $stmt->close();
         $conn->close();
