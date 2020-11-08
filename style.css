@@ -6,6 +6,7 @@ h1 h2 h3 h4 h5 h6 {
     color: white;
 }
 
+<<<<<<< Updated upstream
 fieldset {
     margin-right: 60%;
 }
@@ -25,3 +26,5 @@ span.fail {
     color: red;
     font-weight: bold;
 }
+=======
+>>>>>>> Stashed changes
