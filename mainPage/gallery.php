@@ -10,6 +10,7 @@ function GetImages(){
     //randomize the order
     shuffle($images);
     
+    //return the array
     return json_encode($images);
 }
 

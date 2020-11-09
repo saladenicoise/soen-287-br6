@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../style.css">
     <title> House of Chef James Mitchell </title>
     <script type="text/javascript" src="contactUs.js"></script>
+    <?php include "../contactUs/contactForm.php"; ?>
 </head>
 
 <body>
@@ -15,28 +16,46 @@
     </h1>
     <br>
 
-    <!-- TODO: Form validation and formatting -->
     <!-- TODO: store forms in the DB -->
     <div class="formSection">
         <table>
             <tr>
                 <td>
-                    <form class="contactForm" id="contactForm">
+                    
+                    <form class="contactForm" id="contactForm" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                        <p class="error"> * = mandatory fields </p>
+
+                        <br>
+
+                        <input class="formText" type="text" id="name" name="name" placeholder="Name"> <span class="error">* <?php echo $nameErr;?></span>
+                        
                         <br><br>
-                        <input class="formText" type="text" id="name" name="name" placeholder="Name*">
+
+                        <input class="formText" type="text" id="phone" name="phone" maxlength="12" placeholder="Phone Number (xxx-xxx-xxxx)"> <span class="error">* <?php echo $phoneErr;?></span>
+                        
                         <br><br>
-                        <input class="formText" type="text" id="phone" name="phone" maxlength="12" placeholder="Phone Number* (xxx-xxx-xxxx)">
+
+                        <input class="formText" type="text" id="email" name="email" placeholder="Email (example@hotmail.com)"> <span class="error">* <?php echo $emailErr;?></span>
+                        
                         <br><br>
-                        <input class="formText" type="text" id="email" name="email" placeholder="Email* (example@hotmail.com)">
-                        <br><br>
+
                         <input class="formText" type="text" id="address" name="address" placeholder="Address">
+                        
                         <br><br>
-                        <input class="formText" type="text" id="subject" name="subject" placeholder="Subject*">
+
+                        <input class="formText" type="text" id="subject" name="subject" placeholder="Subject"> <span class="error">* <?php echo $subjectErr;?></span>
+                        
                         <br><br>
-                        <textarea class="formTextArea" id="message" name="message" placeholder="Message* (Allergies, etc)"></textarea>
+                        
+                        <textarea class="formTextArea" id="message" name="message" placeholder="Message (Allergies, etc)"></textarea> <span class="error">* <?php echo $messageErr;?></span>
+                        
                         <br><br>
-                        <input type="submit" value="Submit" class="submitButton" onclick="VerifyForm()">
-                        <button class="clearButton" onclick="ClearForm()">Clear</button>
+
+                        <span class="result"> <?php echo $result;?></span>
+                        
+                        <input type="submit" value="Submit" class="submitButton">
+
+                        <button type="reset"class="clearButton">Clear</button>
                     </form>
                 </td>
                 <td>

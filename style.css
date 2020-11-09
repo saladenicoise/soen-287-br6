@@ -260,7 +260,7 @@ h1 h2 h3 h4 h5 h6 {
 
 .formSection {
     width: 100%;
-    height: 500px;
+    height: 25%;
     background-color: black;
     margin: 0 100px 0 0;
 }
@@ -271,42 +271,12 @@ h1 h2 h3 h4 h5 h6 {
     width: 50%;
 }
 
-
-/* TODO: CSS for fade in Text. After progress report
-@keyframes BottomFade {
-    0% {
-        position: absolute;
-        bottom: -5rem;
-        opacity: 0;
-    }
-    75% {
-        position: absolute;
-        bottom: 25%;
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-*/
-
 .formLabel1 {
     color: white;
     margin: 0 0 0 150px;
     text-align: center;
     font-family: 'Aleo';
     font-size: 40px;
-    /* TODO: CSS for fade in Text. After progress report
-    position: absolute;
-    left: 5%;
-    bottom: 25%;
-    opacity: 0;
-    color: #F0EBA3;
-    animation-name: BottomFade;
-    animation-delay: 0s;
-    animation-duration: 3s;
-    */
 }
 
 .labelDivider {
@@ -319,6 +289,12 @@ h1 h2 h3 h4 h5 h6 {
     text-align: center;
     font-family: 'Alike';
     font-size: 25px;
+}
+
+.error,
+.result {
+    text-align: center;
+    color: white;
 }
 
 .formText {
