@@ -75,11 +75,6 @@
         </table>
     </div>
 
-    <div class="giftCertificates">
-        <h2 class="giftCardHeader"> Gift Cards </h2>
-        <!-- TODO: Make this -->
-    </div>
-
 </body>
 
 </html>

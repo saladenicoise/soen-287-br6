@@ -263,9 +263,18 @@ span.fail {
 }
 
 .aboutText {
+    float: right;
+    width: 50%;
     color: white;
     font-family: 'Alike';
     font-size: 25px;
+}
+
+.aboutPicture {
+    width: 50%;
+    height: 25%;
+    background-color: black;
+    margin: 0 100px 0 0;
 }
 
 
@@ -378,4 +387,3 @@ span.fail {
 
 
 /* End of CSS for Contact Us */
-
