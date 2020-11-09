@@ -6,6 +6,26 @@ h1 h2 h3 h4 h5 h6 {
     color: white;
 }
 
+fieldset {
+    margin-right: 60%;
+}
+
+.center {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+}
+
+span.success {
+    color: greenyellow;
+    font-weight: bold;
+}
+
+span.fail {
+    color: red;
+    font-weight: bold;
+}
+
 
 /* CSS for Main Page */
 
@@ -358,3 +378,4 @@ h1 h2 h3 h4 h5 h6 {
 
 
 /* End of CSS for Contact Us */
+
