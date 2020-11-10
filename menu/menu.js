@@ -82,7 +82,7 @@ function setDishes(dish){
         
     }
     
-    localStorage.setItem('dishInformation', JSON.stringify(cartDishInfo));
+    localStorage.setItem('dishInformation', JSON.stringify(cartDishInfo))
 }
 UpdateMainPageCart();
 //compute total cost
@@ -92,7 +92,7 @@ function totalCost(dish){
     
     
     if(cartCost!=null){
-        cartCost=parseInt(cartCost);
+        cartCost=parseFloat(cartCost);
         localStorage.setItem('TotalCost',cartCost+dish.price);
     }else{
         localStorage.setItem('TotalCost',dish.price);
@@ -108,22 +108,24 @@ function displayCart(){
    if(cartItem && dishescontainer){
        dishescontainer.innerHTML="";
        Object.values(cartItem).map(item=>{
+         //the cart # cannot be 0!!
+           if(cartItem[item.dishSize].inCart!=0){
            dishescontainer.innerHTML+=`
         <div class="dish">
-            <button class="close_button" onclick="removeItem()"><ion-icon name="trash"></ion-icon></button>
+            <button class="close_button" ><ion-icon name="trash"></ion-icon></button>
             <img class="fish_dish_img" src="fish_dish.jpg" alt="fish dish"/>
-            <span class="dish_name">${item.dishSize}</span>
+            <span class="dish_name" >${item.dishSize}</span>
         </div>
-        <div class="price">${item.price}</div>
+        <div class="price">$${item.price}</div>
         <div class="quantity">
-            <button class="decrease_button" onclick="decrease()"><ion-icon name="caret-back"></ion-icon></button>
+            <button class="decrease_button" ><ion-icon name="caret-back"></ion-icon></button>
             <span>${item.inCart}</span>
-            <button class="increase_button" onclick="increase()"><ion-icon name="caret-forward"></ion-icon></button>
+            <button class="increase_button" ><ion-icon name="caret-forward"></ion-icon></button>
         </div>
         <div class="total">
             $${item.inCart*item.price}
         </div>
-    `
+    `}
        })
       dishescontainer.innerHTML+=`
         <div class="basketTotalContainer">
@@ -134,15 +136,182 @@ function displayCart(){
        
    }
 }
+                                   
 displayCart()
 
+var removeButton=document.getElementsByClassName("close_button");
+var dishesInCart=document.getElementsByClassName("dish_name");
 
-function removeItem(dish){
-    confirm("Are you sure you want to remove the item? ");
-    let cartItem=localStorage.getItem('dishInformation');
-    cartItem=JSON.parse(cartItem);
-    var dishName=document.getElementsByClassName("dish_name");
-    console.log(dishName);
-    var closeButton=document.getElementsByClassName("close_button");
-    console.log(closeButton);
+console.log(removeButton);
+for(let i=0;i<removeButton.length;i++){
+    removeButton[i].addEventListener("click",function(){
+        removeItem(dishesInCart[i].innerHTML);
+      
+    })
 }
+var increaseButton=document.getElementsByClassName("increase_button");
+for(let i=0;i<increaseButton.length;i++){
+    increaseButton[i].addEventListener("click",function(){
+        increaseItem(dishesInCart[i].innerHTML);
+      
+    })
+}
+var decreaseButton=document.getElementsByClassName("decrease_button");
+for(let i=0;i<decreaseButton.length;i++){
+    decreaseButton[i].addEventListener("click",function(){
+        decreaseItem(dishesInCart[i].innerHTML);
+      
+    })
+}
+
+function removeItem(dish_name){
+    confirm("Are you sure you want to remove the item? ");
+    let cartDishInfo=localStorage.getItem('dishInformation');
+    cartDishInfo=JSON.parse(cartDishInfo);
+    console.log(cartDishInfo[dish_name]);
+    //remove the number of dishes
+    let totalQuantityInCart=localStorage.getItem('cartNumber');
+    totalQuantityInCart=parseInt(totalQuantityInCart);
+    localStorage.setItem("cartNumber",totalQuantityInCart-cartDishInfo[dish_name].inCart);
+    //remove the total cost
+    let cartCost=localStorage.getItem('TotalCost');
+    cartCost=parseFloat(cartCost);
+    let newCartTotal=cartCost-cartDishInfo[dish_name].inCart*cartDishInfo[dish_name].price;
+    localStorage.setItem("TotalCost",newCartTotal);
+    //set # of the dish in local storage to be 0:
+    cartDishInfo[dish_name].inCart=0;
+    localStorage.setItem('dishInformation', JSON.stringify(cartDishInfo));
+    
+    //update the page:
+    UpdateMainPageCart();
+
+    document.querySelector(".basketTotal").textContent="$"+newCartTotal;
+    
+    //remove the item row:
+    displayCart();
+    //update close  buttons and dishes in the cart:
+    removeButton=document.getElementsByClassName("close_button");
+    dishesInCart=document.getElementsByClassName("dish_name");
+    console.log(removeButton);
+    for(let i=0;i<removeButton.length;i++){
+    removeButton[i].addEventListener("click",function(){
+        removeItem(dishesInCart[i].innerHTML);
+      
+    })
+   } increaseButton=document.getElementsByClassName("increase_button");
+    for(let i=0;i<increaseButton.length;i++){
+    increaseButton[i].addEventListener("click",function(){
+        increaseItem(dishesInCart[i].innerHTML);
+      
+    })
+    }
+    decreaseButton=document.getElementsByClassName("decrease_button");
+    for(let i=0;i<decreaseButton.length;i++){
+    decreaseButton[i].addEventListener("click",function(){
+        decreaseItem(dishesInCart[i].innerHTML);
+      
+    })
+}
+
+
+}
+
+
+function increaseItem(dish_name){
+    let cartDishInfo=localStorage.getItem('dishInformation');
+    cartDishInfo=JSON.parse(cartDishInfo);
+    //increase number of dish:
+    let totalQuantityInCart=localStorage.getItem('cartNumber');
+    totalQuantityInCart=parseInt(totalQuantityInCart);
+    localStorage.setItem("cartNumber",totalQuantityInCart+1);
+    //increase the total cost
+    let cartCost=localStorage.getItem('TotalCost');
+    cartCost=parseFloat(cartCost);
+    let newCartTotal=cartCost+cartDishInfo[dish_name].price;
+    localStorage.setItem("TotalCost",newCartTotal);
+    //set # of the dish in local storage to be 0:
+    cartDishInfo[dish_name].inCart+=1;
+    localStorage.setItem('dishInformation', JSON.stringify(cartDishInfo));
+    
+    //update the page:
+    UpdateMainPageCart();
+     document.querySelector(".basketTotal").textContent="$"+newCartTotal;
+    //display result:
+    displayCart();
+    removeButton=document.getElementsByClassName("close_button");
+    dishesInCart=document.getElementsByClassName("dish_name");
+    console.log(removeButton);
+    for(let i=0;i<removeButton.length;i++){
+    removeButton[i].addEventListener("click",function(){
+        removeItem(dishesInCart[i].innerHTML);
+      
+    })
+   } increaseButton=document.getElementsByClassName("increase_button");
+    for(let i=0;i<increaseButton.length;i++){
+    increaseButton[i].addEventListener("click",function(){
+        increaseItem(dishesInCart[i].innerHTML);
+      
+    })
+}
+    decreaseButton=document.getElementsByClassName("decrease_button");
+    for(let i=0;i<decreaseButton.length;i++){
+    decreaseButton[i].addEventListener("click",function(){
+        decreaseItem(dishesInCart[i].innerHTML);
+      
+    })
+}
+
+}
+function decreaseItem(dish_name){
+    let cartDishInfo=localStorage.getItem('dishInformation');
+    cartDishInfo=JSON.parse(cartDishInfo);
+    if(cartDishInfo[dish_name].inCart==0){
+        removeItem[dish_name];
+    }else{
+        //increase number of dish:
+        let totalQuantityInCart=localStorage.getItem('cartNumber');
+        totalQuantityInCart=parseInt(totalQuantityInCart);
+        localStorage.setItem("cartNumber",totalQuantityInCart-1);
+        //increase the total cost
+        let cartCost=localStorage.getItem('TotalCost');
+        cartCost=parseFloat(cartCost);
+        let newCartTotal=cartCost-cartDishInfo[dish_name].price;
+        localStorage.setItem("TotalCost",newCartTotal);
+        //set # of the dish in local storage to be 0:
+        cartDishInfo[dish_name].inCart-=1;
+        localStorage.setItem('dishInformation', JSON.stringify(cartDishInfo));
+   
+    //update the page:
+    UpdateMainPageCart();
+     document.querySelector(".basketTotal").textContent="$"+newCartTotal;
+    //display result:
+    displayCart();
+    removeButton=document.getElementsByClassName("close_button");
+    dishesInCart=document.getElementsByClassName("dish_name");
+    console.log(removeButton);
+    for(let i=0;i<removeButton.length;i++){
+    removeButton[i].addEventListener("click",function(){
+        removeItem(dishesInCart[i].innerHTML);
+      
+    })
+   } increaseButton=document.getElementsByClassName("increase_button");
+    for(let i=0;i<increaseButton.length;i++){
+    increaseButton[i].addEventListener("click",function(){
+        increaseItem(dishesInCart[i].innerHTML);
+      
+    })
+}
+    decreaseButton=document.getElementsByClassName("decrease_button");
+    for(let i=0;i<decreaseButton.length;i++){
+    decreaseButton[i].addEventListener("click",function(){
+        decreaseItem(dishesInCart[i].innerHTML);
+      
+    })
+}
+ }
+}
+
+
+
+
+
