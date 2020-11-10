@@ -54,4 +54,19 @@ function printStatus(status) {
     if (status == "delCustomS") { //Delete Custom Success
         this.statusBox.innerHTML = "<span class=\"success\">Successfully deleted custom options</span>";
     }
+    if (status == "fPassF") { //Forgot password failed, user does not exist
+        this.statusBox.innerHTML = "<span class=\"fail\">User does not exist</span>"
+    }
+    if (status == "fPassG") { //Forgot password failed, user does not exist
+        this.statusBox.innerHTML = "<span class=\"fail\">Captcha Failed</span>"
+    }
+    if (status == "resetPassF") { //Fail to reset
+        this.statusBox.innerHTML = "<span class=\"fail\">User does not exist</span>"
+    }
+    if (status == "resetPassG") {
+        this.statusBox.innerHTML = "<span class=\"fail\">Captcha Failed</span>"
+    }
+    if (status == "resetPassS") {
+        this.statusBox.innerHTML = "<span class=\"success\">Sucessfully Reset Password</span>"
+    }
 }

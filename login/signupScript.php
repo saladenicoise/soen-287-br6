@@ -37,8 +37,9 @@ header_remove();
         $dbname = "id15127505_soen287database";
 
         $uname = test_input($_POST['username']);
-        $pword = test_input($_POST['password']);
-    
+        $pword = $_POST['password'];
+        $email = test_input($_POST['email']);
+        
         $conn = new mysqli($servername, $username, $password, $dbname);
 
         if ($conn->connect_error) {
@@ -52,18 +53,18 @@ header_remove();
             $SQL->store_result();
             $result = $SQL->num_rows;
             $SQL->close();
-            if ($result > 0) {
-                header('Location: /login/signup.php?stat=singupU');
+            if ($result > 0) {//User already exists
+                header('Location: /login/signup.php?stat=signupU');
             } else {
                 $phash = password_hash($pword, PASSWORD_BCRYPT, ['cost' => 12]);
-                $SQL = $conn->prepare("INSERT INTO `UserAccounts` (username, password, isAdmin) VALUES (?, ?, ?)");
+                $SQL = $conn->prepare("INSERT INTO `UserAccounts` (username, password, isAdmin, resetToken, email) VALUES (?, ?, ?, ?, ?)");
 			    if (!$SQL) {
                     $errorMessage = "Prepare failed: (" . $conn->errno . ") " . $conn->error;
 			    }else{
                     if($uname == "soen287Dev") {
                         $isAdmin = 1;
                     }
-                    $SQL->bind_param('ssi', $uname, $phash, $isAdmin);              
+                    $SQL->bind_param('ssiss', $uname, $phash, $isAdmin, null, $email);              
                     if($verified == 1) {            
                         $SQL->execute();
                     }else{
