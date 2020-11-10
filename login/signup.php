@@ -52,6 +52,7 @@ if(!$statusSet) : ?>
         <button type="reset">Reset</button>
         <br>
         <a href="login.php">Login</a>
+        <a href="forgotPass.php">Forgot Password</a>
     </form>
 </body>
 

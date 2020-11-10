@@ -14,7 +14,7 @@ if($statusSet) {
     <script src="https://www.google.com/recaptcha/api.js?render=6Lf8pNkZAAAAAKemZhCtJS5RGbXu-1cYGbmNCker"></script>
     <script src="/js/googleRecaptcha.js"></script>
     <script src="/js/printStat.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <title>Forgot Password</title>
 </head>
 
@@ -38,6 +38,7 @@ if(!$statusSet) : ?>
         <button type="reset">Reset</button>
     </form>
     <a href="login.php">Login</a>
+    <a href="signup.php">Signup</a>
 </body>
 
 </html>

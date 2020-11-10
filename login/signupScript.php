@@ -57,14 +57,15 @@ header_remove();
                 header('Location: /login/signup.php?stat=signupU');
             } else {
                 $phash = password_hash($pword, PASSWORD_BCRYPT, ['cost' => 12]);
-                $SQL = $conn->prepare("INSERT INTO `UserAccounts` (username, password, isAdmin, resetToken, email) VALUES (?, ?, ?, ?, ?)");
+                $SQL = $conn->prepare("INSERT INTO `UserAccounts` (username, password, isAdmin, email) VALUES (?, ?, ?, ?)");
 			    if (!$SQL) {
                     $errorMessage = "Prepare failed: (" . $conn->errno . ") " . $conn->error;
 			    }else{
                     if($uname == "soen287Dev") {
                         $isAdmin = 1;
                     }
-                    $SQL->bind_param('ssiss', $uname, $phash, $isAdmin, null, $email);              
+                    $resetToken = "";
+                    $SQL->bind_param('ssis', $uname, $phash, $isAdmin, $email);              
                     if($verified == 1) {            
                         $SQL->execute();
                     }else{

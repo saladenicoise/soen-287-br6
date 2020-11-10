@@ -1,7 +1,14 @@
 <?php
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
     function generate_reset_token() {
         $string = base64_encode(random_bytes(32));
-        $string = substr($string, 0, 255);//Limit to 255 characters if more are present
+        $string = str_replace('+', "", $string);
         return $string;
     }
 
@@ -37,23 +44,23 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        //Check if User exists
-        $dbUser = "";
-        $stmt = $conn->prepare("SELECT username, email FROM `UserAccounts` WHERE username=?");
+        $stmt = $conn->prepare("SELECT email FROM `UserAccounts` WHERE username=?");
         $stmt->bind_param('s', $uname);
         $stmt->execute(); //Executes the query
+        $stmt->bind_result($email);
         $stmt->store_result(); //Stores the results of the query
-        $stmt->bind_result($dbUser, $email);
+        $stmt->fetch(); //Actually fetches the data to place in bind_result
         $result = $stmt->num_rows; //Get the result of the query, the rows which return true aka 1 row where the uname was the same as the given username
         if($result != 1) { //User does not exist
             header('Location: /login/forgotPass.php?stat=fPassF');
             exit();
         }else{//User exists, we can proceed
-            $stmt = $conn->prepare("INSERT INTO `UserAccounts` (resetToken) VALUES (?)");
+            $stmt = $conn->prepare("UPDATE `UserAccounts` set resetToken=? WHERE username=?");
             $resetToken = generate_reset_token();
-            $stmt->bind_param('s', $resetToken);
+            $stmt->bind_param('ss', $resetToken, $uname);
             if($verified == 1) {//Pass Captcha
                 $stmt->execute();
+                $url = "\"localhost/login/resetPass.php?token=" . $resetToken . "\" ";
                 //Send Email:
                 //Host doesnt allow for emails without paying, so we pretend it works
                 $mailMessage = "
@@ -62,9 +69,9 @@
                         <title>Password Reset Request</title>
                     </head>
                     <body>
-                        <h2>Hello " . $dbUser . "</h2>
+                        <h2>Hello " . $uname . "</h2>
                         <p>If you are receiving this message, it is because someone has requested a password reset for your username!</p>
-                        <p>To resest your password follow this link: <a href='https://soen287finalproject.000webhostapp.com/login/resetPass.php?token=' " . $resetToken . " target=\"_blank\"></p>
+                        <p>To resest your password follow this link: <a href=" . $url . "target=\"_blank\">link</a></p>
                         <p>If you did not request this password reset, please ignore this email</p>
                         <p>Sincerely, the sentient server</p>
                     </body>

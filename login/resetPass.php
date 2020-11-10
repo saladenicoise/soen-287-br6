@@ -19,7 +19,7 @@ if($statusSet) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset Password</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <script src="/js/signup.js"></script>
     <script src="/js/printStat.js"></script>
     <script src="https://www.google.com/recaptcha/api.js?render=6Lf8pNkZAAAAAKemZhCtJS5RGbXu-1cYGbmNCker"></script>
@@ -50,6 +50,8 @@ if(!$statusSet) : ?>
         <button id="submit" type="submit">Submit</button>
         <button type="reset">Reset</button>
     </form>
+    <a href="login.php">Login</a>
+    <a href="signup.php">Signup</a>
 </body>
 
 </html>

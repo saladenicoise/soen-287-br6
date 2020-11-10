@@ -46,6 +46,7 @@ if(!$statusSet) : ?>
         <button type="reset">Reset</button>
         <br>
         <a href="signup.php">Sign-Up</a>
+        <a href="forgotPass.php">Forgot Password</a>
     </form>
 </body>
 

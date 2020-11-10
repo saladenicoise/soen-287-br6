@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = "{42m6ad#Ib[gr_vI";
     $dbname = "id15127505_soen287database";
 
+    $user = "";
     $pword = $_POST['password'];
     $resetToken = $_POST['reset_token'];
 
@@ -33,13 +34,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $stmt = $conn->prepare("SELECT * FROM `UserAccounts` where resetToken=?");
+    $stmt = $conn->prepare("SELECT username FROM `UserAccounts` where resetToken=?");
     $stmt->bind_param("s", $resetToken);
     $stmt->execute();
     $stmt->store_result();
+    $stmt->bind_result($user);
     $result = $stmt->num_rows;
     $stmt->close();
     if($result <= 0) {//Could not find user
+        //TODO:
+        //We land on this for some reason, fix!
         header('Location: /login/resetPass.php?stat=resetPassF');
         exit();
     }else{
@@ -48,10 +52,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_param("ss", $phash, $resetToken);
         if($verified == 1) {            
             $stmt->execute();
+            $stmt->close();
+            $stmt = $conn->prepare("UPDATE `UserAccounts` SET resetToken=NULL WHERE username=?");//Reset token to null
+            $stmt->bind_param("s", $user);
+            $stmt->execute();
+            $stmt->close();
         }else{
             header('Location: /login/resetPass.php?stat=resetPassG');
         }
-        $stmt->close();
         $conn->close();
         header('Location: /login/login.php?stat=resetPassS');
     }
