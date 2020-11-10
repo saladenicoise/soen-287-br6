@@ -3,13 +3,14 @@
 
 <head>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../navbar/navBarStyles.css">
     <title> House of Chef James Mitchell </title>
     <script type="text/javascript" src="contactUs.js"></script>
     <?php include "../contactUs/contactForm.php"; ?>
 </head>
 
 <body>
-    <!-- // nav bar goes here // -->
+    <?php include("../navBar/navBar.php"); ?>
 
     <h1 class="contactUsHeader">
         We would love to here from you
