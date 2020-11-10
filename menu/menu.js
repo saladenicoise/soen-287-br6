@@ -165,54 +165,55 @@ for(let i=0;i<decreaseButton.length;i++){
 }
 
 function removeItem(dish_name){
-    confirm("Are you sure you want to remove the item? ");
-    let cartDishInfo=localStorage.getItem('dishInformation');
-    cartDishInfo=JSON.parse(cartDishInfo);
-    console.log(cartDishInfo[dish_name]);
-    //remove the number of dishes
-    let totalQuantityInCart=localStorage.getItem('cartNumber');
-    totalQuantityInCart=parseInt(totalQuantityInCart);
-    localStorage.setItem("cartNumber",totalQuantityInCart-cartDishInfo[dish_name].inCart);
-    //remove the total cost
-    let cartCost=localStorage.getItem('TotalCost');
-    cartCost=parseFloat(cartCost);
-    let newCartTotal=cartCost-cartDishInfo[dish_name].inCart*cartDishInfo[dish_name].price;
-    localStorage.setItem("TotalCost",newCartTotal);
-    //set # of the dish in local storage to be 0:
-    cartDishInfo[dish_name].inCart=0;
-    localStorage.setItem('dishInformation', JSON.stringify(cartDishInfo));
-    
-    //update the page:
-    UpdateMainPageCart();
+    var ok=confirm("Are you sure you want to remove the item? ");
+    if(ok==true){     
+        let cartDishInfo=localStorage.getItem('dishInformation');
+        cartDishInfo=JSON.parse(cartDishInfo);
+        console.log(cartDishInfo[dish_name]);
+        //remove the number of dishes
+        let totalQuantityInCart=localStorage.getItem('cartNumber');
+        totalQuantityInCart=parseInt(totalQuantityInCart);
+        localStorage.setItem("cartNumber",totalQuantityInCart-cartDishInfo[dish_name].inCart);
+        //remove the total cost
+        let cartCost=localStorage.getItem('TotalCost');
+        cartCost=parseFloat(cartCost);
+        let newCartTotal=cartCost-cartDishInfo[dish_name].inCart*cartDishInfo[dish_name].price;
+        localStorage.setItem("TotalCost",newCartTotal);
+        //set # of the dish in local storage to be 0:
+        cartDishInfo[dish_name].inCart=0;
+        localStorage.setItem('dishInformation', JSON.stringify(cartDishInfo));
 
-    document.querySelector(".basketTotal").textContent="$"+newCartTotal;
-    
-    //remove the item row:
-    displayCart();
-    //update close  buttons and dishes in the cart:
-    removeButton=document.getElementsByClassName("close_button");
-    dishesInCart=document.getElementsByClassName("dish_name");
-    console.log(removeButton);
-    for(let i=0;i<removeButton.length;i++){
-    removeButton[i].addEventListener("click",function(){
-        removeItem(dishesInCart[i].innerHTML);
-      
-    })
-   } increaseButton=document.getElementsByClassName("increase_button");
-    for(let i=0;i<increaseButton.length;i++){
-    increaseButton[i].addEventListener("click",function(){
-        increaseItem(dishesInCart[i].innerHTML);
-      
-    })
+        //update the page:
+        UpdateMainPageCart();
+
+        document.querySelector(".basketTotal").textContent="$"+newCartTotal;
+
+        //remove the item row:
+        displayCart();
+        //update close  buttons and dishes in the cart:
+        removeButton=document.getElementsByClassName("close_button");
+        dishesInCart=document.getElementsByClassName("dish_name");
+        console.log(removeButton);
+        for(let i=0;i<removeButton.length;i++){
+        removeButton[i].addEventListener("click",function(){
+            removeItem(dishesInCart[i].innerHTML);
+
+        })
+       } increaseButton=document.getElementsByClassName("increase_button");
+        for(let i=0;i<increaseButton.length;i++){
+        increaseButton[i].addEventListener("click",function(){
+            increaseItem(dishesInCart[i].innerHTML);
+
+        })
+        }
+        decreaseButton=document.getElementsByClassName("decrease_button");
+        for(let i=0;i<decreaseButton.length;i++){
+        decreaseButton[i].addEventListener("click",function(){
+            decreaseItem(dishesInCart[i].innerHTML);
+
+        })
     }
-    decreaseButton=document.getElementsByClassName("decrease_button");
-    for(let i=0;i<decreaseButton.length;i++){
-    decreaseButton[i].addEventListener("click",function(){
-        decreaseItem(dishesInCart[i].innerHTML);
-      
-    })
 }
-
 
 }
 
