@@ -102,11 +102,14 @@
     flex-wrap: wrap;
 }
 .dish, {
-    width:42%;
+    width:50%;
     border-bottom-color:lightgray;
     border-bottom-style: solid;
     border-bottom-width: 4px;
     margin: 5px;
+}
+.dish_name{
+    width:30%;
 }
 .price{
     width:14%;
@@ -167,7 +170,7 @@ button{
     font-size: 15px
 }
 img{
-    width: 100px;
+    width: 170px;
 }
 
 
@@ -183,6 +186,8 @@ fieldset {
     border-radius: 50%; width:200px;height:50px; color: red;
 }
 
-#pay {
-    
+
+
+body {
+     background-color: grey;
 }
