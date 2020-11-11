@@ -44,7 +44,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] != '') { // Checks if Sessio
         $dbname = "id15127505_soen287database";
 
         $uname = test_input($_POST['username']);
-        $pword = test_input($_POST['password']);
+        $pword = $_POST['password'];
 
         $conn = new mysqli($servername, $username, $password, $dbname);
     

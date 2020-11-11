@@ -1,0 +1,49 @@
+footer{
+    width: 100%;
+    text-align: center;
+    color: white; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    }
+
+table{
+    text-align: center;
+    table-layout: fixed;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    position: fixed;
+    background-color: black;
+    border-style: none; 
+    border-width: 5px;
+   
+}
+
+img{padding-left: 2%; padding-right: 2%; }
+
+th{color: gray; 
+    text-decoration:underline; 
+    text-decoration-color: lightgrey; 
+    font-size: large;
+   
+   } 
+
+a{color: white; text-decoration: none;}
+
+#clickable :hover { background-color: red;} 
+
+#clickable-pics :hover{transform: scale(1.25);}
+
+#span1{color:crimson; font-style: italic; font-weight: bold;}
+
+#span2{color: grey; font-weight: bolder; font-size: large; text-decoration: underline;}
+
+
+
+
+
+
+
