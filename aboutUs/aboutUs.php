@@ -3,11 +3,14 @@
 
 <head>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../navBar/navBarStyles.css">
     <title> House of Chef James Mitchell </title>
 </head>
 
 <body>
-    <!-- // nav bar goes here // -->
+    <?php include("../navBar/navBar.php")?>
+    <?php include("../footer/footer.php")?>
+    
     <h1 class="aboutHeader"> About Us </h1>
 
     <div class="aboutSection">

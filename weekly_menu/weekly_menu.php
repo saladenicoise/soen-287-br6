@@ -10,6 +10,7 @@
     </head>
 
     <body>
+    <?php include("../footer/footer.php")?>
         <span><h1>Our Weekly Meal Menu</h1></span>
         <h2>***THIS WEEK'S DELIVERY MENU!***</h2>
         <h3>

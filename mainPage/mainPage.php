@@ -3,13 +3,13 @@
 
 <head>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../navBar/navBarStyles.css">
     <title> House of Chef James Mitchell </title>
     <?php include "../mainPage/gallery.php"; ?>
     <script type="text/javascript" src="gallery.js" charset="utf-8"></script>
 </head>
 
 <body class="mainPageBody">
-    <!-- // nav bar goes here // -->
 
     <div class="headerSection">
         <span class="textHeaders">
@@ -18,19 +18,24 @@
             <p class="mainSubHeader"> Your Culinary Journey Begins Here </p>
         </span>
     </div>
-    <div class="Meals">
-                    <div class="meals">
-                        <h2 class="mealsHeader"> Check Out some of our previous Meals </h2>
-                        <div id="slideshow">
-                            <script>  
-                                // get all the images from the folder with PHP
-                                var images = <?php echo GetImages(); ?>;
 
-                                //make a slideshow from the images
-                                createSlideshow(images); 
-                            </script>
-                        </div>
-                    </div>
+    <!-- Navigation Bar -->
+    <?php include("../navBar/navBar.php")?>
+    <?php include("../footer/footer.php")?>
+
+    <div class="Meals">
+        <div class="meals">
+            <h2 class="mealsHeader"> Check Out some of our previous Meals </h2>
+            <div id="slideshow">
+                <script>
+                    // get all the images from the folder with PHP
+                    var images = <?php echo GetImages(); ?>;
+
+                    //make a slideshow from the images
+                    createSlideshow(images);
+                </script>
+            </div>
+        </div>
     </div>
 
 

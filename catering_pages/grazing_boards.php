@@ -40,7 +40,7 @@
         <h5>
         ​   We offer delivery & pick-up options for your convience!
         </h5>
-
+        <?php include("../footer/footer.php")?>
     </body>
 
 </html>

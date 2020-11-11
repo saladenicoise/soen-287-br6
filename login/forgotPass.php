@@ -1,8 +1,4 @@
 <?php
-if (isset($_SESSION["login"]) && $_SESSION["login"] != '') { // Checks if Session is up(user has logged in)
-    header('Location: /regular.php');
-    exit();
-}
 $statusSet = isset($_GET['stat']);
 $statusVal = "";
 if($statusSet) {
@@ -15,11 +11,11 @@ if($statusSet) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <title>Login</title>
     <script src="https://www.google.com/recaptcha/api.js?render=6Lf8pNkZAAAAAKemZhCtJS5RGbXu-1cYGbmNCker"></script>
     <script src="/js/googleRecaptcha.js"></script>
     <script src="/js/printStat.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <title>Forgot Password</title>
 </head>
 
 <?php
@@ -28,27 +24,21 @@ if(!$statusSet) : ?>
 <?php else : ?>
     <body onload="printStatus('<?php echo $statusVal;?>')">
 <?php endif; ?>
-    <form name="loginForm" method="POST" action="loginScript.php">
-        <h1>Login Form</h1>
-        <p id='statusBox'></p>
+<p id='statusBox'></p>
+    <form name='forgotPassForm' method="POST" action="forgotPassScript.php">
         <table>
             <tr>
                 <td><label>Username: </label></td>
-                <td><input id="username" TYPE='text' Name='username' maxlength="20" required></td>
-            </tr>
-            <tr>
-                <td><label>Password: </label></td>
-                <td><input id="password" TYPE='password' Name='password' maxlength="16" required></td>
+                <td><input type="text" name="user" id='user' required></td>
             </tr>
         </table>
+        <p id="message"></p>
         <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
-        <button type="submit">Submit</button>
+        <button id="submit" type="submit">Submit</button>
         <button type="reset">Reset</button>
-        <br>
-        <a href="signup.php">Sign-Up</a>
-        <a href="forgotPass.php">Forgot Password</a>
     </form>
-    <?php include("../footer/footer.php")?>
+    <a href="login.php">Login</a>
+    <a href="signup.php">Signup</a>
 </body>
 
 </html>
