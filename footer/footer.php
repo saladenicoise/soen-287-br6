@@ -9,9 +9,9 @@
             <tr>
 
                 <td rowspan="5" id = "message"> 
-                    At the <span id = "span1">House of Chef James Mitchell </span>, Your Culinary Journey Begins Here.<br> <br>
+                    At the <span id = "span1">House of Chef James Mitchell </span> Your Culinary Journey Begins Here.<br> <br>
                     <a href = "../mainPage/mainPage.php"> 
-                        <img src = ../images/general/logo2.png> </a>
+                        <img src = footerimages/logo2.png> </img> </a>
                 </td>
 
                 <th>Visit</th>
@@ -34,7 +34,7 @@
                 </td>
                 
                 <td> 
-                    <img src = ../images/general/phone.png
+                    <img src = footerimages/phone.png
                     alt = "phone"> 514-941-5483 
                 </td>
 
@@ -42,24 +42,24 @@
                        1061 rue de la Paix, 
                        St. Lazare, J7T 2A8 
                        Quebec
-                    <br><br><br>
+                    <br><br>
                       <span id = "span2"> Connect With Us</span id = "span2"> <br><br>
 
                     <a id = "clickable-pics" href = "https://www.youtube.com/channel/UC6Hf6mzIDew1jRuwf7N1d-Q"> 
-                        <img src = ../images/general/yt.png
+                        <img src = footerimages/yt.png
                         alt = "YouTube" > </a>
 
                         <a  id = "clickable-pics" href = "https://accounts.google.com/signin/v2/identifier?passive=1209600&osid=1&continue=https%3A%2F%2Fplus.google.com%2F112399521767976730653&followup=https%3A%2F%2Fplus.google.com%2F112399521767976730653&flowName=GlifWebSignIn&flowEntry=ServiceLogin"> 
-                            <img src = ../images/general/g+.png
+                            <img src = footerimages/g+.png
                             alt = "Google"> </a>
 
                             <a  id = "clickable-pics" href = "https://www.facebook.com/House-of-Chef-James-Mitchell-260924117361465/"> 
-                                <img src = ../images/general/fb.png
+                                <img src = footerimages/fb.png
                                 alt = "Facebook"> </a>
 
                                 <a  id = "clickable-pics" href = "https://www.instagram.com/houseofchefjamesmitchell/"> 
-                                    <img src = ../images/general/ing.png
-                                    alt = "Facebook"> </a>
+                                    <img src = footerimages/insta.png
+                                    alt = "Instagram"> </a>
 
                 </td>
 
@@ -71,7 +71,7 @@
                 </td>
 
                 <td id = "clickable">
-                    <a href = "mailto:orders@chefjamesmitchell.com"> <img src = "../images/general/mail2.png"> </a>
+                    <a href = "mailto:orders@chefjamesmitchell.com"> <img src = "footerimages/mail2.png"> </a>
                     <a href="mailto:orders@chefjamesmitchell.com"> orders@chefjamesmitchell.com </a>
                 </td>
 

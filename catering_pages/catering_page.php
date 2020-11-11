@@ -12,6 +12,7 @@
 
     <body>
         <?php include("../navBar/navBar.php")?>
+        <?php include("../footer/footer.php")?>
 
         <span><h1>Our Catering Services</h1></span>
         <p> <button onclick = "location.href = 'appetizer_bar.php'">The Appetizer Bar</button> </p>

@@ -12,6 +12,7 @@
 
     <body>
         <?php include("../navBar/navBar.php")?> 
+        <?php include("../footer/footer.php")?>
         
         <span><h1>Appetizers</h1></span>
         <ol type = "1">

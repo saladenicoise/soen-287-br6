@@ -10,7 +10,7 @@
     </head>    
 
     <body>
-        
+    <?php include("../footer/footer.php")?>
         <span><h1>Soups</h1></span>
         <ol type = "1">
             <li class = "primary">Traditional Creamy Leek & Potato Soup<br><br>

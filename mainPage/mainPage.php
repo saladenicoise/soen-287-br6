@@ -21,6 +21,7 @@
 
     <!-- Navigation Bar -->
     <?php include("../navBar/navBar.php")?>
+    <?php include("../footer/footer.php")?>
 
     <div class="Meals">
         <div class="meals">

@@ -11,6 +11,7 @@
 
 <body>
     <?php include("../navBar/navBar.php"); ?>
+    <?php include("../footer/footer.php")?>
 
     <h1 class="contactUsHeader">
         We would love to here from you

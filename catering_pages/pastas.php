@@ -34,7 +34,7 @@
             <li style = "font-weight: bold;">Our Lasagnas, Tortellini, Cannelloni, and Manticotti</li>
         </ol>
         <br>
-        
+        <?php include("../footer/footer.php")?>
     </body>
 
 </html>
