@@ -11,27 +11,40 @@
 
     <body>
         
-        <h1>Gourmet Salads</h1><br>
+        <h1>Our Gourmet Salads</h1>
+        <ul>(Gluten-free and Dairy-free options available)</ul><br>
         
 
-        <h3 class = "secondary">Our Traditional Pasta Platters:</h3>
-        <p style = "font-weight: normal;">Small (6 Servings) <span>$60.00</span><sub>+txs</sub></p>
-        <p style = "font-weight: normal;">Medium (8 Servings) <span>$70.99</span><sub>+txs</sub></p>
-        <p style = "font-weight: normal;">Large (14 Servings) <span>$100.00</span><sub>+txs</sub></p>
-        <p style = "font-weight: normal;">King (20 Servings) <span>$115.00</span><sub>+txs</sub></p>
-        <ol type = "1">
-            <li style = "font-weight: bold;">Any Type of Pasta and Most Sauces</li>
+        <h3 class = "secondary">Garden Greens:</h3>
+        <p style = "font-weight: normal;">5 Full Portions OR 10 Side Portions: <span>$25.00</span><sub>+txs</sub></p>
+        <ol style = "list-style-type: disc; font-weight: bold;">
+        Choices:<br><br>
+            <li>Spinach & Goat Cheese, Sundried Tomato Salad w/ a Maple Poppy Vinaigrette</li>
+            <li>High Fiber Mixed Bean Salad</li>
+            <li>Mediterranean Greek Salad w/ Tomatoes & Feta</li>
+            <li>Fresh Strawberry Salad w/ Ruby Velvet Vinaigrette w/ Toasted Almonds</li>
+            <li>Asian Style Carrot, Nappa Cabbage & Red Onion Salad w/ a Miran Rice Vinaigrette</li>
+            <li>Orange, Fennel mixed w/ a Tangy Citrus Dressing</li>
+            <li>Iceberg Lettuce w/ Crispy Bacon and Crumbled Blue Cheese</li>
+            <li>Honey Dijon Shell Pasta w/ Celery</li>
         </ol>
         <br>
 
 
-        <h3 class = "secondary">Our Stuffed Pasta Platters</h3>
-        <p style = "font-weight: normal;"> Small (6 Servings) <span>$60.00</span><sub>+txs</sub></p>
-        <p style = "font-weight: normal;">Medium (8 Servings) <span>$70.99</span><sub>+txs</sub></p>
-        <p style = "font-weight: normal;">Large (14 Servings) <span>$120.00</span><sub>+txs</sub></p>
-        <p style = "font-weight: normal;">King (20 Servings) <span>$135.00</span><sub>+txs</sub></p>
-        <ol type = "1">
-            <li style = "font-weight: bold;">Our Lasagnas, Tortellini, Cannelloni, and Manticotti</li>
+        <h3 class = "secondary">Gourmet Mix</h3>
+        <p style = "font-weight: normal;">5 Full Portions OR 10 Side Portions: <span>$36.50</span><sub>+txs</sub></p>
+        <ol style = "list-style-type: disc; font-weight: bold;">
+        Choices:<br><br>
+            <li>Our Tomato, Bocconcini, and Basil</li>
+            <li>Our Quinoa & Cranberry Salad (Seasonal Ingredients)</li>
+            <li>Mixed Vegetable, Cucumbers, and Chick Pea Salad w/ Grapes</li>
+            <li>Summer Melon, Feta & Mint Salad</li>
+            <li>Asparagus, Lemon and Chèvre Couscous Salad</li>
+            <li>Panzanella (Tomatoes, Basil, Cucumber, and Grilled Bread Salad</li>
+            <li>Elegant Waldorf Salad w/ Apple, Celery, Caramelized Walnuts, Boston Lettuce, and Crumbled Blue Cheese</li>
+            <li>Our Famous Brocolli & Grape Salad w/ Cranberries and Sugar Coated Pecans</li>
+            <li>Tuscan Grilled Vegetable w/ Tomato & Cucumber, Olive Oil, and White Balsamic Vinaigrette</li>
+            <li>Creamy Potato Salad w/ Sweet Peas, Eggs and Mire Poire Vegetables</li>
         </ol>
         <br>
         

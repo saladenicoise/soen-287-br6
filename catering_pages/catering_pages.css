@@ -8,12 +8,14 @@ h1 {
 }
 
 span {
+    font-family: Verdana; 
     color: black;
     font-size: large;
     font-weight: bold;
 }
 
 sub {
+    font-family: Verdana; 
     font-weight: bold;
 }
 

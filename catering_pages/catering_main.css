@@ -10,10 +10,12 @@ span {
 }
 
 h2 {
+    font-family: Verdana; 
     text-align: center; 
     color: yellow;
 }
 
 p {
+    font-family: Verdana; 
     text-align: center;
 }

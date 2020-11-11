@@ -22,6 +22,16 @@
         <p> <button onclick = "location.href = 'desserts_in_a_jar.php'">Desserts In a Jar</button> </p>
         <p> <button onclick = "location.href = 'buffet.php'">Buffet</button> </p>
         <p> <button onclick = "location.href = 'grazing_boards.php'">Grazing Boards</button> </p>
+        <br>
+
+        <h3 style = "text-align: center;">
+        <span>IMPORTANT:</span><br> 
+        We are <span>NOT</span> a tree/nut-free environment!<br> 
+        We do process nuts in our kitchen which creates the potential for cross-contact and contamination.<br>
+        Customers should be aware when requesting nut-free items and menus.<br> 
+        We can accomodate <span>no-nut</span> and we can take every precaution possible,<br> 
+        however, it is at the client's discretion and understanding of the above mentioned notation. 
+        </h3>
     </body>
 
 </html>

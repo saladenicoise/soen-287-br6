@@ -1,0 +1,55 @@
+body {
+    background-color: grey;
+    text-align: center;
+}
+
+h1 {
+    font-family: Verdana; 
+    text-decoration: underline;
+    text-align: center;
+}
+
+h2 {
+    font-family: Verdana;
+    font-size: larger; 
+    text-align: center;
+    color:turquoise;
+}
+
+h3 {
+    font-family: Verdana; 
+    text-align: center;
+    font-size: larger;
+    color: yellow;
+}
+
+h4 {
+    font-family: Verdana; 
+    text-align: center;
+    color: white;
+}
+
+h5 {
+    font-family: Verdana; 
+    text-align: center;
+    font-size: x-large;
+    color: lime;
+}
+
+p {
+    font-family: Verdana; 
+    text-align: center;
+}
+
+span {
+    font-family: Verdana; 
+    color: black;
+    font-size: large;
+    font-weight: bold;
+}
+
+p {
+    font-family: Verdana; 
+    font-weight: bold;
+    font-family: Verdana;
+}

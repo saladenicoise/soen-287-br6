@@ -26,7 +26,7 @@
             <li>Our Peanut Butter Dumplings</li>
             <li>Mini Traditional Loukaniko (Greek Sausage) w/ Lemon</li>
             <li>Hot Spinach & Artichoke w/ Deep Fried Tortilla Chips</li>
-        </ol><br>
+        </ol>
 
 
         <h3 class = "tertiary">Vegetable Platters & Fruit Platters:</h3>
@@ -35,6 +35,7 @@
             <li>Vegetable Crudité Platter w/ 3 Dipping Sauches (Sweet Balsamic, Ranch, and French ALL HOMEMADE)</li>
             <li>Fresh Seasonal Fruit Platter (may include Melon, Strawberries, Blackberries, Pineapple, Cantaloupe, and/or Watermelon)</li>
         </ol>
+        <br>
 
         <h3 class = "tertiary">Breakfast/Brunch Buffet Options:</h3>
         <ol style = "list-style-type: disc"> 
@@ -64,7 +65,7 @@
                 <span>$69.99<sub>+txs</sub></span>
             </li>
             <li>Mini All Butter Croissant Platter & Homemade Jam:
-                <span>(Small: 24 servings)$69.99<sub>+txs</sub> (Large: 48 servings)<sub>+txs</sub></span>
+                (Small: 24 servings)<span>$69.99<sub>+txs</sub></span> (Large: 48 servings)<span>$66.50<sub>+txs</sub></span>
             </li>
             <li>Mixed Bread Rolls & Whipped Homemade Butters (15 servings):
                 <span>$26.25<sub>+txs</sub></span>
@@ -108,8 +109,8 @@
 
         <h3 class = "secondary">Aviation Catering</h3>
         <ul>
-            Meals needed for custom flights & clients are to be ordered at a minimum of <span>48 hours</span> in advance or extra fees will apply.
-            Contact us for menu options & information.
+            *Meals needed for custom flights & clients are to be ordered at a minimum of <span>48 hours</span> in advance or extra fees will apply.
+            Contact us for menu options & information*
         </ul>
         <ol style = "list-style-type: disc">
         <span>Services Available:</span><br><br>
