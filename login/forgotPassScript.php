@@ -31,6 +31,7 @@
     }
 
     $uname = "";
+    $email = "";
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $servername = "localhost";
         $username = "id15127505_soen287dev";
@@ -44,6 +45,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
+        //Check if User exists
         $stmt = $conn->prepare("SELECT email FROM `UserAccounts` WHERE username=?");
         $stmt->bind_param('s', $uname);
         $stmt->execute(); //Executes the query

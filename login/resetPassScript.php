@@ -39,11 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->execute();
     $stmt->store_result();
     $stmt->bind_result($user);
+    $stmt->fetch(); //Actually fetches the data to place in bind_result
     $result = $stmt->num_rows;
     $stmt->close();
     if($result <= 0) {//Could not find user
-        //TODO:
-        //We land on this for some reason, fix!
         header('Location: /login/resetPass.php?stat=resetPassF');
         exit();
     }else{
