@@ -1,0 +1,66 @@
+/*css for the navigation bar
+*/
+.navi
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    position: sticky;
+    top: 0;
+}
+
+.navBar
+{
+    float: left;
+    border-right: 1px;
+    border-right-color: white;
+    border-right-style: solid;
+}
+
+.navBar:last-child
+{
+    border-right: none;
+}
+
+.navbarElement
+{
+    display: block;
+    padding: 6px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
+
+.navbarElement:hover
+{
+    background-color: lightslategray;
+}
+
+
+/* css for any navigation drop down menu(s)
+   The drop down is not implemented yet
+*/
+
+li.dropDown
+{
+    display: inline;
+}
+
+.dropDownContent
+{
+    display: none;
+    color: white;
+    padding: 8px 8px;
+    display: block;
+    text-align: left;
+}
+
+.dropDownContent a:hover
+{
+    background-color: lightslategray;
+}
+
+
+
