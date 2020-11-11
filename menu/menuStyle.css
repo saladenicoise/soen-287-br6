@@ -1,0 +1,188 @@
+
+.dishes-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding-bottom: 100px;
+    max-width: 650px; 
+    justify-content: space-around; 
+    margin: 0 auto; 
+   
+   
+}
+.dishes-container-Bill {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding-bottom: 100px;
+    max-width: 300px; 
+    justify-content: space-around; 
+    margin: 0 auto; 
+}
+.dishes-container ion-icon{
+    font-size: :25px;
+    color: black;
+    margin-right:20px;
+    cursor:pointer;
+}
+.dish-headers {
+    width:100%;
+    max-width:650px;
+    display:flex;
+    justify-content: flex-start;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin:0 auto;
+    
+}
+.dish-headers-Bill{
+    width:100%;
+    max-width:300px;
+    display:flex;
+    justify-content: flex-start;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin:0 auto;
+}
+
+.dishSize {
+    width:45%;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+}
+.dishSize-Bill{
+    width:20%;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+}
+
+.dishPrice,.dishPrice-Bill {
+    width:15%;
+    display:flex;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items: center;
+}
+
+.dishTotal,.dishTotal-Bill {
+    width:10%;
+    display:flex;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items:center;
+    
+}
+
+
+.dishQuantity, .dishQuantity-Bill {
+    width:30%;
+    display: flex;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items: center;
+}
+
+.dishes ,.dishes-Bill{
+    width:100%; 
+    display: flex;
+    flex-wrap: wrap;
+}
+.dish, {
+    width:42%;
+    border-bottom-color:lightgray;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+}
+.price{
+    width:14%;
+    display:flex;
+    border-bottom-color: lightgray;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items: center;
+}
+.quantity{
+    width:28%;
+    display: flex;
+    border-bottom-color: lightgray;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items: center;
+}
+.total{
+     width:9%;
+    display:flex;
+    border-bottom-color: lightgray;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items:center;
+}
+.basketTotalContainer{
+    display:flex;
+    justify-content: flex-end;
+    width:100%;
+    padding: 10px 0;
+}
+.basketTotalTitle{
+    width:30%
+}
+.basketTotal{
+    width:10%
+}
+
+#checkOut {
+    display:flex;
+    justify-content: flex-end;
+    width:80%;
+    
+}
+
+#mainPage {
+     display:flex;
+    justify-content: flex-end;
+    width:80%;
+}
+button{
+    border-color:black;
+    border-radius: 15px;
+    width:30px;
+    font-size: 15px
+}
+img{
+    width: 100px;
+}
+
+
+fieldset {
+    width:200px;
+}
+
+#billing_address {
+    border-color:red; border-style:dashed; width:60%;
+}
+
+#placeOrder {
+    border-radius: 50%; width:200px;height:50px; color: red;
+}
+
+#pay {
+    
+}
