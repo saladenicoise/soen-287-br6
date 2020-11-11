@@ -4,8 +4,11 @@
         <meta charset="utf-8">
         <title>shopping cart</title>
         <link rel="stylesheet" href="menuStyle.css">
+        <link rel="stylesheet" href="../navBar/navBarStyles.css">
     </head>
     <body>
+        <?php include("../navBar/navBar.php")?>
+
        <nav>
             <a href="index.html">Home</a>
             <a href="cart.html">Cart <span class="MainPageCart">0</span></a>
