@@ -14,7 +14,7 @@
         <h1>Our Platters</h1>
         <p>Small (8-10 Servings) <span>$39.99</span><sub>+txs</sub></p>
         <p>Medium (10-15 Servings) <span>$52.99</span><sub>+txs</sub></p>
-        <p>Large (15-20 Servings) <span>$60.00</span><sub>+txs</sub></p>
+        <p>Large (15-20 Servings) <span>$60.00</span><sub>+txs</sub></p><br>
 
 
         <ol type = "1">
