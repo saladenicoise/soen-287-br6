@@ -311,6 +311,45 @@ function decreaseItem(dish_name){
 }
  }
 }
+//------------------------CheckoutPage-----------------------------
+displayBill();
+function displayBill(){
+    let cartItem=localStorage.getItem('dishInformation');
+    cartItem=JSON.parse(cartItem);
+   let dishescontainer=document.querySelector(".dishes-Bill");
+    let cartCost=localStorage.getItem('TotalCost');
+   if(cartItem && dishescontainer){
+       dishescontainer.innerHTML="";
+       Object.values(cartItem).map(item=>{
+         //the cart # cannot be 0!!
+           if(cartItem[item.dishSize].inCart!=0){
+           dishescontainer.innerHTML+=`
+        <div class="dish">
+        
+            
+            <span class="dish_name" >${item.dishSize}</span>
+        </div>
+        <div class="price">$${item.price}</div>
+        <div class="quantity">
+           
+            <span>${item.inCart}</span>
+           
+        </div>
+        <div class="total">
+            $${item.inCart*item.price}
+        </div>
+    `}
+       })
+      dishescontainer.innerHTML+=`
+        <div class="basketTotalContainer">
+            <h4 class="basketTotalTitle">SubTotal</h4>
+            <h4 class="basketTotal">$${cartCost}</h4>
+        </div>
+        ` 
+       
+   }
+    
+}
 
 
 
