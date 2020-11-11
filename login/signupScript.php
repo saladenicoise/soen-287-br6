@@ -32,9 +32,9 @@ header_remove();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $servername = "localhost";
-        $username = "dev";
-        $password = "dev";
-        $dbname = "soen287final";
+        $username = "id15127505_soen287dev";
+        $password = "{42m6ad#Ib[gr_vI";
+        $dbname = "id15127505_soen287database";
 
         $uname = test_input($_POST['username']);
         $pword = $_POST['password'];
