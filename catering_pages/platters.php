@@ -6,10 +6,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="catering_pages.css">
+        <link rel="stylesheet" href="../navBar/navBarStyles.css">
         <title>Our Platters | House of Chef James Mitchell</title>
     </head>    
 
     <body>
+        <?php include("../navBar/navBar.php")?>
         
         <h1>Our Platters</h1>
         <p>Small (8-10 Servings) <span>$39.99</span><sub>+txs</sub></p>

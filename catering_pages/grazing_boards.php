@@ -6,10 +6,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="grazing_boards.css">
+        <link rel="stylesheet" href="../navBar/navBarStyles.css">
         <title>Grazing Boards| House of Chef James Mitchell</title>
     </head>    
 
     <body>
+        <?php include("../navBar/navBar.php")?>
         
         <h1>Grazing Boards</h1>
         

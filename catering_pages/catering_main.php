@@ -6,10 +6,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="catering_main.css">
+        <link rel="stylesheet" href="../navBar/navBarStyles.css">
         <title>Catering | House of Chef James Mitchell</title>
     </head>
 
     <body>
+        <?php include("../navBar/navBar.php")?>
+
         <span><h1>Our Catering Services</h1></span>
         <h2>
             Our minimum order for catering is $150 before delivery and taxes.<br>
