@@ -12,7 +12,6 @@
 
     <body>
         <?php include("../navBar/navBar.php")?>
-        
         <span><h1>Desserts</h1></span>
         <ol type = "1">
             <li class = "primary">

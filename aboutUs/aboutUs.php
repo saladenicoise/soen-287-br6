@@ -9,6 +9,7 @@
 
 <body>
     <?php include("../navBar/navBar.php")?>
+    <?php include("../footer/footer.php")?>
     
     <h1 class="aboutHeader"> About Us </h1>
 

@@ -11,6 +11,7 @@
 
 <body class="reviewPageBody">
     <?php include("../navBar/navBar.php")?>
+    <?php include("../footer/footer.php")?>
 
     <!-- Main Header-->
     <h1 class="mainReviewHeader"> Reviews</h1>

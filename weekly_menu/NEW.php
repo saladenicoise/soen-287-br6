@@ -12,7 +12,6 @@
 
     <body>
         <?php include("../navBar/navBar.php")?>
-
         <span><h1>NEW!!!(Special items added just this week!)</h1></span>
         <ol type = "1">
             <li class = "primary">Pasta Sauce of the Week!<br><br>

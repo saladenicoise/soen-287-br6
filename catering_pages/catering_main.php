@@ -35,6 +35,7 @@
         We can accomodate <span>no-nut</span> and we can take every precaution possible,<br> 
         however, it is at the client's discretion and understanding of the above mentioned notation. 
         </h3>
+        <?php include("../footer/footer.php")?>
     </body>
 
 </html>

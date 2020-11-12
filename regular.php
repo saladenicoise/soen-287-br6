@@ -32,6 +32,7 @@ if(!$statusSet) : ?>
     <h1>You are here if you are logged in!</h1>
     <p id='statusBox'></p>
     <button onclick="location.href='/admin/admin.php'">Goto Admin Page (Only authorised users!)</button>
+    <button onclick="location.href='/mainPage/mainPage.php'">Main Menu</button>
     <form action="/login/logoutScript.php">
         <button type="submit">Log Out</button>
     </form>

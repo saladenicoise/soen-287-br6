@@ -48,6 +48,7 @@ if(!$statusSet) : ?>
         <a href="signup.php">Sign-Up</a>
         <a href="forgotPass.php">Forgot Password</a>
     </form>
+    <?php include("../footer/footer.php")?>
 </body>
 
 </html>
