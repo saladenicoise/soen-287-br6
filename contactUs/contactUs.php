@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="/navBar/navBarStyles.css">
     <title> House of Chef James Mitchell </title>
     <script type="text/javascript" src="contactUs.js"></script>
+    <link rel = "stylesheet" href = "../footer/footer.css">
     <?php include "../contactUs/contactForm.php"; ?>
 </head>
 
 <body>
     <?php include("../navBar/navBar.php"); ?>
-    <?php include("../footer/footer.php")?>
+    
 
     <h1 class="contactUsHeader">
         We would love to here from you
@@ -110,7 +111,7 @@
         </table>
     </div>
 
-
+    <?php include("../footer/footer.php")?>
 
 </body>
 

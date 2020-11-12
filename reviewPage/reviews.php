@@ -6,12 +6,13 @@
     <!-- style sheet not made by us. It is made available to everyone from W3Schools. I only used it for the star ratings in the first table -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../navBar/navBarStyles.css">
+    <link rel = "stylesheet" href = "../footer/footer.css">
     <title> House of Chef James Mitchell </title>
 </head>
 
 <body class="reviewPageBody">
     <?php include("../navBar/navBar.php")?>
-    <?php include("../footer/footer.php")?>
+   
 
     <!-- Main Header-->
     <h1 class="mainReviewHeader"> Reviews</h1>
@@ -82,6 +83,7 @@
         </tr>
 
     </table>
+    <?php include("../footer/footer.php")?>
 </body>
 
 </html>

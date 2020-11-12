@@ -7,12 +7,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="catering_pages.css">
         <link rel="stylesheet" href="../navBar/navBarStyles.css">
+        <link rel = "stylesheet" href = "../footer/footer.css"> 
         <title>The Appetizer Bar | House of Chef James Mitchell</title>
     </head>    
 
     <body>
         <?php include("../navBar/navBar.php")?> 
-        <?php include("../footer/footer.php")?>
         
         <h1>Our Appetizer Bar</h1>
         <h2>(gf = gluten-free, veg. = vegetarian)</h2>
@@ -96,7 +96,9 @@
             <li>Deep Fried Duck Wings w/ a Taty Jack Daniles BBQ Sauce</li>
             <li>Open-faced Brulé Goat Cheese, Arugula, Foie Gras, Tomato & Balsamic Reduction Jelly</li><br>
         </ol>
-        
+
+        <?php include("../footer/footer.php")?>
+
     </body>
 
 </html>

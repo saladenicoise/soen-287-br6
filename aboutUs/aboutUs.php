@@ -4,12 +4,13 @@
 <head>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../navBar/navBarStyles.css">
+    <link rel = "stylesheet" href = "../footer/footer.css"> 
     <title> House of Chef James Mitchell </title>
 </head>
 
 <body>
     <?php include("../navBar/navBar.php")?>
-    <?php include("../footer/footer.php")?>
+   
     
     <h1 class="aboutHeader"> About Us </h1>
 
@@ -24,7 +25,9 @@
                 to everyone. Contact us today. Make sure to follow our social media platforms on facebook and instagram.</p>
         </div>
     </div>
-
+  
 </body>
 
 </html>
+
+<?php include("../footer/footer.php")?>

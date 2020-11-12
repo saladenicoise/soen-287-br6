@@ -1,37 +1,48 @@
+
 footer{
-    width: 100%;
-    text-align: center;
     color: white; 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-
     }
 
-table{
+#tablefooter{
     text-align: center;
     table-layout: fixed;
     padding-top: 0.5%;
-    padding-bottom: 0.5%;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    padding-bottom: 1%;
     width: 100%;
-    position: fixed;
     background-color: black;
-    border-style: none; 
-    border-width: 5px;
-   
+    border: none; 
+    border-collapse: collapse;
 }
 
-img{padding-left: 2%; padding-right: 2%; }
+#thfooter:last-child{
+    border: none;
+}
 
-th{color: gray; 
+td.footer {
+    border-left: 1px white solid;
+    border-right: 1px white solid;
+    word-wrap: break-word;
+}
+
+#imgfooter{ padding-left: 2%; padding-right: 2%; }
+
+#message{
+    border-right: 1px;
+    border-right-color: white;
+    border-right-style: solid;
+}
+
+#thfooter{color: gray; 
     text-decoration:underline; 
     text-decoration-color: lightgrey; 
     font-size: large;
-   
+    border-right: 1px;
+    border-right-color: white;
+    border-right-style: solid;
    } 
 
-a{color: white; text-decoration: none;}
+a.footer{color: white; text-decoration: none;}
 
 #clickable :hover { background-color: red;} 
 
@@ -39,11 +50,14 @@ a{color: white; text-decoration: none;}
 
 #span1{color:crimson; font-style: italic; font-weight: bold;}
 
-#span2{color: grey; font-weight: bolder; font-size: large; text-decoration: underline;}
+#span2{color: grey; 
+    font-weight: bolder; 
+    font-size: large; 
+    text-decoration: underline;
+}
 
-
-
-
-
-
+span.span3 {
+    color: red;
+    text-decoration: underline;
+}
 
