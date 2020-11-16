@@ -10,8 +10,7 @@
         <?php include("../navBar/navBar.php")?>
 
        <nav>
-            <a href="index.html">Home</a>
-            <a href="cart.html">Cart <span class="MainPageCart">0</span></a>
+            <a href="cart.php">Cart <span class="MainPageCart">0</span></a>
         </nav>
         
         <div class="dishes-container">
@@ -26,9 +25,9 @@
             </div>
         </div>
         
-            <a href="checkOutPage.html" id="checkOut"><strong>Process to Check out</strong></a><br/>
+            <a href="checkOutPage.php" id="checkOut"><strong>Process to Check out</strong></a><br/>
        
-                <a href="menu.html" id="mainPage"><strong>Continue Shopping</strong></a>
+                <a href="menu.php" id="mainPage"><strong>Continue Shopping</strong></a>
         
            
     <script src="menu.js"></script>

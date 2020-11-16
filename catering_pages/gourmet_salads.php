@@ -48,7 +48,7 @@
             <li>Creamy Potato Salad w/ Sweet Peas, Eggs and Mire Poire Vegetables</li>
         </ol>
         <br>
-        <?php include("../footer/footer.php")?>
+        <?php ////include("../footer/footer.php")?>
         
     </body>
 

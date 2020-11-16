@@ -15,6 +15,7 @@ if($statusSet) {
     <script src="/js/googleRecaptcha.js"></script>
     <script src="/js/printStat.js"></script>
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="../navBar/navBarStyles.css">
     <title>Forgot Password</title>
 </head>
 
@@ -24,6 +25,7 @@ if(!$statusSet) : ?>
 <?php else : ?>
     <body onload="printStatus('<?php echo $statusVal;?>')">
 <?php endif; ?>
+<?php include("../navBar/navBar.php")?>
 <p id='statusBox'></p>
     <form name='forgotPassForm' method="POST" action="forgotPassScript.php">
         <table>

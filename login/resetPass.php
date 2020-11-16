@@ -22,6 +22,7 @@ if($statusSet) {
     <link rel="stylesheet" href="/style.css">
     <script src="/js/signup.js"></script>
     <script src="/js/printStat.js"></script>
+    <link rel="stylesheet" href="../navBar/navBarStyles.css">
     <script src="https://www.google.com/recaptcha/api.js?render=6Lf8pNkZAAAAAKemZhCtJS5RGbXu-1cYGbmNCker"></script>
     <script src="/js/googleRecaptcha.js"></script>
 </head>
@@ -32,6 +33,7 @@ if(!$statusSet) : ?>
 <?php else : ?>
     <body onload="printStatus('<?php echo $statusVal;?>')">
 <?php endif; ?>
+<?php include("../navBar/navBar.php")?>
 <p id='statusBox'></p>
     <form name="resetPasswordForm" method="POST" action="resetPassScript.php">
         <table>

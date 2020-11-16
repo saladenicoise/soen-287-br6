@@ -8,9 +8,9 @@ $customId = "";
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $servername = "localhost";
-    $username = "id15127505_soen287dev";
-    $password = "{42m6ad#Ib[gr_vI";
-    $dbname = "id15127505_soen287database";
+        $username = "dev";
+        $password = "dev";
+        $dbname = "soen287final";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -41,8 +41,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($result <= 0) {//Item does not exist
         header('Location: /admin/admin.php?stat=editF');
     }else{
-        $stmt = $conn->prepare("UPDATE `Menu` SET productName=?, cost=?, isVeg=?, isGf=?, customId=?");
-        $stmt->bind_param('sdiis', $productName, $productPrice, $vegetarian, $glutenFree, $customId);
+        $stmt = $conn->prepare("UPDATE `Menu` SET cost=?, isVeg=?, isGf=?, customId=? WHERE productName=?");
+        $stmt->bind_param('diiss', $productPrice, $vegetarian, $glutenFree, $customId, $productName);
         $stmt->execute();
         $stmt->close();
         $conn->close();
