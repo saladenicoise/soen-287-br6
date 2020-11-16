@@ -6,11 +6,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="weekly_menu_pages.css">
+        <link rel="stylesheet" href="../navBar/navBarStyles.css">
         <title>Desserts | House of Chef James Mitchell</title>
     </head>    
 
     <body>
-    <?php include("../footer/footer.php")?>
+        <?php include("../navBar/navBar.php")?>
         <span><h1>Desserts</h1></span>
         <ol type = "1">
             <li class = "primary">

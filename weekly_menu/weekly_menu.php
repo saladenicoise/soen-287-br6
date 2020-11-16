@@ -6,11 +6,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="weekly_menu.css">
+        <link rel="stylesheet" href="../navBar/navBarStyles.css">
         <title>Weekly Menu | House of Chef James Mitchell</title>
     </head>
 
     <body>
-    <?php include("../footer/footer.php")?>
+        <?php include("../navBar/navBar.php")?>
         <span><h1>Our Weekly Meal Menu</h1></span>
         <h2>***THIS WEEK'S DELIVERY MENU!***</h2>
         <h3>
