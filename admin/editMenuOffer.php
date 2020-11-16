@@ -1,5 +1,6 @@
 <?php
 
+$productID = 0;
 $productName = "";
 $productPrice = 0.0;
 $vegetarian = 0;
@@ -20,6 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
      /*Get all of our data from our form
         */
+    $productID = $_POST['productID'];
     $productName = $_POST['itemName'];
     $productPrice = $_POST['itemCost'];
     $customId = $_POST['customId'];
@@ -32,8 +34,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         unset($_POST['glutenFree']);
     }
 
-    $stmt = $conn->prepare("SELECT * FROM `Menu` WHERE productName=?");
-    $stmt->bind_param('s', $productName); //Binds the parameter $productName to the query
+    $stmt = $conn->prepare("SELECT * FROM `Menu` WHERE productID=?");
+    $stmt->bind_param('s', $productID); //Binds the parameter $productName to the query
     $stmt->execute(); //Executes the query
     $stmt->store_result(); //Stores the results of the query
     $result = $stmt->num_rows; //Get the result of the query, the rows which return true aka 1 row where the productName is the same
@@ -41,8 +43,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($result <= 0) {//Item does not exist
         header('Location: /admin/admin.php?stat=editF');
     }else{
-        $stmt = $conn->prepare("UPDATE `Menu` SET cost=?, isVeg=?, isGf=?, customId=? WHERE productName=?");
-        $stmt->bind_param('diiss', $productPrice, $vegetarian, $glutenFree, $customId, $productName);
+        $stmt = $conn->prepare("UPDATE `Menu` SET productName=?, cost=?, isVeg=?, isGf=?, customId=? WHERE productID=?");
+        $stmt->bind_param('sdiiss', $productName, $productPrice, $vegetarian, $glutenFree, $customId, $productID);
         $stmt->execute();
         $stmt->close();
         $conn->close();

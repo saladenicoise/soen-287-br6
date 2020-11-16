@@ -17,7 +17,7 @@
     $vegetarian = 0;
     $glutenFree = 0;
     $customId = "";
-
+    $category = "";
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         /*See about setting up environment variables
         */
@@ -42,6 +42,7 @@
             $glutenFree = 1;
             unset($_POST['glutenFree']);
         }
+        $category = test_input($_POST['category']);
 
         /* MySQL Stuff
         */
@@ -61,8 +62,8 @@
             $errorMessage = "<b>Product already exists</b>";
             header('Location: /admin/admin.php?stat=addF', true);
         }else{
-            $stmt = $conn->prepare("INSERT INTO `Menu` (productName, cost, isVeg, isGF, customId) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param('sdiis', $productName, $productPrice, $vegetarian, $glutenFree, $customId);
+            $stmt = $conn->prepare("INSERT INTO `Menu` (productName, cost, isVeg, isGF, customId, category) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param('sdiis', $productName, $productPrice, $vegetarian, $glutenFree, $customId, $category);
             $stmt->execute();
             $stmt->close();
             $conn->close();

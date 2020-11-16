@@ -42,11 +42,13 @@ if(!$statusSet) : ?>
             <legend>Menu Offerings</legend>
             <table border="1">
                     <tr>
+                        <td><label>Product ID</label></td>
                         <td><label>Item Name </label></td>
                         <td><label>Price </label></td>
                         <td><label>Vegetarian</td>
                         <td><label>Gluten Free</label></td>
                         <td><label>Custom ID</label></td>
+                        <td><label>Category</label></td>
                     </tr>
             <?php
                 $servername = "localhost";
@@ -69,11 +71,13 @@ if(!$statusSet) : ?>
                     while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
             ?>
+                <td><p><?php echo $row["productID"]?></p></td>
                 <td><p><?php echo $row["productName"]?></p></td>
                 <td><p><?php echo $row["cost"]?></p></td>
                 <td><p><?php echo ($row["isVeg"] == 1)? "Yes" : "No"?></p></td>
                 <td><p><?php echo ($row["isGf"] == 1)? "Yes" : "No" ?></p></td>
                 <td><p><?php echo (is_null($row["customId"])) ? "None" : $row["customId"]?></p></td>
+                <td><p><?php echo $row["category"]?></p></td>
             <?php }
                 echo "</tr>";
 
@@ -94,6 +98,7 @@ if(!$statusSet) : ?>
                         <td><label>Customization Options</td>
                         <td><label>Vegetarian</label></td>
                         <td><label>Gluten Free</label></td>
+                        <td><label>Category</label></td>
                     </tr>
                     <tr>
                         <td><input type="text" id="itemName" name="itemName" placeholder="Item Name" required></td>
@@ -101,6 +106,7 @@ if(!$statusSet) : ?>
                         <td><input class="center" type="checkbox" id="customOptions" name="customOptions" value="true"></td>
                         <td><input class="center" type="checkbox" id="vegetarian" name="vegetarian" value="true" ></td>
                         <td><input class="center" type="checkbox" id="glutenFree" name="glutenFree" value="true" ></td>
+                        <td><input class="center" type="text" id="category" name="category" placeholder="Category" required></td>
                     </tr>
                 </table>
                 <button type="submit">Add to Menu</button>
@@ -112,6 +118,7 @@ if(!$statusSet) : ?>
             <form name="editMenuOffering" method="POST" action="editMenuOffer.php">
             <table>
                     <tr>
+                        <td><label>Product ID: </label></td>
                         <td><label>Item Name: </label></td>
                         <td><label>Price: </label></td>
                         <td><label>Customization Id (Leave empty if none)</td>
@@ -119,6 +126,7 @@ if(!$statusSet) : ?>
                         <td><label>Gluten Free</label></td>
                     </tr>
                     <tr>
+                        <td><input type="number" id="productID" name="productID" placeholder="Product ID" required></td>
                         <td><input type="text" id="itemName" name="itemName" placeholder="Item Name" required></td>
                         <td><input type="number" id="itemCost" name="itemCost" placeholder="Item Cost"></td>
                         <td><input class="center" type="text" name="customId" id="customId" placeholder="Custom Id"></td>
@@ -135,10 +143,10 @@ if(!$statusSet) : ?>
                 <form name="deleteMenuOffering" method="POST" action="deleteMenuOffer.php">
                     <table>
                         <tr>
-                            <td><label>Item Name: </label></td>
+                            <td><label>Product ID: </label></td>
                         </tr>
                         <tr>
-                            <td><input class="center" id="itemName" name="itemName" placeholder="Item Name" required></td>
+                            <td><input class="center" id="productID" name="productID" placeholder="Product ID" required></td>
                         </tr>
                     </table>
                     <button type="submit">Delete Item</button>
