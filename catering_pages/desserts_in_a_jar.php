@@ -32,7 +32,7 @@
             <li>Maple Apple Delight</li>
             <li>Pumpkin Parfait</li>
         </ol>
-        <?php include("../footer/footer.php")?>
+        <?php ////include("../footer/footer.php")?>
 
     </body>
 

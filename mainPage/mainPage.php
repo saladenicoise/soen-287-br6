@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../navBar/navBarStyles.css">
+    <!--<link rel="stylesheet" href="../footer/footer.css">-->
     <title> House of Chef James Mitchell </title>
     <?php include "../mainPage/gallery.php"; ?>
     <script type="text/javascript" src="gallery.js" charset="utf-8"></script>
@@ -21,7 +22,7 @@
 
     <!-- Navigation Bar -->
     <?php include("../navBar/navBar.php")?>
-    <?php include("../footer/footer.php")?>
+
 
     <div class="Meals">
         <div class="meals">
@@ -79,7 +80,7 @@
             </tr>
         </table>
     </div>
-
+    <?php //include("../footer/footer.php")?>
 </body>
 
 </html>

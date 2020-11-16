@@ -23,6 +23,12 @@ function test_input($data) {
     return $data;
 }
 
+$contactName = "";
+$contactPhone = "";
+$contactEmail = "";
+$contactAddress = "";
+$contactSubject = "";
+$contactMsg = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     //Data from form
     $servername = "localhost";
@@ -34,102 +40,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         /*Check if the data is empty and in a valid format for mandatory fields*/
 
-        // NAME CHECK
-        if(empty($_POST['name'])) {
-            $nameErr = "Name is required";
-            $isError = true;
+        $contactName = test_input($_POST['name']);
+        $contactPhone = test_input($_POST['phone']);
+        $contactEmail = test_input($_POST['email']);
+        if(isset($_POST['address'])) {
+            $contactAddress = test_input($_POST['address']);
         }
-        else{
-            // check if the name is too large for the DB
-            if(strlen($_POST['name']) > MAX_NAME_LENGTH)
-            {
-                $nameErr = "Name is too long, must be less than " . MAX_NAME_LENGTH . " characters";
-                $isError = true;
-            }else {
-                $contactName = test_input($_POST['name']);
-            }
-            
-        }
-
-        // PHONE CHECK
-        if(empty($_POST['phone'])) {
-            $phoneErr = "Phone Number is required";
-            $isError = true;
-        }
-        else{
-            // check phone number format
-            if(!preg_match("/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/", $_POST['phone'])) {
-                $phoneErr = "Invalid phone number format";
-                $isError = true;
-            }
-            else{
-                $contactPhone = test_input($_POST['phone']);
-            }
-        }
-
-        // EMAIL CHECK
-        if(empty($_POST['email'])) {
-            $emailErr = "Email is required";
-            $isError = true;
-        }
-        else{
-            // check if the email is too large for the DB
-            if(strlen($_POST['email']) > MAX_EMAIL_LENGTH){
-                $emailErr = "Email is too long. choost one that is less than " . MAX_EMAIL_LENGTH . " characters";
-                $isError = true;
-            }
-            // check email format (included in PHP)
-            elseif(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                $emailErr = "Invalid email format";
-                $isError = true;
-            }
-            else {
-                $contactEmail = test_input($_POST['email']);
-            }
-            
-        }
-
-        // ADDRESS CHECK
-        // address is not an empty field, so it doesnt matter if its empty
-         if(!empty($_POST['address']))
-         {
-             //must check if it is too large for the DB if it isnt empty
-            if(strlen($_POST['email']) > MAX_ADDRESS_LENGTH){
-                $emailErr = "Address is too long. choost one that is less than " . MAX_ADDRESS_LENGTH . " characters";
-                $isError = true;
-            }else
-            {
-                $contactAddress = test_input($_POST['address']);
-            }
-         }else{
-            $contactAddress = "";
-         }
-
-        // SUBJECT CHECK
-        if(empty($_POST['subject'])) {
-            $subjectErr = "Subject is required";
-            $isError = true;
-        }
-        else{
-            // check if the subject is too large for the DB
-            if(strlen($_POST['subject']) > MAX_SUBJECT_LENGTH)
-            {
-                $subjectErr = "Subject is too long. choost one that is less than " . MAX_SUBJECT_LENGTH . " characters";
-                $isError = true;
-            } else {
-                $contactSubject = test_input($_POST['subject']);
-            }
-        }
-
+        $contactSubject = test_input($_POST['subject']);
         // MESSAGE CHECK
         if(empty($_POST['message'])) {
             $messageErr = "Message is required";
             $isError = true;
         }
         else{
-                $contactMsg = test_input($_POST['message']);  
+            $contactMsg = test_input($_POST['message']);  
         }
-    
         
         
     if (!$isError)    {

@@ -33,15 +33,11 @@ function test_input($data) {
 $uname = "";
 $pword = "";
 $errorMessage = "";
-if (isset($_SESSION["login"]) && $_SESSION["login"] != '') { // Checks if Session is up(user has logged in)
-    header('Location: /regular.php');
-    exit();
-}else{
-    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $servername = "localhost";
-        $username = "id15127505_soen287dev";
-        $password = "{42m6ad#Ib[gr_vI";
-        $dbname = "id15127505_soen287database";
+        $username = "dev";
+        $password = "dev";
+        $dbname = "soen287final";
 
         $uname = test_input($_POST['username']);
         $pword = $_POST['password'];
@@ -68,6 +64,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] != '') { // Checks if Sessio
             $stmt->close();
             if (password_verify($pword, $hash) && $fetchRes) { //Does the password match the hash of the password
                 $_SESSION["login"] = "1";
+                echo "Admin: " . $isAdmin;
                 if($isAdmin === 1) {
                     $_SESSION["admin"] = "1";
                 }
@@ -88,6 +85,5 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] != '') { // Checks if Sessio
             $errorMessage = "Username or Password is invalid! Please try again!       ";
             header('Location: /login/login.php?stat=loginF');
         }
-    }
 }
 ?>

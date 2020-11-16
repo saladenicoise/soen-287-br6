@@ -12,7 +12,7 @@
 
 <body>
     <?php include("../navBar/navBar.php")?>
-    <?php include("../footer/footer.php")?>
+    <?php //include("../footer/footer.php")?>
     <h1>Our Buffet</h1>
     <br>
 

@@ -12,7 +12,7 @@
 
     <body>
         <?php include("../navBar/navBar.php")?> 
-        <?php include("../footer/footer.php")?>
+        <?php //include("../footer/footer.php")?>
         
         <h1>Our Appetizer Bar</h1>
         <h2>(gf = gluten-free, veg. = vegetarian)</h2>

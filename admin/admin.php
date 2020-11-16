@@ -22,6 +22,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
     <script src="/js/toggle.js"></script>
     <script src="/js/disableSame.js"></script>
     <script src="/js/printStat.js"></script>
+    <link rel="stylesheet" href="../navBar/navBarStyles.css">
 </head>
 <?php
 if(!$statusSet) : ?>
@@ -29,8 +30,11 @@ if(!$statusSet) : ?>
 <?php else : ?>
     <body onload="printStatus('<?php echo $statusVal;?>')">
 <?php endif; ?>
+    <?php include("../navBar/navBar.php")?>
+</br>
     <button onclick="toggle('menuOfferings')">Show Menu Offerings</button>
     <button onclick="toggle('customAdd')">Show Custom Add</button>
+    <button onclick="location.href='/regular.php'">Go back to user account page!</button>
     <hr>
     <p id='statusBox'></p>
     <div id="menuOfferings" style="display: none;">
@@ -44,12 +48,11 @@ if(!$statusSet) : ?>
                         <td><label>Gluten Free</label></td>
                         <td><label>Custom ID</label></td>
                     </tr>
-                    <tr>
             <?php
                 $servername = "localhost";
-                $username = "id15127505_soen287dev";
-                $password = "{42m6ad#Ib[gr_vI";
-                $dbname = "id15127505_soen287database";
+                $username = "dev";
+                $password = "dev";
+                $dbname = "soen287final";
 
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -64,6 +67,7 @@ if(!$statusSet) : ?>
 
                     /* fetch associative array */
                     while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
             ?>
                 <td><p><?php echo $row["productName"]?></p></td>
                 <td><p><?php echo $row["cost"]?></p></td>
@@ -71,6 +75,7 @@ if(!$statusSet) : ?>
                 <td><p><?php echo ($row["isGf"] == 1)? "Yes" : "No" ?></p></td>
                 <td><p><?php echo (is_null($row["customId"])) ? "None" : $row["customId"]?></p></td>
             <?php }
+                echo "</tr>";
 
                     /* free result set */
                     $result->free();
@@ -159,10 +164,9 @@ if(!$statusSet) : ?>
                     <tr>
             <?php
                 $servername = "localhost";
-                $username = "id15127505_soen287dev";
-                $password = "{42m6ad#Ib[gr_vI";
-                $dbname = "id15127505_soen287database";
-
+                $username = "dev";
+                $password = "dev";
+                $dbname = "soen287final";
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
                 if ($conn->connect_error) {
