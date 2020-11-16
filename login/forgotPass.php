@@ -30,8 +30,8 @@ if(!$statusSet) : ?>
     <form name='forgotPassForm' method="POST" action="forgotPassScript.php">
         <table>
             <tr>
-                <td><label>Username: </label></td>
-                <td><input type="text" name="user" id='user' required></td>
+                <td><label>Email: </label></td>
+                <td><input type="email" name="email" id='email' required></td>
             </tr>
         </table>
         <p id="message"></p>

@@ -18,6 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
 $pword = "";
 $resetToken = "";
+$time = null;
+$timeLimit = 60*30; //30 Minutes
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $servername = "localhost";
         $username = "dev";
@@ -45,13 +47,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: /login/resetPass.php?stat=resetPassF');
         exit();
     }else{
+        $stmt = $conn->prepare("SELECT resetTimer FROM `UserAccounts` WHERE resetToken=?");
+        $stmt->bind_param("s", $resetToken);
+        $stmt->execute();
+        $stmt->store_result();
+        $stmt->bind_result($time);
+        $stmt->fetch(); //Actually fetches the data to place in bind_result
+        $stmt->close();
+        if(!($time <= $timeLimit + time())) {//Checks if it is within the time limit (30 mins)
+            //Past time limit
+            $conn->close();
+            header('Location: /login/forgotPass.php?stat=resetPassT');
+        }
         $stmt = $conn->prepare("UPDATE `UserAccounts` SET password=? WHERE resetToken=?"); //Update the user accounts table and set the new password where the reset token matches (we already know it exists from previous check)
         $phash = password_hash($pword, PASSWORD_BCRYPT, ['cost' => 12]);
         $stmt->bind_param("ss", $phash, $resetToken);
         if($verified == 1) {            
             $stmt->execute();
             $stmt->close();
-            $stmt = $conn->prepare("UPDATE `UserAccounts` SET resetToken=NULL WHERE username=?");//Reset token to null
+            $stmt = $conn->prepare("UPDATE `UserAccounts` SET resetToken = NULL WHERE username=?");//Reset token to null
             $stmt->bind_param("s", $user);
             $stmt->execute();
             $stmt->close();

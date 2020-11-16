@@ -29,6 +29,7 @@ header_remove();
     $pword = "";
     $errorMessage = "";
     $isAdmin = 0;
+    $dbEmail = "";
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $servername = "localhost";
@@ -47,15 +48,26 @@ header_remove();
         }
 
         if($conn) {
-            $SQL = $conn->prepare("SELECT * FROM `UserAccounts` WHERE username=?");
-            $SQL->bind_param('s', $uname);
+            $SQL = $conn->prepare("SELECT * FROM `UserAccounts` WHERE email=?");
+            $SQL->bind_param('s', $email);
             $SQL->execute();
             $SQL->store_result();
             $result = $SQL->num_rows;
             $SQL->close();
-            if ($result > 0) {//User already exists
-                header('Location: /login/signup.php?stat=signupU');
+            if ($result > 0) {//Email already exists
+                header('Location: /login/signup.php?stat=signupE');
+                exit();
             } else {
+                $SQL = $conn->prepare("SELECT * FROM `UserAccounts` WHERE username=?");
+                $SQL->bind_param('s', $uname);
+                $SQL->execute();
+                $SQL->store_result();
+                $result = $SQL->num_rows;
+                $SQL->close();
+                if ($result > 0) {//User already exists
+                    header('Location: /login/signup.php?stat=signupU');
+                    exit();
+                }
                 $phash = password_hash($pword, PASSWORD_BCRYPT, ['cost' => 12]);
                 $SQL = $conn->prepare("INSERT INTO `UserAccounts` (username, password, isAdmin, email) VALUES (?, ?, ?, ?)");
 			    if (!$SQL) {

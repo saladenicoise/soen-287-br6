@@ -6,6 +6,9 @@ function printStatus(status) {
     if (status == "singupG" || status == "loginG") { //Captcha Failed
         this.statusBox.innerHTML = "<span class=\"fail\">Captcha Failed. Please try again</span>";
     }
+    if (status == "signupE") {
+        this.statusBox.innerHTML = "<span class=\"fail\">A user account with that email already exists</span>"
+    }
     if (status == "singupD") { //Database Error!
         this.statusBox.innerHTML = "<span class=\"fail\">Database Error</span>";
     }
@@ -55,7 +58,7 @@ function printStatus(status) {
         this.statusBox.innerHTML = "<span class=\"success\">Successfully deleted custom options</span>";
     }
     if (status == "fPassF") { //Forgot password failed, user does not exist
-        this.statusBox.innerHTML = "<span class=\"fail\">User does not exist</span>"
+        this.statusBox.innerHTML = "<span class=\"fail\">No user with that email found</span>"
     }
     if (status == "fPassG") { //Forgot password failed, user does not exist
         this.statusBox.innerHTML = "<span class=\"fail\">Captcha Failed</span>"
@@ -68,5 +71,8 @@ function printStatus(status) {
     }
     if (status == "resetPassS") {
         this.statusBox.innerHTML = "<span class=\"success\">Sucessfully Reset Password</span>"
+    }
+    if (status == "resetPassT") {
+        this.statusBox.innerHTML = "<span class=\"fail\">Time Limit Exceeded! Please enter your username again!</span>"
     }
 }
