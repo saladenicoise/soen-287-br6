@@ -2,10 +2,9 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/navBar/navBarStyles.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../navBar/navBarStyles.css">
     <title> House of Chef James Mitchell </title>
-    <script type="text/javascript" src="contactUs.js"></script>
     <link rel = "stylesheet" href = "../footer/footer.css">
     <?php include "../contactUs/contactForm.php"; ?>
 </head>
