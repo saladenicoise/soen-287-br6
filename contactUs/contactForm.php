@@ -13,7 +13,6 @@
      $subjectErr = "";
      $messageErr = "";
      $result = "";
-     $isError= false;
      
 
 function test_input($data) {
@@ -30,11 +29,13 @@ $contactAddress = "";
 $contactSubject = "";
 $contactMsg = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+    
     //Data from form
     $servername = "localhost";
-    $username = "id15127505_soen287dev";
-    $password = "{42m6ad#Ib[gr_vI";
-    $dbname = "id15127505_soen287database";
+    $username = "dev";
+    $password = "dev";
+    $dbname = "soen287final";
         
      /*Get all of our data from our form*/
 
@@ -47,17 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $contactAddress = test_input($_POST['address']);
         }
         $contactSubject = test_input($_POST['subject']);
-        // MESSAGE CHECK
-        if(empty($_POST['message'])) {
-            $messageErr = "Message is required";
-            $isError = true;
-        }
-        else{
-            $contactMsg = test_input($_POST['message']);  
-        }
-        
-        
-    if (!$isError)    {
+        $contactMsg = test_input($_POST['message']);  
+
     /*MySQL for connection */
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -66,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     //send the data to the DB
-    $stmt = $conn->prepare("INSERT INTO `ContactForms` (contactName, contactNumber, contactEmail, contactAddress, contactSubject, contactMessage) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO `contactforms` (contactName, contactNumber, contactEmail, contactAddress, contactSubject, contactMessage) VALUES (?, ?, ?, ?, ?, ?)");
             $stmt->bind_param('ssssss', $contactName, $contactPhone, $contactEmail, $contactAddress, $contactSubject, $contactMsg);
             $stmt->execute();
             $stmt->close();
@@ -75,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             
     }
     
-}
+
     
  
 ?>

@@ -20,24 +20,24 @@
 
     <!-- TODO: store forms in the DB -->
     <div class="formSection">
-        <table>
+        <table class="formContainer">
             <tr>
                 <td>
 
-                    <form class="contactForm" id="contactForm" method="POST" action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>">
+                    <form class="contactForm" id="contactForm" method="POST" action="">
                         <p class="error"> * = mandatory fields </p>
 
                         <br>
 
-                        <input class="formText" type="text" id="name" name="name" placeholder="Name"> <span class="error">* <?php echo $nameErr;?></span>
+                        <input class="formText" type="text" id="name" name="name" placeholder="Name" required> <span class="error">* <?php echo $nameErr;?></span>
 
                         <br><br>
 
-                        <input class="formText" type="text" id="phone" name="phone" maxlength="12" placeholder="Phone Number (xxx-xxx-xxxx)"> <span class="error">* <?php echo $phoneErr;?></span>
+                        <input class="formText" type="tel" id="phone" name="phone" maxlength="12" placeholder="Phone Number (ex. 000-000-0000)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> <span class="error">* <?php echo $phoneErr;?></span>
 
                         <br><br>
 
-                        <input class="formText" type="text" id="email" name="email" placeholder="Email (example@hotmail.com)"> <span class="error">* <?php echo $emailErr;?></span>
+                        <input class="formText" type="email" id="email" name="email" placeholder="Email (example@hotmail.com)" required> <span class="error">* <?php echo $emailErr;?></span>
 
                         <br><br>
 
@@ -45,11 +45,11 @@
 
                         <br><br>
 
-                        <input class="formText" type="text" id="subject" name="subject" placeholder="Subject"> <span class="error">* <?php echo $subjectErr;?></span>
+                        <input class="formText" type="text" id="subject" name="subject" placeholder="Subject" required> <span class="error">* <?php echo $subjectErr;?></span>
 
                         <br><br>
 
-                        <textarea class="formTextArea" id="message" name="message" placeholder="Message (Allergies, etc)"></textarea> <span class="error">* <?php echo $messageErr;?></span>
+                        <textarea class="formTextArea" id="message" name="message" placeholder="Message (Allergies, etc)" required></textarea> <span class="error">* <?php echo $messageErr;?></span>
 
                         <br><br>
 
@@ -60,16 +60,21 @@
                         <button type="reset" class="clearButton">Clear</button>
                     </form>
                 </td>
+
                 <td>
+                <div class="formHeader">
                     <p class="formLabel1 "> We are here to answer all your questions </p>
                     <br>
                     <hr class="labelDivider ">
                     <br>
                     <p class="formLabel2 ">We want to take the time again to thank you for visiting us at our online home</p>
+                </div>
                 </td>
             </tr>
         </table>
     </div>
+
+
 
     <!-- All Location Info for the Business-->
     <div class="locationInfo ">
@@ -84,7 +89,7 @@
                 </td>
 
                 <td>
-                    <!-- Address Table so that the picture lines up and everythign looks nice-->
+                    <!-- Address Table so that the picture lines up and everything looks nice-->
                     <table class="addressTable ">
                         <tr>
                             <td>

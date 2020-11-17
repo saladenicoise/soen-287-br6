@@ -6,7 +6,6 @@ h1 h2 h3 h4 h5 h6 {
     color: white;
 }
 
-
 fieldset {
     margin-right: 60%;
 }
@@ -26,6 +25,7 @@ span.fail {
     color: red;
     font-weight: bold;
 }
+
 
 /* CSS for Main Page */
 
@@ -292,6 +292,11 @@ span.fail {
     height: 25%;
     background-color: black;
     margin: 0 100px 0 0;
+}
+
+.formContainer {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contactForm {
