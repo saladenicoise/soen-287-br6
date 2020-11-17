@@ -11,7 +11,7 @@
     </head>    
 
     <body>
-        
+    <?php include("../navBar/navBar.php")?>
         <h1>Our Gourmet Salads</h1>
         <ul>(Gluten-free and Dairy-free options available)</ul><br>
         
@@ -48,7 +48,7 @@
             <li>Creamy Potato Salad w/ Sweet Peas, Eggs and Mire Poire Vegetables</li>
         </ol>
         <br>
-        <?php ////include("../footer/footer.php")?>
+        <?php include("../footer/footer.php")?>
         
     </body>
 

@@ -11,6 +11,7 @@
     </head>
 
     <body>
+        <?php include("../navBar/navBar.php")?>
         <span><h1>Our Catering Services</h1></span>
         <h2>
             Our minimum order for catering is $150 before delivery and taxes.<br>
@@ -33,7 +34,7 @@
         We can accomodate <span>no-nut</span> and we can take every precaution possible,<br> 
         however, it is at the client's discretion and understanding of the above mentioned notation. 
         </h3>
-        <?php //include("../footer/footer.php")?>
+        <?php include("../footer/footer.php")?>
     </body>
 
 </html>

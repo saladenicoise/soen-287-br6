@@ -11,7 +11,7 @@
     </head>    
 
     <body>
-        
+    <?php include("../navBar/navBar.php")?>
         <h1>Grazing Boards</h1>
         
         <h2>Deluxe, elegant Grazing Gastronomia your guests will surely never forget!</h2>
@@ -41,7 +41,7 @@
         <h5>
         ​   We offer delivery & pick-up options for your convience!
         </h5>
-        <?php //include("../footer/footer.php")?>
+        <?php include("../footer/footer.php")?>
     </body>
 
 </html>
