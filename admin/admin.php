@@ -34,6 +34,7 @@ if(!$statusSet) : ?>
 </br>
     <button onclick="toggle('menuOfferings')">Show Menu Offerings</button>
     <button onclick="toggle('customAdd')">Show Custom Add</button>
+    <button onclick="toggle('viewMessages')">Show Messages from Contact Page</button>
     <button onclick="location.href='/regular.php'">Go back to user account page!</button>
     <hr>
     <p id='statusBox'></p>
@@ -289,6 +290,67 @@ if(!$statusSet) : ?>
                     <button type="reset">Clear Form</button>
                 </form>
             </fieldset>
+        </fieldset>
+    </div>
+            
+    <!-- Forms from Contact Us page-->
+    <div id="viewMessages" style="display: none;">
+        <fieldset>
+            <legend>Messages</legend>
+            <table border="1">
+                    <tr>
+                        <td><label>Form ID</label></td>
+                        <td><label>Contact Name </label></td>
+                        <td><label>Phone Number </label></td>
+                        <td><label>Email</td>
+                        <td><label>Address</label></td>
+                        <td><label>Subject</label></td>
+                        <td><label>Message</label></td>
+                    </tr>
+            <?php
+                $servername = "localhost";
+                $username = "dev";
+                $password = "dev";
+                $dbname = "soen287final";
+
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                //No need for prepared statements since no input
+                $query = "SELECT * FROM `contactforms`";
+
+                if ($result = $conn->query($query)) {
+
+                    /* fetch associative array */
+                    while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+            ?>
+                <td><p><?php echo $row["Form_ID"]?></p></td>
+                <td><p><?php echo $row["contactName"]?></p></td>
+                <td><p><?php echo $row["contactNumber"]?></p></td>
+                <td><p><?php echo $row["contactEmail"]?></p></td>
+                <td><p><?php echo $row["contactAddress"]?></p></td>
+                <td><p><?php echo $row["contactSubject"]?></p></td>
+                <td><p><?php echo $row["contactMessage"]?></p></td>
+                <td>
+                    <form action="deleteMessage.php" method="post">
+                        <input type="submit" name="removeMsg" value="" />
+                    </form>
+                </td>
+
+            <?php }
+                echo "</tr>";
+
+                    /* free result set */
+                    $result->free();
+                }
+                $conn->close();
+            ?>
+            </tr>
+            </table>
         </fieldset>
     </div>
 </body>
