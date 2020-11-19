@@ -34,6 +34,8 @@
 
                     //make a slideshow from the images
                     createSlideshow(images);
+
+                    autoScroll();
                 </script>
             </div>
         </div>

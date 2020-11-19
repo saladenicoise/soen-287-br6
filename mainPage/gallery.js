@@ -1,5 +1,19 @@
 var slideIndex = 1;
 
+
+//auto-scroll the slideshow
+function autoScroll() {
+    //increment to the next slide
+    slideIndex = slideIndex + 1;
+
+    //show the next slide
+    showSlides(slideIndex);
+
+    //do this every 6 seconds
+    setTimeout(autoScroll, 4000);
+}
+
+
 //create a slideshow from an array of images
 function createSlideshow(imageArr) {
 
@@ -9,7 +23,7 @@ function createSlideshow(imageArr) {
     //create carousel underneath images
     createCarousel(imageArr)
 
-    slideIndex = 1;
+
     showSlides(slideIndex);
 
 }
