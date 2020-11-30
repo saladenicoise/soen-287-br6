@@ -33,6 +33,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $glutenFree = 1;
         unset($_POST['glutenFree']);
     }
+    $category = $_POST['category'];
 
     $stmt = $conn->prepare("SELECT * FROM `Menu` WHERE productID=?");
     $stmt->bind_param('s', $productID); //Binds the parameter $productName to the query
@@ -43,12 +44,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($result <= 0) {//Item does not exist
         header('Location: /admin/admin.php?stat=editF');
     }else{
-        $stmt = $conn->prepare("UPDATE `Menu` SET productName=?, cost=?, isVeg=?, isGf=?, customId=? WHERE productID=?");
-        $stmt->bind_param('sdiiss', $productName, $productPrice, $vegetarian, $glutenFree, $customId, $productID);
-        $stmt->execute();
+        $stmt = $conn->prepare("UPDATE `Menu` SET productName=?, cost=?, isVeg=?, isGf=?, customId=?, category=? WHERE productID=?");
+        $stmt->bind_param('sdiisss', $productName, $productPrice, $vegetarian, $glutenFree, $customId, $category, $productID);
+        $res = $stmt->execute();
         $stmt->close();
         $conn->close();
-        header('Location: /admin/admin.php?stat=editS');
+        if($res) {
+            header('Location: /admin/admin.php?stat=editS');
+        }else{
+            echo "^ Error Occured ^";
+            exit();
+        }
     }
 }
 ?>

@@ -1,0 +1,98 @@
+/*Not pure white, nicer on the eyes*/
+
+body.login {
+    background-color: #52b1b8;
+}
+
+
+/*Makes our login area small and not take up entire screen*/
+
+div.login-page {
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+}
+
+form {
+    position: relative;
+    /*Put you at the front*/
+    z-index: 1;
+    background-color: white;
+    /*Same as the login page div, makes it smaller and more streamlined*/
+    max-width: 360px;
+    /*0 Margin Top | horizontal is automatic depending on the size of the screen | 100px bottom margin*/
+    margin: 0 auto 100px;
+    /*Move elements in 45px on all sides*/
+    padding: 45px;
+    /*Center Texts Element*/
+    text-align: center;
+    /*Adds a shadow to make it look smoother and not stark*/
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+form input {
+    background-color: #f0f0f0;
+    width: 100%;
+    /*Remove border to make it cleaner and blend in*/
+    border: 0;
+    /*15px Margin bottom for spacing between fields*/
+    margin-bottom: 15px;
+    /*15px of padding on all sides, makes the fields bigger*/
+    padding: 15px;
+    /*Will make it fit to the input size*/
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+form input:disabled {
+    background-color: #c4c4c4;
+}
+
+form button {
+    background-color: #3f888d;
+    /*No border is cleaner*/
+    border: 0;
+    color: white;
+    /*Less than 50% to have some margin between the 2 buttons*/
+    width: 48%;
+    /*Same padding as input fields*/
+    padding: 15px;
+}
+
+form button:disabled {
+    background-color: #173133;
+}
+
+
+/*Change opacity on hover*/
+
+form button:hover:enabled {
+    background-color: #316a6e;
+}
+
+button.sub-button {
+    /*Will be to the right*/
+    float: right;
+}
+
+button.res-button {
+    /*Will be to the left*/
+    float: left;
+}
+
+a.password-toggle {
+    position: absolute;
+    display: inline-block;
+    margin: -45px 0 0 280px;
+    size: 100%;
+}
+
+a.link {
+    display: inline-block;
+    text-decoration: none;
+    margin: 20px 0 -15px 0;
+}
+
+a.link:hover {
+    text-decoration: underline;
+}

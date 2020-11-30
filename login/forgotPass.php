@@ -15,32 +15,32 @@ if($statusSet) {
     <script src="/js/googleRecaptcha.js"></script>
     <script src="/js/printStat.js"></script>
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="../navBar/navBarStyles.css">
+    <link rel="stylesheet" href="login.css?v=1.1">
     <title>Forgot Password</title>
 </head>
 
 <?php
 if(!$statusSet) : ?>
-<body>
+<body class="login">
 <?php else : ?>
-    <body onload="printStatus('<?php echo $statusVal;?>')">
+    <body class="login" onload="printStatus('<?php echo $statusVal;?>')">
 <?php endif; ?>
-<?php include("../navBar/navBar.php")?>
-<p id='statusBox'></p>
+<div class="login-page"> 
     <form name='forgotPassForm' method="POST" action="forgotPassScript.php">
-        <table>
-            <tr>
-                <td><label>Email: </label></td>
-                <td><input type="email" name="email" id='email' required></td>
-            </tr>
-        </table>
+        <h1>Forgot Password</h1>     
+        <input type="email" name="email" id='email' placeholder="Email" required>
         <p id="message"></p>
+        <p class="status-message" id='statusBox'></p>
         <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
-        <button id="submit" type="submit">Submit</button>
-        <button type="reset">Reset</button>
+        <button class="sub-button" id="submit" type="submit">Submit</button>
+        <button class="res-button" type="reset">Reset</button>
+        <a class="link" href="login.php">Login</a>
+        <br>
+    <a class="link" href="signup.php">Signup</a>
+    <br>
+    <a class="link" href="/mainPage/mainPage.php">Main Page</a>
     </form>
-    <a href="login.php">Login</a>
-    <a href="signup.php">Signup</a>
+</div>
 </body>
 
 </html>

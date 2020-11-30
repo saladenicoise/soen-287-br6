@@ -17,341 +17,337 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
     <title>Admin Page</title>
-    <script src="/js/toggle.js"></script>
+    <link rel="stylesheet" href="admin.css">
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <script src="/js/disableSame.js"></script>
     <script src="/js/printStat.js"></script>
-    <link rel="stylesheet" href="../navBar/navBarStyles.css">
 </head>
+
+<nav>
+    <a href="#menu">
+        <i class="iconify icon:mdi:text-box-plus-outline icon-inline:false"></i>
+    </a>
+    <a href="#customization">
+        <i class="iconify icon:mdi:tag-plus-outline icon-inline:false"></i>
+    </a>
+    <a href="#contactUs">
+        <i class="iconify icon:mdi:email-outline icon-inline:false"></i>
+    </a>
+    <a onclick="location.href='/regular.php'">
+        <i class="iconify icon:mdi:account icon-inline:false"></i>
+    </a>
+</nav>
 <?php
-if(!$statusSet) : ?>
+    if(!$statusSet) : ?>
 <body>
 <?php else : ?>
-    <body onload="printStatus('<?php echo $statusVal;?>')">
+<body onload="printStatus('<?php echo $statusVal;?>')" >
 <?php endif; ?>
-    <?php include("../navBar/navBar.php")?>
-</br>
-    <button onclick="toggle('menuOfferings')">Show Menu Offerings</button>
-    <button onclick="toggle('customAdd')">Show Custom Add</button>
-    <button onclick="toggle('viewMessages')">Show Messages from Contact Page</button>
-    <button onclick="location.href='/regular.php'">Go back to user account page!</button>
-    <hr>
-    <p id='statusBox'></p>
-    <div id="menuOfferings" style="display: none;">
-        <fieldset>
-            <legend>Menu Offerings</legend>
-            <table border="1">
-                    <tr>
-                        <td><label>Product ID</label></td>
-                        <td><label>Item Name </label></td>
-                        <td><label>Price </label></td>
-                        <td><label>Vegetarian</td>
-                        <td><label>Gluten Free</label></td>
-                        <td><label>Custom ID</label></td>
-                        <td><label>Category</label></td>
-                    </tr>
-            <?php
-                $servername = "localhost";
-                $username = "dev";
-                $password = "dev";
-                $dbname = "soen287final";
+    <script>
+        function toggle(id) {
+            this.add = document.getElementById('add');
+            this.edit = document.getElementById('edit');
+            this.delete = document.getElementById('delete');
+            this.cAdd = document.getElementById('cAdd');
+            this.cEdit = document.getElementById('cEdit');
+            this.cDelete = document.getElementById('cDelete');
+            if (id === "add") {
+                this.delete.style.visibility = "hidden";
+                this.edit.style.visibility = "hidden";
+                this.add.style.visibility = "visible";
+            }
+            if (id === "edit") {
+                this.delete.style.visibility = "hidden";
+                this.add.style.visibility = "hidden";
+                this.edit.style.visibility = "visible";
+            }
+            if (id === "delete") {
+                this.edit.style.visibility = "hidden";
+                this.add.style.visibility = "hidden";
+                this.delete.style.visibility = "visible";
+            }
+            if (id === "cAdd") {
+                this.cDelete.style.visibility = "hidden";
+                this.cEdit.style.visibility = "hidden";
+                this.cAdd.style.visibility = "visible";
+            }
+            if (id === "cEdit") {
+                this.cDelete.style.visibility = "hidden";
+                this.cAdd.style.visibility = "hidden";
+                this.cEdit.style.visibility = "visible";
+            }
+            if (id === "cDelete") {
+                this.cEdit.style.visibility = "hidden";
+                this.cAdd.style.visibility = "hidden";
+                this.cDelete.style.visibility = "visible";
+            }
 
-                $conn = new mysqli($servername, $username, $password, $dbname);
+        }
+    </script>
+    <div class="admin-container">
+        <div id="statusDiv" class="fadeIn item" style="visibility: hidden;">
+                <p id='statusBox' class="messageBox"></p>
+            </div>
+        <div class="parent-container" id="menu">
+            <div class="fadeIn item">
+                <table class="fadeIn">
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Item Name </th>
+                            <th>Price </th>
+                            <th>Vegetarian</th>
+                            <th>Gluten Free</th>
+                            <th>Custom ID</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <?php
+                            $servername = "localhost";
+                            $username = "dev";
+                            $password = "dev";
+                            $dbname = "soen287final";
+                            $conn = new mysqli($servername, $username, $password, $dbname);
 
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
 
-                //No need for prepared statements since no input
-                $query = "SELECT * FROM `Menu`";
+                            //No need for prepared statements since no input
+                            $query = "SELECT * FROM `Menu`";
 
-                if ($result = $conn->query($query)) {
+                            if ($result = $conn->query($query)) {
 
-                    /* fetch associative array */
-                    while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-            ?>
-                <td><p><?php echo $row["productID"]?></p></td>
-                <td><p><?php echo $row["productName"]?></p></td>
-                <td><p><?php echo $row["cost"]?></p></td>
-                <td><p><?php echo ($row["isVeg"] == 1)? "Yes" : "No"?></p></td>
-                <td><p><?php echo ($row["isGf"] == 1)? "Yes" : "No" ?></p></td>
-                <td><p><?php echo (is_null($row["customId"])) ? "None" : $row["customId"]?></p></td>
-                <td><p><?php echo $row["category"]?></p></td>
-            <?php }
-                echo "</tr>";
+                                /* fetch associative array */
+                                while ($row = $result->fetch_assoc()) {
+                        ?>
+                            <td><?php echo $row["productID"]?></td>
+                            <td><?php echo $row["productName"]?></td>
+                            <td><?php echo $row["cost"]?></td>
+                            <td><?php echo ($row["isVeg"] == 1)? "Yes" : "No"?></td>
+                            <td><?php echo ($row["isGf"] == 1)? "Yes" : "No" ?></td>
+                            <td><?php echo (is_null($row["customId"])) ? "None" : $row["customId"]?></td>
+                            <td><?php echo $row["category"]?></td>
+                        </tr>
+                        <?php }
 
-                    /* free result set */
-                    $result->free();
-                }
-                $conn->close();
-            ?>
-            </tr>
-            </table>
-            <fieldset>
-                <legend>Add Menu Item</legend>
-            <form name="menuOfferingsAdd" method="POST" action="menuOfferAdd.php">
-                <table>
-                    <tr>
-                        <td><label>Item Name: </label></td>
-                        <td><label>Price: </label></td>
-                        <td><label>Customization Options</td>
-                        <td><label>Vegetarian</label></td>
-                        <td><label>Gluten Free</label></td>
-                        <td><label>Category</label></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="itemName" name="itemName" placeholder="Item Name" required></td>
-                        <td><input type="number" id="itemCost" name="itemCost" placeholder="Item Cost" required></td>
-                        <td><input class="center" type="checkbox" id="customOptions" name="customOptions" value="true"></td>
-                        <td><input class="center" type="checkbox" id="vegetarian" name="vegetarian" value="true" ></td>
-                        <td><input class="center" type="checkbox" id="glutenFree" name="glutenFree" value="true" ></td>
-                        <td><input class="center" type="text" id="category" name="category" placeholder="Category" required></td>
-                    </tr>
+                                /* free result set */
+                                $result->free();
+                            }
+                        $conn->close();
+                        ?>
+                    </tbody>
                 </table>
-                <button type="submit">Add to Menu</button>
-                <button type="reset">Clear Form</button>
-            </form>
-            </fieldset>
-            <fieldset>
-                <legend>Edit Menu Item</legend>
-            <form name="editMenuOffering" method="POST" action="editMenuOffer.php">
-            <table>
-                    <tr>
-                        <td><label>Product ID: </label></td>
-                        <td><label>Item Name: </label></td>
-                        <td><label>Price: </label></td>
-                        <td><label>Customization Id (Leave empty if none)</td>
-                        <td><label>Vegetarian</label></td>
-                        <td><label>Gluten Free</label></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" id="productID" name="productID" placeholder="Product ID" required></td>
-                        <td><input type="text" id="itemName" name="itemName" placeholder="Item Name" required></td>
-                        <td><input type="number" id="itemCost" name="itemCost" placeholder="Item Cost"></td>
-                        <td><input class="center" type="text" name="customId" id="customId" placeholder="Custom Id"></td>
-                        <td><input class="center" type="checkbox" id="vegetarian" name="vegetarian" value="true"></td>
-                        <td><input class="center" type="checkbox" id="glutenFree" name="glutenFree" value="true"></td>
-                    </tr>
-                </table>
-                <button type="submit">Edit Item</button>
-                <button type="reset">Clear Form</button>
-            </form>
-            </fieldset>
-            <fieldset>
-                <legend>Delete Items</legend>
-                <form name="deleteMenuOffering" method="POST" action="deleteMenuOffer.php">
-                    <table>
-                        <tr>
-                            <td><label>Product ID: </label></td>
-                        </tr>
-                        <tr>
-                            <td><input class="center" id="productID" name="productID" placeholder="Product ID" required></td>
-                        </tr>
-                    </table>
-                    <button type="submit">Delete Item</button>
-                    <button type="reset">Clear Form</button>
-                </form>
-            </fieldset>
-        </fieldset>
-    </div>
-
-    <div id="customAdd" style="display: none;">
-        <fieldset>
-            <legend>Custom Options Offerings</legend>
-            <table border="1">
-                    <tr>
-                        <td><label>Custom ID</label></td>
-                        <td><label>Option 1</td>
-                        <td><label>Option 2</td>
-                        <td><label>Option 3</td>
-                        <td><label>Option 4</td>
-                        <td><label>Option 5</td>
-                        <td><label>Option 6</td>
-                    </tr>
-                    <tr>
-            <?php
-                $servername = "localhost";
-                $username = "dev";
-                $password = "dev";
-                $dbname = "soen287final";
-                $conn = new mysqli($servername, $username, $password, $dbname);
-
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
-
-                //No need for prepared statements since no input
-                $query = "SELECT * FROM `CustomizationOptions`";
-                if ($result = $conn->query($query)) {
-
-                    /* fetch associative array */
-                    while ($row = $result->fetch_assoc()) {
-            ?>
-                <td><p><?php echo $row["customId"]?></p></td>
-                <td><p><?php echo (is_null($row["customOption1"])) ? "None" : $row["customOption1"]?></p></td>
-                <td><p><?php echo (is_null($row["customOption2"])) ? "None" : $row["customOption2"]?></p></td>
-                <td><p><?php echo (is_null($row["customOption3"])) ? "None" : $row["customOption3"]?></p></td>
-                <td><p><?php echo (is_null($row["customOption4"])) ? "None" : $row["customOption4"]?></p></td>
-                <td><p><?php echo (is_null($row["customOption5"])) ? "None" : $row["customOption5"]?></p></td>
-                <td><p><?php echo (is_null($row["customOption6"])) ? "None" : $row["customOption6"]?></p></td>
-            <?php }
-
-                    /* free result set */
-                    $result->free();
-                }
-                $conn->close();
-            ?>
-            </tr>
-            </table>
-            <fieldset>
-                <legend>Add Custom Option</legend>
-                <form name="customOptionAdd" method="POST" action="customOptionAdd.php">
-                    <table>
-                        <tr>
-                            <td><label>Custom ID:</label></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="customId" id="customId" placeholder="Custom ID" required></td>
-                        </tr>
-                        <tr>
-                            <td><label>Custom Option 1:</label></td>
-                            <td><label>Custom Option 2:</label></td>
-                            <td><label>Custom Option 3:</label></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="customOption1" id="customOption1" placeholder="Option 1"></td>
-                            <td><input type="text" name="customOption2" id="customOption2" placeholder="Option 2"></td>
-                            <td><input type="text" name="customOption3" id="customOption3" placeholder="Option 3"></td>
-                        </tr>
-                        <tr>
-                            <td><label>Custom Option 4:</label></td>
-                            <td><label>Custom Option 5:</label></td>
-                            <td><label>Custom Option 6:</label></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="customOption4" id="customOption4" placeholder="Option 4"></td>
-                            <td><input type="text" name="customOption5" id="customOption5" placeholder="Option 5"></td>
-                            <td><input type="text" name="customOption6" id="customOption6" placeholder="Option 6"></td>
-                        </tr>
-                    </table>
-                    <button type="submit">Add Customization Options</button>
-                    <button type="reset">Clear Form</button>
-                </form>
-            </fieldset>
-            <fieldset>
-                <legend>Edit Customization Options</legend>
-                <p>Leave field blank for no customization option</p>
-                <form name="editCustom" method="POST" action="editCustom.php">
-                <table>
-                        <tr>
-                            <td><label>Custom ID:</label></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="customId" id="customId" placeholder="Custom ID" required></td>
-                        </tr>
-                        <tr>
-                            <td><label>Custom Option 1:</label></td>
-                            <td><label>Custom Option 2:</label></td>
-                            <td><label>Custom Option 3:</label></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="customOption1" id="customOption1" placeholder="Option 1"></td>
-                            <td><input type="text" name="customOption2" id="customOption2" placeholder="Option 2"></td>
-                            <td><input type="text" name="customOption3" id="customOption3" placeholder="Option 3"></td>
-                        </tr>
-                        <tr>
-                            <td><label>Custom Option 4:</label></td>
-                            <td><label>Custom Option 5:</label></td>
-                            <td><label>Custom Option 6:</label></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="customOption4" id="customOption4" placeholder="Option 4"></td>
-                            <td><input type="text" name="customOption5" id="customOption5" placeholder="Option 5"></td>
-                            <td><input type="text" name="customOption6" id="customOption6" placeholder="Option 6"></td>
-                        </tr>
-                    </table>
-                    <button type="submit">Edit Customization Options</button>
-                    <button type="reset">Clear Form</button>
-                </form>
-            </fieldset>
-            <fieldset>
-                <form name="deleteCustom" method="POST" action="deleteCustom.php">
-                    <table>
-                        <tr>
-                            <td><label>Custom ID:</label></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="customId" id="customId" placeholder="Custom ID" required></td>
-                        </tr>
-                    </table>
-                    <button type="submit">Delete Customization Options</button>
-                    <button type="reset">Clear Form</button>
-                </form>
-            </fieldset>
-        </fieldset>
-    </div>
-            
-    <!-- Forms from Contact Us page-->
-    <div id="viewMessages" style="display: none;">
-        <fieldset>
-            <legend>Messages</legend>
-            <table border="1">
-                    <tr>
-                        <td><label>Form ID</label></td>
-                        <td><label>Contact Name </label></td>
-                        <td><label>Phone Number </label></td>
-                        <td><label>Email</td>
-                        <td><label>Address</label></td>
-                        <td><label>Subject</label></td>
-                        <td><label>Message</label></td>
-                    </tr>
-            <?php
-                $servername = "localhost";
-                $username = "dev";
-                $password = "dev";
-                $dbname = "soen287final";
-
-                $conn = new mysqli($servername, $username, $password, $dbname);
-
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
-
-                //No need for prepared statements since no input
-                $query = "SELECT * FROM `contactforms`";
-
-                if ($result = $conn->query($query)) {
-
-                    /* fetch associative array */
-                    while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-            ?>
-                <td><p><?php echo $row["Form_ID"]?></p></td>
-                <td><p><?php echo $row["contactName"]?></p></td>
-                <td><p><?php echo $row["contactNumber"]?></p></td>
-                <td><p><?php echo $row["contactEmail"]?></p></td>
-                <td><p><?php echo $row["contactAddress"]?></p></td>
-                <td><p><?php echo $row["contactSubject"]?></p></td>
-                <td><p><?php echo $row["contactMessage"]?></p></td>
-                <td>
-                    <form action="deleteMessage.php" method="post">
-                        <input type="submit" name="removeMsg" value="" />
+            </div>
+            <div class="fadeIn item">
+                <a onclick="toggle('add')" class="option">Add</a>
+                <a onclick="toggle('edit')" class="option">Edit</a>
+                <a onclick="toggle('delete')" class="option">Delete</a>
+            </div>
+            <div class="child-parent-container" style="visibility: hidden;">
+                <div id="add" class="add fadeIn" style="visibility: visible;">
+                    <form class="add" name="menuOfferingsAdd" method="POST" action="menuOfferAdd.php">
+                        <h3>Add Menu Item</h3>
+                        <input type="text" id="itemName" name="itemName" placeholder="Item Name" required>
+                        <input type="number" id="itemCost" name="itemCost" placeholder="Item Cost" required>
+                        <p>Customization<input class="center" type="checkbox" id="customOptions" name="customOptions" value="true"></p>
+                        <p>Vegetarian<input class="center" type="checkbox" id="vegetarian" name="vegetarian" value="true"></p>
+                        <p>Gluten Free<input class="center" type="checkbox" id="glutenFree" name="glutenFree" value="true"></p>
+                        <input class="center" type="text" id="category" name="category" placeholder="Category" required>
+                        <button type="submit">Add to Menu</button>
+                        <button type="reset">Clear Form</button>
                     </form>
-                </td>
+                </div>
+                <div id="edit" class="edit" style="visibility: hidden;">
+                    <form class="edit" name="editMenuOffering" method="POST" action="editMenuOffer.php">
+                        <h3>Edit Menu Item</h3>
+                        <input type="number" id="productID" name="productID" placeholder="Product ID" required>
+                        <input type="text" id="itemName" name="itemName" placeholder="Item Name" required>
+                        <input type="number" id="itemCost" name="itemCost" placeholder="Item Cost">
+                        <input class="center" type="text" name="customId" id="customId" placeholder="Custom Id (Leave empty if none)">
+                        <p>Vegatarian<input class="center" type="checkbox" id="vegetarian" name="vegetarian" value="true"></p>
+                        <p>Gluten Free<input class="center" type="checkbox" id="glutenFree" name="glutenFree" value="true"></p>
+                        <input class="center" type="text" id="category" name="category" placeholder="Category" required>
+                        <button type="submit">Edit Item</button>
+                        <button type="reset">Clear Form</button>
+                    </form>
+                </div>
+                <div id="delete" class="delete" style="visibility: hidden;">
+                    <form name="deleteMenuOffering" method="POST" action="deleteMenuOffer.php">
+                        <h3>Delete Menu Item</h3>
+                        <input class="center" id="productID" name="productID" placeholder="Product ID" required>
+                        <button type="submit">Delete Item</button>
+                        <button type="reset">Clear Form</button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-            <?php }
-                echo "</tr>";
+        <div class="parent-container" id="customization">
+            <div id="statusDiv" class="fadeIn item" style="visibility: hidden;">
+                <p id='statusBox' class="messageBox"></p>
+            </div>
+            <div class="item">
+                <table class="fadeIn">
+                    <thead>
+                        <tr>
+                            <th>Custom ID</th>
+                            <th>Option 1</th>
+                            <th>Option 2</th>
+                            <th>Option 3</th>
+                            <th>Option 4</th>
+                            <th>Option 5</th>
+                            <th>Option 6</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <?php
+                            $servername = "localhost";
+                            $username = "dev";
+                            $password = "dev";
+                            $dbname = "soen287final";
+                            $conn = new mysqli($servername, $username, $password, $dbname);
 
-                    /* free result set */
-                    $result->free();
-                }
-                $conn->close();
-            ?>
-            </tr>
-            </table>
-        </fieldset>
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
+
+                            //No need for prepared statements since no input
+                            $query = "SELECT * FROM `CustomizationOptions`";
+                            if ($result = $conn->query($query)) {
+
+                                /* fetch associative array */
+                                while ($row = $result->fetch_assoc()) {
+                        ?>
+                            <td><p><?php echo $row["customId"]?></p></td>
+                            <td><p><?php echo (is_null($row["customOption1"])) ? "None" : $row["customOption1"]?></p></td>
+                            <td><p><?php echo (is_null($row["customOption2"])) ? "None" : $row["customOption2"]?></p></td>
+                            <td><p><?php echo (is_null($row["customOption3"])) ? "None" : $row["customOption3"]?></p></td>
+                            <td><p><?php echo (is_null($row["customOption4"])) ? "None" : $row["customOption4"]?></p></td>
+                            <td><p><?php echo (is_null($row["customOption5"])) ? "None" : $row["customOption5"]?></p></td>
+                            <td><p><?php echo (is_null($row["customOption6"])) ? "None" : $row["customOption6"]?></p></td>
+                            </tr>
+                        <?php }
+
+                                /* free result set */
+                                $result->free();
+                            }
+                            $conn->close();
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="fadeIn item">
+                <a onclick="toggle('cAdd')" class="option">Add</a>
+                <a onclick="toggle('cEdit')" class="option">Edit</a>
+                <a onclick="toggle('cDelete')" class="option">Delete</a>
+            </div>
+            <div class="child-parent-container" style="visibility: hidden;">
+                <div id="cAdd" class="add fadeIn" style="visibility: visible;">
+                    <form name="customOptionAdd" method="POST" action="customOptionAdd.php">
+                        <h3>Add Customization Option</h3>
+                        <input type="text" name="customId" id="customId" placeholder="Custom ID" required>
+                        <input type="text" name="customOption1" id="customOption1" placeholder="Option 1">
+                        <input type="text" name="customOption2" id="customOption2" placeholder="Option 2">
+                        <input type="text" name="customOption3" id="customOption3" placeholder="Option 3">
+                        <input type="text" name="customOption4" id="customOption4" placeholder="Option 4">
+                        <input type="text" name="customOption5" id="customOption5" placeholder="Option 5">
+                        <input type="text" name="customOption6" id="customOption6" placeholder="Option 6">
+                        <button type="submit">Add Customization Options</button>
+                        <button type="reset">Clear Form</button>
+                    </form>
+                </div>
+                <div id="cEdit" class="edit" style="visibility: hidden;">
+                    <form name="customOptionAdd" method="POST" action="customOptionAdd.php">
+                        <h3>Edit Customization Option</h3>
+                        <input type="text" name="customId" id="customId" placeholder="Custom ID" required>
+                        <input type="text" name="customOption1" id="customOption1" placeholder="Option 1">
+                        <input type="text" name="customOption2" id="customOption2" placeholder="Option 2">
+                        <input type="text" name="customOption3" id="customOption3" placeholder="Option 3">
+                        <input type="text" name="customOption4" id="customOption4" placeholder="Option 4">
+                        <input type="text" name="customOption5" id="customOption5" placeholder="Option 5">
+                        <input type="text" name="customOption6" id="customOption6" placeholder="Option 6">
+                        <button type="submit">Edit Customization Options</button>
+                        <button type="reset">Clear Form</button>
+                    </form>
+                </div>
+                <div id="cDelete" class="delete" style="visibility: hidden;">
+                    <form name="deleteCustom" method="POST" action="deleteCustom.php">
+                        <h3>Delete Customization Option</h3>
+                        <input type="text" name="customId" id="customId" placeholder="Custom ID" required>
+                        <button type="submit">Delete</button>
+                        <button type="reset">Clear Form</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="parent-container" id="contactUs">
+
+            <div class="item">
+                <table class="fadeIn">
+                    <thead>
+                        <tr>
+                            <th>Form ID</th>
+                            <th>Contact Name</th>
+                            <th>Phone Number </th>
+                            <th>Contact Email</th>
+                            <th>Contact Address</th>
+                            <th>Contact Subject</th>
+                            <th>Contact Message</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <?php
+                            $servername = "localhost";
+                            $username = "dev";
+                            $password = "dev";
+                            $dbname = "soen287final";
+
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
+
+                            //No need for prepared statements since no input
+                            $query = "SELECT * FROM `contactforms`";
+
+                            if ($result = $conn->query($query)) {
+
+                                /* fetch associative array */
+                                while ($row = $result->fetch_assoc()) {
+                        ?>
+                            <td><p><?php echo $row["Form_ID"]?></p></td>
+                            <td><p><?php echo $row["contactName"]?></p></td>
+                            <td><p><?php echo $row["contactNumber"]?></p></td>
+                            <td><p><?php echo $row["contactEmail"]?></p></td>
+                            <td><p><?php echo $row["contactAddress"]?></p></td>
+                            <td><p><?php echo $row["contactSubject"]?></p></td>
+                            <td><p><?php echo $row["contactMessage"]?></p></td>
+                            <td>
+                                <form action="deleteMessage.php" method="post">
+                                    <button class="do-not-touch" type="submit"><i class="iconify icon:mdi:trash-can-outline icon-inline:false"></i></button>
+                                </form>
+                            </td>
+                            </tr>
+                        <?php }
+
+                            /* free result set */
+                            $result->free();
+                            }
+                            $conn->close();
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 

@@ -63,11 +63,16 @@
             header('Location: /admin/admin.php?stat=addF', true);
         }else{
             $stmt = $conn->prepare("INSERT INTO `Menu` (productName, cost, isVeg, isGF, customId, category) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param('sdiis', $productName, $productPrice, $vegetarian, $glutenFree, $customId, $category);
-            $stmt->execute();
+            $stmt->bind_param('sdiiss', $productName, $productPrice, $vegetarian, $glutenFree, $customId, $category);
+            $res = $stmt->execute();
             $stmt->close();
             $conn->close();
-            header('Location: /admin/admin.php?stat=addS');
+            if($res) {
+                header('Location: /admin/admin.php?stat=addS');
+            }else{
+                echo "^ Error Occured ^";
+                exit();
+            }
         }
 
     }
