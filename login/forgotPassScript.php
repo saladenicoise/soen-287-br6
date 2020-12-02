@@ -33,10 +33,11 @@
     $fEmail = "";
     $uname = "";
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $servername = "localhost";
-        $username = "dev";
-        $password = "dev";
-        $dbname = "soen287final";
+        require('./configure.php'); 
+        $servername = DB_SERVER;
+        $username = DB_USER;
+        $password = DB_PASS;
+        $dbname = DB_NAME;
 
         $fEmail = test_input($_POST['email']);
         $conn = new mysqli($servername, $username, $password, $dbname);

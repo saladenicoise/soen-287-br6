@@ -1,6 +1,10 @@
 <?php
 header_remove();
 session_start();
+$servername = 'localhost';
+$username = 'dev';
+$password = 'dev';
+$dbname = 'soen287final';
 if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Session is up(user has logged in)
     $statusSet = isset($_GET['stat']);
     $statusVal = "";
@@ -8,7 +12,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
         $statusVal = $_GET['stat'];
     }
 }else{
-    header('Location: /regular.php?stat=notA');
+    header('Location: ../dashboard/regular.php?stat=notA');
 }
 ?>
 <!DOCTYPE html>
@@ -34,7 +38,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
     <a href="#contactUs">
         <i class="iconify icon:mdi:email-outline icon-inline:false"></i>
     </a>
-    <a onclick="location.href='/regular.php'">
+    <a onclick="location.href='/dashboard/regular.php'">
         <i class="iconify icon:mdi:account icon-inline:false"></i>
     </a>
 </nav>
@@ -106,10 +110,6 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                     <tbody>
                         <tr>
                         <?php
-                            $servername = "localhost";
-                            $username = "dev";
-                            $password = "dev";
-                            $dbname = "soen287final";
                             $conn = new mysqli($servername, $username, $password, $dbname);
 
                             if ($conn->connect_error) {
@@ -149,7 +149,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
             </div>
             <div class="child-parent-container" style="visibility: hidden;">
                 <div id="add" class="add fadeIn" style="visibility: visible;">
-                    <form class="add" name="menuOfferingsAdd" method="POST" action="menuOfferAdd.php">
+                    <form class="form" name="menuOfferingsAdd" method="POST" action="menuOfferAdd.php">
                         <h3>Add Menu Item</h3>
                         <input type="text" id="itemName" name="itemName" placeholder="Item Name" required>
                         <input type="number" id="itemCost" name="itemCost" placeholder="Item Cost" required>
@@ -162,7 +162,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                     </form>
                 </div>
                 <div id="edit" class="edit" style="visibility: hidden;">
-                    <form class="edit" name="editMenuOffering" method="POST" action="editMenuOffer.php">
+                    <form class="form" name="editMenuOffering" method="POST" action="editMenuOffer.php">
                         <h3>Edit Menu Item</h3>
                         <input type="number" id="productID" name="productID" placeholder="Product ID" required>
                         <input type="text" id="itemName" name="itemName" placeholder="Item Name" required>
@@ -176,7 +176,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                     </form>
                 </div>
                 <div id="delete" class="delete" style="visibility: hidden;">
-                    <form name="deleteMenuOffering" method="POST" action="deleteMenuOffer.php">
+                    <form class="form" name="deleteMenuOffering" method="POST" action="deleteMenuOffer.php">
                         <h3>Delete Menu Item</h3>
                         <input class="center" id="productID" name="productID" placeholder="Product ID" required>
                         <button type="submit">Delete Item</button>
@@ -206,10 +206,6 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                     <tbody>
                         <tr>
                         <?php
-                            $servername = "localhost";
-                            $username = "dev";
-                            $password = "dev";
-                            $dbname = "soen287final";
                             $conn = new mysqli($servername, $username, $password, $dbname);
 
                             if ($conn->connect_error) {
@@ -248,7 +244,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
             </div>
             <div class="child-parent-container" style="visibility: hidden;">
                 <div id="cAdd" class="add fadeIn" style="visibility: visible;">
-                    <form name="customOptionAdd" method="POST" action="customOptionAdd.php">
+                    <form class="form" name="customOptionAdd" method="POST" action="customOptionAdd.php">
                         <h3>Add Customization Option</h3>
                         <input type="text" name="customId" id="customId" placeholder="Custom ID" required>
                         <input type="text" name="customOption1" id="customOption1" placeholder="Option 1">
@@ -262,7 +258,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                     </form>
                 </div>
                 <div id="cEdit" class="edit" style="visibility: hidden;">
-                    <form name="customOptionAdd" method="POST" action="customOptionAdd.php">
+                    <form class="form" name="customOptionAdd" method="POST" action="customOptionAdd.php">
                         <h3>Edit Customization Option</h3>
                         <input type="text" name="customId" id="customId" placeholder="Custom ID" required>
                         <input type="text" name="customOption1" id="customOption1" placeholder="Option 1">
@@ -276,7 +272,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                     </form>
                 </div>
                 <div id="cDelete" class="delete" style="visibility: hidden;">
-                    <form name="deleteCustom" method="POST" action="deleteCustom.php">
+                    <form class="form" name="deleteCustom" method="POST" action="deleteCustom.php">
                         <h3>Delete Customization Option</h3>
                         <input type="text" name="customId" id="customId" placeholder="Custom ID" required>
                         <button type="submit">Delete</button>
@@ -305,11 +301,6 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                     <tbody>
                         <tr>
                         <?php
-                            $servername = "localhost";
-                            $username = "dev";
-                            $password = "dev";
-                            $dbname = "soen287final";
-
                             $conn = new mysqli($servername, $username, $password, $dbname);
 
                             if ($conn->connect_error) {
@@ -332,8 +323,8 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                             <td><p><?php echo $row["contactSubject"]?></p></td>
                             <td><p><?php echo $row["contactMessage"]?></p></td>
                             <td>
-                                <form action="deleteMessage.php" method="post">
-                                    <button class="do-not-touch" type="submit"><i class="iconify icon:mdi:trash-can-outline icon-inline:false"></i></button>
+                                <form class="del" action="deleteMessage.php" method="post">
+                                    <button class="delButton" type="submit"><i class="iconify icon:mdi:trash-can-outline icon-inline:false"></i></button>
                                 </form>
                             </td>
                             </tr>

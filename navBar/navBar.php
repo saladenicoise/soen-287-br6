@@ -47,7 +47,7 @@
     if($replaceLogin != 1) : ?>
     <li class="navBar" style="float: right;"><a class="navbarElement" href="../login/login.php">Login</a></li>
     <?php else : ?>
-    <li class="navBar" style="float: right;"><a class="navbarElement" href="../regular.php">Profile</a></li>
+    <li class="navBar" style="float: right;"><a class="navbarElement" href="../dashboard/regular.php">Profile</a></li>
     <?php endif; ?>
     <li class="navBar" style="float: right;"><a class="navbarElement" href="../menu/cart.php">Cart</a></li>
 </ul>

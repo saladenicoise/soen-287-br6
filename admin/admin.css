@@ -9,6 +9,7 @@
        background: var(--admin-container-bg-color);
        /*Set the height relative to the 100% of the view, so we basically scale to the proper size of the screen*/
        min-height: 100vh;
+       height: auto;
    }
    /*Our variables*/
    
@@ -17,7 +18,7 @@
        --primary-color: #34644d;
        --nav-color: #165479;
        --complimentary-color: #567771;
-       --contrast-color: #969696;
+       --contrast-color: #307985;
        --form-color: #758d81;
        --header-color: #3797F8;
        --input-bg-color: #f0f0f0;
@@ -68,6 +69,10 @@
        opacity: 0;
    }
    
+   div.child-parent-container {
+       height: 100%;
+   }
+   
    div:target {
        opacity: 1;
        position: absolute;
@@ -83,14 +88,18 @@
    }
    
    #menu {
+       height: auto;
        background: var(--primary-color);
    }
    
    #customization {
+       height: auto;
        background: var(--complimentary-color);
    }
    
    #contactUs {
+       height: 100%;
+       max-height: fit-content;
        background: var(--contrast-color);
    }
    /* Animation */
@@ -170,7 +179,13 @@
    }
    /**Forms**/
    
-   form {
+   h3 {
+       display: block;
+       margin-top: -20px;
+       padding-bottom: 10px;
+   }
+   
+   form.form {
        /*Put you at the front*/
        z-index: 1;
        max-width: 500px;
@@ -185,11 +200,7 @@
        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
    }
    
-   form.add {
-       position: relative;
-   }
-   
-   form input {
+   form.form input {
        background-color: var(--input-bg-color);
        width: 100%;
        /*Remove border to make it cleaner and blend in*/
@@ -204,11 +215,11 @@
    }
    /*Change opacity on hover*/
    
-   form button:hover {
+   form.form button:hover {
        background-color: var(--form-btn-hover-color);
    }
    
-   form button {
+   form.form button {
        background-color: var(--form-btn-color);
        /*No border is cleaner*/
        border: 0;
@@ -217,6 +228,15 @@
        width: 48%;
        /*Same padding as input fields*/
        padding: 15px;
+   }
+   
+   button.delButton {
+       border: 1px;
+       background-color: red;
+       color: white;
+       padding: 5px;
+       margin-left: 8px;
+       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
    }
    /**Status Message**/
    

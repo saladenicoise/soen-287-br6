@@ -11,7 +11,8 @@
 </head>
 
 <body class="mainPageBody">
-
+    <!-- Navigation Bar -->
+    <?php include("../navBar/navBar.php")?>
     <div class="headerSection">
         <span class="textHeaders">
             <p class="mainHeader"> House of Chef James Mitchell </p>
@@ -19,9 +20,6 @@
             <p class="mainSubHeader"> Your Culinary Journey Begins Here </p>
         </span>
     </div>
-
-    <!-- Navigation Bar -->
-    <?php include("../navBar/navBar.php")?>
     
 
     <div class="Meals">

@@ -25,5 +25,5 @@
         <p> <button onclick = "location.href = 'desserts.php'">Desserts</button> </p>
         <p> <button onclick = "location.href = 'NEW.php'">NEW!!! (Special items added just this week!)</button> </p>
     </body>
-
+    <?php include("../footer/footer.php")?>
 </html>

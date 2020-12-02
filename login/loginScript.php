@@ -22,8 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
     $recaptcha = json_decode($recaptcha);
     // Take action based on the score returned:
-    //TODO: FIX WHEN IT ACTUALLY WORKS
-    if ($recaptcha->score >= 0.1) {
+    if ($recaptcha->score >= 0.6) {
         $verified = 1;
     }
 }
@@ -32,10 +31,11 @@ $uname = "";
 $pword = "";
 $errorMessage = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $servername = "localhost";
-        $username = "dev";
-        $password = "dev";
-        $dbname = "soen287final";
+    require('./configure.php'); 
+    $servername = DB_SERVER;
+    $username = DB_USER;
+    $password = DB_PASS;
+    $dbname = DB_NAME;
 
         $uname = test_input($_POST['username']);
         $pword = $_POST['password'];
@@ -62,12 +62,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $stmt->close();
             if (password_verify($pword, $hash) && $fetchRes) { //Does the password match the hash of the password
                 $_SESSION["login"] = "1";
+                $_SESSION["username"] = $uname;
                 if($isAdmin === 1) {
                     $_SESSION["admin"] = "1";
                 }
                 $errorMessage = "You have been logged in!";
                 if($verified == 1) {
-                    header('Location: /regular.php');
+                    header('Location: /dashboard/regular.php');
                 }else{
 
                     header('Location: /login/login.php?stat=loginG');

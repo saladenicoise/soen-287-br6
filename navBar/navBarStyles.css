@@ -1,8 +1,15 @@
 /*css for the navigation bar
 */
-.navi
-{
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.navi {
     list-style-type: none;
+    position: fixed;
+    width: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -11,21 +18,18 @@
     top: 0;
 }
 
-.navBar
-{
+.navBar {
     float: left;
     border-right: 1px;
     border-right-color: white;
     border-right-style: solid;
 }
 
-.navBar:last-child
-{
+.navBar:last-child {
     border-right: none;
 }
 
-.navbarElement
-{
+.navbarElement {
     display: block;
     padding: 6px;
     text-align: center;
@@ -33,8 +37,7 @@
     text-decoration: none;
 }
 
-.navbarElement:hover
-{
+.navbarElement:hover {
     background-color: lightslategray;
 }
 
@@ -43,13 +46,11 @@
    The drop down is not implemented yet
 */
 
-li.dropDown
-{
+li.dropDown {
     display: inline;
 }
 
-.dropDownContent
-{
+.dropDownContent {
     display: none;
     color: white;
     padding: 8px 8px;
@@ -57,10 +58,6 @@ li.dropDown
     text-align: left;
 }
 
-.dropDownContent a:hover
-{
+.dropDownContent a:hover {
     background-color: lightslategray;
 }
-
-
-

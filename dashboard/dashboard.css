@@ -1,0 +1,104 @@
+body {
+    background-color: #6d88a3;
+}
+
+:root {
+    --header-color: #3797F8;
+    --nav-bg-color: #27313a;
+    --nav-hover-bg-color: #0d1013;
+}
+
+div.center {
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    align-items: space-between;
+    animation: fadeIn forwards 1s;
+}
+
+div.item {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+h1,
+h2 {
+    color: white;
+}
+
+
+/**Animations**/
+
+@keyframes fadeIn {
+    100% {
+        opacity: 1
+    }
+}
+
+
+/**Navbar**/
+
+ul {
+    margin: -8px 0 0 -8px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    list-style: none;
+    background-color: var(--nav-bg-color);
+}
+
+li {
+    padding: 15px;
+}
+
+li:hover {
+    background-color: var(--nav-hover-bg-color);
+}
+
+a {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.right {
+    display: block;
+    position: absolute;
+    right: 0;
+}
+
+
+/**Tables **/
+
+table {
+    margin-top: 15px;
+    border-collapse: collapse;
+    width: 60%;
+    background-color: grey;
+    color: white;
+}
+
+table td,
+th {
+    border: solid 1px white;
+    padding: 5px;
+}
+
+table thead {
+    background-color: var(--header-color);
+}
+
+
+/**Status**/
+
+.fail {
+    color: red;
+    font-weight: bolder;
+}
+
+.success {
+    color: yellowgreen;
+    font-weight: bolder;
+}

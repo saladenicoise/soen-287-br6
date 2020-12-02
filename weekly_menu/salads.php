@@ -35,5 +35,5 @@
         </ol>
         
     </body>
-
+    <?php include("../footer/footer.php")?>
 </html>
