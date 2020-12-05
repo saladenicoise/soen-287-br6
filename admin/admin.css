@@ -223,6 +223,7 @@
        background-color: var(--form-btn-color);
        /*No border is cleaner*/
        border: 0;
+       margin-top: 10px;
        color: white;
        /*Less than 50% to have some margin between the 2 buttons*/
        width: 48%;
@@ -241,8 +242,18 @@
    /**Status Message**/
    
    p.messageBox {
-       margin-top: 10px;
-       background-color: var(--form-color);
+       display: flex;
+       justify-content: center;
+       align-self: center;
        padding: 10px;
-       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+   }
+   
+   span.success {
+       color: greenyellow;
+       font-weight: bold;
+   }
+   
+   span.fail {
+       color: red;
+       font-weight: bold;
    }

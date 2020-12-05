@@ -17,11 +17,10 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         /*See about setting up environment variables
         */
-        require('./login/configure.php'); 
-$servername = DB_SERVER;
-$username = DB_USER;
-$password = DB_PASS;
-$dbname = DB_NAME;
+        $servername = "localhost";
+        $username = "dev";
+        $password = "dev";
+        $dbname = "soen287final";
 
         /*Get Data from form*/
         $customId = $_POST['customId'];
@@ -48,7 +47,7 @@ $dbname = DB_NAME;
         $result = $stmt->num_rows;
         if($result == 0) {
             $errorMessage = "<b>Product Does Not exists</b>";
-            header('Location: /admin/admin.php?stat=customF1', true);
+            header('Location: /admin/admin.php?stat=customF1#customization', true);
             exit();
         } 
 
@@ -61,14 +60,14 @@ $dbname = DB_NAME;
         $stmt->close();
         if($result > 0) {
             $errorMessage = "<b>Product Already exists</b>";
-            header('Location: /admin/admin.php?stat=customF2', true);
+            header('Location: /admin/admin.php?stat=customF2#customization', true);
         }else{
             $stmt = $conn->prepare("INSERT INTO `CustomizationOptions` (customId, customOption1, customOption2, customOption3, customOption4, customOption5, customOption6) VALUES (?, ?, ?, ?, ?, ?, ?)");
             $stmt->bind_param('sssssss', $customId, $customOption1, $customOption2, $customOption3, $customOption4, $customOption5, $customOption6);
             $stmt->execute();
             $stmt->close();
             $conn->close();
-            header('Location: /admin/admin.php?stat=customS');
+            header('Location: /admin/admin.php?stat=customS#customization');
         }
     }
 ?>
