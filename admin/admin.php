@@ -314,6 +314,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
 
                                 /* fetch associative array */
                                 while ($row = $result->fetch_assoc()) {
+
                         ?>
                             <td><p><?php echo $row["Form_ID"]?></p></td>
                             <td><p><?php echo $row["contactName"]?></p></td>
@@ -324,7 +325,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                             <td><p><?php echo $row["contactMessage"]?></p></td>
                             <td>
                                 <form class="del" action="deleteMessage.php" method="post">
-                                    <button class="delButton" type="submit"><i class="iconify icon:mdi:trash-can-outline icon-inline:false"></i></button>
+                                    <button class="delButton" name="delete" value=<?php $row["Form_ID"] ?> type="submit"><i class="iconify icon:mdi:trash-can-outline icon-inline:false"></i></button>
                                 </form>
                             </td>
                             </tr>
