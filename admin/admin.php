@@ -90,9 +90,6 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
         }
     </script>
     <div class="admin-container">
-        <div id="statusDiv" class="fadeIn item" style="visibility: hidden;">
-                <p id='statusBox' class="messageBox"></p>
-            </div>
         <div class="parent-container" id="menu">
             <div class="fadeIn item">
                 <table class="fadeIn">
@@ -150,6 +147,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                 <a onclick="toggle('delete')" class="option">Delete</a>
             </div>
             <div class="child-parent-container" style="visibility: hidden;">
+                <p id='statusBox' class="messageBox"></p>
                 <div id="add" class="add fadeIn" style="visibility: visible;">
                     <form class="form" name="menuOfferingsAdd" method="POST" action="menuOfferAdd.php" enctype="multipart/form-data">
                         <h3>Add Menu Item</h3>
@@ -193,9 +191,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
         </div>
 
         <div class="parent-container" id="customization">
-            <div id="statusDiv" class="fadeIn item" style="visibility: hidden;">
                 <p id='statusBox' class="messageBox"></p>
-            </div>
             <div class="item">
                 <table class="fadeIn">
                     <thead>
@@ -331,7 +327,8 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                             <td><p><?php echo $row["contactMessage"]?></p></td>
                             <td>
                                 <form class="del" action="deleteMessage.php" method="post">
-                                    <button class="delButton" name="delete" value=<?php $row["Form_ID"] ?> type="submit"><i class="iconify icon:mdi:trash-can-outline icon-inline:false"></i></button>
+                                    <input type="hidden" value=<?php echo "\"" . $row["Form_ID"] . "\""?> name="delete" id="delete">
+                                    <button class="delButton" type="submit"><i class="iconify icon:mdi:trash-can-outline icon-inline:false"></i></button>
                                 </form>
                             </td>
                             </tr>
