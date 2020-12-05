@@ -207,7 +207,9 @@ span.fail {
 
 .meetSection {
     background-color: #808080;
+    color: white;
     margin: 40px 80px 40px 80px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 .staffTable {
@@ -250,6 +252,32 @@ span.fail {
 
 .InfoContainer {
     text-align: center;
+}
+
+
+/* Main Divider class was created by Harry Roberts at https://css-tricks.com/examples/hrs/ */
+
+.maindivider {
+    overflow: visible;
+    /* For IE */
+    padding: 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    border-top: medium double white;
+    color: white;
+    text-align: center;
+}
+
+.maindivider:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: #3f888d;
 }
 
 
