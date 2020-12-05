@@ -105,6 +105,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                             <th>Gluten Free</th>
                             <th>Custom ID</th>
                             <th>Category</th>
+                            <th>Sub Category</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -131,6 +132,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                             <td><?php echo ($row["isGf"] == 1)? "Yes" : "No" ?></td>
                             <td><?php echo (is_null($row["customId"])) ? "None" : $row["customId"]?></td>
                             <td><?php echo $row["category"]?></td>
+                            <td><?php echo $row["subcategory"]?></td>
                         </tr>
                         <?php }
 
@@ -149,7 +151,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
             </div>
             <div class="child-parent-container" style="visibility: hidden;">
                 <div id="add" class="add fadeIn" style="visibility: visible;">
-                    <form class="form" name="menuOfferingsAdd" method="POST" action="menuOfferAdd.php">
+                    <form class="form" name="menuOfferingsAdd" method="POST" action="menuOfferAdd.php" enctype="multipart/form-data">
                         <h3>Add Menu Item</h3>
                         <input type="text" id="itemName" name="itemName" placeholder="Item Name" required>
                         <input type="number" id="itemCost" name="itemCost" placeholder="Item Cost" required>
@@ -157,6 +159,9 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                         <p>Vegetarian<input class="center" type="checkbox" id="vegetarian" name="vegetarian" value="true"></p>
                         <p>Gluten Free<input class="center" type="checkbox" id="glutenFree" name="glutenFree" value="true"></p>
                         <input class="center" type="text" id="category" name="category" placeholder="Category" required>
+                        <input class="center" type="text" id="sub-category" name="sub-category" placeholder="Sub-Category" required>
+                        <input class="file" type="file" id="picUpload" name="picUpload" required accept="image/*" placeholder="Product Picture">
+                        <p>Picture will be resized to 128px x 128px</p>
                         <button type="submit">Add to Menu</button>
                         <button type="reset">Clear Form</button>
                     </form>
@@ -171,6 +176,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                         <p>Vegatarian<input class="center" type="checkbox" id="vegetarian" name="vegetarian" value="true"></p>
                         <p>Gluten Free<input class="center" type="checkbox" id="glutenFree" name="glutenFree" value="true"></p>
                         <input class="center" type="text" id="category" name="category" placeholder="Category" required>
+                        <input class="center" type="text" id="sub-category" name="sub-category" placeholder="Sub-Category" required>
                         <button type="submit">Edit Item</button>
                         <button type="reset">Clear Form</button>
                     </form>

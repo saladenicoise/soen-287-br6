@@ -223,6 +223,7 @@
        background-color: var(--form-btn-color);
        /*No border is cleaner*/
        border: 0;
+       margin-top: 10px;
        color: white;
        /*Less than 50% to have some margin between the 2 buttons*/
        width: 48%;
