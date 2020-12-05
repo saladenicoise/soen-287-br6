@@ -80,8 +80,9 @@ function createSlides(imageArr) {
         //set the properties of each element
         img.setAttribute("src", imageArr[i])
         img.setAttribute("id", "image " + i)
-        img.setAttribute("width", 400)
-        img.setAttribute("height", 400)
+        img.setAttribute("width", 700)
+        img.setAttribute("height", 500)
+        img.style.margin = "20px"
 
         slide.appendChild(prev)
             //put slide into the slideshow container
