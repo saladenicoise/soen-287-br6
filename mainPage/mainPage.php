@@ -32,6 +32,9 @@
 
                     //make a slideshow from the images
                     createSlideshow(images);
+
+                    //auto-scroll the slideshow
+                    autoScroll();
                 </script>
             </div>
         </div>
