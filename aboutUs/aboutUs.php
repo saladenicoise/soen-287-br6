@@ -9,8 +9,9 @@
 </head>
 
 <body>
+    <h1 class="aboutHeader"> About Us </h1><br>
+
     <?php include("../navBar/navBar.php")?>
-   
 
 
     <div class="aboutSection">
