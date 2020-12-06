@@ -13,106 +13,77 @@
     <?php include("../navBar/navBar.php"); ?>
     
 
-    <h1 class="contactUsHeader">
-        We would love to here from you
-    </h1>
-    <br>
 
     <!-- TODO: store forms in the DB -->
     <div class="formSection">
-        <table class="formContainer">
-            <tr>
-                <td>
+        <div class="formContainer">
 
-                    <form class="contactForm" id="contactForm" method="POST" action="">
-                        <p class="error"> * = mandatory fields </p>
+            <form class="contactForm" id="contactForm" method="POST" action="">
+                
 
-                        <br>
+                <input class="formText" type="text" id="name" name="name" placeholder="* Name" required> 
 
-                        <input class="formText" type="text" id="name" name="name" placeholder="Name" required> <span class="error">* <?php echo $nameErr;?></span>
+                <br><br>
 
-                        <br><br>
+                <input class="formText" type="tel" id="phone" name="phone" maxlength="12" placeholder="* Phone Number (ex. 000-000-0000)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> 
 
-                        <input class="formText" type="tel" id="phone" name="phone" maxlength="12" placeholder="Phone Number (ex. 000-000-0000)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> <span class="error">* <?php echo $phoneErr;?></span>
+                <br><br>
 
-                        <br><br>
+                <input class="formText" type="email" id="email" name="email" placeholder="* Email (example@hotmail.com)" required> 
 
-                        <input class="formText" type="email" id="email" name="email" placeholder="Email (example@hotmail.com)" required> <span class="error">* <?php echo $emailErr;?></span>
+                <br><br>
 
-                        <br><br>
+                <input class="formText" type="text" id="address" name="address" placeholder="Address">
 
-                        <input class="formText" type="text" id="address" name="address" placeholder="Address">
+                <br><br>
 
-                        <br><br>
+                <input class="formText" type="text" id="subject" name="subject" placeholder="* Subject" required> <span class="error">
 
-                        <input class="formText" type="text" id="subject" name="subject" placeholder="Subject" required> <span class="error">* <?php echo $subjectErr;?></span>
+                <br><br>
 
-                        <br><br>
+                <textarea class="formTextArea" id="message" name="message" placeholder="Message (Allergies, etc)" required></textarea> 
 
-                        <textarea class="formTextArea" id="message" name="message" placeholder="Message (Allergies, etc)" required></textarea> <span class="error">* <?php echo $messageErr;?></span>
+                <br><br>
 
-                        <br><br>
+                <span class="result"> <?php echo $result;?></span>
 
-                        <span class="result"> <?php echo $result;?></span>
+                <p> mandatory fields *</p>
 
-                        <input type="submit" value="Submit" class="submitButton">
+                <br><br>
 
-                        <button type="reset" class="clearButton">Clear</button>
-                    </form>
-                </td>
+                <input type="submit" value="Submit" class="submitButton">
 
-                <td>
-                <div class="formHeader">
-                    <p class="formLabel1 "> We are here to answer all your questions </p>
-                    <br>
-                    <hr class="labelDivider ">
-                    <br>
-                    <p class="formLabel2 ">We want to take the time again to thank you for visiting us at our online home</p>
-                </div>
-                </td>
-            </tr>
-        </table>
+                <button type="reset" class="clearButton">Clear</button>
+            </form>
+        </div>
+        <div class="formHeader">
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+            <p class="bigText"> We are here to answer all your questions </p>
+            <br>
+            <hr class="maindivider2">
+            <br>
+            <p class="smallText">We want to take the time again to thank you for visiting us at our online home</p>
+        </div>
     </div>
 
 
 
     <!-- All Location Info for the Business-->
     <div class="locationInfo ">
-        <table class="mainReviewTable ">
-            <tr>
-                <td>
-                    <!-- location of the business from google maps -->
-
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4713.08608792001!2d-74.09537151169121!3d45.38074314688996!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc418db34dc295933!2sHouse%20of%20Chef%20James%20Mitchell%20inc.%20%7C%20House%20of%20Junior%20Chefs!5e0!3m2!1sen!2sca!4v1603919048973!5m2!1sen!2sca "
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4713.08608792001!2d-74.09537151169121!3d45.38074314688996!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc418db34dc295933!2sHouse%20of%20Chef%20James%20Mitchell%20inc.%20%7C%20House%20of%20Junior%20Chefs!5e0!3m2!1sen!2sca!4v1603919048973!5m2!1sen!2sca "
                         width="400 " height="300 " frameborder="0 " style="border:0; " allowfullscreen=" " aria-hidden="false " tabindex="0 "></iframe>
+        </div>
+        <div class="addr">
+            <h2 class="bigText"> Address:</h2>
+            <p class="smallText"> 1061 rue de la paix,<br> St.Lazare, Quebec <br>J7T 2A8, Canada </p>
+            <br> <p class="smallText">Give us a call at 514.941.5483</p>
+            <p class="smallText"> For any written requests,
+                <br> please reach us at
+                <a href="mailto:orders@chefjamesmitchell.com ">orders@chefjamesmitchell.com </a>
+            </p>
+            </div>
 
-                </td>
-
-                <td>
-                    <!-- Address Table so that the picture lines up and everything looks nice-->
-                    <table class="addressTable ">
-                        <tr>
-                            <td>
-                                <h2> Address:</h2>
-                                <p> 1061 rue de la paix,<br> St.Lazare, Quebec <br>J7T 2A8, Canada </p>
-                                <br> Give us a call at 514.941.5483
-                            </td>
-                            <td class="mailImage ">
-                                <img src="../images/general/mail.png " width="200 " height="200 ">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p> For any written requests,
-                                    <br> please reach us at
-                                    <a href="mailto:orders@chefjamesmitchell.com ">orders@chefjamesmitchell.com </a>
-                                </p>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
     </div>
 
     <?php include("../footer/footer.php")?>

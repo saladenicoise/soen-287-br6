@@ -13,7 +13,7 @@
 <body class="mainPageBody">
     <!-- Navigation Bar -->
     <?php include("../navBar/navBar.php")?>
-    <div class="headerSection">
+    <div class="headerSection" >
         <span class="textHeaders">
             <p class="mainHeader"> House of Chef James Mitchell </p>
             <div class="divider"> </div>
@@ -24,7 +24,8 @@
 
     <div class="Meals">
         <div class="meals">
-            <h2 class="mealsHeader"> Check Out some of our previous Meals </h2>
+            <h2 class="mealsHeader"> We take pride in our work</h2>
+            <hr class="textdivider">
             <div id="slideshow">
                 <script>
                     // get all the images from the folder with PHP
@@ -38,9 +39,26 @@
                 </script>
             </div>
         </div>
+        <div class="text">
+            <h2> Previous Succeses </h2>
+            <hr class="textdivider">
+            <p class="textreview">"[...]The food was delicious and the service and communication was extremely professional[...]"</p>
+            <br><br>
+            <p class="textreview">"The most amazing appetizer put together. Just delicious. You guys are the best!! You create food that brings people together and everyone loves it.[...]"</p>
+            <br><br>
+            <p class="textreview">"The seared tuna we had last week was amazing! The spices were a perfect blend and the sides were so complimentary! The whole family really enjoyed it!"</p>
+            <br><br>
+            <p class="textreview">"If I could give them 15 stars I would"</p>
+            <br><br>
+            <p class="textreview">"Amazing food at a great price."</p>
+            <br><br>
+            <p class="textreview">"We just had our daughter's baptism catered by Chef James Mitchell. The food was beyond amazing and exceeding our expectations[...]"</p>
+            <br><br>
+
+        </div>
     </div>
 
-
+<hr class="maindivider1">
 
     <div class="meetSection">
 

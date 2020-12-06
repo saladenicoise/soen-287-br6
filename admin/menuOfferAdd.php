@@ -21,11 +21,11 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         /*See about setting up environment variables
         */
-        require('./login/configure.php'); 
-$servername = DB_SERVER;
-$username = DB_USER;
-$password = DB_PASS;
-$dbname = DB_NAME;
+        require('../configure.php');
+        $servername = DB_SERVER;
+        $username = DB_USER;
+        $password = DB_PASS;
+        $dbname = DB_NAME;
         /*Get all of our data from our form
         */
         $productName = test_input($_POST['itemName']);
@@ -43,7 +43,39 @@ $dbname = DB_NAME;
             unset($_POST['glutenFree']);
         }
         $category = test_input($_POST['category']);
+        $sub_category = test_input($_POST['sub-category']);
 
+
+        /*Picture Handling*/
+        $pictureDir = "../productPictures/";
+        $pictureFile = $pictureDir . basename($_FILES["picUpload"]["name"]);
+        $imageFileType = strtolower(pathinfo($pictureFile,PATHINFO_EXTENSION));
+        $upload = 1;
+
+        /* Check if file already exists*/
+        if (file_exists($pictureFile)) {
+            echo "Sorry, file already exists.";
+            $upload = 0;
+        }
+  
+        /* Check file size*/
+        if ($_FILES["picUpload"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $upload = 0;
+        }
+
+        if($upload == 0) {
+            echo "Error: File not uploaded!";
+            exit();
+        }else{
+            if(move_uploaded_file($_FILES["picUpload"]["tmp_name"], $pictureFile)) {
+                echo "The file " . htmlspecialchars(basename($_FILES["picUpload"]["name"])) . "has been uploaded!";
+                $filePath = $_FILES["picUpload"]["name"];
+            }else{
+                echo "Error: File not uploaded";
+                exit();
+            }
+        }
         /* MySQL Stuff
         */
         $conn = new mysqli($servername, $username, $password, $dbname);
@@ -60,15 +92,15 @@ $dbname = DB_NAME;
         $stmt->close();
         if($result > 0) {
             $errorMessage = "<b>Product already exists</b>";
-            header('Location: /admin/admin.php?stat=addF', true);
+            header('Location: /admin/admin.php?stat=addF#menu', true);
         }else{
-            $stmt = $conn->prepare("INSERT INTO `Menu` (productName, cost, isVeg, isGF, customId, category) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param('sdiiss', $productName, $productPrice, $vegetarian, $glutenFree, $customId, $category);
+            $stmt = $conn->prepare("INSERT INTO `Menu` (productName, cost, isVeg, isGF, customId, category, subcategory, imagePath) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param('sdiissss', $productName, $productPrice, $vegetarian, $glutenFree, $customId, $category, $sub_category, $filePath);
             $res = $stmt->execute();
             $stmt->close();
             $conn->close();
             if($res) {
-                header('Location: /admin/admin.php?stat=addS');
+                header('Location: /admin/admin.php?stat=addS#menu');
             }else{
                 echo "^ Error Occured ^";
                 exit();

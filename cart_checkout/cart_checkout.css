@@ -1,0 +1,384 @@
+
+.dishes-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding-bottom: 100px;
+    max-width: 650px; 
+    justify-content: space-around; 
+    margin: 0 auto; 
+   
+   
+}
+.dishes-container-Bill {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding-bottom: 100px;
+    max-width: 300px; 
+    justify-content: space-around; 
+    margin: 0 auto; 
+}
+.dishes-container ion-icon{
+    font-size: :25px;
+    color: black;
+    margin-right:20px;
+    cursor:pointer;
+}
+.dish-headers {
+    width:100%;
+    max-width:650px;
+    display:flex;
+    justify-content: flex-start;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin:0 auto;
+    
+}
+.dish-headers-Bill{
+    width:100%;
+    max-width:300px;
+    display:flex;
+    justify-content: flex-start;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin:0 auto;
+}
+
+.dishSize {
+    width:45%;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+}
+.dishSize-Bill{
+    width:20%;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+}
+
+.dishPrice,.dishPrice-Bill {
+    width:15%;
+    display:flex;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items: center;
+}
+
+.dishTotal,.dishTotal-Bill {
+    width:10%;
+    display:flex;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items:center;
+    
+}
+
+
+.dishQuantity, .dishQuantity-Bill {
+    width:30%;
+    display: flex;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items: center;
+}
+
+.dishes ,.dishes-Bill{
+    width:100%; 
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 50px;
+}
+.dish, {
+    width:50%;
+    border-bottom-color:lightgray;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+}
+.dish_name{
+    width:30%;
+}
+.price{
+    width:14%;
+    display:flex;
+    border-bottom-color: lightgray;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items: center;
+}
+.quantity{
+    width:28%;
+    display: flex;
+    border-bottom-color: lightgray;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items: center;
+}
+.total{
+     width:9%;
+    display:flex;
+    border-bottom-color: lightgray;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items:center;
+}
+.basketTotalContainer{
+    display:flex;
+    justify-content: flex-end;
+    width:100%;
+    padding: 10px 0;
+}
+.basketTotalTitle{
+    width:30%
+}
+.basketTotal{
+    width:10%
+}
+
+#checkOut {
+    display:flex;
+    justify-content: flex-end;
+    width:80%;
+    
+}
+
+#mainPage {
+     display:flex;
+    justify-content: flex-end;
+    width:80%;
+}
+button{
+    border-color:black;
+    border-radius: 15px;
+    width:30px;
+    font-size: 15px
+}
+img{
+    width: 170px;
+}
+
+
+
+#billing_address {
+    
+    width:40%;
+}
+
+#placeOrder {
+    border-radius: 10%;
+    font-size:20px;
+    width:200px;
+    height:50px; 
+    color: white;
+    background-color: cadetblue;
+   
+}
+
+
+#orderSummary {
+    padding-top: 50px;
+    float:right;
+    width:600px;
+    height:30%;
+    background-color: lightgray;
+    margin-top: 60px;
+    margin-right: 40px;
+    
+}
+
+#client_info {
+    margin-top: 50px; 
+    margin-left: 40px;
+    
+}
+
+#fname {
+    padding-top: 5px;
+    padding-right: 8px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    border-radius: 5%;
+}
+
+#email {
+    padding-top: 5px;
+    padding-right: 8px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    border-radius: 5%;
+}
+
+#adr {
+    padding-top: 5px;
+    padding-right: 8px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    border-radius: 5%;
+}
+
+#city {
+    padding-top: 5px;
+    padding-right: 8px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    border-radius: 5%;
+}
+
+#state {
+    padding-top: 5px;
+    padding-right: 8px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    border-radius: 5%;
+}
+
+#zip {
+    padding-top: 5px;
+    padding-right: 8px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    border-radius: 5%;
+}
+
+#cname {
+    padding-top: 5px;
+    padding-right: 8px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    border-radius: 5%;
+}
+
+#ccnum {
+    padding-top: 5px;
+    padding-right: 8px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    border-radius: 5%;
+}
+
+#expmonth {
+    padding-top: 5px;
+    padding-right: 8px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    border-radius: 5%;
+    width:15%;
+}
+
+#expyear {
+    padding-top: 5px;
+    padding-right: 8px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    border-radius: 5%;
+    width:15%;
+}
+
+#cvv {
+    padding-top: 5px;
+    padding-right: 8px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    border-radius: 5%;
+}
+
+
+
+#mapid {
+   margin-top: 20px;
+    margin-left:40px;
+    margin-bottom: 60px;
+    float:left;
+}
+
+#payment {
+    width:40%;
+}
+
+
+
+label {
+    width:150px;
+    display:inline-block
+}
+
+#input {
+    float:left;
+    margin-left: 150px;
+    margin-top: 80px;
+    width:600px;
+    background-color: lightgray;
+   
+}
+
+#address_input {
+   margin-top:50px;
+    margin-left:100px;
+    width:350px;
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#search_button {
+    width:100px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 10%;
+    font-size: 20px;
+    color:white;
+    background-color: cadetblue;
+    float:right;
+    margin-right: 90px;
+}
+
+legend {
+    font-size: 30px;
+    color:white;
+}
+
+body {
+    background-color: cadetblue;
+}
+
+#emailErrorInfo {
+    color:red;
+}
+
+#postalCodeErrorInfo {
+     color:red;
+}
+
+#ccnumErrorInfo {
+     color:red;
+}
+
+#expMonthErrorInfo {
+     color:red;
+}
+
+#expYearErrorInfo {
+     color:red;
+}
+
+#cvvErrorInfo {
+     color:red;
+}

@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<!--Most up to date-->
 <link rel = "stylesheet" href = "../footer/footer.css">
     <footer>
+
         <table id = "tablefooter" >
             <tr>
                 <td rowspan="5" id = "message"> 
@@ -65,12 +64,10 @@
                                 <a class = "footer" id = "clickable-pics" href = "https://www.instagram.com/houseofchefjamesmitchell/"> 
                                     <img id = "imgfooter" src = ../footer/footerimages/insta.png
                                     alt = "Instagram"> </a>
+                                    <br><br>
                 </td>
-            </tr>
+            </tr>        
         </table>
+      
     </footer>
-
-
-
-
     

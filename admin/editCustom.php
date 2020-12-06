@@ -15,11 +15,11 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         /*See about setting up environment variables
         */
-        require('./login/configure.php'); 
-$servername = DB_SERVER;
-$username = DB_USER;
-$password = DB_PASS;
-$dbname = DB_NAME;
+        require('../configure.php');
+        $servername = DB_SERVER;
+        $username = DB_USER;
+        $password = DB_PASS;
+        $dbname = DB_NAME;
 
         /*Get Data from form*/
         $customId = $_POST['customId'];
