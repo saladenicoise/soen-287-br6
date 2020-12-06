@@ -1,7 +1,27 @@
 <?php
+
+if(!empty($_POST['fullname'])&&!empty($_POST['email'])&&!empty($_POST['address'])&&!empty($_POST['city'])&&!empty($_POST['state'])&&!empty($_POST['zip'])){
+    $continueProcess=true;
+}
+
+$emailAddr="";
+$fullName="";
+if(isset($_POST['placeOrder'])&&isset($continueProcess)){
+    $fullName=$_POST['fullname'];
+    $emailAddr=$_POST['email'];
+    $address=$_POST['address'];
+    $cityName=$_POST['city'];
+    $_state=$_POST['state'];
+    $postalCode=$_POST['zip'];
+    
+}
+
 session_start();
-$clientName=$_SESSION["fullName"];
-$clientEmail=$_SESSION["email"];
+$_SESSION["fullName"]=$fullName;
+$_SESSION["email"]=$emailAddr;
+
+
+header("Location:Congradulations.php");
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
@@ -32,11 +52,11 @@ $mail->Username = 'bens51035@gmail.com';
 //Password to use for SMTP authentication
 $mail->Password = '12345678BEbe!';
 //Set who the message is to be sent from
-$mail->setFrom('bens51035@gmail.com', 'Mail Tester');
+$mail->setFrom('bens51035@gmail.com', 'Maison De Chef Team');
 //Set an alternative reply-to address
 //$mail->addReplyTo('replyto@example.com', 'First Last');
 //Set who the message is to be sent to email and name
-$mail->addAddress($clientEmail);
+$mail->addAddress($emailAddr);
 //Name is optional
 //$mail->addAddress('recepientid@domain.com');
 
@@ -57,7 +77,7 @@ $mail->addAttachment("thankyou.png");
 $mail->Subject = 'Thank you so much for your order!';
 //Read an HTML message body from an external file, convert referenced images to embedded,
 //convert HTML into a basic plain-text alternative body
-$mail->Body = "Dear $clientName,<br/><br/>An account has been successfully created for you with userID \"$userId\".<br/><br/>Best regards,<br/>Gmail Administrator";
+$mail->Body = "Dear $fullName,<br/><br/>We have received your order! And will get down to it as soon as possible!<br/><br/>Best regards,<br/>James Mitchell";
 //You may add plain text version using AltBody
 //$mail->AltBody = "This is the plain text version of the email content";
 //send the message, check for errors
@@ -67,6 +87,6 @@ if (!$mail->send()) {
     echo 'Message was sent Successfully!';
 }
 
-header("Location:Congradulations.php");
+
 exit();
 ?>

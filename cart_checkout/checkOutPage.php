@@ -1,23 +1,3 @@
-<?php 
-if(!empty($_POST['fullname'])&&!empty($_POST['email'])&&!empty($_POST['address'])&&!empty($_POST['city'])&&!empty($_POST['state'])&&!empty($_POST['zip'])){
-    $continueProcess=true;
-}
-session_start();
-$_SESSION["fullName"]="";
-$_SESSION["email"]="";
-
-if(isset($_POST['placeOrder'])&&isset($continueProcess)){
-    $fullName=$_POST['fullname'];
-    $emailAddr=$_POST['email'];
-    $address=$_POST['address'];
-    $cityName=$_POST['city'];
-    $_state=$_POST['state'];
-    $postalCode=$_POST['zip'];
-    $_SESSION["fullName"]=$fullName;
-    $_SESSION["email"]=$emailAddr;
-}
-?>
-    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +20,7 @@ if(isset($_POST['placeOrder'])&&isset($continueProcess)){
 <body>
     <?php include("../navBar/navBar.php")?>
     
-<form action="process.php" method="post" onsubmit="return validateInfo()" >
+<form action="orderProcess.php" method="post" onsubmit="return validateInfo()" >
     <div id="orderSummary">
         <div class="dishes-container-Bill">
             <div class="dish-headers-Bill">
