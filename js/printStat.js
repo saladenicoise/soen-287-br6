@@ -58,21 +58,33 @@ function printStatus(status) {
         this.statusBox.innerHTML = "<span class=\"success\">Successfully deleted custom options</span>";
     }
     if (status == "fPassF") { //Forgot password failed, user does not exist
-        this.statusBox.innerHTML = "<span class=\"fail\">No user with that email found</span>"
+        this.statusBox.innerHTML = "<span class=\"fail\">No user with that email found</span>";
     }
     if (status == "fPassG") { //Forgot password failed, user does not exist
-        this.statusBox.innerHTML = "<span class=\"fail\">Captcha Failed</span>"
+        this.statusBox.innerHTML = "<span class=\"fail\">Captcha Failed</span>";
     }
     if (status == "resetPassF") { //Fail to reset
-        this.statusBox.innerHTML = "<span class=\"fail\">User does not exist</span>"
+        this.statusBox.innerHTML = "<span class=\"fail\">User does not exist</span>";
     }
     if (status == "resetPassG") {
-        this.statusBox.innerHTML = "<span class=\"fail\">Captcha Failed</span>"
+        this.statusBox.innerHTML = "<span class=\"fail\">Captcha Failed</span>";
     }
     if (status == "resetPassS") {
-        this.statusBox.innerHTML = "<span class=\"success\">Sucessfully Reset Password</span>"
+        this.statusBox.innerHTML = "<span class=\"success\">Sucessfully Reset Password</span>";
     }
     if (status == "resetPassT") {
-        this.statusBox.innerHTML = "<span class=\"fail\">Time Limit Exceeded! Please enter your username again!</span>"
+        this.statusBox.innerHTML = "<span class=\"fail\">Time Limit Exceeded! Please enter your username again!</span>";
+    }
+    if (status == "delMessageS") {
+        this.statusBox.innerHTML = "<span class=\"success\">Successfully deleted message!</span>";
+    }
+    if (status == "imgFS") {
+        this.statusBox.innerHTML = "<span class=\"fail\">Image size too large!</span>";
+    }
+    if (status == "imgFE") {
+        this.statusBox.innerHTML = "<span class=\"fail\">Image already exists!</span>";
+    }
+    if (status == "imgF") {
+        this.statusBox.innerHTML = "<span class=\"fail\">Image not uploaded!</span>";
     }
 }

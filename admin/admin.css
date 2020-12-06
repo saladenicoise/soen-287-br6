@@ -2,6 +2,7 @@
        margin: 0;
        padding-bottom: 0;
        box-sizing: border-box;
+       font-family: 'Alike';
    }
    /***Navbar CSS***/
    
@@ -177,6 +178,11 @@
    table thead {
        background-color: var(--header-color);
    }
+   
+   .desc {
+       max-width: 100px;
+       max-height: 50px;
+   }
    /**Forms**/
    
    h3 {
@@ -212,6 +218,18 @@
        /*Will make it fit to the input size*/
        box-sizing: border-box;
        font-size: 14px;
+   }
+   
+   form.form textarea {
+       background-color: var(--input-bg-color);
+       width: 100%;
+       height: 50px;
+       padding: 12px;
+       box-sizing: border-box;
+       border: 0;
+       font-size: 14px;
+       resize: none;
+       margin-bottom: 15px;
    }
    /*Change opacity on hover*/
    

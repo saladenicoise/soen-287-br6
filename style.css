@@ -313,30 +313,86 @@ span.fail {
 
 /* CSS for Review Page */
 
+.divcontainer { 
+    overflow: hidden; 
+}
+
+.mainReviews { 
+    width: 25%;
+    float: left;
+    margin-left: 1%;
+    margin-top: 2%;
+}
+
+.facebookReviews {
+    width: 40%; 
+    float: right;
+    text-align: center;
+    margin-right: 29.5%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    background-color: #808080;
+    color: white;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.overallratings {
+    color: white;
+    font-family: 'Aleo';
+    font-size: 25px;
+}
+
+.mainReviewTable {
+    background-color: #808080;
+    color: white;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
 .reviewTable {
     border: 3px solid #c00000;
 }
 
-.googleReview {
+.logoReview {
+    float: left;
+}
+
+.googleReview, .facebookReview {
     border-bottom: 3px solid #c00000;
+    font-family: 'Aleo';
     font-weight: normal;
+    font-size: 20px;
 }
 
 .checked {
     color: #c00000;
 }
 
-.mainReviewHeader {
+.facebookReviewHeader {
+    font-family: 'Aleo';
+    font-size: 20px;
+    margin-top: 2%;
+    width: 50%;
+    margin-left: 25%;
     text-align: center;
 }
 
-.facebookReviewHeader {
-    text-align: center;
+.facebookTextdivider {
+    background-color: white;
+    width: 90%;
+    margin-left: 4.75%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border: solid white 2px;
 }
 
 .facebookReviewTable {
-    margin-left: auto;
-    margin-right: auto;
+    align-self: center;
+    display: inline-block;
+}
+
+.facebookText {
+    border: solid blue 1px;
+    overflow: hidden;
 }
 
 
