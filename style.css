@@ -330,12 +330,6 @@ span.fail {
     text-align: center;
 }
 
-.mainReviewTable {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
 .facebookReviewHeader {
     text-align: center;
 }
@@ -412,62 +406,111 @@ span.fail {
 }
 
 .formSection {
+    display: flex;
     width: 100%;
     height: 25%;
-    background-color: black;
-    margin: 0 100px 0 0;
+    justify-content: center;
+    align-items: center;
 }
 
 .formContainer {
+    max-width: 500px;
+    width: auto;
+    margin: 40px;
+    height: 675px;
+    color: black;
+    background-color: white;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.formHeader {
+    background-color: #808080;
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 675px;
+    width: auto;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.locationInfo {
+    display: flex;
+    align-items: center;
+    max-width: 900px;
+    justify-content: center;
+    background-color: #808080;
+    color: white;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 40px;
+    width: auto;
+    height: 330px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.map {
+    background-color: #808080;
+    width: 400px;
+    color: white;
+    margin: 10px;
+}
+
+.addr {
+    background-color: #808080;
+    width: 400px;
+    color: white;
+    margin: 10px;
+    font-family: 'Alike';
+    font-size: 15px;
+}
+
+.addr a {
+    color: white;
 }
 
 .contactForm {
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-
-.formLabel1 {
-    color: white;
-    margin: 0 0 0 150px;
-    text-align: center;
-    font-family: 'Aleo';
-    font-size: 40px;
-}
-
-.labelDivider {
-    margin: 0 0 0 150px;
-}
-
-.formLabel2 {
-    color: white;
-    margin: 0 0 0 150px;
-    text-align: center;
-    font-family: 'Alike';
-    font-size: 25px;
+    margin: 40px;
 }
 
 .error,
 .result {
     text-align: center;
+    color: black;
+}
+
+.bigText {
+    font-family: 'Aleo';
+    font-size: 30px;
+    color: white;
+}
+
+.smallText {
+    font-family: 'Alike';
+    font-size: 20px;
     color: white;
 }
 
 .formText {
     font-family: 'Alike';
     font-size: 15px;
-    border-radius: 5px;
-    color: white;
-    border-color: black;
-    background-color: #c00000;
-    width: 300px;
-    height: 20px;
+    background-color: #f0f0f0;
+    width: 100%;
+    /*Remove border to make it cleaner and blend in*/
+    border: 0;
+    /*Will make it fit to the input size*/
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.formText:disabled {
+    background-color: #c4c4c4;
 }
 
 .formText::placeholder {
-    color: white;
+    color: #808080;
     font-family: 'Alike';
     font-size: 15px;
 }
@@ -475,43 +518,47 @@ span.fail {
 .formTextArea {
     font-family: 'Alike';
     font-size: 15px;
-    border-radius: 5px;
-    color: white;
-    border-color: black;
-    background-color: #c00000;
+    background-color: #f0f0f0;
+    width: 100%;
+    /*Remove border to make it cleaner and blend in*/
+    border: 0;
+    /*Will make it fit to the input size*/
+    padding: 15px;
+    box-sizing: border-box;
     resize: none;
-    width: 300px;
+    font-size: 14px;
     height: 100px;
 }
 
 .formTextArea::placeholder {
-    color: white;
+    color: #808080;
     font-family: 'Alike';
     font-size: 15px;
 }
 
-.submitButton {
-    background-color: #c00000;
-    border-radius: 5px;
-    border-color: #c00000;
-    display: inline-block;
-    cursor: pointer;
+.submitButton,
+.clearButton {
+    background-color: #3f888d;
+    /*No border is cleaner*/
+    border: 0;
     color: white;
-    font-family: Arial;
-    font-weight: bold;
-    text-decoration: none;
+    /*Less than 50% to have some margin between the 2 buttons*/
+    width: 48%;
+    /*Same padding as input fields*/
+    padding: 15px;
 }
 
-.clearButton {
-    background-color: #c00000;
-    border-radius: 5px;
-    border-color: #c00000;
-    display: inline-block;
-    cursor: pointer;
-    color: white;
-    font-family: Arial;
-    font-weight: bold;
-    text-decoration: none;
+.submitButton:disabled,
+.clearButton:disabled {
+    background-color: #173133;
+}
+
+
+/*Change opacity on hover*/
+
+.submitButton:hover:enabled,
+.clearButton:hover:enabled {
+    background-color: #316a6e;
 }
 
 

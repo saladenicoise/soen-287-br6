@@ -24,7 +24,7 @@
 
     <div class="Meals">
         <div class="meals">
-            <h2 class="mealsHeader"> Perfection is the Expectation</h2>
+            <h2 class="mealsHeader"> We take pride in our work</h2>
             <hr class="textdivider">
             <div id="slideshow">
                 <script>

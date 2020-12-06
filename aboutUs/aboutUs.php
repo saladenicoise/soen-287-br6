@@ -24,15 +24,15 @@
             </div>
         </div>
             <div class="aboutText">
-                <p> About Us </p>
+                <p class="bigText"> About Us </p>
                 <hr class="textdivider">
                 <br>
-                <p>Bringing a unique & rustic charm to all your catering needs!! Priding ourselves to being number one in the Saint Lazare and Vaudreuil Area!!! Take a look at our Website for all the wonderful services, menus and classes that are now available
+                <p class="smallText">Bringing a unique & rustic charm to all your catering needs!! Priding ourselves to being number one in the Saint Lazare and Vaudreuil Area!!! Take a look at our Website for all the wonderful services, menus and classes that are now available
                 to everyone. </p>
                 <br>
-                <p> New with the webiste are our online orders! You can take a look and customise the meal of your choice, down to the ingredient.</p>
+                <p class="smallText"> New with the webiste are our online orders! You can take a look and customise the meal of your choice, down to the ingredient.</p>
                 <br>
-                <p>Contact us today. Make sure to follow our social media platforms on facebook and instagram.</p>
+                <p class="smallText">Contact us today. Make sure to follow our social media platforms on facebook and instagram.</p>
                 <br>
             </div> 
     </div>
