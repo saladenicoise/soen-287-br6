@@ -5,14 +5,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="catering_pages.css">
-        <link rel="stylesheet" href="../navBar/navBarStyles.css">
-        <link rel = "stylesheet" href = "../footer/footer.css"> 
         <title>Our Desserts In a Jar | House of Chef James Mitchell</title>
     </head>    
 
     <body>
-    <?php include("../navBar/navBar.php")?>
         <h1>Our Desserts In a Jar</h1>
         <p style = "font-weight: normal;">1-10 Jars <span>$4.50</span><sub>+txs</sub></p>
         <p style = "font-weight: normal;">11+ Jars <span>$6.50</span><sub>+txs</sub></p>
@@ -32,8 +28,6 @@
             <li>Maple Apple Delight</li>
             <li>Pumpkin Parfait</li>
         </ol>
-        <?php include("../footer/footer.php")?>
-
     </body>
 
 </html>

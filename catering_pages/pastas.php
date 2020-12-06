@@ -5,14 +5,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="catering_pages.css">
-        <link rel="stylesheet" href="../navBar/navBarStyles.css">
-        <link rel = "stylesheet" href = "../footer/footer.css">  
         <title>Our Pastas | House of Chef James Mitchell</title>
     </head>    
 
     <body>
-    <?php include("../navBar/navBar.php")?>
         <h1>Pasta Platters</h1><br>
         
 
@@ -36,7 +32,6 @@
             <li style = "font-weight: bold;">Our Lasagnas, Tortellini, Cannelloni, and Manticotti</li>
         </ol>
         <br>
-        <?php include("../footer/footer.php")?>
     </body>
 
 </html>
