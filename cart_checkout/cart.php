@@ -3,15 +3,11 @@
     <head>
         <meta charset="utf-8">
         <title>shopping cart</title>
-        <link rel="stylesheet" href="menuStyle.css">
+        <link rel="stylesheet" href="cart_checkout.css">
         <link rel="stylesheet" href="../navBar/navBarStyles.css">
     </head>
     <body>
         <?php include("../navBar/navBar.php")?>
-
-       <nav>
-            <a href="cart.php">Cart <span class="MainPageCart">0</span></a>
-        </nav>
         
         <div class="dishes-container">
             <div class="dish-headers">

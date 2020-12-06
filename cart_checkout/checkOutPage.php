@@ -1,10 +1,30 @@
+<?php 
+if(!empty($_POST['fullname'])&&!empty($_POST['email'])&&!empty($_POST['address'])&&!empty($_POST['city'])&&!empty($_POST['state'])&&!empty($_POST['zip'])){
+    $continueProcess=true;
+}
+session_start();
+$_SESSION["fullName"]="";
+$_SESSION["email"]="";
+
+if(isset($_POST['placeOrder'])&&isset($continueProcess)){
+    $fullName=$_POST['fullname'];
+    $emailAddr=$_POST['email'];
+    $address=$_POST['address'];
+    $cityName=$_POST['city'];
+    $_state=$_POST['state'];
+    $postalCode=$_POST['zip'];
+    $_SESSION["fullName"]=$fullName;
+    $_SESSION["email"]=$emailAddr;
+}
+?>
+    
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <title>Check Out</title>
-    <link rel="stylesheet" href="menuStyle.css">
+    <link rel="stylesheet" href="cart_checkout.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="">
     <link rel="stylesheet" href="../navBar/navBarStyles.css">
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin="">
@@ -19,7 +39,8 @@
 
 <body>
     <?php include("../navBar/navBar.php")?>
-
+    
+<form action="process.php" method="post" onsubmit="return validateInfo()">
     <div id="orderSummary">
         <div class="dishes-container-Bill">
             <div class="dish-headers-Bill">
@@ -31,6 +52,9 @@
             <div class="dishes-Bill">
 
             </div>
+            <div id="pay">
+                <input id="placeOrder" type="submit" value="Place Order" name="placeOrder"/>
+            </div> 
         </div>
 
         <script src="menu.js"></script>
@@ -38,12 +62,12 @@
     </div>
 
 
-
-    <form action="checkOut.php">
+<div id="client_info">
+    
         <div id="billing_address">
             <h3>Billing Address</h3>
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="John M. Doe"><br/>
+            <input type="text" id="fname" name="fullname" placeholder="John M. Doe"><br/>
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" name="email" placeholder="john@example.com"><br/>
             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
@@ -61,11 +85,12 @@
                     <input type="text" id="zip" name="zip" placeholder="H3H 2G1">
                 </div>
             </div>
+        </div>
             <div id="payment">
                 <h3>Payment</h3>
 
                 <label for="cname">Name on Card</label>
-                <input type="text" id="cname" name="cardname" placeholder="Alice Doe">
+                <input type="text" id="cname" name="cardname" placeholder="Alice Doe"><br/>
                 <label for="cnum">Credit card number</label>
                 <input type="text" id="ccnum" name="cardnumber" placeholder="0000-0000-0000-0000"><br/>
 
@@ -84,18 +109,18 @@
                 </div>
             </div><br/><br/>
             <div id="howToGet">
-                <label for="pickup"><input type="checkbox"/>Pick Up</label>
-                <label for="delivery"><input type="checkbox"/>Delivery</label>
+                <h3>How would you like to get it?</h3>
+                <label for="pickup"><input type="radio" name="getOrder"/>Pick Up</label>
+                <label for="delivery"><input type="radio" name="getOrder" checked="checked"/>Delivery</label>
             </div><br/><br/>
-            <div id="pay">
-                <input id="placeOrder" type="submit" value="Place Order" />
-            </div>
-
-
+        
+    
+    </div>
     </form>
-    <br/><br/>
-    <h3>Find Where We Are:</h3>
+<form>   
+    
     <div id="mapid" style="width: 600px; height: 400px; position: relative; outline: none;" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0">
+       
         <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(-183.824px, 2.32031px, 0px);">
             <div class="leaflet-pane leaflet-tile-pane">
                 <div class="leaflet-layer " style="z-index: 1; opacity: 1;">
@@ -142,14 +167,17 @@
     </div><br/>
     <fieldset id="input">
         <legend>Search Your Address</legend>
-        <form id="coordinate">
-            <input type="text" id="address_input" /><br/><br/>
+        <form id="coordinate" action="" method="post">
+            <input type="text" id="address_input" name="clientAddrr"/><br/><br/>
+            <p id="deliveryFeeCal" name="deliveryFee"></p>
             <input type="button" id="search_button" value="submit" onclick="addr_search()" /><br/><br/>
 
             <br/>
             <div id="distance"></div><br/>
         </form>
+    
     </fieldset>
+    </form>
     <script type="text/javascript">
         //Initialize Map	
         var chefPlaceLat = 45.3823120;
@@ -219,6 +247,30 @@
             };
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
+        }
+        
+        function validateInfo(){
+            console("get in!");
+            var name=document.getElementById("fname").value;
+            var email_addr=document.getElementById("email").value;
+            var billingAddr=document.getElementById("adr").value;
+            var cityName=document.getElementById("city").value;
+            var stateName=document.getElementById("state").value;
+            var postal=document.getElementById("zip").value;
+            var cardName=document.getElementById("cname").value;
+            var cardNum=document.getElementById("ccnum").value;
+            var expireMon=document.getElementById("expmonth").value;
+            var expireY=document.getElementById("expyear").value;
+            var CVV=document.getElementById("cvv").value;
+            var submit=true;
+            
+            if(name==""||email_addr==""||billingAddr==""||cityName==""||stateName==""||postal==""||cardName==""||cardNum==""||expireMon==""||expireY==""||CVV==""){
+                alert "You have to fill all the field!!";
+                submit=false;
+            }else{
+                submit=true;
+            }
+            return submit;
         }
     </script>
 
