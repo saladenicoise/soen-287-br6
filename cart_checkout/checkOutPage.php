@@ -40,7 +40,7 @@ if(isset($_POST['placeOrder'])&&isset($continueProcess)){
 <body>
     <?php include("../navBar/navBar.php")?>
     
-<form action="process.php" method="post" onsubmit="return validateInfo()">
+<form action="process.php" method="post" onsubmit="return validateInfo()" >
     <div id="orderSummary">
         <div class="dishes-container-Bill">
             <div class="dish-headers-Bill">
@@ -53,7 +53,7 @@ if(isset($_POST['placeOrder'])&&isset($continueProcess)){
 
             </div>
             <div id="pay">
-                <input id="placeOrder" type="submit" value="Place Order" name="placeOrder"/>
+                <input id="placeOrder" type="submit" value="Place Order" name="placeOrder" disabled="disabled"/>
             </div> 
         </div>
 
@@ -69,7 +69,8 @@ if(isset($_POST['placeOrder'])&&isset($continueProcess)){
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
             <input type="text" id="fname" name="fullname" placeholder="John M. Doe"><br/>
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="john@example.com"><br/>
+            <input type="text" id="email" name="email" placeholder="john@example.com" oninput="validateEmail()"><br/>
+            <p id="emailErrorInfo"></p>
             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
             <input type="text" id="adr" name="address" placeholder="542 W. 15th Street"><br/>
             <label for="city"><i class="fa fa-institution"></i> City</label>
@@ -82,7 +83,8 @@ if(isset($_POST['placeOrder'])&&isset($continueProcess)){
                 </div>
                 <div class="col-50">
                     <label for="zip">Postal Code</label>
-                    <input type="text" id="zip" name="zip" placeholder="H3H 2G1">
+                    <input type="text" id="zip" name="zip" placeholder="H3H 2G1" oninput="validatePostalCode()">
+                    <p id="postalCodeErrorInfo"></p>
                 </div>
             </div>
         </div>
@@ -92,19 +94,24 @@ if(isset($_POST['placeOrder'])&&isset($continueProcess)){
                 <label for="cname">Name on Card</label>
                 <input type="text" id="cname" name="cardname" placeholder="Alice Doe"><br/>
                 <label for="cnum">Credit card number</label>
-                <input type="text" id="ccnum" name="cardnumber" placeholder="0000-0000-0000-0000"><br/>
-
+                <input type="text" id="ccnum" name="cardnumber" placeholder="0000-0000-0000-0000" oninput="validateCardNum()"><br/>
+                <p id="ccnumErrorInfo"></p>
 
                 <div class="row">
                     <div class="col-50">
                         <label for="expmonth">Exp Month</label>
-                        <input type="text" id="expmonth" name="expmonth" placeholder="November">
+                        <input type="text" id="expmonth" name="expmonth" placeholder="November" oninput="validateExpMon()">
+                        
                         <label for="expyear">Exp Year</label>
-                        <input type="text" id="expyear" name="expyear" placeholder="2020">
+                        <input type="text" id="expyear" name="expyear" placeholder="2020" oninput="validateExpYear()">
+                        
                     </div>
+                    <p id="expMonthErrorInfo"></p>
+                    <p id="expYearErrorInfo"></p>
                     <div class="col-50">
                         <label for="cvv">CVV</label>
-                        <input type="text" id="cvv" name="cvv" placeholder="352">
+                        <input type="text" id="cvv" name="cvv" placeholder="352" oninput="validateCvv()">
+                        <p id="cvvErrorInfo"></p>
                     </div>
                 </div>
             </div><br/><br/>
@@ -178,6 +185,7 @@ if(isset($_POST['placeOrder'])&&isset($continueProcess)){
     
     </fieldset>
     </form>
+    <script src="checkoutFunctionality.js"></script>
     <script type="text/javascript">
         //Initialize Map	
         var chefPlaceLat = 45.3823120;
@@ -243,35 +251,24 @@ if(isset($_POST['placeOrder'])&&isset($continueProcess)){
                     var dis = (from.distanceTo(to)).toFixed(0) / 1000;
                     var disOutput = document.getElementById("distance");
                     disOutput.innerHTML = "Your distance from our restaurant is " + dis + " km";
+                    //compute delivery fee:
+                    var deliveryFee;
+                    var deliveryFeeMessage=document.getElementById("deliveryFeeCal");
+                    if(dis<=5){
+                        deliveryFeeMessage.innerHTML="Congradulations! You won't be charge any delivery fee!";
+                    }else if(dis>5&&dis<=30){
+                        deliveryFee=10;
+                        deliveryFeeMessage.innerHTML="Your delivery fee would be $"+deliveryFee+".";
+                    }else{
+                        deliveryFeeMessage.innerHTML="Sorry! We cannot reach your area.";
+                    }
                 }
             };
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
         }
         
-        function validateInfo(){
-            console("get in!");
-            var name=document.getElementById("fname").value;
-            var email_addr=document.getElementById("email").value;
-            var billingAddr=document.getElementById("adr").value;
-            var cityName=document.getElementById("city").value;
-            var stateName=document.getElementById("state").value;
-            var postal=document.getElementById("zip").value;
-            var cardName=document.getElementById("cname").value;
-            var cardNum=document.getElementById("ccnum").value;
-            var expireMon=document.getElementById("expmonth").value;
-            var expireY=document.getElementById("expyear").value;
-            var CVV=document.getElementById("cvv").value;
-            var submit=true;
-            
-            if(name==""||email_addr==""||billingAddr==""||cityName==""||stateName==""||postal==""||cardName==""||cardNum==""||expireMon==""||expireY==""||CVV==""){
-                alert "You have to fill all the field!!";
-                submit=false;
-            }else{
-                submit=true;
-            }
-            return submit;
-        }
+        
     </script>
 
 </body>

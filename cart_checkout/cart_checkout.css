@@ -358,3 +358,27 @@ legend {
 body {
     background-color: cadetblue;
 }
+
+#emailErrorInfo {
+    color:red;
+}
+
+#postalCodeErrorInfo {
+     color:red;
+}
+
+#ccnumErrorInfo {
+     color:red;
+}
+
+#expMonthErrorInfo {
+     color:red;
+}
+
+#expYearErrorInfo {
+     color:red;
+}
+
+#cvvErrorInfo {
+     color:red;
+}
