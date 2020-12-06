@@ -1,5 +1,5 @@
 <?PHP
-header_remove(); 
+header_remove();
 session_start();
 $servername = 'localhost';
 $username = 'dev';
@@ -58,43 +58,33 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
                         <table>
                             <thead>
                                 <th>Order ID</th>
-                                <th>Item Name</th>
-                                <th>Item Price</th>
+                                <th>Number of Items</th>
+                                <th>Total Cost</th>
                             </thead>
                             <tbody>
                                 <tr>
                                     <?php
-                            $conn = new mysqli($servername, $username, $password, $dbname);
-                            if ($conn->connect_error) {
-                                die("Connection failed: " . $conn->connect_error);
-                            }
+                                        $conn = new mysqli($servername, $username, $password, $dbname);
 
-                            $query = "SELECT * FROM `ordertable` WHERE username=" . $_SESSION["username"] . ";";
+                                        $userID = $_SESSION["username"];
+                                        if ($conn->connect_error) {
+                                            die("Connection failed: " . $conn->connect_error);
+                                        }
 
-                            if ($result = $conn->query($query)) {
-                                $pname = "";
-                                $price = 0;
-                                /* fetch associative array */
-                                while ($row = $result->fetch_assoc()) {
-                                    $stmt = $conn->prepare("SELECT productName, cost FROM `Menu` WHERE productID=?");
-                                    $stmt->bind_param('s', $row["Item_ID"]);
-                                    $stmt->execute();
-                                    $stmt->store_result();
-                                    $stmt->bind_result($pname, $price);
-                                    $stmt->fetch();
-                                    $stmt->close();
-                        ?>
-                                        <td>
-                                            <?php echo $row["Order_ID"]?>
-                                        </td>
-                                        <td>
-                                            <?php echo $pname?>
-                                        </td>
-                                        <td>
-                                            <?php echo $price?>
-                                        </td>
-                                </tr>
-                                <?php }
+                                        //No need for prepared statements since no input
+                                        $query = "SELECT * FROM `ordertable` WHERE username='$userID'";
+
+                                        if ($result = $conn->query($query)) {
+
+                                            /* fetch associative array */
+                                            while ($row = $result->fetch_assoc()) {
+
+                                        ?>
+                                        <td><p><?php echo $row["Order_ID"]?></p></td>
+                                        <td><p><?php echo $row["totalItems"]?></p></td>
+                                        <td><p><?php echo $row["totalCost"]?></p></td>
+                                        </tr>
+                                        <?php }
 
                                 /* free result set */
                                 $result->free();
@@ -104,7 +94,93 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
                             </tbody>
                         </table>
                     </div>
+                    <!-- order details -->
+                    <div class="item">
+                        <h2>Order Details</h2>
+                    </div>
+                    <div class="item">
+                        <form class="form" name="orderID" method="POST" action="">
+                            <label>Please enter your Order ID</label> <input name="ID" required> </input> <button type="submit">Get Order Details</button>
+                        </form>
+                    </div>
+                    <?php 
+                    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
+                            require('../configure.php');
+                            $servername = DB_SERVER;
+                            $username = DB_USER;
+                            $password = DB_PASS;
+                            $dbname = DB_NAME;
+
+                            $orderID = $_POST["ID"];
+                            $userID = $_SESSION["username"];
+
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
+
+                             //No need for prepared statements since no input
+                             $query = "SELECT * FROM `orderitemtable` WHERE username='$userID' AND Order_ID='$orderID'";
+
+                             if ($result = $conn->query($query)) {
+                        
+                                
+                                //create the table
+                                
+
+                                print "<table>";
+                                print "<thead>";
+                                print "<th>Order ItemID</th>";
+                                print "<th>Product Name</th>";
+                                print "<th>Cost</th>";
+                                print "<th>Vegetarian</th>";
+                                print "<th>Gluten Free</th>";
+                                print "</thead>";
+                                print "<tbody>";
+                                print "<tr>";
+
+                                while ($row = $result->fetch_assoc()) {
+
+                                if($row["isVeg"] == 1)
+                                {
+                                    $isVeg = "Yes";
+                                }
+                                else {
+                                    $isVeg = "No";
+                                }
+
+                                if($row["isGf"] == 1)
+                                {
+                                    $isGf= "Yes";
+                                }
+                                else {
+                                    $isGf = "No";
+                                }
+
+
+                                print "<td><p>".$row["Order_Item_ID"]."</p></td>";
+                                print "<td><p>".$row["productName"]."</p></td>";
+                                print "<td><p>". $row["cost"] . "</p></td>";
+                                print "<td><p>". $isVeg ."</p></td>";
+                                print "<td><p>".$isGf."</p></td>";
+                            
+                                print "</tr>";
+                                }
+                                $result->free();
+                                print "</tbody>";
+                                print "</table>";
+                                print "</div>";
+                            }
+                            $conn->close();
+                        }
+
+                    ?>
                 </div>
                 </div>
         </body>
     </html>
+
+    
