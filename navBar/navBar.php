@@ -49,5 +49,5 @@
     <?php else : ?>
     <li class="navBar" style="float: right;"><a class="navbarElement" href="../dashboard/regular.php">Profile</a></li>
     <?php endif; ?>
-    <li class="navBar" style="float: right;"><a class="navbarElement" href="../menu/cart.php">Cart</a></li>
+    <li class="navBar" style="float: right;"><a class="navbarElement" href="../cart_checkout/cart.php">Cart <span class="MainPageCart">0</span></a></li>
 </ul>

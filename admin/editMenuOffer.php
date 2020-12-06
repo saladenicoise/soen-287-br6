@@ -43,7 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = $stmt->num_rows; //Get the result of the query, the rows which return true aka 1 row where the productName is the same
     $stmt->close();
     if($result <= 0) {//Item does not exist
-        header('Location: /admin/admin.php?stat=editF');
+        header('Location: /admin/admin.php?stat=editF#menu');
     }else{
         $stmt = $conn->prepare("UPDATE `Menu` SET productName=?, cost=?, isVeg=?, isGf=?, customId=?, category=?, subcategory=? WHERE productID=?");
         $stmt->bind_param('sdiissss', $productName, $productPrice, $vegetarian, $glutenFree, $customId, $category, $sub_category, $productID);
@@ -51,7 +51,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->close();
         $conn->close();
         if($res) {
-            header('Location: /admin/admin.php?stat=editS');
+            header('Location: /admin/admin.php?stat=editS#menu');
         }else{
             echo "^ Error Occured ^";
             exit();

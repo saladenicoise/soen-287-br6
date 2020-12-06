@@ -1,5 +1,5 @@
 body {
-    background-color: grey;
+    background-color: #3f888d;
 }
 
 h1 h2 h3 h4 h5 h6 {
@@ -30,12 +30,17 @@ span.fail {
 /* CSS for Main Page */
 
 .headerSection {
-    background-image: url(images/general/headerImage.png);
+    background-image: url(images/general/headerImage.jpg);
+    background-repeat: no-repeat;
     position: relative;
     background-color: black;
     color: white;
     width: 100%;
     height: 500px;
+}
+
+.headerSection img {
+    width: 100%;
 }
 
 .textHeaders {
@@ -60,14 +65,67 @@ span.fail {
 }
 
 .Meals {
-    margin-top: 10px;
     width: 100%;
-    background-color: black;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
+@media (max-width: 1200px) {
+    .Meals {
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* CSS that should be displayed if width is equal to or less than 800px goes here */
+
 .meals {
-    color: #c00000;
-    width: 100%;
+    font-family: 'Aleo';
+    font-size: 20px;
+    max-width: 800px;
+    margin: 40px 80px 40px 40px;
+    color: white;
+    background-color: #808080;
+    width: auto;
+    height: 700px;
+    float: left;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.text {
+    font-family: 'Aleo';
+    font-size: 20px;
+    max-width: 800px;
+    text-align: center;
+    margin: 40px 40px 40px 80px;
+    width: auto;
+    height: 700px;
+    background-color: #808080;
+    color: white;
+    float: right;
+    overflow: hidden;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.textdivider {
+    background-color: white;
+    width: 90%;
+    margin: 10px auto 10px auto;
+    border: solid white 2px;
+}
+
+.textreview {
+    font-family: 'Alike';
+    font-size: 27px;
 }
 
 .mealsHeader {
@@ -75,7 +133,7 @@ span.fail {
 }
 
 .slideshow {
-    max-width: 300px;
+    max-width: 800px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -90,7 +148,8 @@ span.fail {
 }
 
 .index {
-    color: #f2f2f2;
+    visibility: hidden;
+    color: #f0f0f0;
     font-size: 12px;
     padding: 8px 12px;
     text-align: center;
@@ -100,29 +159,26 @@ span.fail {
     cursor: pointer;
     position: absolute;
     margin-top: 195px;
-    margin-left: -240px;
+    margin-left: -490px;
     width: auto;
     padding: 16px;
-    color: #c00000;
+    color: white;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 40px;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
 }
 
-
-/* set next button to the right*/
-
 .next {
     cursor: pointer;
     position: absolute;
     margin-top: 200px;
-    margin-left: 200px;
+    margin-left: 437px;
     padding: 16px;
-    color: #c00000;
+    color: white;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 40px;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
@@ -142,7 +198,7 @@ span.fail {
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: #c00000;
+    background-color: #c4c4c4;
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
@@ -150,19 +206,14 @@ span.fail {
 
 .selected,
 .cIndicator:hover {
-    background-color: #c000008f;
-}
-
-.meetSection {
     background-color: white;
 }
 
-.giftCertificates {
-    background-color: black;
-}
-
-.giftCardHeader {
+.meetSection {
+    background-color: #808080;
     color: white;
+    margin: 40px 80px 40px 80px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 .staffTable {
@@ -175,10 +226,10 @@ span.fail {
 }
 
 .UserBox {
-    border: 3px solid white;
+    border: 3px solid #c4c4c4;
     width: 400px;
     height: 600px;
-    background-color: white;
+    background-color: #c4c4c4;
     box-shadow: 0;
     transition: box-shadow 0.1s ease-in-out;
     margin: 10px;
@@ -208,6 +259,55 @@ span.fail {
 }
 
 
+/* Main Divider class was created by Harry Roberts at https://css-tricks.com/examples/hrs/ */
+
+.maindivider1 {
+    overflow: visible;
+    /* For IE */
+    padding: 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    border-top: medium double white;
+    color: white;
+    text-align: center;
+}
+
+.maindivider1:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: #3f888d;
+}
+
+.maindivider2 {
+    overflow: visible;
+    /* For IE */
+    padding: 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    border-top: medium double white;
+    color: white;
+    text-align: center;
+}
+
+.maindivider2:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: #808080;
+}
+
+
 /* End of CSS for Main Page */
 
 
@@ -230,12 +330,6 @@ span.fail {
     text-align: center;
 }
 
-.mainReviewTable {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
 .facebookReviewHeader {
     text-align: center;
 }
@@ -251,30 +345,54 @@ span.fail {
 
 /* CSS for About Us Page */
 
-.aboutHeader {
-    text-align: center;
-}
-
 .aboutSection {
     text-align: center;
-    width: 100%;
-    background-color: black;
-    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
 }
 
-.aboutText {
-    float: right;
-    width: 50%;
-    color: white;
-    font-family: 'Alike';
-    font-size: 25px;
+@media (max-width: 1200px) {
+    .aboutSection {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: auto;
+    }
 }
 
 .aboutPicture {
-    width: 50%;
-    height: 25%;
-    background-color: black;
-    margin: 0 100px 0 0;
+    max-width: 700px;
+    height: 500px;
+    width: auto;
+    margin: 40px;
+    background-color: #808080;
+    color: white;
+    overflow: hidden;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.abtpic {
+    margin: 40px;
+    text-align: center;
+    font-family: 'Alike';
+    font-size: 17px;
+}
+
+.aboutText {
+    max-width: 700px;
+    height: 500px;
+    margin: 40px;
+    width: auto;
+    color: white;
+    background-color: #808080;
+    font-family: 'Alike';
+    font-size: 25px;
+    overflow: hidden;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 
@@ -288,62 +406,111 @@ span.fail {
 }
 
 .formSection {
+    display: flex;
     width: 100%;
     height: 25%;
-    background-color: black;
-    margin: 0 100px 0 0;
+    justify-content: center;
+    align-items: center;
 }
 
 .formContainer {
+    max-width: 500px;
+    width: auto;
+    margin: 40px;
+    height: 675px;
+    color: black;
+    background-color: white;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.formHeader {
+    background-color: #808080;
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 675px;
+    width: auto;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.locationInfo {
+    display: flex;
+    align-items: center;
+    max-width: 900px;
+    justify-content: center;
+    background-color: #808080;
+    color: white;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 40px;
+    width: auto;
+    height: 330px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.map {
+    background-color: #808080;
+    width: 400px;
+    color: white;
+    margin: 10px;
+}
+
+.addr {
+    background-color: #808080;
+    width: 400px;
+    color: white;
+    margin: 10px;
+    font-family: 'Alike';
+    font-size: 15px;
+}
+
+.addr a {
+    color: white;
 }
 
 .contactForm {
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-
-.formLabel1 {
-    color: white;
-    margin: 0 0 0 150px;
-    text-align: center;
-    font-family: 'Aleo';
-    font-size: 40px;
-}
-
-.labelDivider {
-    margin: 0 0 0 150px;
-}
-
-.formLabel2 {
-    color: white;
-    margin: 0 0 0 150px;
-    text-align: center;
-    font-family: 'Alike';
-    font-size: 25px;
+    margin: 40px;
 }
 
 .error,
 .result {
     text-align: center;
+    color: black;
+}
+
+.bigText {
+    font-family: 'Aleo';
+    font-size: 30px;
+    color: white;
+}
+
+.smallText {
+    font-family: 'Alike';
+    font-size: 20px;
     color: white;
 }
 
 .formText {
     font-family: 'Alike';
     font-size: 15px;
-    border-radius: 5px;
-    color: white;
-    border-color: black;
-    background-color: #c00000;
-    width: 300px;
-    height: 20px;
+    background-color: #f0f0f0;
+    width: 100%;
+    /*Remove border to make it cleaner and blend in*/
+    border: 0;
+    /*Will make it fit to the input size*/
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.formText:disabled {
+    background-color: #c4c4c4;
 }
 
 .formText::placeholder {
-    color: white;
+    color: #808080;
     font-family: 'Alike';
     font-size: 15px;
 }
@@ -351,43 +518,47 @@ span.fail {
 .formTextArea {
     font-family: 'Alike';
     font-size: 15px;
-    border-radius: 5px;
-    color: white;
-    border-color: black;
-    background-color: #c00000;
+    background-color: #f0f0f0;
+    width: 100%;
+    /*Remove border to make it cleaner and blend in*/
+    border: 0;
+    /*Will make it fit to the input size*/
+    padding: 15px;
+    box-sizing: border-box;
     resize: none;
-    width: 300px;
+    font-size: 14px;
     height: 100px;
 }
 
 .formTextArea::placeholder {
-    color: white;
+    color: #808080;
     font-family: 'Alike';
     font-size: 15px;
 }
 
-.submitButton {
-    background-color: #c00000;
-    border-radius: 5px;
-    border-color: #c00000;
-    display: inline-block;
-    cursor: pointer;
+.submitButton,
+.clearButton {
+    background-color: #3f888d;
+    /*No border is cleaner*/
+    border: 0;
     color: white;
-    font-family: Arial;
-    font-weight: bold;
-    text-decoration: none;
+    /*Less than 50% to have some margin between the 2 buttons*/
+    width: 48%;
+    /*Same padding as input fields*/
+    padding: 15px;
 }
 
-.clearButton {
-    background-color: #c00000;
-    border-radius: 5px;
-    border-color: #c00000;
-    display: inline-block;
-    cursor: pointer;
-    color: white;
-    font-family: Arial;
-    font-weight: bold;
-    text-decoration: none;
+.submitButton:disabled,
+.clearButton:disabled {
+    background-color: #173133;
+}
+
+
+/*Change opacity on hover*/
+
+.submitButton:hover:enabled,
+.clearButton:hover:enabled {
+    background-color: #316a6e;
 }
 
 

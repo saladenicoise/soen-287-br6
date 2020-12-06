@@ -91,7 +91,7 @@
         $stmt->close();
         if($result > 0) {
             $errorMessage = "<b>Product already exists</b>";
-            header('Location: /admin/admin.php?stat=addF', true);
+            header('Location: /admin/admin.php?stat=addF#menu', true);
         }else{
             $stmt = $conn->prepare("INSERT INTO `Menu` (productName, cost, isVeg, isGF, customId, category, subcategory, imagePath) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->bind_param('sdiissss', $productName, $productPrice, $vegetarian, $glutenFree, $customId, $category, $sub_category, $filePath);
@@ -99,7 +99,7 @@
             $stmt->close();
             $conn->close();
             if($res) {
-                header('Location: /admin/admin.php?stat=addS');
+                header('Location: /admin/admin.php?stat=addS#menu');
             }else{
                 echo "^ Error Occured ^";
                 exit();

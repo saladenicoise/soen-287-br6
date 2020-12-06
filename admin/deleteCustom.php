@@ -19,14 +19,14 @@
         $result = $stmt->num_rows; //Get the result of the query, the rows which return true aka 1 row where the productName is the same
         $stmt->close();
         if($result <= 0) {//Item does not exist
-            header('Location: /admin/admin.php?stat=delCustomF');
+            header('Location: /admin/admin.php?stat=delCustomF#customization');
         }else{
             $stmt = $conn->prepare("DELETE FROM `CustomizationOptions` WHERE customId=?");
             $stmt->bind_param('s', $customId);
             $stmt->execute();
             $stmt->close();
             $conn->close();
-            header('Location: /admin/admin.php?stat=delCustomS');
+            header('Location: /admin/admin.php?stat=delCustomS#customization');
         }
     }
 ?>
