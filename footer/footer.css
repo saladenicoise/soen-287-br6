@@ -1,18 +1,29 @@
 
+/* set default height to all pages at 100% to handle shorter pages */
+html{
+    height: 100%;
+}
+/*using flex display and column direction, minimum height of body at 100% make footer stick to the bottom of the page  */
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
 footer{
-    color: white; 
+    color: snow; 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: auto;
+    
     }
 
 #tablefooter{
     text-align: center;
     table-layout: fixed;
-    padding-top: 0.5%;
-    padding-bottom: 1%;
     width: 100%;
-    background-color: black;
+    background-color: grey;
     border: none; 
     border-collapse: collapse;
+   
 }
 
 #thfooter:last-child{
@@ -20,8 +31,8 @@ footer{
 }
 
 td.footer {
-    border-left: 1px white solid;
-    border-right: 1px white solid;
+    border-left: 1px snow solid;
+    border-right: 1px snow solid;
     word-wrap: break-word;
 }
 
@@ -29,35 +40,36 @@ td.footer {
 
 #message{
     border-right: 1px;
-    border-right-color: white;
+    border-right-color: snow;
     border-right-style: solid;
 }
 
-#thfooter{color: gray; 
+#thfooter{
+    color: #52b1b8; 
     text-decoration:underline; 
-    text-decoration-color: lightgrey; 
+    text-decoration-color:#52b1b8; 
     font-size: large;
     border-right: 1px;
-    border-right-color: white;
+    border-right-color: snow;
     border-right-style: solid;
    } 
 
-a.footer{color: white; text-decoration: none;}
+a.footer{color: snow; text-decoration: none;}
 
-#clickable :hover { background-color: red;} 
+#clickable :hover { color:  #52b1b8;} 
 
-#clickable-pics :hover{transform: scale(1.25);}
+#clickable-pics :hover{transform: scale(1.10);}
 
-#span1{color:crimson; font-style: italic; font-weight: bold;}
+#span1{color: #52b1b8; font-style: italic; font-weight: bold;}
 
-#span2{color: grey; 
+#span2{color: #52b1b8; 
     font-weight: bolder; 
     font-size: large; 
     text-decoration: underline;
 }
 
 span.span3 {
-    color: red;
+    color:  #52b1b8;
     text-decoration: underline;
 }
 
