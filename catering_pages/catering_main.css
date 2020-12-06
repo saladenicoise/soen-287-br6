@@ -11,7 +11,7 @@ div.cateringMenuBackground
     margin-left: 400px;
     margin-right: 400px;
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     height: 600px;
     padding-top: 20px;
     border-radius: 25px;
@@ -19,9 +19,13 @@ div.cateringMenuBackground
 
 div.cateringSlectionDisplay
 {
+    background-color: #f0f0f0;
+    margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    display: none;
+    border-radius: 25px;
 }
 
 table.cateringCategoriesTable

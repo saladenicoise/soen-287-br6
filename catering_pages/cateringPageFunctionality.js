@@ -1,11 +1,11 @@
 function displayMenu(menuType)
 {
     var menus = ["dessertDiv", "pastasDiv", "plattersDiv", "appetizersDiv", "saladsDiv", "buffetDiv", "grboardsDiv"];
+    var selections = ["appetizers", "platters", "pastas", "salads", "desserts", "buffet", "grboards"]
     var chosenMenu;
 
-    
-
-    alert("WE ARE MAKING IT HERE");
+    hideElements(menus);
+    removeUnderline(selections, menuType);
     
     switch(menuType)
     {
@@ -34,4 +34,27 @@ function displayMenu(menuType)
 
     document.getElementById(chosenMenu).style.display = "block";
 
+}
+function hideElements(divs)
+{
+    divs.forEach(element => {
+        if(document.getElementById(element).style.display == "block")
+        {
+            document.getElementById(element).style.display = "none";
+        }
+    });
+}
+
+function removeUnderline(selections, menuType)
+{
+    selections.forEach(element => {
+        if(element ==  menuType)
+        {
+            document.getElementById(element).style.textDecoration = "underline";
+        }
+        else
+        {
+            document.getElementById(element).style.textDecoration = "none";
+        }
+    });
 }

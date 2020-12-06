@@ -32,29 +32,29 @@
                     <hr class="cateringHr">
             </div>
 
-            <div style="display: none" id="dessertDiv" class="cateringSlectionDisplay">
-                <?php include("desserts_in_a_jar.php")?>
+            <div id="dessertDiv" class="cateringSlectionDisplay">
+                <?php include("desserts.php")?>
             </div>
             <div id="pastasDiv" class="cateringSlectionDisplay">
                 <?php include("pastas.php")?>
             </div>
-            <div id="platterDiv">
-
+            <div id="plattersDiv" class="cateringSlectionDisplay">
+                <?php include("platters.php")?>
             </div>
-            <div id="appetizersDiv">
-
+            <div id="appetizersDiv" class="cateringSlectionDisplay">
+                <?php include("appetizers.php")?>
             </div>
-            <div id="saladsDiv">
-
+            <div id="saladsDiv" class="cateringSlectionDisplay">
+                <?php include("salads.php")?>
             </div>
-            <div id="buffetDiv">
-
+            <div id="buffetDiv" class="cateringSlectionDisplay">
+                <?php include("buffet.php")?>
             </div>
-            <div id="grboardsDiv">
-
+            <div id="grboardsDiv" class="cateringSlectionDisplay">
+                <?php include("grazing_boards.php")?>
             </div>
-
         </div>
+        <br><br>
         
         
         <?php include("../footer/footer.php")?>
