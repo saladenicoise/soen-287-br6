@@ -89,6 +89,8 @@ span.fail {
 /* CSS that should be displayed if width is equal to or less than 800px goes here */
 
 .meals {
+    font-family: 'Aleo';
+    font-size: 20px;
     max-width: 800px;
     margin: 40px 80px 40px 40px;
     color: white;
@@ -100,6 +102,8 @@ span.fail {
 }
 
 .text {
+    font-family: 'Aleo';
+    font-size: 20px;
     max-width: 800px;
     text-align: center;
     margin: 40px 40px 40px 80px;
@@ -257,7 +261,7 @@ span.fail {
 
 /* Main Divider class was created by Harry Roberts at https://css-tricks.com/examples/hrs/ */
 
-.maindivider {
+.maindivider1 {
     overflow: visible;
     /* For IE */
     padding: 0;
@@ -270,7 +274,7 @@ span.fail {
     text-align: center;
 }
 
-.maindivider:after {
+.maindivider1:after {
     content: "§";
     display: inline-block;
     position: relative;
@@ -278,6 +282,29 @@ span.fail {
     font-size: 1.5em;
     padding: 0 0.25em;
     background: #3f888d;
+}
+
+.maindivider2 {
+    overflow: visible;
+    /* For IE */
+    padding: 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    border-top: medium double white;
+    color: white;
+    text-align: center;
+}
+
+.maindivider2:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: #808080;
 }
 
 
@@ -324,30 +351,54 @@ span.fail {
 
 /* CSS for About Us Page */
 
-.aboutHeader {
-    text-align: center;
-}
-
 .aboutSection {
     text-align: center;
-    width: 100%;
-    background-color: black;
-    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
 }
 
-.aboutText {
-    float: right;
-    width: 50%;
-    color: white;
-    font-family: 'Alike';
-    font-size: 25px;
+@media (max-width: 1200px) {
+    .aboutSection {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: auto;
+    }
 }
 
 .aboutPicture {
-    width: 50%;
-    height: 25%;
-    background-color: black;
-    margin: 0 100px 0 0;
+    max-width: 700px;
+    height: 500px;
+    width: auto;
+    margin: 40px;
+    background-color: #808080;
+    color: white;
+    overflow: hidden;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.abtpic {
+    margin: 40px;
+    text-align: center;
+    font-family: 'Alike';
+    font-size: 17px;
+}
+
+.aboutText {
+    max-width: 700px;
+    height: 500px;
+    margin: 40px;
+    width: auto;
+    color: white;
+    background-color: #808080;
+    font-family: 'Alike';
+    font-size: 25px;
+    overflow: hidden;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 

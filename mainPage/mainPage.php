@@ -58,7 +58,7 @@
         </div>
     </div>
 
-<hr class="maindivider">
+<hr class="maindivider1">
 
     <div class="meetSection">
 

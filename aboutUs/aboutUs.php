@@ -11,19 +11,30 @@
 <body>
     <?php include("../navBar/navBar.php")?>
    
-    
-    <h1 class="aboutHeader"> About Us </h1>
+
 
     <div class="aboutSection">
 
-        <div class="aboutPicture">
-            <image src="../images/general/history.jpg"> </image>
+        <div class=aboutPicture>
+            <div class="abtpic">
+                <image src="../images/general/history.jpg"> </image>
+                <br><br>
+                <hr class="maindivider2">
+                <p> Chef James Mitchell and Chef Danai Alexopoulos-Mitchell</p>
+            </div>
         </div>
-        <div class="aboutText">
-            <p> Our History </p>
-            <p>Bringing a unique & rustic charm to all your catering needs!! Priding ourselves to being number one in the Saint Lazare and Vaudreuil Area!!! Take a look at our Website for all the wonderful services, menus and classes that are now available
-                to everyone. Contact us today. Make sure to follow our social media platforms on facebook and instagram.</p>
-        </div>
+            <div class="aboutText">
+                <p> About Us </p>
+                <hr class="textdivider">
+                <br>
+                <p>Bringing a unique & rustic charm to all your catering needs!! Priding ourselves to being number one in the Saint Lazare and Vaudreuil Area!!! Take a look at our Website for all the wonderful services, menus and classes that are now available
+                to everyone. </p>
+                <br>
+                <p> New with the webiste are our online orders! You can take a look and customise the meal of your choice, down to the ingredient.</p>
+                <br>
+                <p>Contact us today. Make sure to follow our social media platforms on facebook and instagram.</p>
+                <br>
+            </div> 
     </div>
   
 </body>
