@@ -33,7 +33,7 @@
     $fEmail = "";
     $uname = "";
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-        require('./configure.php'); 
+        require('../configure.php');
         $servername = DB_SERVER;
         $username = DB_USER;
         $password = DB_PASS;
