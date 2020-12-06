@@ -552,7 +552,8 @@ span.fail {
     font-family: 'Alike';
     font-size: 15px;
     background-color: #f0f0f0;
-    width: 100%;
+    min-width: 300px;
+    width: auto;
     /*Remove border to make it cleaner and blend in*/
     border: 0;
     /*Will make it fit to the input size*/

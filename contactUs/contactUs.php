@@ -21,15 +21,15 @@
             <form class="contactForm" id="contactForm" method="POST" action="">
                 
 
-                <input class="formText" type="text" id="name" name="name" placeholder="Name *" required> 
+                <input class="formText" type="text" id="name" name="name" placeholder="* Name" required> 
 
                 <br><br>
 
-                <input class="formText" type="tel" id="phone" name="phone" maxlength="12" placeholder="Phone Number (ex. 000-000-0000) *" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> 
+                <input class="formText" type="tel" id="phone" name="phone" maxlength="12" placeholder="* Phone Number (ex. 000-000-0000)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> 
 
                 <br><br>
 
-                <input class="formText" type="email" id="email" name="email" placeholder="Email (example@hotmail.com) *" required> 
+                <input class="formText" type="email" id="email" name="email" placeholder="* Email (example@hotmail.com)" required> 
 
                 <br><br>
 
@@ -37,11 +37,11 @@
 
                 <br><br>
 
-                <input class="formText" type="text" id="subject" name="subject" placeholder="Subject *" required> <span class="error">
+                <input class="formText" type="text" id="subject" name="subject" placeholder="* Subject" required> <span class="error">
 
                 <br><br>
 
-                <textarea class="formTextArea" id="message" name="message" placeholder="Message (Allergies, etc) *" required></textarea> 
+                <textarea class="formTextArea" id="message" name="message" placeholder="Message (Allergies, etc)" required></textarea> 
 
                 <br><br>
 
