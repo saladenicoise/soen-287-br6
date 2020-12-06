@@ -1,10 +1,11 @@
 <?php
 header_remove();
 session_start();
-$servername = 'localhost';
-$username = 'dev';
-$password = 'dev';
-$dbname = 'soen287final';
+require('../configure.php');
+$servername = DB_SERVER;
+$username = DB_USER;
+$password = DB_PASS;
+$dbname = DB_NAME;
 if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Session is up(user has logged in)
     $statusSet = isset($_GET['stat']);
     $statusVal = "";
