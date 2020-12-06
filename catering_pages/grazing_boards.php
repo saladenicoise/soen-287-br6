@@ -5,14 +5,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="grazing_boards.css">
-        <link rel="stylesheet" href="../navBar/navBarStyles.css">
-        <link rel = "stylesheet" href = "../footer/footer.css"> 
         <title>Grazing Boards| House of Chef James Mitchell</title>
     </head>    
 
     <body>
-    <?php include("../navBar/navBar.php")?>
         <h1>Grazing Boards</h1>
         
         <h2>Deluxe, elegant Grazing Gastronomia your guests will surely never forget!</h2>
@@ -42,7 +38,6 @@
         <h5>
         ​   We offer delivery & pick-up options for your convience!
         </h5>
-        <?php include("../footer/footer.php")?>
     </body>
 
 </html>

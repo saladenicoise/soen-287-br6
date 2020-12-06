@@ -5,14 +5,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="catering_pages.css">
-        <link rel="stylesheet" href="../navBar/navBarStyles.css">
-        <link rel = "stylesheet" href = "../footer/footer.css"> 
         <title>Our Gourmet Salads | House of Chef James Mitchell</title>
     </head>    
 
     <body>
-    <?php include("../navBar/navBar.php")?>
         <h1>Our Gourmet Salads</h1>
         <ul>(Gluten-free and Dairy-free options available)</ul><br>
         
@@ -49,8 +45,6 @@
             <li>Creamy Potato Salad w/ Sweet Peas, Eggs and Mire Poire Vegetables</li>
         </ol>
         <br>
-        <?php include("../footer/footer.php")?>
-        
     </body>
 
 </html>
