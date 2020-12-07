@@ -98,7 +98,6 @@
                             <span class="cateringCategory" onclick="displayMenu('dessert')" id="desserts">Dessert Jars</span>
                             <span class="cateringCategory" onclick="displayMenu('buffet')" id="buffet">Buffet</span>
                             <span class="cateringCategory" onclick="displayMenu('grb')" id="grboards">Grazing Boards</span>
-                        
                     <hr class="cateringHr">
             </div>
 
@@ -125,6 +124,12 @@
             </div>
             <div id="grboardsDiv" class="cateringSlectionContainer">
                 <?php include("grazing_boards.php")?>
+            </div>
+
+            <div class="MessageDiv">
+            <hr class="cateringItemsHr">
+                <p class="pageDescription">Important: We are NOT a nut free environment. We process and cook with nuts in our kitchen commonly, and there is the chance that cross contamination has occured at some point.</p>
+                <br><p class="pageDescription">*note: The pictures shown within the catering pages are stock images, they do not represent nor suggest how to delivered product may appear upon dilivery/pickup</p>
             </div>
         </div>
         <br><br>
