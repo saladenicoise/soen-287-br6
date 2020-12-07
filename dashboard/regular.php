@@ -142,7 +142,7 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
                                 print "<thead>";
                                 print "<th>Order ItemID</th>";
                                 print "<th>Product Name</th>";
-                                print "<th>Cost</th>";
+                                print "<th>Cost (per unit)</th>";
                                 print "<th>Size</th>";
                                 print "<th>Quantity</th>";
                                 print "</thead>";
