@@ -15,7 +15,7 @@
     <body>
         <?php include("../navBar/navBar.php")?>
 
-        <div class="cateringMenuBackground">
+        <div class="cateringMenuContainer">
             <div class="cateringCategorySelections">
                     <table class="cateringCategoriesTable">
                         <tr>
@@ -32,6 +32,9 @@
                     <hr class="cateringHr">
             </div>
 
+            <div id="infoDiv">
+
+            </div>
             <div id="dessertDiv" class="cateringSlectionDisplay">
                 <?php include("desserts.php")?>
             </div>

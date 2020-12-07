@@ -26,7 +26,7 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dashboard</title>
         <script src="/js/printStat.js"></script>
-        <link rel="stylesheet" href="dashboard.css">
+        <link rel="stylesheet" href="dashboard.css?v=1.1">
         <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     </head>
 
@@ -44,7 +44,7 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
     <?php else : ?>
         <body onload="printStatus('<?php echo $statusVal;?>')">
             <?php endif; ?>
-                <div class="center">
+                <div class="center fadeIn">
                     <div class="item">
                         <h1>Welcome 
                         <span id = "welcome"> 
@@ -185,7 +185,7 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
 
                     ?>
                 </div>
-
+                <div class="fadeIn">
                 <div class="item">
                     <h2>Bookings</h2>
                 </div>
@@ -260,10 +260,6 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
                     echo("<meta http-equiv='refresh' content='0'>");
                 }
                 ?>
-               <!-- <div class="item">
-                    <h2>Adding Bookings</h2>
-
-                -->
 
                 <br><br>
 
@@ -309,7 +305,7 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
                     echo("<meta http-equiv='refresh' content='0'>");
                 }
                 ?>
-
+                </div>
         </body>
     </html>
 

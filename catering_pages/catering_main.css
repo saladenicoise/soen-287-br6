@@ -2,14 +2,14 @@
     CSS for the main parts of the Catering page (i.e. selection tab, main page build, etc)
 */
 body {
-    background-color: #52b1b8;
+    background-color: #3f888d;
 }
 
 ::-webkit-scrollbar {
     display: none;
   }
 
-div.cateringMenuBackground
+div.cateringMenuContainer
 {
     background-color: #f0f0f0;
     margin-left: 400px;
@@ -51,5 +51,50 @@ hr.cateringHr
     width: 45%;
     margin-left: auto;
     margin-right: auto;
+}
+
+/*Css for buffet page*/
+
+hr.buffetHr
+{
+    margin-top: 10px;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.buffetMessageDiv
+{
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+div.dishContainer
+{
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-left: auto;
+    padding-right: auto;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-right: auto;
+    text-align: center;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+
+div.dishItem
+{
+    padding: 20px;
+    text-align: center;
+    background-color: #52b1b8;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    font-size: normal;
 }
 

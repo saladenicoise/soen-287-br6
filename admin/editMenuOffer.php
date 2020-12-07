@@ -34,8 +34,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $glutenFree = 1;
         unset($_POST['glutenFree']);
     }
-    $category = $_POST['category'];
-    $sub_category = $_POST['sub-category'];
+    $category = $_POST["category"];
+    $sub_category = $_POST["sub-category"];
     $description = $_POST['desc'];
 
     $stmt = $conn->prepare("SELECT * FROM `menu` WHERE productID=?");

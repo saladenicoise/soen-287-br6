@@ -1,22 +1,27 @@
 /*styled*/
 
 body {
-    background-color: #6d88a3;
+    background-color: var(--bg-color);
     font-family: 'Aleo';
 }
 
 :root {
+    --bg-color: #6d88a3;
     --header-color: #3797F8;
     --nav-bg-color: #27313a;
     --nav-hover-bg-color: #0d1013;
+    --bookings-bg-color: #69829b;
 }
 
 div.center {
-    opacity: 0;
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
     align-items: space-between;
+}
+
+.fadeIn {
+    opacity: 0;
     animation: fadeIn forwards 1s;
 }
 
@@ -24,10 +29,9 @@ div.item {
     display: flex;
     width: 100%;
     justify-content: center;
-    
 }
 
-span{
+span {
     color: #344e64;
     font-weight: bold;
     text-decoration: underline;
@@ -40,10 +44,10 @@ div.item1 {
     margin-right: auto;
     justify-content: center;
     text-align: center;
-    background-color: #344e64;
+    background-color: var(--bookings-bg-color);
 }
 
-h2.info{
+h2.info {
     color: lightblue;
     text-align: center;
     justify-content: center;
@@ -56,6 +60,7 @@ h2 {
     color: white;
 }
 
+
 /**Animations**/
 
 @keyframes fadeIn {
@@ -64,12 +69,11 @@ h2 {
     }
 }
 
-#date{
-    
+#date {
     font-family: 'Aleo';
 }
 
-#getInfobtn{
+#getInfobtn {
     background-color: #3797F8;
     color: white;
     font-weight: bold;
@@ -80,6 +84,7 @@ h2 {
     padding-right: 4px;
     border: none;
 }
+
 
 /**Navbar**/
 
@@ -155,7 +160,6 @@ input {
     padding: 5px;
     margin-left: 8px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-
 }
 
 .addbtn {
@@ -163,12 +167,12 @@ input {
     font-size: 25px;
     width: 30px;
     height: 35px;
-    background-color:#3797F8;
+    background-color: #3797F8;
     color: white;
     border: none;
 }
 
-label{
+label {
     font-family: 'Aleo';
     font-weight: bold;
     color: white;

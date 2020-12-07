@@ -80,7 +80,7 @@ function createSlides(imageArr) {
         //set the properties of each element
         img.setAttribute("src", imageArr[i])
         img.setAttribute("id", "image " + i)
-        img.setAttribute("width", 700)
+        img.setAttribute("width", 600)
         img.setAttribute("height", 500)
         img.style.margin = "20px"
 

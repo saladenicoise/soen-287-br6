@@ -18,13 +18,14 @@ if ($conn->connect_error) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="test.css">
     <link rel = "stylesheet" href = "../footer/footer.css">
+    <link rel="stylesheet" href="../navBar/navBarStyles.css">
     <script type="text/javascript" src="main_menu.js"> </script>
 
     <title>Menu</title>
 </head>
 
 <body>
-<button style="background-color: red; color: white; padding: 15px; width: 50%;" onclick="location.href='./menu.php'">Goto old menu (Temporary)</button>
+    <?php include("../navBar/navBar.php");?>
     <div class="menu-grid-container">
         <?php
             /*Our query, essentially what we want to display and show, in this case we want * (everything) from Menu*/
@@ -49,7 +50,10 @@ if ($conn->connect_error) {
                     <p class="extra"><?php echo ($row["isGf"] == 0) ? "" : "Gluten Free";?></p>
                     <p>$<?php echo $row["cost"]?></p>
                 </div>
-                <div class = "modal" id =<?php echo "\"modal" . $row["productName"] . "\"" ?>>
+            </div>
+        </div>
+        </div>
+        <div class = "modal" id =<?php echo "\"modal" . $row["productName"] . "\"" ?>>
                     <div class = "modal-open" id = "modal-open">
                          <button id = "close" onclick = 'closeModal(<?php echo "\"modal" . $row["productName"] . "\"" ?>)'> X </button> <br>
                         <p id = "description"><?php echo $row["description"]?></p>
@@ -59,10 +63,6 @@ if ($conn->connect_error) {
                         <button class="menu-button" id="addCart" name="addCart" onclick="addToCart(<?php echo $row['productName'] ?>)">Add To Cart</button>
                     </div>
                 </div>
-            </div>
-        </div>
-        </div>
-
         <?php 
             }
             /* free result set */

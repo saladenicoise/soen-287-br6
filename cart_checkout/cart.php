@@ -1,8 +1,9 @@
 <?php 
-$servername = "localhost";
-$username = "dev";
-$password = "dev";
-$dbname = "menu";
+require('../configure.php');
+$servername = DB_SERVER;
+$username = DB_USER;
+$password = DB_PASS;
+$dbname = DB_NAME;
 $conn = new mysqli($servername, $username, $password, $dbname);
 session_start();
 

@@ -162,8 +162,31 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                         <p>Customization<input class="center" type="checkbox" id="customOptions" name="customOptions" value="true"></p>
                         <p>Vegetarian<input class="center" type="checkbox" id="vegetarian" name="vegetarian" value="true"></p>
                         <p>Gluten Free<input class="center" type="checkbox" id="glutenFree" name="glutenFree" value="true"></p>
-                        <input class="center" type="text" id="category" name="category" placeholder="Category" required>
-                        <input class="center" type="text" id="sub-category" name="sub-category" placeholder="Sub-Category" required>
+                        <select name="category" id="category" required>
+                            <option value="" selected disabled hidden>Please make a selection</option>
+                            <option value="Shop">Shop</option>
+                            <option value="Catering">Catering</option>
+                        </select>
+                        <select name="sub-category" id="sub-category" required>
+                            <option value="" selected disabled hidden>Please make a selection</option>
+                            <option disabled>──────────</option>
+                            <option disabled>Shop Categories</option>
+                            <option disabled>──────────</option>
+                            <option value="Entree">Entrees</option>
+                            <option value="Main Dish">Main Dishes</option>
+                            <option value="Dessert">Desserts</option>
+                            <option value="NewItem">New Items</option>
+                            <option disabled>──────────</option>
+                            <option disabled>Catering Categories</option>
+                            <option disabled>──────────</option>
+                            <option value="Appetizers">Appetizers</option>
+                            <option value="Platters">Platters</option>
+                            <option value="Pastas">Pastas</option>
+                            <option value="Salads">Salads</option>
+                            <option value="Desserts">Desserts</option>
+                            <option value="Buffet">Buffet</option>
+                            <option value="Grazing">Grazing</option>
+                        </select>
                         <textarea name="desc" form="menuOfferingsAdd" placeholder="Product Description" required></textarea>
                         <input class="file" type="file" id="picUpload" name="picUpload" required accept="image/*" placeholder="Product Picture">
                         <p>Picture will be resized to 128px x 128px</p>
@@ -180,8 +203,31 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                         <input class="center" type="text" name="customId" id="customId" placeholder="Custom Id (Leave empty if none)">
                         <p>Vegatarian<input class="center" type="checkbox" id="vegetarian" name="vegetarian" value="true"></p>
                         <p>Gluten Free<input class="center" type="checkbox" id="glutenFree" name="glutenFree" value="true"></p>
-                        <input class="center" type="text" id="category" name="category" placeholder="Category" required>
-                        <input class="center" type="text" id="sub-category" name="sub-category" placeholder="Sub-Category" required>
+                        <select name="category" id="category" required>
+                            <option value="" selected disabled hidden>Please make a selection</option>
+                            <option value="Shop">Shop</option>
+                            <option value="Catering">Catering</option>
+                        </select>
+                        <select name="sub-category" id="sub-category" required>
+                            <option value="" selected disabled hidden>Please make a selection</option>
+                            <option disabled>──────────</option>
+                            <option disabled>Shop Categories</option>
+                            <option disabled>──────────</option>
+                            <option value="Entree">Entrees</option>
+                            <option value="Main Dish">Main Dishes</option>
+                            <option value="Dessert">Desserts</option>
+                            <option value="NewItem">New Items</option>
+                            <option disabled>──────────</option>
+                            <option disabled>Catering Categories</option>
+                            <option disabled>──────────</option>
+                            <option value="Appetizers">Appetizers</option>
+                            <option value="Platters">Platters</option>
+                            <option value="Pastas">Pastas</option>
+                            <option value="Salads">Salads</option>
+                            <option value="Desserts">Desserts</option>
+                            <option value="Buffet">Buffet</option>
+                            <option value="Grazing">Grazing</option>
+                        </select>
                         <textarea required name="desc" id="desc" form="editMenuOffering" placeholder="Product Description"></textarea>
                         <button type="submit">Edit Item</button>
                         <button type="reset">Clear Form</button>
