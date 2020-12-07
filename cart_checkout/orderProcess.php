@@ -58,7 +58,7 @@ if(isset($_POST['placeOrder'])&&isset($continueProcess)){
     }
         //put the order in the table 
         $stmt = $conn->prepare("INSERT INTO `ordertable` (username, totalItems, totalCost) VALUES (?, ?, ?)");
-        $stmt->bind_param('isdiissi', $userID,$totalItems,$total); 
+        $stmt->bind_param('sii', $userID,$totalItems,$total); 
         $stmt->execute(); //Executes the query
     
     $stmt->close();
