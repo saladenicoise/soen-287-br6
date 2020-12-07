@@ -35,10 +35,10 @@ function createGrid($txtFile, $imageDirectory)
 
                 print "
 
-                <div class = \"mainDishItem\">
+                <div class = \"dishItem\">
                     <img width = \"180px\" src = \"$src\">
                     <h4>$tempDescription</h4>
-                    <p>$$tempPrice</p>
+                    <p>$$tempPrice Per Portion</p>
                 </div>
                 ";
             }
@@ -71,17 +71,21 @@ function createGrid($txtFile, $imageDirectory)
         <br><p>Re-heating can and should be done in your oven at 350-F for about 35 - 45 minutes</p>
     </div><br>
     
+    <div class="buffetMessageDiv">
+        <h2>Main Choices</h2><hr class="buffetHr"><br>
+    </div>
     
-    <h2>Main Portions</h2><br>
     
-    <div class="mainDishContainer">
+    <div class="dishContainer">
         <?php
             createGrid("buffet_main_items.txt", "mains_images");
         ?>
     </div>
 
-    <h2>Side Portions</h2><br>
-    <div class="mainDishContainer">
+    <div class="buffetMessageDiv">
+    <h2>Side Choices</h2><hr class="buffetHr"><br>
+</div>
+    <div class="dishContainer">
         <?php
             createGrid("buffet_side_items.txt", "sides_images");
         ?>
