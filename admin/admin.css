@@ -220,6 +220,21 @@
        font-size: 14px;
    }
    
+   form.form select {
+       background-color: var(--input-bg-color);
+       width: 100%;
+       /*Remove border to make it cleaner and blend in*/
+       border: 0;
+       /*15px Margin bottom for spacing between fields*/
+       margin-bottom: 15px;
+       /*15px of padding on all sides, makes the fields bigger*/
+       padding: 10px;
+       /*Will make it fit to the input size*/
+       box-sizing: border-box;
+       font-size: 14px;
+       height: 50px;
+   }
+   
    form.form textarea {
        background-color: var(--input-bg-color);
        width: 100%;

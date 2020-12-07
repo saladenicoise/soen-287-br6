@@ -42,8 +42,8 @@
             $glutenFree = 1;
             unset($_POST['glutenFree']);
         }
-        $category = test_input($_POST['category']);
-        $sub_category = test_input($_POST['sub-category']);
+        $category = $_POST["category"];
+        $sub_category = $_POST["sub-category"];
         $description = $_POST['desc'];
 
 
