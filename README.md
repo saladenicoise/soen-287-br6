@@ -6,9 +6,9 @@ Team #12
 2. Open up phpMyAdmin on localhost in your web browser
 http://localhost/phpmyadmin/index.php
 3. Click on new
-<img src="http://prntscr.com/vxumh8"></img>
+![New Database](md/mdInstal1.png "New Database Icon")
 4. Name the database: `soen287final`
-<img src="http://prntscr.com/vxun9n"></img>
+![Create Database](md/mdInstal2.png "Name the Database")
 5. Making sure that it is selected, click on the import tab at the top
-<img src="http://prntscr.com/vxunq6"></img>
+![Import Database](md/mdInstal3.png "Import the database")
 6. Let SQL do its stuff and the Database has been created!
