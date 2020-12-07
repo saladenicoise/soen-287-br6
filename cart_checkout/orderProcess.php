@@ -7,13 +7,61 @@ if(!empty($_POST['fullname'])&&!empty($_POST['email'])&&!empty($_POST['address']
 $emailAddr="";
 $fullName="";
 if(isset($_POST['placeOrder'])&&isset($continueProcess)){
+
+    require('../configure.php');
+    $servername = DB_SERVER;
+    $username = DB_USER;
+    $password = DB_PASS;
+    $dbname = DB_NAME;
+
+    $userID = $_SESSION['username'];
+
     $fullName=$_POST['fullname'];
     $emailAddr=$_POST['email'];
     $address=$_POST['address'];
     $cityName=$_POST['city'];
     $_state=$_POST['state'];
     $postalCode=$_POST['zip'];
+
     
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // get the last Order # from the DB
+    $query = "SELECT MAX(ID) FROM `ordertable` LIMIT 1";
+
+    if ($result = $conn->query($query)) {
+        $row = $result->fetch_assoc();
+        $order_ID = $row["Order_ID"];
+        //Add 1 to it
+        $order_ID = $order_ID + 1;
+    }
+
+
+    foreach($_SESSION["cart"] as $key =>$value){
+        $itemName=$value["productName"];
+        $itemSize=$value["productSize"];
+        $itemQuantity=$value["productNum"];
+        $priceNum=substr($value["productPrice"],1);
+        $total=$total+$priceNum*$itemQuantity;
+        $totalItems = $totalItems + $itemQuantity;
+
+            //put each order item in the table 
+        $stmt = $conn->prepare("INSERT INTO `orderitemtable` (Order_ID,productName, cost,username,product_size,quantity) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param('isdssi', $order_ID, $itemName,$priceNum,$userID,$itemSize,$itemQuantity); 
+        $stmt->execute(); //Executes the query
+        
+
+    }
+        //put the order in the table 
+        $stmt = $conn->prepare("INSERT INTO `ordertable` (username, totalItems, totalCost) VALUES (?, ?, ?)");
+        $stmt->bind_param('sii', $userID,$totalItems,$total); 
+        $stmt->execute(); //Executes the query
+    
+    $stmt->close();
 }
 
 session_start();
