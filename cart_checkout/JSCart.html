@@ -1,0 +1,182 @@
+ <div class="dishes-container">
+            <div class="dish-headers">
+                <h5 class="dishSize">SIZE</h5>
+                <h5 class="dishPrice">PRICE</h5>
+                <h5 class="dishQuantity">QUANTITY</h5>
+                <h5 class="dishTotal">TOTAL</h5>
+            </div>
+            <div class="dishes">
+           
+            </div>
+        </div>
+        .dishes-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding-bottom: 100px;
+    max-width: 650px; 
+    justify-content: space-around; 
+    margin: 0 auto; 
+   
+   
+}
+.dishes-container-Bill {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding-bottom: 100px;
+    max-width: 300px; 
+    justify-content: space-around; 
+    margin: 0 auto; 
+}
+.dishes-container ion-icon{
+    font-size: :25px;
+    color: black;
+    margin-right:20px;
+    cursor:pointer;
+}
+.dish-headers {
+    width:100%;
+    max-width:650px;
+    display:flex;
+    justify-content: flex-start;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin:0 auto;
+    
+}
+.dish-headers-Bill{
+    width:100%;
+    max-width:300px;
+    display:flex;
+    justify-content: flex-start;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin:0 auto;
+}
+
+.dishSize {
+    width:45%;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+}
+.dishSize-Bill{
+    width:20%;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+}
+
+.dishPrice,.dishPrice-Bill {
+    width:15%;
+    display:flex;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items: center;
+}
+
+.dishTotal,.dishTotal-Bill {
+    width:10%;
+    display:flex;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items:center;
+    
+}
+
+
+.dishQuantity, .dishQuantity-Bill {
+    width:30%;
+    display: flex;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items: center;
+}
+
+.dishes ,.dishes-Bill{
+    width:100%; 
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 50px;
+}
+.dish, {
+    width:50%;
+    border-bottom-color:lightgray;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+}
+.dish_name{
+    width:30%;
+}
+.price{
+    width:14%;
+    display:flex;
+    border-bottom-color: lightgray;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items: center;
+}
+.quantity{
+    width:28%;
+    display: flex;
+    border-bottom-color: lightgray;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items: center;
+}
+.total{
+     width:9%;
+    display:flex;
+    border-bottom-color: lightgray;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    margin: 5px;
+    align-items:center;
+}
+.basketTotalContainer{
+    display:flex;
+    justify-content: flex-end;
+    width:100%;
+    padding: 10px 0;
+}
+.basketTotalTitle{
+    width:30%
+}
+.basketTotal{
+    width:10%
+}
+ <div id="orderSummary">
+        <div class="dishes-container-Bill">
+            <div class="dish-headers-Bill">
+                <h5 class="dishSize-Bill">SIZE</h5>
+                <h5 class="dishPrice-Bill">PRICE</h5>
+                <h5 class="dishQuantity-Bill">QUANTITY</h5>
+                <h5 class="dishTotal-Bill">TOTAL</h5>
+            </div>
+            <div class="dishes-Bill">
+
+            </div>
+            <div id="pay">
+                <input id="placeOrder" type="submit" value="Place Order" name="placeOrder" disabled="disabled"/>
+            </div> 
+        </div>
+
+        <script src="menu.js"></script>
+
+    </div>

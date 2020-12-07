@@ -2,6 +2,8 @@
     /**
     * @return bool
     */
+
+
     function is_session_started()
     {
         if ( php_sapi_name() !== 'cli' ) {
@@ -15,6 +17,10 @@
     }
 
     if ( is_session_started() === FALSE ) session_start();
+    $totalNumber=0;
+    foreach($_SESSION["cart"] as $key=>$value){
+    $totalNumber=$totalNumber+$value["productNum"];
+}
     $replaceLogin = 0;
     if(isset($_SESSION['login'])) {
         $replaceLogin = 1;
@@ -49,5 +55,5 @@
     <?php else : ?>
     <li class="navBar" style="float: right;"><a class="navbarElement" href="../dashboard/regular.php">Profile</a></li>
     <?php endif; ?>
-    <li class="navBar" style="float: right;"><a class="navbarElement" href="../cart_checkout/cart.php">Cart <span class="MainPageCart">0</span></a></li>
+    <li class="navBar" style="float: right;"><a class="navbarElement" href="../cart_checkout/cart.php">Cart <span class="MainPageCart"><?php echo $totalNumber; ?></span></a></li>
 </ul>

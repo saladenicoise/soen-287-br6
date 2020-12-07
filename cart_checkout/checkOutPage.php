@@ -1,3 +1,11 @@
+<?php 
+$servername = "localhost";
+$username = "dev";
+$password = "dev";
+$dbname = "menu";
+$conn = new mysqli($servername, $username, $password, $dbname);
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,30 +27,56 @@
 
 <body>
     <?php include("../navBar/navBar.php")?>
-    
-<form action="orderProcess.php" method="post" onsubmit="return validateInfo()" >
-    <div id="orderSummary">
-        <div class="dishes-container-Bill">
-            <div class="dish-headers-Bill">
-                <h5 class="dishSize-Bill">SIZE</h5>
-                <h5 class="dishPrice-Bill">PRICE</h5>
-                <h5 class="dishQuantity-Bill">QUANTITY</h5>
-                <h5 class="dishTotal-Bill">TOTAL</h5>
-            </div>
-            <div class="dishes-Bill">
+ <form action="orderProcess.php" method="post" onsubmit="return validateInfo()" >   
 
-            </div>
-            <div id="pay">
+<div class="orderSummary">
+    <table class="orderSummaryTable">
+                    <tr>
+                        <th>ITEM</th>
+                        <th>SIZE</th>
+                        <th>QUANTITY</th>
+                        <th>TOTAL</th>
+                       
+                    </tr>
+                  <?php  
+                        if(!empty($_SESSION["cart"])){
+                            $total=0;
+                            $index=0;
+                            foreach($_SESSION["cart"] as $key =>$value){
+                    ?>
+                        <tr>
+                            <td><?php echo $value["productName"];?></td>
+                            <input type="hidden" name="cartItemName" value="<?php echo $value["productName"];?>"/>
+                            <td><?php echo $value["productSize"];?></td>
+                            <input type="hidden" name="cartItemSize" value="<?php echo $value["productSize"];?>"/>
+                            <td><?php echo $value["productNum"];?></td>
+                            <input type="hidden" name="cartItemNum" value="<?php echo $value["productPrice"];?>"/>
+                            
+                            <td>$<?php 
+                                $priceNum=substr($value["productPrice"],1);
+                                $itemTotal=$priceNum*$value["productNum"];
+                                echo $itemTotal;
+                                ?></td>
+                        </tr>
+
+                    <?php
+                            $priceNum=substr($value["productPrice"],1);
+                                $total=$total+$itemTotal;
+                          } ?>
+                    <tr>
+                        <td id="cartSubTotal" colspan="3">SUB TOTAL</td>
+                        <td id="subTotalVal">$ <?php echo $total;?></td>
+                    </tr>
+                    <?php 
+                        }
+            ?>
+    </table>
+        <div id="pay">
                 <input id="placeOrder" type="submit" value="Place Order" name="placeOrder" disabled="disabled"/>
             </div> 
-        </div>
-
-        <script src="menu.js"></script>
-
-    </div>
-
-
-<div id="client_info">
+    </div>    
+    
+   <div id="client_info">
     
         <div id="billing_address">
             <h3>Billing Address</h3>
@@ -156,11 +190,12 @@
         <legend>Search Your Address</legend>
         <form id="coordinate" action="" method="post">
             <input type="text" id="address_input" name="clientAddrr"/><br/><br/>
-            <p id="deliveryFeeCal" name="deliveryFee"></p>
+            
             <input type="button" id="search_button" value="submit" onclick="addr_search()" /><br/><br/>
 
             <br/>
             <div id="distance"></div><br/>
+            <p id="deliveryFeeCal" name="deliveryFee"></p>
         </form>
     
     </fieldset>

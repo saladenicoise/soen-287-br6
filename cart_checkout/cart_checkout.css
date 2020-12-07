@@ -1,156 +1,5 @@
 
-.dishes-container{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 50px;
-    padding-bottom: 100px;
-    max-width: 650px; 
-    justify-content: space-around; 
-    margin: 0 auto; 
-   
-   
-}
-.dishes-container-Bill {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 50px;
-    padding-bottom: 100px;
-    max-width: 300px; 
-    justify-content: space-around; 
-    margin: 0 auto; 
-}
-.dishes-container ion-icon{
-    font-size: :25px;
-    color: black;
-    margin-right:20px;
-    cursor:pointer;
-}
-.dish-headers {
-    width:100%;
-    max-width:650px;
-    display:flex;
-    justify-content: flex-start;
-    border-bottom-color: black;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    margin:0 auto;
-    
-}
-.dish-headers-Bill{
-    width:100%;
-    max-width:300px;
-    display:flex;
-    justify-content: flex-start;
-    border-bottom-color: black;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    margin:0 auto;
-}
 
-.dishSize {
-    width:45%;
-    border-bottom-color: black;
-    border-bottom-style: solid;
-    border-bottom-width: 4px;
-    margin: 5px;
-}
-.dishSize-Bill{
-    width:20%;
-    border-bottom-color: black;
-    border-bottom-style: solid;
-    border-bottom-width: 4px;
-    margin: 5px;
-}
-
-.dishPrice,.dishPrice-Bill {
-    width:15%;
-    display:flex;
-    border-bottom-color: black;
-    border-bottom-style: solid;
-    border-bottom-width: 4px;
-    margin: 5px;
-    align-items: center;
-}
-
-.dishTotal,.dishTotal-Bill {
-    width:10%;
-    display:flex;
-    border-bottom-color: black;
-    border-bottom-style: solid;
-    border-bottom-width: 4px;
-    margin: 5px;
-    align-items:center;
-    
-}
-
-
-.dishQuantity, .dishQuantity-Bill {
-    width:30%;
-    display: flex;
-    border-bottom-color: black;
-    border-bottom-style: solid;
-    border-bottom-width: 4px;
-    margin: 5px;
-    align-items: center;
-}
-
-.dishes ,.dishes-Bill{
-    width:100%; 
-    display: flex;
-    flex-wrap: wrap;
-    padding-bottom: 50px;
-}
-.dish, {
-    width:50%;
-    border-bottom-color:lightgray;
-    border-bottom-style: solid;
-    border-bottom-width: 4px;
-    margin: 5px;
-}
-.dish_name{
-    width:30%;
-}
-.price{
-    width:14%;
-    display:flex;
-    border-bottom-color: lightgray;
-    border-bottom-style: solid;
-    border-bottom-width: 4px;
-    margin: 5px;
-    align-items: center;
-}
-.quantity{
-    width:28%;
-    display: flex;
-    border-bottom-color: lightgray;
-    border-bottom-style: solid;
-    border-bottom-width: 4px;
-    margin: 5px;
-    align-items: center;
-}
-.total{
-     width:9%;
-    display:flex;
-    border-bottom-color: lightgray;
-    border-bottom-style: solid;
-    border-bottom-width: 4px;
-    margin: 5px;
-    align-items:center;
-}
-.basketTotalContainer{
-    display:flex;
-    justify-content: flex-end;
-    width:100%;
-    padding: 10px 0;
-}
-.basketTotalTitle{
-    width:30%
-}
-.basketTotal{
-    width:10%
-}
 
 #checkOut {
     display:flex;
@@ -188,6 +37,9 @@ img{
     height:50px; 
     color: white;
     background-color: cadetblue;
+    margin-top:15px;
+    margin-left:170px;
+    margin-bottom: 30px;
    
 }
 
@@ -381,4 +233,75 @@ body {
 
 #cvvErrorInfo {
      color:red;
+}
+
+.cartTable {
+    text-align: center;
+    margin-left:50px;
+    margin-top:100px;
+    width:800px;
+    background-color: lightgray;
+}
+
+th {
+    padding-bottom: 8px;
+    padding-top:8px;
+    border-bottom-style: solid;
+    border-bottom-color: cadetblue;
+    
+}
+
+td {
+    padding-top:5px;
+    padding-bottom:5px;
+    border-bottom-style: solid;
+    border-bottom-color: darkgray;
+}
+
+#cartSubTotal {
+    text-align: right;
+    border-bottom-style: none;
+}
+
+#removeBt {
+    padding-bottom: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 5px;
+    background-color: cadetblue;
+    color:white;
+    
+}
+
+td {
+    
+}
+
+#subTotalVal {
+    border-bottom-style: none;
+}
+
+.orderSummaryTable {
+    float:right;
+    text-align: center;
+    background-color: lightgray;
+    margin-right:63px;
+    margin-top:50px;
+    width:350px;
+}
+
+.orderSummary {
+    width:500px;
+    float:right;
+    background-color: darkgray;
+    margin-top: 50px;
+    margin-right: 40px;
+}
+
+#distance {
+    margin-left:100px;
+}
+
+#deliveryFeeCal {
+    margin-left:100px;
 }
