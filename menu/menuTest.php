@@ -24,7 +24,6 @@ if ($conn->connect_error) {
 </head>
 
 <body>
-<button style="background-color: red; color: white; padding: 15px; width: 50%;" onclick="location.href='./menu.php'">Goto old menu (Temporary)</button>
     <div class="menu-grid-container">
         <?php
             /*Our query, essentially what we want to display and show, in this case we want * (everything) from Menu*/
