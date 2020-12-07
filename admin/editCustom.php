@@ -15,10 +15,11 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         /*See about setting up environment variables
         */
-        $servername = "localhost";
-        $username = "dev";
-        $password = "dev";
-        $dbname = "soen287final";
+        require('../configure.php');
+        $servername = DB_SERVER;
+        $username = DB_USER;
+        $password = DB_PASS;
+        $dbname = DB_NAME;
 
         /*Get Data from form*/
         $customId = $_POST['customId'];
@@ -38,7 +39,7 @@
         }
 
         /*Check if the customization option does exist in table*/
-        $stmt = $conn->prepare("SELECT * FROM `Menu` WHERE customId=?");
+        $stmt = $conn->prepare("SELECT * FROM `menu` WHERE customId=?");
         $stmt->bind_param('s', $customId);
         $stmt->execute(); //Executes the query
 	    $stmt->store_result(); //Stores the results of the query
@@ -49,7 +50,7 @@
             exit();
         } 
 
-        $stmt = $conn->prepare("UPDATE `CustomizationOptions` SET customOption1=?, customOption2=?, customOption3=?, customOption4=?, customOption5=?, customOption6=?");
+        $stmt = $conn->prepare("UPDATE `customizationoptions` SET customOption1=?, customOption2=?, customOption3=?, customOption4=?, customOption5=?, customOption6=?");
         $stmt->bind_param('ssssss', $customOption1, $customOption2, $customOption3, $customOption4, $customOption5, $customOption6);
         $stmt->execute();
         $stmt->close();

@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --grid-container-bg-color: rgb(105, 152, 158);
+    --body-bg-color: var(--grid-container-bg-color);
+    --btn-bg-color: rgb(97, 133, 153);
+    --btn-bg-color-hover: rgb(65, 90, 104);
+    --item-bg-color: #758d81;
+}
+
+body {
+    background-color: var(--body-bg-color);
+}
+
+.menu-grid-container {
+    display: grid;
+    /*How many columns we want, if we add more items and it can't fit in one of the rows, it will auto go to next row*/
+    grid-template-columns: auto auto auto auto auto;
+    background-color: var(--grid-container-bg-color);
+    padding: 10px;
+}
+
+.menu-grid-item {
+    padding: 20px;
+    font-size: 30px;
+    margin: 10px;
+    text-align: center;
+}
+
+.menu-item {
+    padding: 10px;
+    background-color: var(--item-bg-color);
+    max-width: 300px;
+    min-height: 300px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+p {
+    font-size: large;
+}
+
+.menu-button {
+    position: relative;
+    background-color: var(--btn-bg-color);
+    /*No border is cleaner*/
+    border: 0;
+    color: white;
+    margin: 6px;
+    /*Same padding as input fields*/
+    padding: 6px;
+}
+
+.menu-button:hover {
+    background-color: var(--btn-bg-color-hover);
+}
+
+img {
+    width: 128px;
+    height: 128px;
+}

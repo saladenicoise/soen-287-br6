@@ -8,10 +8,11 @@ $glutenFree = 0;
 $customId = "";
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $servername = "localhost";
-        $username = "dev";
-        $password = "dev";
-        $dbname = "soen287final";
+    require('../configure.php');
+    $servername = DB_SERVER;
+    $username = DB_USER;
+    $password = DB_PASS;
+    $dbname = DB_NAME;
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -35,8 +36,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     $category = $_POST['category'];
     $sub_category = $_POST['sub-category'];
+    $description = $_POST['desc'];
 
-    $stmt = $conn->prepare("SELECT * FROM `Menu` WHERE productID=?");
+    $stmt = $conn->prepare("SELECT * FROM `menu` WHERE productID=?");
     $stmt->bind_param('s', $productID); //Binds the parameter $productName to the query
     $stmt->execute(); //Executes the query
     $stmt->store_result(); //Stores the results of the query
@@ -45,8 +47,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($result <= 0) {//Item does not exist
         header('Location: /admin/admin.php?stat=editF#menu');
     }else{
-        $stmt = $conn->prepare("UPDATE `Menu` SET productName=?, cost=?, isVeg=?, isGf=?, customId=?, category=?, subcategory=? WHERE productID=?");
-        $stmt->bind_param('sdiissss', $productName, $productPrice, $vegetarian, $glutenFree, $customId, $category, $sub_category, $productID);
+        $stmt = $conn->prepare("UPDATE `menu` SET productName=?, cost=?, isVeg=?, isGf=?, customId=?, category=?, subcategory=?, description=? WHERE productID=?");
+        $stmt->bind_param('sdiisssss', $productName, $productPrice, $vegetarian, $glutenFree, $customId, $category, $sub_category, $description, $productID);
         $res = $stmt->execute();
         $stmt->close();
         $conn->close();

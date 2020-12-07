@@ -40,6 +40,27 @@ for(let i=0;i< carts.length;i++){
     })
 }
 
+//---------------Function to empty cart on checkout----------------
+function emptyCart() {
+    for(let i=0;i< carts.length;i++){    
+        let cartDishInfo=localStorage.getItem('dishInformation');
+        cartDishInfo=JSON.parse(cartDishInfo);
+        console.log(cartDishInfo[dish_name]);
+        //remove the number of dishes
+        localStorage.setItem("cartNumber", 0);
+        //remove the total cost
+        localStorage.setItem("TotalCost", 0);
+        //set # of the dish in local storage to be 0:
+        cartDishInfo[dish_name].inCart=0;
+        localStorage.setItem('dishInformation', JSON.stringify(cartDishInfo));
+
+        //update the page:
+        UpdateMainPageCart();
+
+        document.querySelector(".basketTotal").textContent="$"+0;
+    }
+}
+
 
 function UpdateMainPageCart(){
    var totalQuantityInCart=localStorage.getItem('cartNumber');
@@ -49,7 +70,7 @@ function UpdateMainPageCart(){
    } 
     else{
         document.querySelector('.MainPageCart').textContent=0;
-}
+    }
    
 }
 function CartQuantity(dish){
@@ -137,7 +158,7 @@ function displayCart(){
    }
 }
                                    
-displayCart()
+displayCart();
 
 var removeButton=document.getElementsByClassName("close_button");
 var dishesInCart=document.getElementsByClassName("dish_name");
@@ -310,6 +331,8 @@ function decreaseItem(dish_name){
     })
 }
  }
+
+
 }
 //------------------------CheckoutPage-----------------------------
 displayBill();
