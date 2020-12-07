@@ -9,7 +9,6 @@
     --btn-bg-color: rgb(97, 133, 153);
     --btn-bg-color-hover: rgb(65, 90, 104);
     --item-bg-color: #758d81;
-    
 }
 
 body {
@@ -21,7 +20,7 @@ body {
     /*How many columns we want, if we add more items and it can't fit in one of the rows, it will auto go to next row*/
     grid-template-columns: auto auto auto auto auto;
     background-color: var(--grid-container-bg-color);
-    place-self: center stretch;
+    justify-content: center;
     padding: 10px;
 }
 
@@ -29,11 +28,16 @@ body {
     padding: 30px;
     font-size: 30px;
     margin: 10px;
-    text-align: center;  
+    text-align: center;
+}
+
+.clickable {
+    max-width: 300px;
+    min-height: 215px;
 }
 
 .menu-item {
-    padding: 40px;
+    padding: 60px;
     background-color: var(--item-bg-color);
     max-width: 300px;
     min-height: 215px;
@@ -43,54 +47,55 @@ body {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
- .menu-item:hover{
+.menu-item:hover {
     box-shadow: 0 5px 15px #030303;
     cursor: pointer;
- }
+}
 
- .modal{
-    background-color:  #201f1f63; 
-    display: none; 
+.modal {
+    background-color: #201f1f63;
+    display: none;
     left: 0;
     top: 0;
-    z-index : 10;
+    z-index: 10;
     align-self: center;
     text-align: center;
-    width: 100%; 
-    height: 100%;  
-    position: fixed; 
- }
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
 
-.modal-open{
+.modal-open {
     background-color: white;
     margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
     padding: 5px;
     width: 50%;
- }
+}
 
- #close{
-     float: right;
-     color: red;
-     font-weight: bolder;
- }
+#close {
+    float: right;
+    color: red;
+    font-weight: bolder;
+}
 
- #close:hover{
-     background-color: rgb(105, 152, 158);
-     cursor: pointer;
- }
+#close:hover {
+    background-color: rgb(105, 152, 158);
+    cursor: pointer;
+}
 
 p {
     font-size: large;
     color: white;
 }
 
-#description{
+#description {
     color: black;
     font-size: large;
 }
-#name{
+
+#name {
     color: rgb(65, 90, 104);
     font-size: large;
     font-weight: bold;
@@ -118,7 +123,7 @@ p {
     height: 128px;
 }
 
-h1{
+h1 {
     text-align: center;
     color: white;
     text-decoration: underline;
