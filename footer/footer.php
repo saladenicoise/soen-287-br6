@@ -33,7 +33,7 @@
                     alt = "phone"> 514-941-5483 <br><br>
 
                     <a  id = clickable-pics class = "footer" href = "mailto:orders@chefjamesmitchell.com"> <img id = "imgfooter" src = "../footer/footerimages/mail2.png"> </a>
-                    <a class = "footer" href="mailto:orders@chefjamesmitchell.com"> orders@chefjamesmitchell.com </a> <br> <br>
+                    <a class = "footer" href="mailto:orders@chefjamesmitchell.com"> <span id = "span4"> orders@chefjamesmitchell.com</span> </a> <br> <br>
 
                     Fill out the 
                     <a href = "../contactUs/contactUs.php"> <span class="span3">Form</span></a>
