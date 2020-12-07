@@ -36,11 +36,10 @@ function createGrid($txtFile, $imageDirectory)
                 print "
 
                 <div class = \"mainDishItem\">
-                    <img width = \"180px\" src = $src>
+                    <img width = \"180px\" src = \"$src\">
                     <h4>$tempDescription</h4>
                     <p>$$tempPrice</p>
                 </div>
-                
                 ";
             }
 }
