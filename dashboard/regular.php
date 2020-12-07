@@ -1,3 +1,4 @@
+<!-- added styling -->
 <?PHP
 header_remove();
 error_reporting(0);
@@ -45,8 +46,10 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
             <?php endif; ?>
                 <div class="center">
                     <div class="item">
-                        <h1>Welcome
+                        <h1>Welcome 
+                        <span id = "welcome"> 
                             <?php echo $_SESSION["username"];?>
+                        </span>
                         </h1>
                     </div>
                     <div class="item">
@@ -96,14 +99,17 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
                         </table>
                     </div>
                     <!-- order details -->
-                    <div class="item">
-                        <h2>Order Details</h2>
-                    </div>
-                    <div class="item">
+                    <br><br><br><br>
+                    
+                    <div class="item1">
                         <form class="form" name="orderID" method="POST" action="">
-                            <label>Please enter your Order ID</label> <input name="ID" required> </input> <button name="post" value="orderDetails" type="submit">Get Order Details</button>
+                        <h2 class = "info"> Order Details</h2>
+                            
+                            <label>Enter your Order ID:  <input name="ID" required> </input> <button id = "getInfobtn" name="post" value="orderDetails" type="submit">Get Details</button>
                         </form>
+                        <br><br>
                     </div>
+                    
                     <?php 
                     if($_SERVER['REQUEST_METHOD'] == 'POST' && $_REQUEST["post"] == "orderDetails") {
 
@@ -218,7 +224,7 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
                                         <td>
                                             <form class="del" action="" method="post">
                                                 <input type="hidden" value=<?php echo "\"" . $row["Book_ID"] . "\""?> name="delete" id="delete">
-                                                <button name="post" value="removeBook" class="delButton" type="submit"><i class="iconify icon:mdi:trash-can-outline icon-inline:false"></i></button>
+                                                <button name="post" value="removeBook" class="delButton" type="submit"><i class="iconify icon:mdi:trash-can-outline icon-inline:false"></i> </button>
                                             </form>
                                         </td>
                                 </tr>
@@ -254,18 +260,25 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
                     echo("<meta http-equiv='refresh' content='0'>");
                 }
                 ?>
-                <div class="item">
+               <!-- <div class="item">
                     <h2>Adding Bookings</h2>
-                </div>
+
+                -->
+
+                <br><br>
+
+                <div class="item1">    
+                    <h2 class = "info">Adding Bookings</h2>
+                </div>  
                 <form method="POST" action="">
-                    <div class="item">
-                        <label>Due DateTime:</label><input name="datetime" type="datetime-local" required> </input>
-                    </div>
-                    <div class="item">
-                        <label>Reminder DateTime:</label><input name="remind" type="datetime-local" required> </input>
-                    </div>
-                    <div class="item">
-                        <button  name="post" value="addbtn" type="submit">+</button>
+                    <div class="item1">    
+                        <label>Due DateTime:  <br>
+                        <input id = "date" name="datetime" type="datetime-local" required> </input> <br> 
+                        <label>Reminder DateTime: <br>
+                        <input id = "date" name="remind" type="datetime-local" required> </input>
+                        <br> <br>
+                        <button  class = "addbtn" name="post" value="addbtn" type="submit">+</button>
+                    <br><br>
                     </div>
                 </form>
                 <?php

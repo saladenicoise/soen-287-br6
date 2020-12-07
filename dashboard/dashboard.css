@@ -1,5 +1,8 @@
+/*styled*/
+
 body {
     background-color: #6d88a3;
+    font-family: 'Aleo';
 }
 
 :root {
@@ -21,13 +24,37 @@ div.item {
     display: flex;
     width: 100%;
     justify-content: center;
+    
+}
+
+span{
+    color: #344e64;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+div.item1 {
+    display: flex;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    text-align: center;
+    background-color: #344e64;
+}
+
+h2.info{
+    color: lightblue;
+    text-align: center;
+    justify-content: center;
+    text-decoration: underline;
+    text-decoration-thickness: thick;
 }
 
 h1,
 h2 {
     color: white;
 }
-
 
 /**Animations**/
 
@@ -37,6 +64,22 @@ h2 {
     }
 }
 
+#date{
+    
+    font-family: 'Aleo';
+}
+
+#getInfobtn{
+    background-color: #3797F8;
+    color: white;
+    font-weight: bold;
+    font-family: 'Aleo';
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border: none;
+}
 
 /**Navbar**/
 
@@ -93,6 +136,16 @@ table thead {
 input {
     display: inline-block;
     margin-top: 20px;
+    font-family: 'Alike';
+    font-size: 15px;
+    background-color: #f0f0f0;
+    border: 0;
+    padding: 15px;
+    box-sizing: border-box;
+    height: 20px;
+    color: black;
+    font-size: medium;
+    font-weight: bolder;
 }
 
 .delButton {
@@ -102,6 +155,7 @@ input {
     padding: 5px;
     margin-left: 8px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
 }
 
 .addbtn {
@@ -109,6 +163,16 @@ input {
     font-size: 25px;
     width: 30px;
     height: 35px;
+    background-color:#3797F8;
+    color: white;
+    border: none;
+}
+
+label{
+    font-family: 'Aleo';
+    font-weight: bold;
+    color: white;
+    font-size: large;
 }
 
 
