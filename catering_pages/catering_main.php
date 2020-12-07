@@ -16,44 +16,41 @@
         <?php include("../navBar/navBar.php")?>
 
         <div class="cateringMenuContainer">
-            <div class="cateringCategorySelections">
-                    <table class="cateringCategoriesTable">
-                        <tr>
-                            <td class="cateringCategory" onclick="displayMenu(this.id)" id="appetizers">Appetizers Bar</td>
-                            <td class="cateringCategory" onclick="displayMenu(this.id)" id="platters">Platters</td>
-                            <td class="cateringCategory" onclick="displayMenu(this.id)" id="pastas">Pastas</td>
-                            <td class="cateringCategory" onclick="displayMenu(this.id)" id="salads">Gourmet Salads</td>
-                            <td class="cateringCategory" onclick="displayMenu(this.id)" id="desserts">Dessert Jars</td>
-                            <td class="cateringCategory" onclick="displayMenu(this.id)" id="buffet">Buffet</td>
-                            <td class="cateringCategory" onclick="displayMenu(this.id)" id="grboards">Grazing Boards</td>
-                        </tr>
-                    </table>
-
+            <div class="cateringCategoriesContainer">
+                    
+                            <span class="cateringCategory" onclick="displayMenu(this.id)" id="appetizers">Appetizers Bar</span>
+                            <span class="cateringCategory" onclick="displayMenu(this.id)" id="platters">Platters</span>
+                            <span class="cateringCategory" onclick="displayMenu(this.id)" id="pastas">Pastas</span>
+                            <span class="cateringCategory" onclick="displayMenu(this.id)" id="salads">Gourmet Salads</span>
+                            <span class="cateringCategory" onclick="displayMenu(this.id)" id="desserts">Dessert Jars</span>
+                            <span class="cateringCategory" onclick="displayMenu(this.id)" id="buffet">Buffet</span>
+                            <span class="cateringCategory" onclick="displayMenu(this.id)" id="grboards">Grazing Boards</span>
+                        
                     <hr class="cateringHr">
             </div>
 
             <div id="infoDiv">
 
             </div>
-            <div id="dessertDiv" class="cateringSlectionDisplay">
+            <div id="dessertDiv" class="cateringSlectionContainer">
                 <?php include("desserts.php")?>
             </div>
-            <div id="pastasDiv" class="cateringSlectionDisplay">
+            <div id="pastasDiv" class="cateringSlectionContainer">
                 <?php include("pastas.php")?>
             </div>
-            <div id="plattersDiv" class="cateringSlectionDisplay">
+            <div id="plattersDiv" class="cateringSlectionContainer">
                 <?php include("platters.php")?>
             </div>
-            <div id="appetizersDiv" class="cateringSlectionDisplay">
+            <div id="appetizersDiv" class="cateringSlectionContainer">
                 <?php include("appetizers.php")?>
             </div>
-            <div id="saladsDiv" class="cateringSlectionDisplay">
+            <div id="saladsDiv" class="cateringSlectionContainer">
                 <?php include("salads.php")?>
             </div>
-            <div id="buffetDiv" class="cateringSlectionDisplay">
+            <div id="buffetDiv" class="cateringSlectionContainer">
                 <?php include("buffet.php")?>
             </div>
-            <div id="grboardsDiv" class="cateringSlectionDisplay">
+            <div id="grboardsDiv" class="cateringSlectionContainer">
                 <?php include("grazing_boards.php")?>
             </div>
         </div>
