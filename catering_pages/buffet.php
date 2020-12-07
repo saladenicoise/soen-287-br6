@@ -1,35 +1,10 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buffet | House of Chef James Mitchell</title>
-</head>
-
-<body>
-    <div>
-
-
-    </div>
-    <div>
-
-    </div>
-    <div class="buffetMessageDiv">
-        <h2>Buffet Options</h2>
-        <p>There can be a minimum required order for some options. Feel free to contact us directly if you might want<br>something different, we will assist you in any way that we can</p>
-        <br><p>Re-heating can and should be done in your oven at 350-F for about 35 - 45 minutes</p>
-    </div><br>
-    
-    
-
-    <div class="mainDishContainer">
-        <?php
-            $itemFile = "buffet_main_items.txt";
+<?php
+function createGrid($txtFile, $imageDirectory)
+{
+            $itemFile = $txtFile;
             $itemDescriptions = Array();
 
-            $directory = "buffet_images";
+            $directory = $imageDirectory;
             $images = scandir($directory);
 
             if(file_exists($itemFile))
@@ -49,18 +24,70 @@
                 $tempPrice = trim(array_pop($itemDescriptions[$i - 2]));
                 $tempDescription = implode(" ", $itemDescriptions[$i - 2]);
 
+                if($imageDirectory == "mains_images")
+                {   
+                    $src = "mains_images/" . $images[$i];
+                }
+                else
+                {
+                    $src = "sides_images/" . $images[$i];
+                }
+
                 print "
 
                 <div class = \"mainDishItem\">
-                    <img width = \"180px\" src = \"buffet_images/$images[$i]\">
+                    <img width = \"180px\" src = $src>
                     <h4>$tempDescription</h4>
                     <p>$$tempPrice</p>
                 </div>
                 
                 ";
             }
+}
+?>
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buffet | House of Chef James Mitchell</title>
+</head>
+
+<body>
+    <div>
+
+
+    </div>
+    <div>
+
+    </div>
+    <div class="buffetMessageDiv">
+        <h1>Buffet Options</h1>
+        <p>There can be a minimum required order for some options. Feel free to contact us directly if you might want<br>something different, we will assist you in any way that we can</p>
+        <br><p>Re-heating can and should be done in your oven at 350-F for about 35 - 45 minutes</p>
+    </div><br>
+    
+    
+    <h2>Main Portions</h2><br>
+    
+    <div class="mainDishContainer">
+        <?php
+            createGrid("buffet_main_items.txt", "mains_images");
         ?>
     </div>
+
+    <h2>Side Portions</h2><br>
+    <div class="mainDishContainer">
+        <?php
+            createGrid("buffet_side_items.txt", "sides_images");
+        ?>
+    </div>
+
 </body>
 
 </html>
