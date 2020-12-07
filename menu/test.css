@@ -40,45 +40,51 @@ body {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
- .menu-item:hover{
-    box-shadow: 0 5px 15px #030303;
- }
+.clickable {
+    max-width: 300px;
+    min-height: 300px;
+}
 
- .modal{
-    background-color:  #1a191963; 
-    display: none; 
-    position: fixed; 
+.menu-item:hover {
+    box-shadow: 0 5px 15px #030303;
+}
+
+.modal {
+    background-color: #1a191963;
+    display: none;
+    position: fixed;
+    text-align: center;
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%;  
- }
+    width: 100%;
+    height: 100%;
+}
 
-.modal-open{
+.modal-open {
     background-color: white;
     margin: auto auto;
     padding: 10px;
     border: lightgrey;
     width: 50%;
- }
+}
 
- #close{
-     float: right;
-     color: red;
-     font-weight: bolder;
- }
+#close {
+    float: right;
+    color: red;
+    font-weight: bolder;
+}
 
- #close:hover{
-     background-color: rgb(105, 152, 158);
-     cursor: pointer;
- }
+#close:hover {
+    background-color: rgb(105, 152, 158);
+    cursor: pointer;
+}
 
 p {
     font-size: large;
     color: white;
 }
 
-#description{
+#description {
     color: black;
     font-size: large;
 }

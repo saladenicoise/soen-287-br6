@@ -56,22 +56,26 @@
         /* Check if file already exists*/
         if (file_exists($pictureFile)) {
             header('Location: /admin/admin.php?stat=imgFE#menu');
+            exit();
             $upload = 0;
         }
   
         /* Check file size*/
         if ($_FILES["picUpload"]["size"] > 500000) {
             header('Location: /admin/admin.php?stat=imgFS#menu');
+            exit();
             $upload = 0;
         }
 
         if($upload == 0) {
             header('Location: /admin/admin.php?stat=imgF#menu');
+            exit();
         }else{
             if(move_uploaded_file($_FILES["picUpload"]["tmp_name"], $pictureFile)) {
                 $filePath = $_FILES["picUpload"]["name"];
             }else{
                 header('Location: /admin/admin.php?stat=imgF#menu');
+                exit();
             }
         }
         /* MySQL Stuff

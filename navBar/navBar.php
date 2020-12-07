@@ -2,8 +2,6 @@
     /**
     * @return bool
     */
-
-
     function is_session_started()
     {
         if ( php_sapi_name() !== 'cli' ) {
@@ -18,9 +16,11 @@
 
     if ( is_session_started() === FALSE ) session_start();
     $totalNumber=0;
-    foreach($_SESSION["cart"] as $key=>$value){
-    $totalNumber=$totalNumber+$value["productNum"];
-}
+    if(isset($_SESSION["cart"])) {
+        foreach($_SESSION["cart"] as $key=>$value){
+            $totalNumber=$totalNumber+$value["productNum"];
+        }   
+    }
     $replaceLogin = 0;
     if(isset($_SESSION['login'])) {
         $replaceLogin = 1;
@@ -44,7 +44,6 @@
 
     <li class="navBar"><a class="navbarElement" href="../mainPage/mainPage.php">Main Menu</a></li>
     <li class="navBar"><a class="navbarElement" href="../menu/menu.php">Shop</a></li>
-    <li class="navBar"><a class="navbarElement" href="../weekly_menu/weekly_menu.php">Weekly Menu</a></li>
     <li class="navBar"><a class="navbarElement" href="../catering_pages/catering_main.php">Catering</a></li>
     <li class="navBar"><a class="navbarElement" href="../aboutUs/aboutUs.php">About Us</a></li>
     <li class="navBar"><a class="navbarElement" href="../contactUs/contactUs.php">Contact Us</a></li>

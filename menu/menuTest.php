@@ -49,7 +49,10 @@ if ($conn->connect_error) {
                     <p class="extra"><?php echo ($row["isGf"] == 0) ? "" : "Gluten Free";?></p>
                     <p>$<?php echo $row["cost"]?></p>
                 </div>
-                <div class = "modal" id =<?php echo "\"modal" . $row["productName"] . "\"" ?>>
+            </div>
+        </div>
+        </div>
+        <div class = "modal" id =<?php echo "\"modal" . $row["productName"] . "\"" ?>>
                     <div class = "modal-open" id = "modal-open">
                          <button id = "close" onclick = 'closeModal(<?php echo "\"modal" . $row["productName"] . "\"" ?>)'> X </button> <br>
                         <p id = "description"><?php echo $row["description"]?></p>
@@ -59,10 +62,6 @@ if ($conn->connect_error) {
                         <button class="menu-button" id="addCart" name="addCart" onclick="addToCart(<?php echo $row['productName'] ?>)">Add To Cart</button>
                     </div>
                 </div>
-            </div>
-        </div>
-        </div>
-
         <?php 
             }
             /* free result set */
