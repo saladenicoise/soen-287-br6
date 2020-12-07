@@ -20,6 +20,7 @@ if ($conn->connect_error) {
     <link rel="stylesheet" href="../navBar/navBarStyles.css">
     <link rel = "stylesheet" href = "../footer/footer.css">
     <script type="text/javascript" src="main_menu.js"> </script>
+    <script src="cateringPageFunctionality.js"></script>
 
     <title>Menu</title>
 </head>
@@ -31,8 +32,7 @@ if ($conn->connect_error) {
  <!--Entree ITEMS --> 
 <h1> Entrees </h1>
     <div class="menu-grid-container">
-
-   <!--MAIN MENU ITEMS --> 
+        <!--MAIN MENU ITEMS --> 
         <?php
             /*Our query, essentially what we want to display and show, in this case we want * (everything) from Menu*/
             $query = "SELECT * FROM `menu`";
@@ -78,7 +78,7 @@ if ($conn->connect_error) {
                 }
 
         ?>
-        </div>
+    </div>
 
 
     <!--Main ITEMS --> 
