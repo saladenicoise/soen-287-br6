@@ -278,6 +278,9 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
                     </div>
                 </form>
                 <?php
+                 use PHPMailer\PHPMailer\PHPMailer;
+                 use PHPMailer\PHPMailer\SMTP;
+
                  if($_SERVER['REQUEST_METHOD'] == 'POST' && $_REQUEST["post"] == "addbtn") {
                     
                     require('../configure.php');
@@ -302,7 +305,92 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
                     $stmt->execute(); //Executes the query
                     $stmt->close();
 
+                    
                     echo("<meta http-equiv='refresh' content='0'>");
+
+
+                   //get the email address of the user
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+
+                                        $userID = $_SESSION["username"];
+
+                                        if ($conn->connect_error) {
+                                            die("Connection failed: " . $conn->connect_error);
+                                        }
+
+                                        //No need for prepared statements since no input
+                                        $query = "SELECT * FROM `useraccounts` WHERE username='$userID'";
+
+                                        if ($result = $conn->query($query)) {
+
+                                            $row = $result->fetch_assoc();
+
+                                            $email = $row['email'];
+
+                                            //SMTP needs accurate times, and the PHP time zone MUST be set
+                                            //This should be done in your php.ini, but this is how to do it if you don't have access to that
+                                            date_default_timezone_set('Etc/UTC');
+
+                                            require '../cart_checkout/PHPMailerTemplate/vendor/autoload.php';
+
+                                            //Create a new PHPMailer instance
+                                            $mail = new PHPMailer;
+                                            //Tell PHPMailer to use SMTP
+                                            $mail->isSMTP();
+                                            //Enable SMTP debugging
+                                            //SMTP::DEBUG_OFF = off 
+                                            //SMTP::DEBUG_CLIENT = client messages
+                                            //SMTP::DEBUG_SERVER = client and server messages
+                                            //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+                                            //Set the hostname of the mail server (We will be using GMAIL)
+                                            $mail->Host = 'smtp.gmail.com';
+                                            //Set the SMTP port number - likely to be 25, 465 or 587
+                                            $mail->Port = 587;
+                                            //Whether to use SMTP authentication
+                                            $mail->SMTPAuth = true;
+
+                                            //Username to use for SMTP authentication
+                                            $mail->Username = 'bens51035@gmail.com';
+                                            //Password to use for SMTP authentication
+                                            $mail->Password = '12345678BEbe!';
+                                            //Set who the message is to be sent from
+                                            $mail->setFrom('bens51035@gmail.com', 'Maison De Chef Team');
+                                            //Set an alternative reply-to address
+                                            //$mail->addReplyTo('replyto@example.com', 'First Last');
+                                            //Set who the message is to be sent to email and name
+                                            $mail->addAddress($email);
+                                            //Name is optional
+                                            //$mail->addAddress('recepientid@domain.com');
+
+                                            //You may add CC and BCC
+                                            //$mail->addCC("recepient2id@domain.com");
+                                            //$mail->addBCC("recepient3id@domain.com");
+
+                                            $mail->isHTML(true);
+
+                                            //Set the subject line
+                                            $mail->Subject = 'Your booking for catering';
+                                            //Read an HTML message body from an external file, convert referenced images to embedded,
+                                            //convert HTML into a basic plain-text alternative body
+                                            $mailContent = "<h1>Dear ". $userID . "</h1>" . 
+                                                            "<p>You have set a catering booking for ". $due_date . "</p>".
+                                                            "<p>You have set a reminder for ". $reminder_date . " please mark it in your calendar </p>" .
+                                                            "<p>Best Regards,</p>" .  "<p>Gmail Admin</p>";
+                                            $mail->Body = $mailContent;
+                                            
+                                            //You may add plain text version using AltBody
+                                            //$mail->AltBody = "This is the plain text version of the email content";
+                                            //send the message, check for errors
+                                            if (!$mail->send()) {
+                                                echo 'Mailer Error: ' . $mail->ErrorInfo;
+                                            } else {
+                                                echo 'Message was sent Successfully!';
+                                            }
+
+
+                                            exit();
+                                        }
+                                        
                 }
                 ?>
                 </div>
