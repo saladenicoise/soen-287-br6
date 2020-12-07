@@ -9,7 +9,7 @@
                         <img  src = ../footer/footerimages/Logo2.png> </img> </a>
                 </td>
 
-                <th id = "thfooter">Visit</th>
+                <th id = "thfooter"> <span id = "span2"> Visit </span> </th>
        
                 <th id = "thfooter"> 
                     <a class = "footer" id = "span2" href = "../contactUs/contactUs.php"> Contact Us </a> 

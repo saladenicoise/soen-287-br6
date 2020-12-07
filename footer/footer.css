@@ -1,9 +1,8 @@
 
-/* set default height to all pages at 100% to handle shorter pages */
 html{
     height: 100%;
 }
-/*using flex display and column direction, minimum height of body at 100% make footer stick to the bottom of the page  */
+
 body{
     display: flex;
     flex-direction: column;
@@ -11,7 +10,8 @@ body{
 }
 footer{
     color: snow; 
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Alike';
+    font-size: 1.25em;
     margin-top: auto;
     
     }
@@ -48,7 +48,7 @@ td.footer {
     color: #52b1b8; 
     text-decoration:underline; 
     text-decoration-color:#52b1b8; 
-    font-size: large;
+    font-size: 1em;
     border-right: 1px;
     border-right-color: snow;
     border-right-style: solid;
@@ -60,12 +60,12 @@ a.footer{color: snow; text-decoration: none;}
 
 #clickable-pics :hover{transform: scale(1.10);}
 
-#span1{color: #52b1b8; font-style: italic; font-weight: bold;}
+#span1{color: #52b1b8; font-style: italic; font-weight: bold;} 
 
 #span2{color: #52b1b8; 
     font-weight: bolder; 
-    font-size: large; 
     text-decoration: underline;
+    font-size: 1.25em;
 }
 
 span.span3 {
