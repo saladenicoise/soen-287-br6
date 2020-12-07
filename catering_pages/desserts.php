@@ -20,9 +20,8 @@
 
     <div class="MessageDiv">
         <h1>Dessert Jars</h1>
-        <p class="dont">Our delicious desserts contained in a refrigirator and freezer safe 125mL mason jar for storage and future consumption</p>
-        <br><p class="dont">1 - 10 jars: $4.50 + txs</p>
-        <p class="odnt">11+ jars: $6.50 + txs</p>
+        <p class="pageDescription">Our delicious desserts contained in a refrigirator and freezer safe 125mL mason jar for storage and future consumption</p>
+        <hr class="cateringItemsHr">
     </div><br>
        
     <!--START COPY-->

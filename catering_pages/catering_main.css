@@ -49,14 +49,22 @@ div.cateringCategoriesContainer {
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    padding-bottom: 20px;
 }
 
 span.cateringCategory {
     padding-right: 25px;
+    font-family: 'Ariel';
+}
+
+span:hover
+{
+    text-decoration: underline;
+    outline: solid 1px #f0f0f0;
 }
 
 hr.cateringHr {
-    margin-top: 10px;
+    margin-top: 15px;
     width: 45%;
     margin-left: auto;
     margin-right: auto;
@@ -80,31 +88,15 @@ div.MessageDiv {
     text-align: center;
 }
 
-div.dishContainer {
-    margin-left: 50px;
-    margin-right: 50px;
-    padding-left: auto;
-    padding-right: auto;
-    padding-top: 10px;
-    padding-bottom: 30px;
-    width: auto;
-    display: flex;
-    flex-wrap: wrap;
-    padding-right: auto;
-    text-align: center;
-    row-gap: 20px;
-    column-gap: 20px;
+p.pageDescription
+{
+    font-family:'Aleo';;
+    color: #030303;
 }
 
-div.dishItem {
-    flex: 1 0 20%;
-    margin: 5px;
-    padding: 20px;
-    width: 40%;
-    text-align: center;
-    background-color: #52b1b8;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    font-size: normal;
+h1
+{
+    font-family: 'Aleo';
 }
 
 .modal {
@@ -156,20 +148,54 @@ div.dishItem {
 }
 
 .menu-grid-container {
-    display: grid;
+    display: flex;
     /*How many columns we want, if we add more items and it can't fit in one of the rows, it will auto go to next row*/
     grid-template-columns: auto auto auto;
     /* background-color: var(--grid-container-bg-color); */
-    place-self: center stretch;
+    padding-left: auto;
+    padding-right: auto;
     padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+
 }
 
+/* div.dishContainer {
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-left: auto;
+    padding-right: auto;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding-right: auto;
+    text-align: center;
+    row-gap: 20px;
+    column-gap: 20px;
+} */
+
 .menu-grid-item {
+    flex: 1 0 20%;
+    margin: 5px;
     padding: 30px;
     font-size: 30px;
     margin: 10px;
     text-align: center;
 }
+
+/* div.dishItem {
+    flex: 1 0 20%;
+    
+    padding: 20px;
+    width: 40%;
+    text-align: center;
+    background-color: #52b1b8;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    font-size: normal;
+} */
 
 .menu-item {
     padding: 40px;
@@ -190,10 +216,6 @@ div.dishItem {
 p {
     font-size: large;
     color: white;
-}
-
-.dont {
-    color: black;
 }
 
 #description {

@@ -1,210 +1,192 @@
-
-
-
 #checkOut {
-    display:flex;
+    display: flex;
     justify-content: flex-end;
-    width:80%;
-    
+    width: 80%;
 }
 
 #mainPage {
-     display:flex;
+    display: flex;
     justify-content: flex-end;
-    width:80%;
+    width: 80%;
 }
-button{
-    border-color:black;
+
+button {
+    border-color: black;
     border-radius: 15px;
-    width:30px;
+    width: 30px;
     font-size: 15px
 }
-img{
+
+img {
     width: 170px;
 }
 
-
-
-#billing_address {
-    
-    width:40%;
+#billing_address,
+#paymentContainer,
+#howContainer {
+    text-align: center;
 }
 
 #placeOrder {
-    border-radius: 10%;
-    font-size:20px;
-    width:200px;
-    height:50px; 
+    margin: 10px;
+    float: right;
+    text-align: center;
+    background-color: #3f888d;
+    /*No border is cleaner*/
+    border: 0;
     color: white;
-    background-color: cadetblue;
-    margin-top:15px;
-    margin-left:170px;
-    margin-bottom: 30px;
-   
+    /*Less than 50% to have some margin between the 2 buttons*/
+    width: 48%;
+    /*Same padding as input fields*/
+    padding: 15px;
 }
 
-
 #orderSummary {
+    display: flex;
     padding-top: 50px;
-    float:right;
-    width:600px;
-    height:30%;
+    float: right;
+    width: 600px;
+    height: 30%;
     background-color: lightgray;
     margin-top: 60px;
     margin-right: 40px;
-    
 }
 
-#client_info {
-    margin-top: 50px; 
-    margin-left: 40px;
-    
+#mainContainer {
+    display: flex;
+    justify-content: center;
 }
 
-#fname {
-    padding-top: 5px;
-    padding-right: 8px;
-    padding-bottom: 5px;
-    padding-left: 8px;
-    border-radius: 5%;
+#secondContainer {
+    display: flex;
+    justify-content: center;
 }
 
-#email {
-    padding-top: 5px;
-    padding-right: 8px;
-    padding-bottom: 5px;
-    padding-left: 8px;
-    border-radius: 5%;
+#thirdContainer {
+    display: flex;
+    justify-content: center;
 }
 
-#adr {
-    padding-top: 5px;
-    padding-right: 8px;
-    padding-bottom: 5px;
-    padding-left: 8px;
-    border-radius: 5%;
+#client_info,
+#paymentContainer,
+#howContainer {
+    color: #3f888d;
+    width: auto;
+    max-width: 500px;
+    padding: 20px;
+    margin: 40px;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-#city {
-    padding-top: 5px;
-    padding-right: 8px;
-    padding-bottom: 5px;
-    padding-left: 8px;
-    border-radius: 5%;
+.smallinput {
+    font-family: 'Alike';
+    font-size: 15px;
+    background-color: #f0f0f0;
+    min-width: 100px;
+    width: auto;
+    /*Remove border to make it cleaner and blend in*/
+    border: 0;
+    /*Will make it fit to the input size*/
+    padding: 15px;
+    margin: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
 }
 
-#state {
-    padding-top: 5px;
-    padding-right: 8px;
-    padding-bottom: 5px;
-    padding-left: 8px;
-    border-radius: 5%;
+.smallinput:disabled {
+    background-color: #c4c4c4;
 }
 
-#zip {
-    padding-top: 5px;
-    padding-right: 8px;
-    padding-bottom: 5px;
-    padding-left: 8px;
-    border-radius: 5%;
+.smallinput::placeholder {
+    color: #808080;
+    font-family: 'Alike';
+    font-size: 15px;
 }
 
-#cname {
-    padding-top: 5px;
-    padding-right: 8px;
-    padding-bottom: 5px;
-    padding-left: 8px;
-    border-radius: 5%;
+.input {
+    font-family: 'Alike';
+    font-size: 15px;
+    background-color: #f0f0f0;
+    min-width: 300px;
+    width: auto;
+    /*Remove border to make it cleaner and blend in*/
+    border: 0;
+    /*Will make it fit to the input size*/
+    padding: 15px;
+    margin: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
 }
 
-#ccnum {
-    padding-top: 5px;
-    padding-right: 8px;
-    padding-bottom: 5px;
-    padding-left: 8px;
-    border-radius: 5%;
+.input:disabled {
+    background-color: #c4c4c4;
 }
 
-#expmonth {
-    padding-top: 5px;
-    padding-right: 8px;
-    padding-bottom: 5px;
-    padding-left: 8px;
-    border-radius: 5%;
-    width:15%;
+.input::placeholder {
+    color: #808080;
+    font-family: 'Alike';
+    font-size: 15px;
 }
 
-#expyear {
-    padding-top: 5px;
-    padding-right: 8px;
-    padding-bottom: 5px;
-    padding-left: 8px;
-    border-radius: 5%;
-    width:15%;
+.radio {
+    font-family: 'Alike';
+    font-size: 15px;
+    margin: 10px;
 }
-
-#cvv {
-    padding-top: 5px;
-    padding-right: 8px;
-    padding-bottom: 5px;
-    padding-left: 8px;
-    border-radius: 5%;
-}
-
-
 
 #mapid {
-   margin-top: 20px;
-    margin-left:40px;
+    margin-top: 20px;
+    margin-left: 40px;
     margin-bottom: 60px;
-    float:left;
+    float: left;
 }
 
 #payment {
-    width:40%;
+    width: 40%;
 }
 
-
-
 label {
-    width:150px;
-    display:inline-block
+    width: 150px;
+    display: inline-block
 }
 
 #input {
-    float:left;
+    float: left;
     margin-left: 150px;
     margin-top: 80px;
-    width:600px;
+    width: 600px;
+    height: 300px;
     background-color: lightgray;
-   
 }
 
 #address_input {
-   margin-top:50px;
-    margin-left:100px;
-    width:350px;
-    padding-top:10px;
+    margin-top: 50px;
+    margin-left: 100px;
+    width: 350px;
+    padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 8px;
     padding-right: 8px;
 }
 
 #search_button {
-    width:100px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    border-radius: 10%;
-    font-size: 20px;
-    color:white;
-    background-color: cadetblue;
-    float:right;
+    float: right;
     margin-right: 90px;
+    background-color: #3f888d;
+    /*No border is cleaner*/
+    border: 0;
+    color: white;
+    /*Less than 50% to have some margin between the 2 buttons*/
+    width: 48%;
+    /*Same padding as input fields*/
+    padding: 15px;
 }
 
 legend {
     font-size: 30px;
-    color:white;
+    color: white;
 }
 
 body {
@@ -212,48 +194,47 @@ body {
 }
 
 #emailErrorInfo {
-    color:red;
+    color: red;
 }
 
 #postalCodeErrorInfo {
-     color:red;
+    color: red;
 }
 
 #ccnumErrorInfo {
-     color:red;
+    color: red;
 }
 
 #expMonthErrorInfo {
-     color:red;
+    color: red;
 }
 
 #expYearErrorInfo {
-     color:red;
+    color: red;
 }
 
 #cvvErrorInfo {
-     color:red;
+    color: red;
 }
 
 .cartTable {
     text-align: center;
-    margin-left:50px;
-    margin-top:100px;
-    width:800px;
+    margin-left: 50px;
+    margin-top: 100px;
+    width: 800px;
     background-color: lightgray;
 }
 
 th {
     padding-bottom: 8px;
-    padding-top:8px;
+    padding-top: 8px;
     border-bottom-style: solid;
     border-bottom-color: cadetblue;
-    
 }
 
 td {
-    padding-top:5px;
-    padding-bottom:5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     border-bottom-style: solid;
     border-bottom-color: darkgray;
 }
@@ -269,12 +250,7 @@ td {
     padding-right: 3px;
     padding-top: 5px;
     background-color: cadetblue;
-    color:white;
-    
-}
-
-td {
-    
+    color: white;
 }
 
 #subTotalVal {
@@ -282,34 +258,35 @@ td {
 }
 
 .orderSummaryTable {
-    float:right;
+    float: right;
     text-align: center;
     background-color: lightgray;
-    margin-right:63px;
-    margin-top:50px;
-    width:350px;
+    margin-right: 63px;
+    margin-top: 50px;
+    width: 350px;
 }
 
 .orderSummary {
-    width:500px;
-    float:right;
+    width: 500px;
+    float: right;
     background-color: darkgray;
     margin-top: 50px;
     margin-right: 40px;
 }
 
 #distance {
-    margin-left:100px;
+    margin-left: 100px;
 }
 
 #deliveryFeeCal {
-    margin-left:100px;
+    margin-left: 100px;
 }
 
-#decreaseItemNum,#increaseItemNum {
-    padding-left:5px;
-    padding-right:5px;
+#decreaseItemNum,
+#increaseItemNum {
+    padding-left: 5px;
+    padding-right: 5px;
     border-radius: 50%;
-    color:white;
+    color: white;
     background-color: cadetblue;
 }
