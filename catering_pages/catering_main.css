@@ -5,14 +5,18 @@ body {
     background-color: #52b1b8;
 }
 
+::-webkit-scrollbar {
+    display: none;
+  }
+
 div.cateringMenuBackground
 {
     background-color: #f0f0f0;
     margin-left: 400px;
     margin-right: 400px;
     margin-top: 30px;
-    margin-bottom: 0px;
-    height: 600px;
+    margin-bottom: 30px;
+    height: auto;
     padding-top: 20px;
     border-radius: 25px;
 }

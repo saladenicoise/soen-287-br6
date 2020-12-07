@@ -241,7 +241,6 @@
        background-color: var(--form-btn-color);
        /*No border is cleaner*/
        border: 0;
-       margin-top: 10px;
        color: white;
        /*Less than 50% to have some margin between the 2 buttons*/
        width: 48%;
@@ -263,7 +262,7 @@
        display: flex;
        justify-content: center;
        align-self: center;
-       padding: 10px;
+       margin-top: 50px;
    }
    
    span.success {

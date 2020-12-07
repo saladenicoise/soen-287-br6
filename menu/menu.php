@@ -11,6 +11,10 @@
     <body>
         <?php include("../navBar/navBar.php")?>
 
+        <nav>
+            <a href="cart.php">Cart <span class="MainPageCart">0</span></a>
+        </nav>
+
         <button style="background-color: red; color: white; padding: 15px; width: 50%;" onclick="location.href='./menuTest.php'">Goto new menu (Temporary)</button>
         <div class="container">
             <div class="Menu_dishes">
