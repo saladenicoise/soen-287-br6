@@ -48,7 +48,7 @@
 
 
         /*Picture Handling*/
-        $pictureDir = "../images/productPictures";
+        $pictureDir = "../images/productPictures/";
         $pictureFile = $pictureDir . basename($_FILES["picUpload"]["name"]);
         $imageFileType = strtolower(pathinfo($pictureFile,PATHINFO_EXTENSION));
         $upload = 1;

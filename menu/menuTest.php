@@ -1,8 +1,9 @@
 <?php 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "soen287final";
+require('../configure.php');
+$servername = DB_SERVER;
+$username = DB_USER;
+$password = DB_PASS;
+$dbname = DB_NAME;
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
@@ -40,7 +41,7 @@ if ($conn->connect_error) {
         <div class = "menu-box">
             <div class="menu-item">
                 <div class="clickable"  onclick = <?php echo "\"openModal('" . $row["productName"] . "')\""?>>
-                    <img src="../productPictures/<?php echo $row["imagePath"];?>">
+                    <img src="../images/productPictures/<?php echo $row["imagePath"];?>">
                     <p><?php echo $row["productName"]?></p>
                     <p class="extra"><?php echo ($row["isVeg"] == 0) ? "" : "Vegetarian";?></p>
                     <p class="extra"><?php echo ($row["isGf"] == 0) ? "" : "Gluten Free";?></p>
