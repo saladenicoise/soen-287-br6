@@ -5,6 +5,10 @@ body {
     background-color: #52b1b8;
 }
 
+::-webkit-scrollbar {
+    display: none;
+  }
+
 div.cateringMenuBackground
 {
     background-color: #f0f0f0;

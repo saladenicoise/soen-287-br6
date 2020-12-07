@@ -21,7 +21,6 @@
     }
 ?>
 
-<div>
 <ul class="navi">
     <li class="navBar"><a class="navbarElement" href="../mainPage/mainPage.php">Main Menu</a></li>
     <li class="navBar"><a class="navbarElement" href="../menu/menu.php">Shop</a></li>
@@ -37,4 +36,3 @@
     <?php endif; ?>
     <li class="navBar" style="float: right;"><a class="navbarElement" href="../cart_checkout/cart.php">Cart <span class="MainPageCart">0</span></a></li>
 </ul>
-</div>
