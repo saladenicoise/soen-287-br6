@@ -78,6 +78,6 @@ if(isset($_POST["addCart"]) && $_SERVER['REQUEST_METHOD'] == 'POST'){
         );
         $_SESSION["cart"][0]=$item_array;
     }
-    header('Location: catering_main.php');
 }
+header('Location: catering_main.php');
 ?>
