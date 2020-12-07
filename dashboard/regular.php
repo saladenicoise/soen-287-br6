@@ -1,5 +1,6 @@
 <?PHP
 header_remove();
+error_reporting(0);
 session_start();
 $servername = 'localhost';
 $username = 'dev';
@@ -250,7 +251,7 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
                     $stmt->execute(); //Executes the query
                     $stmt->close();
 
-
+                    header("Refresh: /dashboard/regular.php");
                 }
                 ?>
                 <div class="item">
@@ -264,13 +265,12 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
                         <label>Reminder DateTime:</label><input name="remind" type="datetime-local" required> </input>
                     </div>
                     <div class="item">
-                        <button class="addbtn" name="post" value="addBook" type="submit">+</button>
+                        <button  name="post" value="addbtn" type="submit">+</button>
                     </div>
                 </form>
                 <?php
                  if($_SERVER['REQUEST_METHOD'] == 'POST' && $_REQUEST["post"] == "addbtn") {
-                    $msg="hello here";
-                    echo "<script type='text/javascript'>alert('$msg');</script>";
+                    
                     require('../configure.php');
                     $servername = DB_SERVER;
                     $username = DB_USER;
@@ -288,14 +288,15 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
                     }
 
 
-                    $stmt = $conn->prepare("INSERT INTO `bookings` (username, due_date, reminder_date) VALUES (?, ?, ?, ?)");
+                    $stmt = $conn->prepare("INSERT INTO `bookings` (username, due_date, reminder_date) VALUES (?, ?, ?)");
                     $stmt->bind_param('sss', $userID,  $due_date, $reminder_date); 
                     $stmt->execute(); //Executes the query
                     $stmt->close();
 
-
+                    echo("<meta http-equiv='refresh' content='0'>");
                 }
                 ?>
+
         </body>
     </html>
 
