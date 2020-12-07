@@ -77,7 +77,22 @@ $mail->addAttachment("thankyou.png");
 $mail->Subject = 'Thank you so much for your order!';
 //Read an HTML message body from an external file, convert referenced images to embedded,
 //convert HTML into a basic plain-text alternative body
-$mail->Body = "Dear $fullName,<br/><br/>We have received your order! And will get down to it as soon as possible!<br/><br/>Best regards,<br/>James Mitchell";
+if(!empty($_SESSION["cart"])){
+    $total=0;
+    $body='<table><tr><th>Dish</th><th>Size</th><th>Quantity</th></tr>';
+     
+foreach($_SESSION["cart"] as $key =>$value){
+    $itemName=$value["productName"];
+    $itemSize=$value["productSize"];
+    $itemQuantity=$value["productNum"];
+    $priceNum=substr($value["productPrice"],1);
+    $total=$total+$priceNum*$itemQuantity;
+$body .= '<tr><td>'.$itemName.'</td><td>'.$itemSize.'</td><td>'.$itemQuantity.'</td></tr>';
+}
+$body .= '<tr><td></td><td>SubTotal</td><td>'.$total.'</td></tr>';
+}
+$mail->Body = 'Dear'.$fullName.',<br/><br/>We have received your order! And will get down to it as soon as possible!<br/><br/>Here is your order summary:<br/><br/>'.$body.'</table><br/><br/>Best regards,<br/>James Mitchell';
+                           
 //You may add plain text version using AltBody
 //$mail->AltBody = "This is the plain text version of the email content";
 //send the message, check for errors
