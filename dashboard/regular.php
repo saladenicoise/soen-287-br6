@@ -125,6 +125,8 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
 
                             $conn = new mysqli($servername, $username, $password, $dbname);
 
+                            $query = "SELECT * FROM `orderitemtable` WHERE username='$userID' AND Order_ID='$orderID'";
+
                             if ($conn->connect_error) {
                                 die("Connection failed: " . $conn->connect_error);
                             }
@@ -141,8 +143,8 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
                                 print "<th>Order ItemID</th>";
                                 print "<th>Product Name</th>";
                                 print "<th>Cost</th>";
-                                print "<th>Vegetarian</th>";
-                                print "<th>Gluten Free</th>";
+                                print "<th>Size</th>";
+                                print "<th>Quantity</th>";
                                 print "</thead>";
                                 print "<tbody>";
                                 print "<tr>";
@@ -169,8 +171,8 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
                                 print "<td><p>".$row["Order_Item_ID"]."</p></td>";
                                 print "<td><p>".$row["productName"]."</p></td>";
                                 print "<td><p>$". $row["cost"] . "</p></td>";
-                                print "<td><p>". $isVeg ."</p></td>";
-                                print "<td><p>".$isGf."</p></td>";
+                                print "<td><p>".$row["product_size"]."</p></td>";
+                                print "<td><p>".$row["quantity"]."</p></td>";
                             
                                 print "</tr>";
                                 }
