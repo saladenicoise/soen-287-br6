@@ -4,6 +4,11 @@ function displayMenu(menuType)
     var selections = ["appetizers", "platters", "pastas", "salads", "desserts", "buffet", "grboards"]
     var chosenMenu;
 
+    if(document.getElementById("infoDiv").style.display == "block")
+    {
+        document.getElementById("infoDiv").style.display == "none";
+    }
+
     hideElements(menus);
     removeUnderline(selections, menuType);
     
