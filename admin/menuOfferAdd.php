@@ -16,7 +16,7 @@
     $productPrice = 0.0;
     $vegetarian = 0;
     $glutenFree = 0;
-    $customId = "";
+    $customId = NULL;
     $category = "";
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         /*See about setting up environment variables

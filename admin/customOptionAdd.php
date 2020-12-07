@@ -7,12 +7,12 @@
     }
 
     $customId = "";
-    $customOption1 = "";
-    $customOption2 = "";
-    $customOption3 = "";
-    $customOption4 = "";
-    $customOption5 = "";
-    $customOption6 = "";
+    $customOption1 = NULL;
+    $customOption2 = NULL;
+    $customOption3 = NULL;
+    $customOption4 = NULL;
+    $customOption5 = NULL;
+    $customOption6 = NULL;
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         /*See about setting up environment variables
