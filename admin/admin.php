@@ -185,7 +185,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                             <option value="Salads">Salads</option>
                             <option value="Desserts">Desserts</option>
                             <option value="Buffet">Buffet</option>
-                            <option value="Grazing">Grazing</option>
+                            <option value="Grazing">Grazing Boards</option>
                         </select>
                         <textarea name="desc" form="menuOfferingsAdd" placeholder="Product Description" required></textarea>
                         <input class="file" type="file" id="picUpload" name="picUpload" required accept="image/*" placeholder="Product Picture">
@@ -226,7 +226,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                             <option value="Salads">Salads</option>
                             <option value="Desserts">Desserts</option>
                             <option value="Buffet">Buffet</option>
-                            <option value="Grazing">Grazing</option>
+                            <option value="Grazing">Grazing Boards</option>
                         </select>
                         <textarea required name="desc" id="desc" form="editMenuOffering" placeholder="Product Description"></textarea>
                         <button type="submit">Edit Item</button>

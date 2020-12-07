@@ -12,8 +12,7 @@
     </head>
 
     <body>
-        <?php include("../navBar/navBar.php")?>
-
+        <?php include("../navBar/navBar.php")?> 
         <script>
             function displayMenu(id) {
                 this.dessert = document.getElementById("dessertDiv");
@@ -129,9 +128,6 @@
             </div>
         </div>
         <br><br>
-        
-        
         <?php include("../footer/footer.php")?>
     </body>
-
 </html>
