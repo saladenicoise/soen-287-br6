@@ -17,6 +17,7 @@ if ($conn->connect_error) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="test.css">
+    <link rel = "stylesheet" href = "../footer/footer.css">
     <script type="text/javascript" src="main_menu.js"> </script>
 
     <title>Menu</title>
@@ -36,12 +37,13 @@ if ($conn->connect_error) {
                 */
                 while ($row = $result->fetch_assoc()) {
         ?>
-    
+
+        
         <div class="menu-grid-item">
         <div class = "menu-box">
             <div class="menu-item">
                 <div class="clickable"  onclick = <?php echo "\"openModal('" . $row["productName"] . "')\""?>>
-                    <img src="../images/productPictures/<?php echo $row["imagePath"];?>">
+                    <img id = "img" src="../images/productPictures/<?php echo $row["imagePath"];?>">
                     <p><?php echo $row["productName"]?></p>
                     <p class="extra"><?php echo ($row["isVeg"] == 0) ? "" : "Vegetarian";?></p>
                     <p class="extra"><?php echo ($row["isGf"] == 0) ? "" : "Gluten Free";?></p>
@@ -70,6 +72,9 @@ if ($conn->connect_error) {
             $conn->close();
         ?>
     </div>
+
+    <?php include("../footer/footer.php")?>
+
 </body>
 
 </html>

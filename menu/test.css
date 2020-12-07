@@ -98,7 +98,7 @@ p {
     background-color: var(--btn-bg-color-hover);
 }
 
-img {
+#img {
     width: 128px;
     height: 128px;
 }
