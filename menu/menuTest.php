@@ -18,6 +18,7 @@ if ($conn->connect_error) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="test.css">
     <link rel = "stylesheet" href = "../footer/footer.css">
+    <link rel="stylesheet" href="../navBar/navBarStyles.css">
     <script type="text/javascript" src="main_menu.js"> </script>
 
     <title>Menu</title>
