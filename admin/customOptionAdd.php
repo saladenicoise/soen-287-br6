@@ -41,7 +41,7 @@
         }
 
         /*Check if the customization option does exist in table*/
-        $stmt = $conn->prepare("SELECT * FROM `Menu` WHERE customId=?");
+        $stmt = $conn->prepare("SELECT * FROM `menu` WHERE customId=?");
         $stmt->bind_param('s', $customId);
         $stmt->execute(); //Executes the query
 	    $stmt->store_result(); //Stores the results of the query
@@ -53,7 +53,7 @@
         } 
 
         /*Add*/
-        $stmt = $conn->prepare("SELECT * FROM `CustomizationOptions` WHERE customId=?");
+        $stmt = $conn->prepare("SELECT * FROM `customizationoptions` WHERE customId=?");
         $stmt->bind_param('s', $customId); //Binds the parameter $customId to the query
 	    $stmt->execute(); //Executes the query
 	    $stmt->store_result(); //Stores the results of the query

@@ -44,36 +44,34 @@
         }
         $category = test_input($_POST['category']);
         $sub_category = test_input($_POST['sub-category']);
+        $description = $_POST['desc'];
 
 
         /*Picture Handling*/
-        $pictureDir = "../productPictures/";
+        $pictureDir = "../images/productPictures/";
         $pictureFile = $pictureDir . basename($_FILES["picUpload"]["name"]);
         $imageFileType = strtolower(pathinfo($pictureFile,PATHINFO_EXTENSION));
         $upload = 1;
 
         /* Check if file already exists*/
         if (file_exists($pictureFile)) {
-            echo "Sorry, file already exists.";
+            header('Location: /admin/admin.php?stat=imgFE#menu');
             $upload = 0;
         }
   
         /* Check file size*/
         if ($_FILES["picUpload"]["size"] > 500000) {
-            echo "Sorry, your file is too large.";
+            header('Location: /admin/admin.php?stat=imgFS#menu');
             $upload = 0;
         }
 
         if($upload == 0) {
-            echo "Error: File not uploaded!";
-            exit();
+            header('Location: /admin/admin.php?stat=imgF#menu');
         }else{
             if(move_uploaded_file($_FILES["picUpload"]["tmp_name"], $pictureFile)) {
-                echo "The file " . htmlspecialchars(basename($_FILES["picUpload"]["name"])) . "has been uploaded!";
                 $filePath = $_FILES["picUpload"]["name"];
             }else{
-                echo "Error: File not uploaded";
-                exit();
+                header('Location: /admin/admin.php?stat=imgF#menu');
             }
         }
         /* MySQL Stuff
@@ -84,7 +82,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $stmt = $conn->prepare("SELECT * FROM `Menu` WHERE productName=?");
+        $stmt = $conn->prepare("SELECT * FROM `menu` WHERE productName=?");
         $stmt->bind_param('s', $productName); //Binds the parameter $productName to the query
 	    $stmt->execute(); //Executes the query
 	    $stmt->store_result(); //Stores the results of the query
@@ -94,8 +92,8 @@
             $errorMessage = "<b>Product already exists</b>";
             header('Location: /admin/admin.php?stat=addF#menu', true);
         }else{
-            $stmt = $conn->prepare("INSERT INTO `Menu` (productName, cost, isVeg, isGF, customId, category, subcategory, imagePath) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param('sdiissss', $productName, $productPrice, $vegetarian, $glutenFree, $customId, $category, $sub_category, $filePath);
+            $stmt = $conn->prepare("INSERT INTO `menu` (productName, cost, isVeg, isGF, customId, category, subcategory, description, imagePath) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param('sdiisssss', $productName, $productPrice, $vegetarian, $glutenFree, $customId, $category, $sub_category, $description, $filePath);
             $res = $stmt->execute();
             $stmt->close();
             $conn->close();

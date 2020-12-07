@@ -20,7 +20,7 @@ function validateInfo(){
                 submit=true;
             }
             return submit;
-        }
+}
 var emailValid;
 var validEmail=/\w+@\w+\.com/;
 function validateEmail(){

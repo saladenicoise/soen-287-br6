@@ -12,77 +12,57 @@
 
 <body class="reviewPageBody">
     <?php include("../navBar/navBar.php")?>
-   
 
-    <!-- Main Header-->
-    <h1 class="mainReviewHeader"> Reviews</h1>
+        
 
-
-
-    <!-- Main table with logo anf overall reviews-->
-    <table class="mainReviewTable">
-        <tr>
-            <th>
-                <!-- Leave this empty -->
-            </th>
-            <th>Overall Ratings</th>
-        </tr>
-        <tr>
-            <td>
-                <img class="logoReview" src="../images/general/Logo.png" alt="Main Logo">
-            </td>
-            <td>
-                <!-- Nested Table for overall reviews-->
-                <table class="reviewTable">
-                    <tr>
-                        <th class="googleReview"> <a href="https://g.page/houseofchefjamesmitchell?share">Google:</a>
+            <!-- Main table with logo anf overall reviews-->
+            <div class = "mainReviews">
+                    <div class="mainText">
+                        <img class="logoReview" src="../images/general/Logo.png" alt="Main Logo">
+                    </div>
+                    <div class="reviewContainer">     
+                        <div class="googleReview"> <a href="https://g.page/houseofchefjamesmitchell?share">Google:</a>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star"></span>
-                    </tr>
-                    <tr>
-                        <td class="facebookReview"> <a href="https://www.facebook.com/houseofchefjamesmitchell/reviews/?ref=page_internal">Facebook:</a>
+                        </div>
+                        <hr class="maindivider3">
+                        <div class="facebookReview"> <a href="https://www.facebook.com/houseofchefjamesmitchell/reviews/?ref=page_internal">Facebook:</a>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                        </div>
+                    </div>
+            </div>
 
-    <!-- Second Header-->
-    <h1 class="facebookReviewHeader"> Here's what other people had to say!</h1>
 
-    <!-- Table for embedded reviews -->
-    <table class="facebookReviewTable">
-        <tr class="facebookReviewTable">
-            <td>
-                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmarlene.brown.7543%2Fposts%2F10157657038700737&show_text=true&width=552&height=184&appId" width="552" height="180" style="border:none;overflow:hidden" scrolling="no"
-                    frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                <br>
+            <div class="facebookHeader">
+                <p class="facebookReviewHeader">Here's what other people had to say!</p>
+                <hr class="maindivider2">
+            </div>
 
-                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fbrigitte.girard%2Fposts%2F10158930500366980&show_text=true&width=552&height=259&appId" width="552" height="220" style="border:none;overflow:hidden" scrolling="no"
-                    frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                <br>
+            
+            <div class = "facebookReviews">
+ 
+                <div class="Review">
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpixelfox4%2Fposts%2F10157322895296184&show_text=true&width=552&height=194&appId" width="552" height="194" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                </div>
+                <div class="Review">
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fcorymaguire%2Fposts%2F10158827707733197&show_text=true&width=552&height=194&appId" width="552" height="194" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                </div>           
+                <div class="Review">
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fbrigitte.girard%2Fposts%2F10158930500366980&show_text=true&width=552&height=259&appId" width="552" height="259" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                </div>   
+                <div class="Review">
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmarlene.brown.7543%2Fposts%2F10157657038700737&show_text=true&width=552&height=184&appId" width="552" height="184" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>           
+                </div>
+            </div>
 
-                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fduckens.montlouis%2Fposts%2F2320918634667954&show_text=true&width=552&height=693&appId" width="552" height="693" style="border:none;overflow:hidden" scrolling="no"
-                    frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                <br>
 
-                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Feloisagarza.ravingcakes%2Fposts%2F1155271247993824&show_text=true&width=552&height=221&appId" width="552" height="221" style="border:none;overflow:hidden" scrolling="no"
-                    frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-
-                <br>
-            </td>
-        </tr>
-
-    </table>
     <?php include("../footer/footer.php")?>
 </body>
 

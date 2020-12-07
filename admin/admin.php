@@ -23,7 +23,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="admin.css?v=1.1">
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <script src="/js/disableSame.js"></script>
     <script src="/js/printStat.js"></script>
@@ -104,6 +104,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                             <th>Custom ID</th>
                             <th>Category</th>
                             <th>Sub Category</th>
+                            <th>Product Description</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -131,6 +132,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                             <td><?php echo (is_null($row["customId"])) ? "None" : $row["customId"]?></td>
                             <td><?php echo $row["category"]?></td>
                             <td><?php echo $row["subcategory"]?></td>
+                            <td class="desc"><?php echo (strlen($row["description"]) > 0) ? "Yes" : "No"?></td>
                         </tr>
                         <?php }
 
@@ -141,6 +143,10 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                         ?>
                     </tbody>
                 </table>
+                
+            </div>
+            <div class="item">
+                <p id='statusBox' class="messageBox"></p>
             </div>
             <div class="fadeIn item">
                 <a onclick="toggle('add')" class="option">Add</a>
@@ -148,9 +154,8 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                 <a onclick="toggle('delete')" class="option">Delete</a>
             </div>
             <div class="child-parent-container" style="visibility: hidden;">
-                <p id='statusBox' class="messageBox"></p>
                 <div id="add" class="add fadeIn" style="visibility: visible;">
-                    <form class="form" name="menuOfferingsAdd" method="POST" action="menuOfferAdd.php" enctype="multipart/form-data">
+                    <form class="form" id="menuOfferingsAdd" name="menuOfferingsAdd" method="POST" action="menuOfferAdd.php" enctype="multipart/form-data">
                         <h3>Add Menu Item</h3>
                         <input type="text" id="itemName" name="itemName" placeholder="Item Name" required>
                         <input type="number" id="itemCost" name="itemCost" placeholder="Item Cost" required>
@@ -159,6 +164,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                         <p>Gluten Free<input class="center" type="checkbox" id="glutenFree" name="glutenFree" value="true"></p>
                         <input class="center" type="text" id="category" name="category" placeholder="Category" required>
                         <input class="center" type="text" id="sub-category" name="sub-category" placeholder="Sub-Category" required>
+                        <textarea name="desc" form="menuOfferingsAdd" placeholder="Product Description" required></textarea>
                         <input class="file" type="file" id="picUpload" name="picUpload" required accept="image/*" placeholder="Product Picture">
                         <p>Picture will be resized to 128px x 128px</p>
                         <button type="submit">Add to Menu</button>
@@ -176,6 +182,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                         <p>Gluten Free<input class="center" type="checkbox" id="glutenFree" name="glutenFree" value="true"></p>
                         <input class="center" type="text" id="category" name="category" placeholder="Category" required>
                         <input class="center" type="text" id="sub-category" name="sub-category" placeholder="Sub-Category" required>
+                        <textarea required name="desc" id="desc" form="editMenuOffering" placeholder="Product Description"></textarea>
                         <button type="submit">Edit Item</button>
                         <button type="reset">Clear Form</button>
                     </form>
@@ -197,6 +204,7 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                 <table class="fadeIn">
                     <thead>
                         <tr>
+                            <th>Product Name</th>
                             <th>Custom ID</th>
                             <th>Option 1</th>
                             <th>Option 2</th>
@@ -218,10 +226,18 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                             //No need for prepared statements since no input
                             $query = "SELECT * FROM `CustomizationOptions`";
                             if ($result = $conn->query($query)) {
-
                                 /* fetch associative array */
                                 while ($row = $result->fetch_assoc()) {
+                                    $productName = "";
+                                    $stmt = $conn->prepare("SELECT productName FROM `menu` WHERE customId=?");
+                                    $stmt->bind_param('s', $row["customId"]);
+                                    $stmt->execute();
+                                    $stmt->store_result();
+                                    $stmt->bind_result($productName); //Gets the hash of the password, never the ACTUALL PASSWORD!!!!
+                                    $fetchRes = $stmt->fetch();
+                                    $stmt->close();
                         ?>
+                            <td><p><?php echo $productName?></p></td>
                             <td><p><?php echo $row["customId"]?></p></td>
                             <td><p><?php echo (is_null($row["customOption1"])) ? "None" : $row["customOption1"]?></p></td>
                             <td><p><?php echo (is_null($row["customOption2"])) ? "None" : $row["customOption2"]?></p></td>
@@ -239,6 +255,9 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                         ?>
                     </tbody>
                 </table>
+            </div>
+            <div class="item">
+                <p id='statusBox' class="messageBox"></p>
             </div>
             <div class="fadeIn item">
                 <a onclick="toggle('cAdd')" class="option">Add</a>
@@ -342,6 +361,9 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                         ?>
                     </tbody>
                 </table>
+            </div>
+            <div class="item">
+                <p id='statusBox' class="messageBox"></p>
             </div>
         </div>
     </div>

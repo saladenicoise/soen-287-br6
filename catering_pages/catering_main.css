@@ -1,21 +1,55 @@
+/*
+    CSS for the main parts of the Catering page (i.e. selection tab, main page build, etc)
+*/
 body {
-    background-color: grey;
+    background-color: #52b1b8;
 }
 
-span {
-    text-decoration: underline; 
-    font-family: Verdana; 
-    font-size: large; 
-    text-align: center;
+::-webkit-scrollbar {
+    display: none;
+  }
+
+div.cateringMenuBackground
+{
+    background-color: #f0f0f0;
+    margin-left: 400px;
+    margin-right: 400px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: auto;
+    padding-top: 20px;
+    border-radius: 25px;
 }
 
-h2 {
-    font-family: Verdana; 
-    text-align: center; 
-    color: yellow;
+div.cateringSlectionDisplay
+{
+    background-color: #f0f0f0;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: none;
+    border-radius: 25px;
 }
 
-p {
-    font-family: Verdana; 
-    text-align: center;
+table.cateringCategoriesTable
+{
+    margin-left: auto;
+    margin-right: auto;
+    
 }
+
+td.cateringCategory
+{
+    padding-right: 25px;
+}
+
+
+hr.cateringHr
+{
+    margin-top: 10px;
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+}
+

@@ -46,14 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $SQL = $conn->prepare("SELECT * FROM `UserAccounts` WHERE username=?");
+        $SQL = $conn->prepare("SELECT * FROM `useraccounts` WHERE username=?");
         $SQL->bind_param('s', $uname); //Binds the parameter $uname to the query
 	    $SQL->execute(); //Executes the query
 	    $SQL->store_result(); //Stores the results of the query
         $result = $SQL->num_rows; //Get the result of the query, the rows which return true aka 1 row where the uname was the same as the given username
         $SQL->close();
         if ($result == 1) { //Makes sure the user actually exists
-            $stmt = $conn->prepare("SELECT password, isAdmin FROM `UserAccounts` WHERE username=?");
+            $stmt = $conn->prepare("SELECT password, isAdmin FROM `useraccounts` WHERE username=?");
             $stmt->bind_param('s', $uname);
             $stmt->execute();
             $stmt->store_result();

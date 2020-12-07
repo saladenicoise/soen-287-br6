@@ -2,6 +2,7 @@
        margin: 0;
        padding-bottom: 0;
        box-sizing: border-box;
+       font-family: 'Alike';
    }
    /***Navbar CSS***/
    
@@ -177,6 +178,11 @@
    table thead {
        background-color: var(--header-color);
    }
+   
+   .desc {
+       max-width: 100px;
+       max-height: 50px;
+   }
    /**Forms**/
    
    h3 {
@@ -213,6 +219,18 @@
        box-sizing: border-box;
        font-size: 14px;
    }
+   
+   form.form textarea {
+       background-color: var(--input-bg-color);
+       width: 100%;
+       height: 50px;
+       padding: 12px;
+       box-sizing: border-box;
+       border: 0;
+       font-size: 14px;
+       resize: none;
+       margin-bottom: 15px;
+   }
    /*Change opacity on hover*/
    
    form.form button:hover {
@@ -223,7 +241,6 @@
        background-color: var(--form-btn-color);
        /*No border is cleaner*/
        border: 0;
-       margin-top: 10px;
        color: white;
        /*Less than 50% to have some margin between the 2 buttons*/
        width: 48%;
@@ -245,7 +262,7 @@
        display: flex;
        justify-content: center;
        align-self: center;
-       padding: 10px;
+       margin-top: 50px;
    }
    
    span.success {

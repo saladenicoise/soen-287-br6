@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../navBar/navBarStyles.css">
     <title> House of Chef James Mitchell </title>
     <link rel = "stylesheet" href = "../footer/footer.css">
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <?php include "../contactUs/contactForm.php"; ?>
 </head>
 

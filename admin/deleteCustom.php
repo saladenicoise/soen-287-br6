@@ -13,7 +13,7 @@
         }
     
         $customId = $_POST['customId'];
-        $stmt = $conn->prepare("SELECT * FROM `CustomizationOptions` WHERE customId=?");
+        $stmt = $conn->prepare("SELECT * FROM `customizationoptions` WHERE customId=?");
         $stmt->bind_param('s', $customId); //Binds the parameter $productName to the query
         $stmt->execute(); //Executes the query
         $stmt->store_result(); //Stores the results of the query
@@ -22,7 +22,7 @@
         if($result <= 0) {//Item does not exist
             header('Location: /admin/admin.php?stat=delCustomF#customization');
         }else{
-            $stmt = $conn->prepare("DELETE FROM `CustomizationOptions` WHERE customId=?");
+            $stmt = $conn->prepare("DELETE FROM `customizationoptions` WHERE customId=?");
             $stmt->bind_param('s', $customId);
             $stmt->execute();
             $stmt->close();
