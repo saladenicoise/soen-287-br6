@@ -9,91 +9,58 @@
 </head>
 
 <body>
+    <div>
+
+
+    </div>
+    <div>
+
+    </div>
+    <div class="buffetMessageDiv">
+        <h2>Buffet Options</h2>
+        <p>There can be a minimum required order for some options. Feel free to contact us directly if you might want<br>something different, we will assist you in any way that we can</p>
+        <br><p>Re-heating can and should be done in your oven at 350-F for about 35 - 45 minutes</p>
+    </div><br>
     
-    <h1>Our Buffet</h1>
-    <br>
+    
 
+    <div class="mainDishContainer">
+        <?php
+            $itemFile = "buffet_main_items.txt";
+            $itemDescriptions = Array();
 
-    <h4 class="primary">Main Choices</h4>
-    <ol style="list-style-type: disc">
-        <li>Baked Chicken w/ a Reduction of Limoncello Sauce:
-            <span>$7.75</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Grilled Fresh Herbed Salmon Filet:
-            <span>$16.50</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>AAA Rib Eye Steak (7-8 oz):
-            <span>$21.00</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Pan Seared Filet Mignon (3-4 oz):
-            <span>$22.50</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Creamy Savory Fettucine w/ Seasoned Shrimp:
-            <span>$11.75</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Asian Fried Sesame Tofu Bites Stir-Fry:
-            <span>$12.75</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Sweet & Sour Marinaded Cauliflower Buffalo Bites:
-            <span>$9.50</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Grilled Chicken Kebabs w/ Mediterranean Herbs and Lemon 3-Sticks:
-            <span>$7.50</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Portuguese Chicken Legs:
-            <span>$7.25</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Apple Cider Sauce & Pork Loin Chops:
-            <span>$11.75</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Pulled Chicken or Pork Sandwiches w/ Tangy Honey Slaw:
-            <span>$7.50</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Braised Brown Buttered & Herbed Lamb Sanks:
-            <span>$11.75</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Delicious Roast Beef w/ Savory Quebec Grown Herbs:
-            <span>$12.75</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Delicious Basa Baked Fillet in a Lemon Caper Sauce:
-            <span>$8.75</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Pork or Chicken Cutlets:
-            <span>$6.75</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Maple Brined Roasted Pork Loin:
-            <span>$7.50</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Roasted Quinoa Spinach Cranberry Stuffed Squash:
-            <span>$11.75</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Our Fan Favorite Sticky Garlic Chicken Bites:
-            <span>$8.75</span><span style="font-size: medium;">/portion</span>
-        </li>
-    </ol><br>
+            $directory = "buffet_images";
+            $images = scandir($directory);
 
+            if(file_exists($itemFile))
+            {
+                $file = fopen($itemFile, "r");
+                
+                while(($line = fgets($file)) !== false)
+                {
+                    $tempArr = explode(" ", $line);
+                    array_push($itemDescriptions, $tempArr);
+                }
+            }
 
-    <h4 class="primary">Side Choices</h4>
-    <ol type="1">
-        <li>Delicious Creamy Potatoes:
-            <span>$2.75</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Herbed Roasted Lemon:
-            <span>$3.50</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Baked Honey Root Vegetable:
-            <span>$3.75</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Seasonal Assorted Balsamic Vegetables:
-            <span>$3.50</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Fluffy Couscous w/ Dried Cranberry & Fresh Parsley:
-            <span>$2.75</span><span style="font-size: medium;">/portion</span>
-        </li>
-        <li>Our Flavourful Rice:
-            <span>$2.25</span><span style="font-size: medium;">/portion</span>
-        </li>
-    </ol><br>
+            for($i = 2; $i < count($images); $i ++)
+            {
+
+                $tempPrice = trim(array_pop($itemDescriptions[$i - 2]));
+                $tempDescription = implode(" ", $itemDescriptions[$i - 2]);
+
+                print "
+
+                <div class = \"mainDishItem\">
+                    <img width = \"180px\" src = \"buffet_images/$images[$i]\">
+                    <h4>$tempDescription</h4>
+                    <p>$$tempPrice</p>
+                </div>
+                
+                ";
+            }
+        ?>
+    </div>
 </body>
 
 </html>

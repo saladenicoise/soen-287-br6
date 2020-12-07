@@ -53,3 +53,41 @@ hr.cateringHr
     margin-right: auto;
 }
 
+/*Css for buffet page*/
+
+div.buffetMessageDiv
+{
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+div.mainDishContainer
+{
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-left: auto;
+    padding-right: auto;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding-right: auto;
+    text-align: center;
+    row-gap: 20px;
+}
+
+
+div.mainDishItem
+{
+    padding: 20px;
+    text-align: center;
+    background-color: #808080;
+    border-radius: 25px;
+    font-size: small;
+}
+
