@@ -12,34 +12,41 @@ body {
 div.cateringMenuContainer
 {
     background-color: #f0f0f0;
-    margin-left: 400px;
-    margin-right: 400px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 30px;
     margin-bottom: 30px;
     height: auto;
+    width: 50%;
+    min-width: 450px;
     padding-top: 20px;
     border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-div.cateringSlectionDisplay
+div.cateringSlectionContainer
 {
     background-color: #f0f0f0;
     margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
+    width: auto;
     position: relative;
     display: none;
     border-radius: 25px;
 }
 
-table.cateringCategoriesTable
+div.cateringCategoriesContainer
 {
     margin-left: auto;
     margin-right: auto;
+    position: relative;
     
 }
 
-td.cateringCategory
+span.cateringCategory
 {
     padding-right: 25px;
 }
@@ -80,8 +87,9 @@ div.dishContainer
     padding-right: auto;
     padding-top: 10px;
     padding-bottom: 30px;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
     padding-right: auto;
     text-align: center;
     row-gap: 20px;
@@ -91,7 +99,10 @@ div.dishContainer
 
 div.dishItem
 {
+    flex: 1 0 20%;
+    margin: 5px;
     padding: 20px;
+    width: 40%;
     text-align: center;
     background-color: #52b1b8;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
