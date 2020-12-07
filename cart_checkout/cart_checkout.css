@@ -305,3 +305,11 @@ td {
 #deliveryFeeCal {
     margin-left:100px;
 }
+
+#decreaseItemNum,#increaseItemNum {
+    padding-left:5px;
+    padding-right:5px;
+    border-radius: 50%;
+    color:white;
+    background-color: cadetblue;
+}
