@@ -201,7 +201,7 @@ if ($conn->connect_error) {
                                 <?php if(!(is_null($row["customId"]))) : ?>
                                 <button class="menu-button" id="custom" name="custom" onclick="doCustomization(<?php echo $row['customId'] ?>)">Customize Order</button>
                                 <?php endif;?>
-                                <button class="menu-button" id="addCart" name="addCart" onclick="addToCart(<?php echo $row['productName'] ?>)">Add To Cart</button>
+                                <button class="menu-button" id="addCart" name="addCart" type="submit">Add To Cart</button>
                                 </div>
                         </div>
                     </form>
@@ -262,7 +262,7 @@ if ($conn->connect_error) {
                                 <?php if(!(is_null($row["customId"]))) : ?>
                                 <button class="menu-button" id="custom" name="custom" onclick="doCustomization(<?php echo $row['customId'] ?>)">Customize Order</button>
                                 <?php endif;?>
-                                <button class="menu-button" id="addCart" name="addCart" onclick="addToCart(<?php echo $row['productName'] ?>)">Add To Cart</button>
+                                <button class="menu-button" id="addCart" name="addCart" type="submit">Add To Cart</button>
                                 </div>
                         </div>
                     </form>
@@ -319,15 +319,15 @@ if ($conn->connect_error) {
                                         echo "<option>$sizeName $$price</option>";
                                     }
                                 ?>
-                            </select>
+                                </select>
                                 <?php if(!(is_null($row["customId"]))) : ?>
                                 <button class="menu-button" id="custom" name="custom" onclick="doCustomization(<?php echo $row['customId'] ?>)">Customize Order</button>
                                 <?php endif;?>
-                                <button class="menu-button" id="addCart" name="addCart" onclick="addToCart(<?php echo $row['productName'] ?>)">Add To Cart</button>
+                                <button class="menu-button" id="addCart" name="addCart" type="submit">Add To Cart</button>
                                 </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
         <?php 
