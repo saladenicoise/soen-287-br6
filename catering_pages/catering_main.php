@@ -8,23 +8,97 @@
         <link rel="stylesheet" type="text/css" href="catering_main.css">
         <link rel="stylesheet" href="../navBar/navBarStyles.css">
         <link rel = "stylesheet" href = "../footer/footer.css"> 
-        <script src="cateringPageFunctionality.js"></script>
         <title>Catering | House of Chef James Mitchell</title>
     </head>
 
     <body>
         <?php include("../navBar/navBar.php")?>
 
+        <script>
+            function displayMenu(id) {
+                this.dessert = document.getElementById("dessertDiv");
+                this.pasta = document.getElementById("pastasDiv");
+                this.platters = document.getElementById("plattersDiv");
+                this.appet = document.getElementById("appetizersDiv");
+                this.salad = document.getElementById("saladsDiv");
+                this.buffet = document.getElementById("buffetDiv");
+                this.grb = document.getElementById("grboardsDiv");
+                if(id == "dessert") {
+                    this.dessert.style.display = "block";
+                    this.pasta.style.display = "none";
+                    this.platters.style.display = "none";
+                    this.appet.style.display = "none";
+                    this.salad.style.display = "none";
+                    this.buffet.style.display = "none";
+                    this.grb.style.display = "none";
+                }
+                if(id == "pasta") {
+                    this.dessert.style.display = "none";
+                    this.pasta.style.display = "block";
+                    this.platters.style.display = "none";
+                    this.appet.style.display = "none";
+                    this.salad.style.display = "none";
+                    this.buffet.style.display = "none";
+                    this.grb.style.display = "none";
+                }
+                if(id == "platters") {
+                    this.dessert.style.display = "none";
+                    this.pasta.style.display = "none";
+                    this.platters.style.display = "block";
+                    this.appet.style.display = "none";
+                    this.salad.style.display = "none";
+                    this.buffet.style.display = "none";
+                    this.grb.style.display = "none";
+                }
+                if(id == "appet") {
+                    this.dessert.style.display = "none";
+                    this.pasta.style.display = "none";
+                    this.platters.style.display = "none";
+                    this.appet.style.display = "block";
+                    this.salad.style.display = "none";
+                    this.buffet.style.display = "none";
+                    this.grb.style.display = "none";
+                }
+                if(id == "salad") {
+                    this.dessert.style.display = "none";
+                    this.pasta.style.display = "none";
+                    this.platters.style.display = "none";
+                    this.appet.style.display = "none";
+                    this.salad.style.display = "block";
+                    this.buffet.style.display = "none";
+                    this.grb.style.display = "none";
+                }
+                if(id == "buffet") {
+                    this.dessert.style.display = "none";
+                    this.pasta.style.display = "none";
+                    this.platters.style.display = "none";
+                    this.appet.style.display = "none";
+                    this.salad.style.display = "none";
+                    this.buffet.style.display = "block";
+                    this.grb.style.display = "none";
+                }
+                if(id == "grb") {
+                    this.dessert.style.display = "none";
+                    this.pasta.style.display = "none";
+                    this.platters.style.display = "none";
+                    this.appet.style.display = "none";
+                    this.salad.style.display = "none";
+                    this.buffet.style.display = "none";
+                    this.grb.style.display = "block";
+                }
+            }
+        </script>
+
         <div class="cateringMenuContainer">
             <div class="cateringCategoriesContainer">
                     
-                            <span class="cateringCategory" onclick="displayMenu(this.id)" id="appetizers">Appetizers Bar</span>
-                            <span class="cateringCategory" onclick="displayMenu(this.id)" id="platters">Platters</span>
-                            <span class="cateringCategory" onclick="displayMenu(this.id)" id="pastas">Pastas</span>
-                            <span class="cateringCategory" onclick="displayMenu(this.id)" id="salads">Gourmet Salads</span>
-                            <span class="cateringCategory" onclick="displayMenu(this.id)" id="desserts">Dessert Jars</span>
-                            <span class="cateringCategory" onclick="displayMenu(this.id)" id="buffet">Buffet</span>
-                            <span class="cateringCategory" onclick="displayMenu(this.id)" id="grboards">Grazing Boards</span>
+                            <span class="cateringCategory" onclick="displayMenu('appet')" id="appetizers">Appetizers Bar</span>
+                            <span class="cateringCategory" onclick="displayMenu('platters')" id="platters">Platters</span>
+                            <span class="cateringCategory" onclick="displayMenu('pasta')" id="pastas">Pastas</span>
+                            <span class="cateringCategory" onclick="displayMenu('salad')" id="salads">Gourmet Salads</span>
+                            <span class="cateringCategory" onclick="displayMenu('dessert')" id="desserts">Dessert Jars</span>
+                            <span class="cateringCategory" onclick="displayMenu('buffet')" id="buffet">Buffet</span>
+                            <span class="cateringCategory" onclick="displayMenu('grb')" id="grboards">Grazing Boards</span>
                         
                     <hr class="cateringHr">
             </div>

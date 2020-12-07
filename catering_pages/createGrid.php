@@ -1,57 +1,44 @@
 <?php
-function createGrid($txtFile, $imageDirectory)
-{
-            $itemFile = $txtFile;
-            $itemDescriptions = Array();
 
+function createGrid() {
+    $servername = "localhost";
+    $username = "dev";
+    $password = "dev";
+    $dbname = "soen287final";
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-            $price = false;
+    /*Our query, essentially what we want to display and show, in this case we want * (everything) from Menu*/
+    $query = "SELECT * FROM `menu`";
+    /*If we can query the database and we get 1 or more rows back, then proceed*/
+    if ($result = $conn->query($query)) {
 
-
-            switch($imageDirectory)
-                {
-                    case("buffet_mains_images"):
-                        $src = "cateringImages/buffet_mains_images";
-                        $images = scandir($src);
-                        $price = true;
-                        break;
-                    case("buffet_sides_images"):
-                        $src = "cateringImages/buffet_sides_images";
-                        $images = scandir($src);
-                        $price = true;
-                        break;
-                }
-
-
-            //Do Not Touch, nothing needs to be added here
-            if(file_exists("cateringItemsFiles/" . $itemFile))
-            {
-                $file = fopen("cateringItemsFiles/" . $itemFile, "r");
+    /* fetch associative array for every row 
+    format: $row["columnName"]
+    */
                 
-                while(($line = fgets($file)) !== false)
-                {
-                    $tempArr = explode(" ", $line);
-                    array_push($itemDescriptions, $tempArr);
-                }
+    while ($row = $result->fetch_assoc()) {
+        if($row["category"] == "Catering" && $row["subcategory"] == "Buffet") {
+            //Grid Item
+            echo "<div class = \"dishItem clickable\" onclick=\"openModal(\"" . $row["productName"] . "\")\">";
+            echo "<img id = \"img\" src=\"../images/productPictures/" . $row["imagePath"] . ">";
+            echo "<h4>" . $row["productName"] . "</h4>";
+            echo ($row["isVeg"] == 0) ? "" : "Vegetarian";
+            echo ($row["isGf"] == 0) ? "" : "Gluten Free";
+            echo "<p>$" . $row["cost"] . " | Serves 6</p>";
+            echo "</div>";
+            //Modal
+            echo "<div class = \"modal\" id=\"modal" . $row["productName"] . "\" style=\"display: none;\">";  
+            echo "<div class = \"modal-open\" id = \"modal-open\">";
+            echo "<button id = \"close\" onclick = 'closeModal(\"modal" . $row["productName"] . "\")'> X </button> <br>";
+            echo "<p id = \"name\">" . $row["productName"] . "</p>";
+            echo "<p id = \"description\">" . $row["description"] . "</p>";
+            if(!(is_null($row["customId"]))) {
+                echo "<button class=\"menu-button\" id=\"custom\" name=\"custom\" onclick=\"doCustomization(\"" . $row['customId'] . "\")>Customize Order</button>";
             }
-
-
-            for($i = 2; $i < count($images); $i ++)
-            {
-                $tempPrice = trim(array_pop($itemDescriptions[$i - 2]));
-                $tempDescription = implode(" ", $itemDescriptions[$i - 2]);
-
-                //Need to have two print statements depending on if the 
-                //Price is included or not
-                print "
-
-                <div class = \"dishItem\">
-                    <img width = \"180px\" src = \"$src/$images[$i]\">
-                    <h4>$tempDescription</h4>
-                    <p>$$tempPrice Per Portion</p>
-                </div>
-                ";
-            }
+            echo "<button class=\"menu-button\" id=\"addCart\" name=\"addCart\" onclick=\"addToCart(\"" . $row['productName'] . "\")>Add To Cart</button>";
+            echo "</div>";
+            echo "</div>";
+        }
+    }
 }
-
-?>
+}

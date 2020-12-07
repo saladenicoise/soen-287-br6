@@ -1,16 +1,24 @@
 /*
     CSS for the main parts of the Catering page (i.e. selection tab, main page build, etc)
 */
+
 body {
     background-color: #3f888d;
 }
 
 ::-webkit-scrollbar {
     display: none;
-  }
+}
 
-div.cateringMenuContainer
-{
+:root {
+    --grid-container-bg-color: rgb(105, 152, 158);
+    --body-bg-color: var(--grid-container-bg-color);
+    --btn-bg-color: rgb(97, 133, 153);
+    --btn-bg-color-hover: rgb(65, 90, 104);
+    --item-bg-color: #758d81;
+}
+
+div.cateringMenuContainer {
     background-color: #f0f0f0;
     margin-left: auto;
     margin-right: auto;
@@ -26,8 +34,7 @@ div.cateringMenuContainer
     flex-wrap: wrap;
 }
 
-div.cateringSlectionContainer
-{
+div.cateringSlectionContainer {
     background-color: #f0f0f0;
     margin-bottom: 30px;
     margin-left: auto;
@@ -38,39 +45,34 @@ div.cateringSlectionContainer
     border-radius: 25px;
 }
 
-div.cateringCategoriesContainer
-{
+div.cateringCategoriesContainer {
     margin-left: auto;
     margin-right: auto;
     position: relative;
 }
 
-span.cateringCategory
-{
+span.cateringCategory {
     padding-right: 25px;
 }
 
-
-hr.cateringHr
-{
+hr.cateringHr {
     margin-top: 10px;
     width: 45%;
     margin-left: auto;
     margin-right: auto;
 }
 
+
 /*Css for the inside items*/
 
-hr.cateringItemsHr
-{
+hr.cateringItemsHr {
     margin-top: 10px;
     width: 35%;
     margin-left: auto;
     margin-right: auto;
 }
 
-div.MessageDiv
-{
+div.MessageDiv {
     margin-top: 20px;
     margin-left: 50px;
     margin-right: 50px;
@@ -78,8 +80,7 @@ div.MessageDiv
     text-align: center;
 }
 
-div.dishContainer
-{
+div.dishContainer {
     margin-left: 50px;
     margin-right: 50px;
     padding-left: auto;
@@ -95,9 +96,7 @@ div.dishContainer
     column-gap: 20px;
 }
 
-
-div.dishItem
-{
+div.dishItem {
     flex: 1 0 20%;
     margin: 5px;
     padding: 20px;
@@ -108,8 +107,109 @@ div.dishItem
     font-size: normal;
 }
 
-img.cateringImages
-{
-    width: 180px;
+.modal {
+    background-color: #201f1f63;
+    display: none;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    align-self: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
 }
 
+.modal-open {
+    background-color: white;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    width: 50%;
+}
+
+#close {
+    float: right;
+    color: red;
+    font-weight: bolder;
+}
+
+#close:hover {
+    background-color: rgb(105, 152, 158);
+    cursor: pointer;
+}
+
+.menu-button {
+    position: relative;
+    background-color: var(--btn-bg-color);
+    /*No border is cleaner*/
+    border: 0;
+    color: white;
+    margin: 6px;
+    /*Same padding as input fields*/
+    padding: 6px;
+}
+
+.menu-button:hover {
+    background-color: var(--btn-bg-color-hover);
+}
+
+.menu-grid-container {
+    display: grid;
+    /*How many columns we want, if we add more items and it can't fit in one of the rows, it will auto go to next row*/
+    grid-template-columns: auto auto auto;
+    /* background-color: var(--grid-container-bg-color); */
+    place-self: center stretch;
+    padding: 10px;
+}
+
+.menu-grid-item {
+    padding: 30px;
+    font-size: 30px;
+    margin: 10px;
+    text-align: center;
+}
+
+.menu-item {
+    padding: 40px;
+    background-color: var(--item-bg-color);
+    max-width: 300px;
+    min-height: 215px;
+    font-size: 50px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.menu-item:hover {
+    box-shadow: 0 5px 15px #030303;
+    cursor: pointer;
+}
+
+p {
+    font-size: large;
+    color: white;
+}
+
+.dont {
+    color: black;
+}
+
+#description {
+    color: black;
+    font-size: large;
+}
+
+#name {
+    color: rgb(65, 90, 104);
+    font-size: large;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-thickness: thick;
+}
+
+#img {
+    width: 128px;
+    height: 128px;
+}
