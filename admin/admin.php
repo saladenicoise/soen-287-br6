@@ -169,7 +169,16 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                         </select>
                         <select name="sub-category" id="sub-category" required>
                             <option value="" selected disabled hidden>Please make a selection</option>
-                            <option value="shopItem">Shop Item</option>
+                            <option disabled>──────────</option>
+                            <option disabled>Shop Categories</option>
+                            <option disabled>──────────</option>
+                            <option value="Entree">Entrees</option>
+                            <option value="Main Dish">Main Dishes</option>
+                            <option value="Dessert">Desserts</option>
+                            <option value="NewItem">New Items</option>
+                            <option disabled>──────────</option>
+                            <option disabled>Catering Categories</option>
+                            <option disabled>──────────</option>
                             <option value="Appetizers">Appetizers</option>
                             <option value="Platters">Platters</option>
                             <option value="Pastas">Pastas</option>
@@ -201,7 +210,16 @@ if (isset($_SESSION["login"]) && (isset($_SESSION["admin"]))) { // Checks if Ses
                         </select>
                         <select name="sub-category" id="sub-category" required>
                             <option value="" selected disabled hidden>Please make a selection</option>
-                            <option value="shopItem">Shop Item</option>
+                            <option disabled>──────────</option>
+                            <option disabled>Shop Categories</option>
+                            <option disabled>──────────</option>
+                            <option value="Entree">Entrees</option>
+                            <option value="Main Dish">Main Dishes</option>
+                            <option value="Dessert">Desserts</option>
+                            <option value="NewItem">New Items</option>
+                            <option disabled>──────────</option>
+                            <option disabled>Catering Categories</option>
+                            <option disabled>──────────</option>
                             <option value="Appetizers">Appetizers</option>
                             <option value="Platters">Platters</option>
                             <option value="Pastas">Pastas</option>
