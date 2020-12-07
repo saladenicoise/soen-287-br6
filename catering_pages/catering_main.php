@@ -32,6 +32,9 @@
                     <hr class="cateringHr">
             </div>
 
+            <div id="infoDiv">
+
+            </div>
             <div id="dessertDiv" class="cateringSlectionDisplay">
                 <?php include("desserts.php")?>
             </div>
