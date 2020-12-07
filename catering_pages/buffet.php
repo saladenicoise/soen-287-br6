@@ -31,6 +31,7 @@
     <div class="MessageDiv">
         <h2>Main Choices</h2><hr class="cateringItemsHr"><br>
     </div>
+    
     <!--START COPY-->
     <div class="menu-grid-container">
         <!--MAIN MENU ITEMS --> 
@@ -89,30 +90,6 @@
         ?>
     </div>
     <!--END COPY-->
-    <!-- 
-        A div with this class contains the items that will be turned into placecards.
-        all that you need to do is call the php function "createGrid" and pass 2 things:
-        The name of the txt file and the name of the folder containing the images.
-        the function will take care of the directory management, so just pass the name of the
-        the txt file and the folder.
-
-        If for reference, go to "createGrid.php" to give the function a loko
-    -->
-    <!-- <div class="dishContainer">
-        
-            //createGrid("buffet_main_items.txt", "buffet_mains_images");
-       
-    </div>
-
-    <div class="MessageDiv">
-    <h2>Side Choices</h2><hr class="cateringItemsHr"><br>
-</div>
-    <div class="dishContainer">
-        
-            //createGrid("buffet_side_items.txt", "buffet_sides_images");
-        
-    </div> -->
-
 </body>
 
 </html>
