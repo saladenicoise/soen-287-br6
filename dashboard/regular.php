@@ -251,7 +251,7 @@ if (isset($_SESSION["login"])) { // Checks if Session is up(user has logged in)
                     $stmt->execute(); //Executes the query
                     $stmt->close();
 
-                    header("Refresh: /dashboard/regular.php");
+                    echo("<meta http-equiv='refresh' content='0'>");
                 }
                 ?>
                 <div class="item">

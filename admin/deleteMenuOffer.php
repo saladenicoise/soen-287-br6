@@ -13,7 +13,7 @@
     }
 
     $productID = $_POST['productID'];
-    $stmt = $conn->prepare("SELECT * FROM `Menu` WHERE productID=?");
+    $stmt = $conn->prepare("SELECT * FROM `menu` WHERE productID=?");
     $stmt->bind_param('s', $productID); //Binds the parameter $productName to the query
     $stmt->execute(); //Executes the query
     $stmt->store_result(); //Stores the results of the query
@@ -22,7 +22,7 @@
     if($result <= 0) {//Item does not exist
         header('Location: /admin/admin.php?stat=delF#menu');
     }else{
-        $stmt = $conn->prepare("DELETE FROM `Menu` WHERE productID=?");
+        $stmt = $conn->prepare("DELETE FROM `menu` WHERE productID=?");
         $stmt->bind_param('s', $productID);
         $stmt->execute();
         $stmt->close();

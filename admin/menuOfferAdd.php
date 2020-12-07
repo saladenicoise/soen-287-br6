@@ -82,7 +82,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $stmt = $conn->prepare("SELECT * FROM `Menu` WHERE productName=?");
+        $stmt = $conn->prepare("SELECT * FROM `menu` WHERE productName=?");
         $stmt->bind_param('s', $productName); //Binds the parameter $productName to the query
 	    $stmt->execute(); //Executes the query
 	    $stmt->store_result(); //Stores the results of the query
@@ -92,7 +92,7 @@
             $errorMessage = "<b>Product already exists</b>";
             header('Location: /admin/admin.php?stat=addF#menu', true);
         }else{
-            $stmt = $conn->prepare("INSERT INTO `Menu` (productName, cost, isVeg, isGF, customId, category, subcategory, description, imagePath) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $conn->prepare("INSERT INTO `menu` (productName, cost, isVeg, isGF, customId, category, subcategory, description, imagePath) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->bind_param('sdiisssss', $productName, $productPrice, $vegetarian, $glutenFree, $customId, $category, $sub_category, $description, $filePath);
             $res = $stmt->execute();
             $stmt->close();
