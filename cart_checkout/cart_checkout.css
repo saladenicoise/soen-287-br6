@@ -22,7 +22,7 @@
     margin: 0 auto; 
 }
 .dishes-container ion-icon{
-    font-size: :25px;
+    font-size: 25px;
     color: black;
     margin-right:20px;
     cursor:pointer;
@@ -102,7 +102,7 @@
     flex-wrap: wrap;
     padding-bottom: 50px;
 }
-.dish, {
+.dish {
     width:50%;
     border-bottom-color:lightgray;
     border-bottom-style: solid;

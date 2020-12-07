@@ -42,7 +42,7 @@
     </div>
 
 
-<div id="client_info">
+    <div id="client_info">
     
         <div id="billing_address">
             <h3>Billing Address</h3>
@@ -157,7 +157,7 @@
         <form id="coordinate" action="" method="post">
             <input type="text" id="address_input" name="clientAddrr"/><br/><br/>
             <p id="deliveryFeeCal" name="deliveryFee"></p>
-            <input type="button" id="search_button" value="submit" onclick="addr_search()" /><br/><br/>
+            <input type="button" id="search_button" value="Submit" onclick="addr_search()" /><br/><br/>
 
             <br/>
             <div id="distance"></div><br/>
@@ -235,7 +235,7 @@
                     var deliveryFee;
                     var deliveryFeeMessage=document.getElementById("deliveryFeeCal");
                     if(dis<=5){
-                        deliveryFeeMessage.innerHTML="Congradulations! You won't be charge any delivery fee!";
+                        deliveryFeeMessage.innerHTML="Congratulations! You won't be charged any delivery fee!";
                     }else if(dis>5&&dis<=30){
                         deliveryFee=10;
                         deliveryFeeMessage.innerHTML="Your delivery fee would be $"+deliveryFee+".";
