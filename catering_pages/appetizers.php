@@ -1,3 +1,11 @@
+<?php
+ $servername = "localhost";
+ $username = "dev";
+ $password = "dev";
+ $dbname = "soen287final";
+ $conn = new mysqli($servername, $username, $password, $dbname);
+?>
+
 <!DOCTYPE html>
 
 <html lang = "en">
@@ -9,88 +17,70 @@
     </head>    
 
     <body>
-        <h1>Our Appetizer Bar</h1>
-        <h2>(gf = gluten-free, veg. = vegetarian)</h2>
+
+    <div class="MessageDiv">
+        <h1>Appetizer options</h1>
+    </div><br>
         
-        <h3 class = "primary">Breakfast Teasers</h3>
-        <ol type = "1">
-            <p>($19.50/dozen)</p>
-            <li>Golden Mini French Toast & Canadian Maple Syrup (veg.)</li>
-            <li>Mini Breakfast Quiches (optional veg.)</li>
-            <li>Rainbow Fruit Skewers (gf., veg.)</li>
-            <li>Breakfast Sausage & Breakfast Potato Skewers (gf.)</li><br>
-            
-            <p>($25.50/dozen)</p>
-            <li>Chef's Deviled Eggs w/ Paprika (gf.)</li>
-            <li>Mini Waffles w/ Crème Anglais (veg.)</li>
-            <li>Signature Vertical Bacon w/ Maple Mash Potato (gf.)</li><br>
+    <!--START COPY-->
+    <div class="menu-grid-container">
+        <!--MAIN MENU ITEMS --> 
+        <?php
+            /*Our query, essentially what we want to display and show, in this case we want * (everything) from Menu*/
+            $query = "SELECT * FROM `menu`";
+            /*If we can query the database and we get 1 or more rows back, then proceed*/
+            if ($result = $conn->query($query)) {
 
-            <p>($56.50/dozen)</p>
-            <li>Bacon & Grilled Cheese Melts w/ Egg</li>
-            <li>Mini Breakfast Poutines w/ hollandaise Sauce & Bacon</li>
-            <li>Mini Greek Yogurts w/ Mixed Fruit & Granola (gf., veg.)</li>
-        </ol><br>
+                /* fetch associative array for every row 
+                format: $row["columnName"]
+                */
+                //Change subcategory to either:
+                /*
+                Appetizers
+                Platters
+                Pastas
+                Salads
+                Desserts
+                Buffet
+                Grazing
+                */
+                while ($row = $result->fetch_assoc()) {
+                    if($row["category"] == "Catering" && $row["subcategory"] == "Appetizers"){
+        ?>
 
-        <h4 class = "primary">Rustic Bits and Bites</h4>
-        <ol type = "1">
-            <p>($19.50/dozen)</p>
-            <li>Cucumber bites w/ honey citrus cream cheese and crips bacon (gf., veg.)</li>
-            <li>Tomato & Boccocini skewer w/ Arugula Pesto (gf., veg.)</li>
-            <li>Crushed Almond & Herb Mushroom Caps (gf., veg.)</li>
-            <li>Toasted Brie on a Butter Brioche w/ Balsamic Reduction & Dried Figs (veg.)</li>
-            <li>Delicious Aged Cheddar Cubes and Ripe Grapes w/ Fresh Berry Skewers (gf., veg.)</li>
-            <li>Mini Avacado, Red Onion, and Pepper Chutney Bowls (gf., veg.)</li>
-            <li>Iceberg Salad Cube w/ Apple and Blue Cheese(gf., veg.)</li>
-            <li>Croustades of Sweet Pea Purée(gf., veg.)</li>
-            <li>Blue Cheese Galette Swirls with Fresh Blueberries (veg.)</li>
-            <li>Country Creamy Carrot & Ginger Soup Shooters w/ Croutons (veg.)</li>
-            <li>Buttery Puff Pastry wrapped around a Pork Sausage</li>
-        </ol><br>
+        <div class="menu-grid-item">
+        <div class = "menu-box">
+            <div class="menu-item">
+                <div class="clickable"  onclick = <?php echo "\"openModal('" . $row["productName"] . "')\""?>>
+                    <img id = "img" src="../images/productPictures/<?php echo $row["imagePath"];?>">
+                    <p><?php echo $row["productName"]?></p>
+                    <p class="extra"><?php echo ($row["isVeg"] == 0) ? "" : "Vegetarian";?></p>
+                    <p class="extra"><?php echo ($row["isGf"] == 0) ? "" : "Gluten Free";?></p>
+                    <p>$<?php echo $row["cost"]?> /1 serving</p>
+                </div>
+                <div class = "modal" id =<?php echo "\"modal" . $row["productName"] . "\"" ?>>
+                    <div class = "modal-open" id = "modal-open">
+                         <button id = "close" onclick = 'closeModal(<?php echo "\"modal" . $row["productName"] . "\"" ?>)'> X </button> <br>
+                         <p id = "name"><?php echo $row["productName"]?></p>
+                         <p id = "description"><?php echo $row["description"]?></p>
+                        <?php if(!(is_null($row["customId"]))) : ?>
+                        <button class="menu-button" id="custom" name="custom" onclick="doCustomization(<?php echo $row['customId'] ?>)">Customize Order</button>
+                        <?php endif;?>
+                        <button class="menu-button" id="addCart" name="addCart" onclick="addToCart(<?php echo $row['productName'] ?>)">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
 
-        <h4 class = "primary">Elegant Tasters</h4>
-        <ol type = "1">
-            <p>($25.50/dozen)</p>
-            <li>Delicious Cantaloupe Melon qrapped in Prosciutto (gf.)</li>
-            <li>Prosciutto=wrapped asparagus w/ Creamy Hollondaise Sauce (gf.)</li>
-            <li>Double Baked Stuffed Baby Herbed Potatoes (gf., veg.)</li>
-            <li>Fancy Chicken Salad w/ Candied Chopped Pecans on an Apple Slice (gf.)</li>
-            <li>Asian sautéed Tofu Bites on top of a Sushi Style Rice Cake w/ Green Onions(veg.)</li>
-            <li>Grilled Cheese w/ Tomato Dipping Sauce (veg.)</li>
-            <li>Ground Beef Mini Mexican Pitas w/ Sour Cream & Aged Cheddar Cheese w/ a Side of Colslaw</li>
-            <li>Canapés Salmon Mousse ROunds w/ Deep Fried Caper Flowers</li>
-            <li>Shrimp and Avacado Salad on Endive Leaves (gf.)</li>
-            <li>Fried Toast w/ Goat Cheese and Olive Tapenade (veg.)</li>
-            <li>Almond Stuffed Dates wrapped in Bacon (gf.)</li>
-            <li>Pumpernickel Circles w/ Creamy Boursin, Salami & Olive (veg.)</li>
-            <li>Honey Bourbon Mini Coctail Hot Dogs</li>
-        </ol><br>
+        <?php
+                    }
+                }
+            }
+        ?>
+    </div>
+    <!--END COPY-->
 
-        <h4 class = "primary">Gastro Pub Machines</h4>
-        <ol type = "1">
-            <p>($35.50/dozen)</p>
-            <li>Asian-inspired Smoked Salmon Rolls w/ Avocado, Cream Cheese, Tortillas, Sesame Seeds, and Spicy Mayonnaise(veg.)</li>
-            <li>Tuna or Salmon Tartar w/ Sesame, Soy, Ginger, and Cilantro</li>
-            <li>Fire Roasted Shrimp and Chorizo Skewer (Shrimp portions 16-20) (gf.)</li>
-            <li>Mini Québec Style Cheese Poutines (optional veg.)</li>
-            <li>Chunky Chicken Lollipops w/ a Sticky Honey Garlic Dipping Sauce</li>
-            <li>HOCJM Mini Loaded Mac & Cheese w/ Crip Prosciutto</li>
-            <li>Our Classic Americana Cheeseburger Sliders (Ketchup, Mustard, and Mayo on the side)</li>
-            <li>Our Famous 48-hour Braised Molasses & Soda Pulled Pork Sliders (Creamy Cabbage Slaw on the side)</li>
-            <li>Deep Fried Pickles w/ Seasoned Fresh Gucamole (veg.)</li>
-            <li>Cinco de Mayo Quesadillas w/ Seasoned Fresh Guacamole</li>
-            <li>Golden Buttermilk Chicken Tenders</li>
-            <li>Creamy Caramelized Onions on a tartlet w/ Sautéed Apples and Crumbled Goat Cheese Brulé (veg.)</li>
-        </ol><br>
-
-        <h4 class = "primary">Trendy Favourites</h4>
-        <ol type = "1">
-            <p>($56.50/dozen)</p>
-            <li>Our Creamiest Aged Cheddar Atlantic Lobster Poutine</li>
-            <li>Pan Seared Scallops w/ a Cauliflower Truffle Purée, Shards of Prosciutto, and Red Pepper Spirals</li>
-            <li>Puff Pastry swirled w/ Blueberry Mousse w/ a Cold Smoked Bourbon Oak Duck Breast w/ a Curacao Reduction</li>
-            <li>Deep Fried Duck Wings w/ a Taty Jack Daniles BBQ Sauce</li>
-            <li>Open-faced Brulé Goat Cheese, Arugula, Foie Gras, Tomato & Balsamic Reduction Jelly</li><br>
-        </ol>
     </body>
 
 </html>

@@ -1,3 +1,11 @@
+<?php
+ $servername = "localhost";
+ $username = "dev";
+ $password = "dev";
+ $dbname = "soen287final";
+ $conn = new mysqli($servername, $username, $password, $dbname);
+?>
+
 <!DOCTYPE html>
 
 <html lang = "en">
@@ -9,42 +17,70 @@
     </head>    
 
     <body>
-        <h1>Our Gourmet Salads</h1>
-        <ul>(Gluten-free and Dairy-free options available)</ul><br>
-        
+        <!-- Top of each page should have one of these divs, it contains a short description of the items and is applicable, their price(s) -->
+    <div class="MessageDiv">
+        <h1>Salad Options</h1>
+    </div><br>
 
-        <h3 class = "secondary">Garden Greens:</h3>
-        <p style = "font-weight: normal;">5 Full Portions OR 10 Side Portions: <span>$25.00</span><sub>+txs</sub></p>
-        <ol style = "list-style-type: disc; font-weight: bold;">
-        Choices:<br><br>
-            <li>Spinach & Goat Cheese, Sundried Tomato Salad w/ a Maple Poppy Vinaigrette</li>
-            <li>High Fiber Mixed Bean Salad</li>
-            <li>Mediterranean Greek Salad w/ Tomatoes & Feta</li>
-            <li>Fresh Strawberry Salad w/ Ruby Velvet Vinaigrette w/ Toasted Almonds</li>
-            <li>Asian Style Carrot, Nappa Cabbage & Red Onion Salad w/ a Miran Rice Vinaigrette</li>
-            <li>Orange, Fennel mixed w/ a Tangy Citrus Dressing</li>
-            <li>Iceberg Lettuce w/ Crispy Bacon and Crumbled Blue Cheese</li>
-            <li>Honey Dijon Shell Pasta w/ Celery</li>
-        </ol>
-        <br>
+    <!--START COPY-->
+    <div class="menu-grid-container">
+        <!--MAIN MENU ITEMS --> 
+        <?php
+            /*Our query, essentially what we want to display and show, in this case we want * (everything) from Menu*/
+            $query = "SELECT * FROM `menu`";
+            /*If we can query the database and we get 1 or more rows back, then proceed*/
+            if ($result = $conn->query($query)) {
 
+                /* fetch associative array for every row 
+                format: $row["columnName"]
+                */
+                //Change subcategory to either:
+                /*
+                Appetizers
+                Platters
+                Pastas
+                Salads
+                Desserts
+                Buffet
+                Grazing
+                */
+                while ($row = $result->fetch_assoc()) {
+                    if($row["category"] == "Catering" && $row["subcategory"] == "Salads"){
+        ?>
 
-        <h3 class = "secondary">Gourmet Mix</h3>
-        <p style = "font-weight: normal;">5 Full Portions OR 10 Side Portions: <span>$36.50</span><sub>+txs</sub></p>
-        <ol style = "list-style-type: disc; font-weight: bold;">
-        Choices:<br><br>
-            <li>Our Tomato, Bocconcini, and Basil</li>
-            <li>Our Quinoa & Cranberry Salad (Seasonal Ingredients)</li>
-            <li>Mixed Vegetable, Cucumbers, and Chick Pea Salad w/ Grapes</li>
-            <li>Summer Melon, Feta & Mint Salad</li>
-            <li>Asparagus, Lemon and Chèvre Couscous Salad</li>
-            <li>Panzanella (Tomatoes, Basil, Cucumber, and Grilled Bread Salad</li>
-            <li>Elegant Waldorf Salad w/ Apple, Celery, Caramelized Walnuts, Boston Lettuce, and Crumbled Blue Cheese</li>
-            <li>Our Famous Brocolli & Grape Salad w/ Cranberries and Sugar Coated Pecans</li>
-            <li>Tuscan Grilled Vegetable w/ Tomato & Cucumber, Olive Oil, and White Balsamic Vinaigrette</li>
-            <li>Creamy Potato Salad w/ Sweet Peas, Eggs and Mire Poire Vegetables</li>
-        </ol>
-        <br>
+        <div class="menu-grid-item">
+        <div class = "menu-box">
+            <div class="menu-item">
+                <div class="clickable"  onclick = <?php echo "\"openModal('" . $row["productName"] . "')\""?>>
+                    <img id = "img" src="../images/productPictures/<?php echo $row["imagePath"];?>">
+                    <p><?php echo $row["productName"]?></p>
+                    <p class="extra"><?php echo ($row["isVeg"] == 0) ? "" : "Vegetarian";?></p>
+                    <p class="extra"><?php echo ($row["isGf"] == 0) ? "" : "Gluten Free";?></p>
+                    <p>$<?php echo $row["cost"]?> /1 serving</p>
+                </div>
+                <div class = "modal" id =<?php echo "\"modal" . $row["productName"] . "\"" ?>>
+                    <div class = "modal-open" id = "modal-open">
+                         <button id = "close" onclick = 'closeModal(<?php echo "\"modal" . $row["productName"] . "\"" ?>)'> X </button> <br>
+                         <p id = "name"><?php echo $row["productName"]?></p>
+                         <p id = "description"><?php echo $row["description"]?></p>
+                        <?php if(!(is_null($row["customId"]))) : ?>
+                        <button class="menu-button" id="custom" name="custom" onclick="doCustomization(<?php echo $row['customId'] ?>)">Customize Order</button>
+                        <?php endif;?>
+                        <button class="menu-button" id="addCart" name="addCart" onclick="addToCart(<?php echo $row['productName'] ?>)">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <?php
+                    }
+                }
+            }
+        ?>
+    </div>
+    <!--END COPY-->
+
     </body>
 
 </html>

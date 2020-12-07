@@ -1,3 +1,11 @@
+<?php
+ $servername = "localhost";
+ $username = "dev";
+ $password = "dev";
+ $dbname = "soen287final";
+ $conn = new mysqli($servername, $username, $password, $dbname);
+?>
+
 <!DOCTYPE html>
 
 <html lang = "en">
@@ -9,35 +17,69 @@
     </head>    
 
     <body>
-        <h1>Grazing Boards</h1>
         
-        <h2>Deluxe, elegant Grazing Gastronomia your guests will surely never forget!</h2>
-        <h2>Our Grazing services are as satisfying for the eyes as it is for the palette.</h2>
-        <br>
+    <div class="MessageDiv">
+        <h1>Grazing Board options</h1>
+    </div><br>
 
-        <h3>To Book your Grazing Board or Grazing Table, call:<br><br>
-        514.941.5483</h3>
-        <br>
+    <!--START COPY-->
+    <div class="menu-grid-container">
+        <!--MAIN MENU ITEMS --> 
+        <?php
+            /*Our query, essentially what we want to display and show, in this case we want * (everything) from Menu*/
+            $query = "SELECT * FROM `menu`";
+            /*If we can query the database and we get 1 or more rows back, then proceed*/
+            if ($result = $conn->query($query)) {
 
-        <h3>Want your next event to be bursting at the seams<br>
-            with the newest trend on the market?<h3>
+                /* fetch associative array for every row 
+                format: $row["columnName"]
+                */
+                //Change subcategory to either:
+                /*
+                Appetizers
+                Platters
+                Pastas
+                Salads
+                Desserts
+                Buffet
+                Grazing
+                */
+                while ($row = $result->fetch_assoc()) {
+                    if($row["category"] == "Catering" && $row["subcategory"] == "Grazing"){
+        ?>
 
-        <h4>
-        Our delicious take on a traditional charcuterie board, is not only a work of art and a feast for the eyes,<br>
-        it transports you back into culinary history, where kings and royals feasted on epic great tables filled to the<br>
-        brim with exotic delicacy, fruits, farmer vegetables, nuts tapenades, legumes, savory breads, cold meats,<br>
-        rustic chesses and more!
-        </h4>
-        <h4> 
-            Large dietary varieties available such as vegan, vegetarian, keto, lactose-free, sweet, savoury, sugar rush,<br> 
-            gluten-free, and much more! Our Gastronomic Grazing Tables are custome build for your dietary pleasures.<br> 
-            Perfect for any event & all your guests!
-        </h4>
-        <br>
+        <div class="menu-grid-item">
+        <div class = "menu-box">
+            <div class="menu-item">
+                <div class="clickable"  onclick = <?php echo "\"openModal('" . $row["productName"] . "')\""?>>
+                    <img id = "img" src="../images/productPictures/<?php echo $row["imagePath"];?>">
+                    <p><?php echo $row["productName"]?></p>
+                    <p class="extra"><?php echo ($row["isVeg"] == 0) ? "" : "Vegetarian";?></p>
+                    <p class="extra"><?php echo ($row["isGf"] == 0) ? "" : "Gluten Free";?></p>
+                    <p>$<?php echo $row["cost"]?> /1 serving</p>
+                </div>
+                <div class = "modal" id =<?php echo "\"modal" . $row["productName"] . "\"" ?>>
+                    <div class = "modal-open" id = "modal-open">
+                         <button id = "close" onclick = 'closeModal(<?php echo "\"modal" . $row["productName"] . "\"" ?>)'> X </button> <br>
+                         <p id = "name"><?php echo $row["productName"]?></p>
+                         <p id = "description"><?php echo $row["description"]?></p>
+                        <?php if(!(is_null($row["customId"]))) : ?>
+                        <button class="menu-button" id="custom" name="custom" onclick="doCustomization(<?php echo $row['customId'] ?>)">Customize Order</button>
+                        <?php endif;?>
+                        <button class="menu-button" id="addCart" name="addCart" onclick="addToCart(<?php echo $row['productName'] ?>)">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
 
-        <h5>
-        ​   We offer delivery & pick-up options for your convience!
-        </h5>
+        <?php
+                    }
+                }
+            }
+        ?>
+    </div>
+    <!--END COPY-->
     </body>
 
 </html>
