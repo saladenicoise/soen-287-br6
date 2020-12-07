@@ -21,7 +21,7 @@
             </div>
         </div>
         
-            <a href="checkOutPage.php" id="checkOut"><strong>Process to Check out</strong></a><br/>
+            <a href="checkOutPage.php" id="checkOut"><strong>Proceed to Checkout</strong></a><br/>
        
                 <a href="menu.php" id="mainPage"><strong>Continue Shopping</strong></a>
         
