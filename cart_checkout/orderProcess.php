@@ -21,7 +21,7 @@ $_SESSION["fullName"]=$fullName;
 $_SESSION["email"]=$emailAddr;
 
 
-header("Location:Congradulations.php");
+header("Location:Congratulations.php");
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
