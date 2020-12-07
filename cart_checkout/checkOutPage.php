@@ -30,7 +30,71 @@ session_start();
     <?php include("../navBar/navBar.php")?>
  <form action="orderProcess.php" method="post" onsubmit="return validateInfo()" >   
 
-<div class="orderSummary">
+  
+<div id="mainContainer">
+   <div id="client_info">
+    
+        <div id="billing_address">
+            <h3>Billing Address</h3>
+            <input class="input" type="text" id="fname" name="fullname" placeholder="Name"><br/>
+
+            <input class="input" type="text" id="email" name="email" placeholder="Email (john@example.com)" oninput="validateEmail()"><br/>
+            <p id="emailErrorInfo"></p>
+
+            <input class="input" type="text" id="adr" name="address" placeholder="Address"><br/>
+
+            <input class="input" type="text" id="city" name="city" placeholder="City"><br/>
+
+            <div class="row">
+                <div class="col-50">
+
+                    <input class="input" type="text" id="state" name="state" placeholder="Province">
+                </div>
+                <div class="col-50">
+
+                    <input class="input" type="text" id="zip" name="zip" placeholder="Postal Code" oninput="validatePostalCode()">
+                    <p id="postalCodeErrorInfo"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="paymentContainer">
+            <div id="payment">
+                <h3>Payment</h3>
+
+                <input class="input" type="text" id="cname" name="cardname" placeholder="Name on Card"><br/>
+                <input class="input" type="text" id="ccnum" name="cardnumber" placeholder="Credit card number" oninput="validateCardNum()"><br/>
+                <p id="ccnumErrorInfo"></p>
+
+                <div class="row">
+                    <div class="col-50">
+                        <input class="smallinput" type="text" id="expmonth" name="expmonth" placeholder="Exp Month" oninput="validateExpMon()">
+                        
+
+                        <input class="smallinput" type="text" id="expyear" name="expyear" placeholder="Exp Year" oninput="validateExpYear()">
+                        
+                    </div>
+                    <p id="expMonthErrorInfo"></p>
+                    <p id="expYearErrorInfo"></p>
+                    <div class="col-50">
+                        
+                        <input class="input" type="text" id="cvv" name="cvv" placeholder="CVV" oninput="validateCvv()">
+                        <p id="cvvErrorInfo"></p>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div id="howContainer">
+        <div id="howToGet">
+                    <h3>How would you like to get it?</h3>
+                    <label for="pickup"><input class="radio" type="radio" name="getOrder"/>Pick Up</label>
+                    <label for="delivery"><input class="radio" type="radio" name="getOrder" checked="checked"/>Delivery</label>
+        </div>
+    </div>
+</div>
+<div id="secondContainer">
+    <div class="orderSummary">
     <table class="orderSummaryTable">
                     <tr>
                         <th>ITEM</th>
@@ -74,71 +138,10 @@ session_start();
     </table>
         <div id="pay">
                 <input id="placeOrder" type="submit" value="Place Order" name="placeOrder" disabled="disabled"/>
-            </div> 
-    </div>    
-    
-   <div id="client_info">
-    
-        <div id="billing_address">
-            <h3>Billing Address</h3>
-            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="fullname" placeholder="John M. Doe"><br/>
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="john@example.com" oninput="validateEmail()"><br/>
-            <p id="emailErrorInfo"></p>
-            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street"><br/>
-            <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="New York"><br/>
-
-            <div class="row">
-                <div class="col-50">
-                    <label for="state">Province</label>
-                    <input type="text" id="state" name="state" placeholder="QC">
-                </div>
-                <div class="col-50">
-                    <label for="zip">Postal Code</label>
-                    <input type="text" id="zip" name="zip" placeholder="H3H 2G1" oninput="validatePostalCode()">
-                    <p id="postalCodeErrorInfo"></p>
-                </div>
-            </div>
-        </div>
-            <div id="payment">
-                <h3>Payment</h3>
-
-                <label for="cname">Name on Card</label>
-                <input type="text" id="cname" name="cardname" placeholder="Alice Doe"><br/>
-                <label for="cnum">Credit card number</label>
-                <input type="text" id="ccnum" name="cardnumber" placeholder="0000-0000-0000-0000" oninput="validateCardNum()"><br/>
-                <p id="ccnumErrorInfo"></p>
-
-                <div class="row">
-                    <div class="col-50">
-                        <label for="expmonth">Exp Month</label>
-                        <input type="text" id="expmonth" name="expmonth" placeholder="November" oninput="validateExpMon()">
-                        
-                        <label for="expyear">Exp Year</label>
-                        <input type="text" id="expyear" name="expyear" placeholder="2020" oninput="validateExpYear()">
-                        
-                    </div>
-                    <p id="expMonthErrorInfo"></p>
-                    <p id="expYearErrorInfo"></p>
-                    <div class="col-50">
-                        <label for="cvv">CVV</label>
-                        <input type="text" id="cvv" name="cvv" placeholder="352" oninput="validateCvv()">
-                        <p id="cvvErrorInfo"></p>
-                    </div>
-                </div>
-            </div><br/><br/>
-            <div id="howToGet">
-                <h3>How would you like to get it?</h3>
-                <label for="pickup"><input type="radio" name="getOrder"/>Pick Up</label>
-                <label for="delivery"><input type="radio" name="getOrder" checked="checked"/>Delivery</label>
-            </div><br/><br/>
-        
-    
-    </div>
-    </form>
+        </div> 
+</div>
+</div>
+<div id="thirdContainer">  
 <form>   
     
     <div id="mapid" style="width: 600px; height: 400px; position: relative; outline: none;" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0">
@@ -286,6 +289,7 @@ session_start();
         
         
     </script>
+</div>
 
 </body>
 
