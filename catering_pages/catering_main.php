@@ -15,7 +15,7 @@
     <body>
         <?php include("../navBar/navBar.php")?>
 
-        <div class="cateringMenuBackground">
+        <div class="cateringMenuContainer">
             <div class="cateringCategorySelections">
                     <table class="cateringCategoriesTable">
                         <tr>
