@@ -24,6 +24,7 @@ if ($conn->connect_error) {
 </head>
 
 <body>
+    <?php include("../navBar/navBar.php");?>
     <div class="menu-grid-container">
         <?php
             /*Our query, essentially what we want to display and show, in this case we want * (everything) from Menu*/
