@@ -1,6 +1,13 @@
 # House of Chef James Mitchell Redesign
 Team #12
 
+### Member Names and IDs:
+Liam Casola: 40095637
+Luca Catalfamo: 40060496
+Nicholas Sprott: 40115400
+Ran Shang: 40118446
+Jules Petit: 40110945
+
 ### How To Set Up the DB
 1. Make sure XAMPP is running
 2. Open up phpMyAdmin on localhost in your web browser
