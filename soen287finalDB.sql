@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2020 at 12:25 AM
+-- Generation Time: Dec 08, 2020 at 12:59 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -124,8 +124,8 @@ INSERT INTO `menu` (`productID`, `productName`, `cost`, `isVeg`, `isGf`, `custom
 (28, 'Spaghetti', 150, 1, 0, NULL, 'Catering', 'Pastas', 'k.png', 'Cloudy with a chance of meatballs'),
 (29, 'Apple', 7485, 1, 1, NULL, 'Catering', 'Salads', 'r.png', 'Honey Crisp is best!'),
 (30, 'Watermelon', 88888888, 1, 0, NULL, 'Catering', 'Desserts', 'f.png', 'IDK'),
-(31, 'Water from Africa', 666, 1, 1, NULL, 'Catering', 'Buffet', 'o.png', 'They could have drunk that water'),
-(32, 'Child', 150, 1, 1, '_8ab7ee7855efa03af5', 'Catering', 'Grazing', 'pic2.png', 'A CRISP child just for you!');
+(33, 'Chicken Sandwich', 1000000, 1, 0, '_c1a7efd3bcf7b1eced', 'Catering', 'Grazing', 'j.png', 'A THICK chicken sandwich'),
+(34, 'Napolitan', 1500, 1, 1, '', 'Catering', 'Buffet', 'h.png', 'Fun Fact: Pizza grows on trees in italy!');
 
 -- --------------------------------------------------------
 
@@ -150,7 +150,10 @@ CREATE TABLE `orderitemtable` (
 INSERT INTO `orderitemtable` (`Order_Item_ID`, `Order_ID`, `productName`, `cost`, `username`, `product_size`, `quantity`) VALUES
 (19, 29, 'Smoothie Bowl', 13.75, 'soen287Dev', 'Single Size', 2),
 (20, 30, 'Onion Soup', 11.55, 'soen287Dev', 'Single Size', 1),
-(21, 30, 'Thai Buddha Bowl ', 11.75, 'soen287Dev', 'Single Size', 1);
+(21, 30, 'Thai Buddha Bowl ', 11.75, 'soen287Dev', 'Single Size', 1),
+(22, 31, 'Watermelon', 88888888, 'TheDevAccount2', 'Single Size', 1),
+(23, 31, 'Chad Omelet', 150, 'TheDevAccount2', 'Single Size', 1),
+(24, 31, 'Fish Dish', 12.55, 'TheDevAccount2', 'Single Size', 1);
 
 -- --------------------------------------------------------
 
@@ -171,7 +174,8 @@ CREATE TABLE `ordertable` (
 
 INSERT INTO `ordertable` (`Order_ID`, `username`, `totalItems`, `totalCost`) VALUES
 (29, 'soen287Dev', 2, 27.5),
-(30, 'soen287Dev', 2, 23.3);
+(30, 'soen287Dev', 2, 23.3),
+(31, 'TheDevAccount2', 3, 88889050.55);
 
 -- --------------------------------------------------------
 
@@ -255,19 +259,19 @@ ALTER TABLE `contactforms`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID of Product', AUTO_INCREMENT=33;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID of Product', AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `orderitemtable`
 --
 ALTER TABLE `orderitemtable`
-  MODIFY `Order_Item_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `Order_Item_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `ordertable`
 --
 ALTER TABLE `ordertable`
-  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key', AUTO_INCREMENT=31;
+  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key', AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
